@@ -1,0 +1,3 @@
+npx validate-branch-name
+npm run check
+npm run deps:outdated

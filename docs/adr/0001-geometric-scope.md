@@ -1,0 +1,25 @@
+# ADR-0001 — Geometric scope: segments and circular arcs
+
+**Status**: Accepted
+
+## Context
+
+Synoptic symbols are schematic. The user wants "logical" shapes, described by numbers, with a Figma-like corner radius.
+
+## Decision
+
+- Primitives: line segment and circular arc.
+- An arc only appears as the fillet of a vertex (corner radius).
+- No Bézier curve (quadratic or cubic).
+
+## Consequences
+
+- Closed-form intersections: segment/segment, segment/arc, arc/arc.
+- Exact offset (the offset of an arc is a concentric arc) → strokes computed exactly.
+- Exact lengths → exact dash patterns.
+- No Bend tool, no handle mirroring, no corner smoothing.
+- No ellipse without elliptical arcs (open question Q4).
+
+## References
+
+`REF-GG-FILLET`, `REF-SVG2-PATHS`

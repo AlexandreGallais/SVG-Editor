@@ -72,7 +72,7 @@ Never announce a task as finished without having seen `npm run check` pass. If i
 2. `math` / `geometry`: **Vitest tests first** (nominal, degenerate, values computed by hand and justified in a comment).
 3. Implement in small documented functions, one per file; a high-level function = a sequence of named calls.
 4. `npm run fix`, then `npm run check`; tick the story's tasks.
-5. Update the docs, summarize. Commit with Conventional Commits (`docs/tooling/git-workflow.md`) only when asked, with `Refs:` / `Closes:` footers citing the backlog items.
+5. Update the docs, summarize. Commit per task with Conventional Commits and `Refs:` / `Closes:` footers (`docs/tooling/git-workflow.md`), open the pull request, stop for review.
 
 ## Guardrails — when to stop coding
 
@@ -116,11 +116,10 @@ Research request: fill `docs/research/requests/_template.md` and ask the user to
 - Docs pages: never write double curly braces (VitePress evaluates them); templates start with `_` and are not published.
 - Open domain questions blocking the first shapes: **Q10** (`SVG_DECIMALS`, `EPSILON`) and **Q11** (contour orientation, starting vertex) in `docs/domain/README.md`.
 
-## When the repository is pushed to GitHub (not before)
+## Branches, commits, pull requests (user decision, 2026-10-08)
 
-The user asked to postpone release automation until after the initial commit. Then:
-
-- Set up **release-please** (GitHub Action, by Google): it reads the Conventional Commits on `main`, opens a release pull request that bumps `package.json`'s version (SemVer: `fix` → patch, `feat` → minor, `!` / `BREAKING CHANGE` → major), writes `CHANGELOG.md`, and tags the GitHub release when merged. Alternative: `semantic-release` (fully automatic publish). Record the choice in an ADR, the package in `docs/tooling/dependencies.md`.
-- Enable branch protection on `main` (CI `check:all` required).
-- Branching model: `main` + short-lived work branches `<type>/<topic>` only. **No `develop` branch** (user decision).
-- Commits are made by Claude Code only when asked; their messages drive the version, so types and `!` must be exact.
+- **Story work** (anything under `src/`, `playground/`, or a story's docs): one branch per story `<type>/<story-id>-<topic>` (e.g. `feat/us-004-rectangle-contour`), **one commit per task** with `Refs: US-004.T2`, last commit `Closes: US-004`. When done: `npm run check:all`, push, open a pull request on GitHub (`gh pr create`, template `.github/pull_request_template.md`), then **stop**: the user reviews and merges (rebase merge). Never merge a story branch yourself.
+- **Tooling, CI and backlog writing**: may be committed directly on `main` when the user asks for it.
+- No `develop` branch, no long-lived branch. Remote: `origin` = github.com/AlexandreGallais/SVG-Editor (public).
+- Versions and changelog: release-please on `main` (`docs/tooling/releases.md`); commit types and `!` must therefore be exact.
+- Repository settings (branch protection, rebase-only merges…) are listed in `docs/tooling/ci.md`; they need the owner's GitHub rights.

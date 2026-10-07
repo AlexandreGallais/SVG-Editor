@@ -16,4 +16,6 @@ As a [role], I want [action] so that [value].
 
 ## Tasks
 
-- [ ] Verb + precise object + verifiable result (2 h)
+- [ ] T1 — Verb + precise object + verifiable result (2 h)
+
+One task = one commit, referenced as `US-000.T1` in the commit footer.

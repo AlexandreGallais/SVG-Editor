@@ -40,7 +40,7 @@ EPIC          complete business need
 4. **Story types** (`REF-SAFE-STORY`): `US` user story (user-visible behavior), `EN` enabler (exploration, architecture, infrastructure, compliance — e.g. a geometric function and its derivation), `SP` spike (time-boxed study, its acceptance criteria are the questions), `VAL` feature validation (end-to-end check of a feature's criteria).
 5. **Acceptance criteria**: Given / When / Then, one block per case, each observable.
 6. **Feature plan**: once a feature is refined, a table maps each acceptance criterion to the stories that realize it and to the story that verifies it, in delivery order.
-7. **A task is ≤ 1 day**, one verifiable result, estimated in hours (`REF-SCRUM-GUIDE`: work items of one day or less); stories are estimated in points.
+7. **A task is ≤ 1 day**, one verifiable result, estimated in hours (`REF-SCRUM-GUIDE`: work items of one day or less); stories are estimated in points. Tasks are numbered `T1`, `T2`… inside their story; **one task = one commit**, referenced as `US-004.T2`.
 8. **Definition of Done**: [conventions](../conventions/) — `npm run check` green, docs updated, demonstrated in the playground or by tests, accepted by the Product Owner.
 9. **One story in progress at a time**; an abandoned story is set to `dropped` with the reason, never renamed "part 2".
 10. **Commits reference the backlog** through footers (`Refs:`, `Closes:`, see [Git workflow](../tooling/git-workflow.md)).
@@ -70,7 +70,7 @@ Every item is a Markdown file starting with a front-matter block (`key: value` l
 
 1. **Write** (now): epics, then features, then stories — everything is written before implementation starts.
 2. **Refine**: split the next feature into stories, write its feature plan, set what the Product Owner agrees to `ready`.
-3. **Implement**: one `ready` story at a time, tasks checked off, Definition of Done.
+3. **Implement**: one `ready` story at a time, on its own branch, one commit per task, Definition of Done, then a pull request.
 4. **Accept**: the Product Owner accepts the story; when a feature's `VAL` story is accepted, the feature is `done`.
 
 | Index                   | Content                                |

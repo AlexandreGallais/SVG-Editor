@@ -58,6 +58,13 @@
 | `@commitlint/types`               | types of `commitlint.config.ts`                                   | —                                         |
 | `validate-branch-name`            | checks the branch name before pushing                             | a home-made script                        |
 
+### Security
+
+| Package                                        | Why                                                                                      | Alternatives rejected                                                              |
+| ---------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `secretlint`                                   | detects keys, tokens and passwords in any file, before commit and in CI                  | `gitleaks`: a Go binary outside npm; GitHub secret scanning also runs, server side |
+| `@secretlint/secretlint-rule-preset-recommend` | secretlint's recommended rule set (cloud keys, GitHub, Slack, npm tokens, private keys…) | —                                                                                  |
+
 ### Maintenance
 
 | Package             | Why                                                                           | Alternatives rejected                                                 |

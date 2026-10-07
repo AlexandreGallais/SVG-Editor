@@ -31,19 +31,21 @@
     "typecheck": "tsc --noEmit",
     "deps:audit": "npm audit --audit-level=low",
     "deps:outdated": "ncu",
-    "check": "npm run format:check && npm run lint && npm run typecheck && npm run test && npm run deps:audit",
+    "check": "npm run format:check && npm run lint && npm run lint:secrets && npm run typecheck && npm run test && npm run deps:audit",
     "check:all": "npm run check && npm run deps:outdated && npm run docs:build",
     "docs:api": "typedoc",
     "docs:dev": "npm run docs:api && vitepress dev docs",
     "docs:build": "npm run docs:api && vitepress build docs",
     "docs:preview": "vitepress preview docs",
-    "prepare": "husky"
+    "prepare": "husky",
+    "lint:secrets": "secretlint \"**/*\""
   },
   "devDependencies": {
     "@commitlint/cli": "21.2.3",
     "@commitlint/config-conventional": "21.2.3",
     "@commitlint/types": "21.2.3",
     "@eslint/js": "10.0.1",
+    "@secretlint/secretlint-rule-preset-recommend": "13.0.7",
     "@stylistic/eslint-plugin": "5.10.0",
     "@types/node": "26.6.4",
     "@typescript-eslint/rule-tester": "8.71.1",
@@ -60,6 +62,7 @@
     "lint-staged": "17.6.0",
     "npm-check-updates": "23.1.0",
     "prettier": "3.9.9",
+    "secretlint": "13.0.7",
     "typedoc": "0.28.20",
     "typedoc-plugin-markdown": "4.13.1",
     "typedoc-vitepress-theme": "1.1.4",
@@ -80,10 +83,13 @@
     ],
     "*.{md,json,html,css,yml,yaml}": [
       "prettier --write"
+    ],
+    "*": [
+      "secretlint"
     ]
   },
   "validate-branch-name": {
-    "pattern": "^(main|(feat|fix|docs|refactor|test|chore|build|ci|perf|style|revert)/[a-z0-9]+(-[a-z0-9]+)*)$",
+    "pattern": "^(main|(feat|fix|docs|refactor|test|chore|build|ci|perf|style|revert)/[a-z0-9]+(-[a-z0-9]+)*|dependabot/.+|release-please--.+)$",
     "errorMsg": "Branch name must be `main` or `<type>/<kebab-case-topic>` (docs/tooling/git-workflow.md)."
   }
 }

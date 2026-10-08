@@ -8,7 +8,7 @@ import {
 
 import type { Rectangle } from "../src";
 
-/** Margin shown around the drawing, in user units. */
+/** Distance from the canvas top-left corner to the shape origin, in user units (= CSS pixels). */
 const MARGIN = 10;
 
 /** Indentation of the JSON shown in the pipeline panel. */
@@ -97,7 +97,22 @@ function setValidity(document: Document, isValid: boolean): void {
 }
 
 /**
- * Draws a rectangle and shows each pipeline stage: model, contour, path data.
+ * Reads the size of the drawing area in CSS pixels.
+ *
+ * @kind procedure
+ * @param document - page document
+ * @returns width and height of the `#canvas` element
+ * @see docs/backlog/stories/E01-F01-US-004-fixed-scale-playground.md
+ */
+function readCanvasSize(document: Document): { readonly height: number; readonly width: number } {
+  const { height, width } = selectElement(document, "canvas").getBoundingClientRect();
+
+  return { height, width };
+}
+
+/**
+ * Draws a rectangle at a fixed scale (1 user unit = 1 CSS pixel, US-004) and shows each
+ * pipeline stage: model, contour, path data.
  *
  * @kind procedure
  * @param document - page document
@@ -107,12 +122,7 @@ function setValidity(document: Document, isValid: boolean): void {
 function showRectangle(document: Document, rectangle: Rectangle): void {
   const contour = rectangleContour(rectangle);
   const pathData = contourToPathData(contour);
-  const viewBox = {
-    height: rectangle.height + 2 * MARGIN,
-    width: rectangle.width + 2 * MARGIN,
-    x: -MARGIN,
-    y: -MARGIN,
-  };
+  const viewBox = { ...readCanvasSize(document), x: -MARGIN, y: -MARGIN };
   const svg = createSvgElement(document, viewBox);
 
   svg.append(createPathElement(document, pathData));

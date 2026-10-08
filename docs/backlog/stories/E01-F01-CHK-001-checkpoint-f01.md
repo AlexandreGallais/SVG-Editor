@@ -3,7 +3,7 @@ id: CHK-001
 epic: E01
 feature: F01
 title: Checkpoint in the middle of F01
-status: ready
+status: done
 points: 1
 ---
 
@@ -21,8 +21,8 @@ Pause between the geometry and the rendering stories of F01: bring documentation
 
 One task = one commit, referenced as `CHK-001.Tn`.
 
-- [ ] T1 — Consistency of code, docs and agent configuration; fixes (1 h)
-- [ ] T2 — Light evolvability check; improvement log; test cards listed (0.5 h)
+- [x] T1 — Consistency of code, docs and agent configuration; fixes (1 h)
+- [x] T2 — Light evolvability check; improvement log; test cards listed (0.5 h)
 
 ## Light evolvability check (2026-10-09)
 

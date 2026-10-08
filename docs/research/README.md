@@ -28,21 +28,21 @@ Two concurring sources of level ≥ 4 are required for an interface behavior rul
 
 ## 3. Topic map
 
-| Topic                            | Internal first                       | External next                                                                           |
-| -------------------------------- | ------------------------------------ | --------------------------------------------------------------------------------------- |
-| Vectors, orientation, predicates | `math/`                              | `REF-SHEWCHUK-1997`, `REF-KETTNER-2008`, `REF-OROURKE`                                  |
-| Segment / arc intersections      | —                                    | `REF-SCHNEIDER-EBERLY`, `REF-BOURKE-CIRCLES`                                            |
-| Corner radius, fillet            | ADR-0007, `DERIV-local-radius-clamp` | `REF-GG-FILLET`, `REF-CSS-BR`, `REF-FIGMA-CR`                                           |
-| Regular polygon                  | `DERIV-regular-polygon-fit`          | `REF-INKSCAPE-POLYGON`                                                                  |
-| Boolean operations               | ADR-0006                             | `REF-MARTINEZ-2009`, `REF-GREINER-HORMANN`, `REF-DEBERG`, `REF-CLIPPER2`, `REF-PAPERJS` |
-| Offset, aligned strokes          | ADR-0002                             | `REF-SVG-STROKES`, `REF-SVG2-PAINT`, `REF-CHEN-MCMAINS-2005`, `REF-CLIPPER2`            |
-| SVG arcs (`A`)                   | —                                    | `REF-SVG2-PATHS`, `REF-SVG2-IMPLNOTE`                                                   |
-| Pipe routing                     | ADR-0004                             | `REF-WYBROW-2009`, `REF-MARRIOTT-2014`, `REF-LIBAVOID`                                  |
-| P&ID / synoptic conventions      | `symbols-and-views.md`               | `REF-ISO-10628`, `REF-ISA-5-1`, `REF-ISA-101`, `REF-TOGHRAEI`                           |
-| Snapping, alignment              | `interaction.md`                     | `REF-INKSCAPE-SNAP`                                                                     |
-| Shape builder                    | ADR-0006                             | `REF-INKSCAPE-SHAPEBUILDER`                                                             |
-| Undo / redo                      | `interaction.md`                     | `REF-GOF` (Command pattern)                                                             |
-| Tooling, code style              | ADR-0009 to ADR-0016                 | [note 0001](./notes/0001-tooling-practices.md)                                          |
+| Topic                            | Internal first                                               | External next                                                                           |
+| -------------------------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------------------- |
+| Vectors, orientation, predicates | `math/`                                                      | `REF-SHEWCHUK-1997`, `REF-KETTNER-2008`, `REF-OROURKE`                                  |
+| Segment / arc intersections      | —                                                            | `REF-SCHNEIDER-EBERLY`, `REF-BOURKE-CIRCLES`                                            |
+| Corner radius, fillet            | ADR-0007, `DERIV-local-radius-clamp`, `DERIV-fillet-setback` | `REF-CSS-BR`, `REF-FIGMA-CR`                                                            |
+| Regular polygon                  | `DERIV-regular-polygon-fit`                                  | `REF-INKSCAPE-POLYGON`                                                                  |
+| Boolean operations               | ADR-0006                                                     | `REF-MARTINEZ-2009`, `REF-GREINER-HORMANN`, `REF-DEBERG`, `REF-CLIPPER2`, `REF-PAPERJS` |
+| Offset, aligned strokes          | ADR-0002                                                     | `REF-SVG-STROKES`, `REF-SVG2-PAINT`, `REF-CHEN-MCMAINS-2005`, `REF-CLIPPER2`            |
+| SVG arcs (`A`)                   | —                                                            | `REF-SVG2-PATHS`, `REF-SVG2-IMPLNOTE`                                                   |
+| Pipe routing                     | ADR-0004                                                     | `REF-WYBROW-2009`, `REF-MARRIOTT-2014`, `REF-LIBAVOID`                                  |
+| P&ID / synoptic conventions      | `symbols-and-views.md`                                       | `REF-ISO-10628`, `REF-ISA-5-1`, `REF-ISA-101`, `REF-TOGHRAEI`                           |
+| Snapping, alignment              | `interaction.md`                                             | `REF-INKSCAPE-SNAP`                                                                     |
+| Shape builder                    | ADR-0006                                                     | `REF-INKSCAPE-SHAPEBUILDER`                                                             |
+| Undo / redo                      | `interaction.md`                                             | `REF-GOF` (Command pattern)                                                             |
+| Tooling, code style              | ADR-0009 to ADR-0016                                         | [note 0001](./notes/0001-tooling-practices.md)                                          |
 
 ## 4. Licenses of reference implementations
 

@@ -17,7 +17,7 @@ Closed contour of vertices `v₀ … vₙ₋₁` (indices modulo n).
 ## Step 1 — Setback of a fillet
 
 Angle between both edges: `θᵢ = π − |τᵢ|`.
-Setback: `sᵢ = rᵢ / tan(θᵢ / 2) = rᵢ · tan(|τᵢ| / 2)` (`REF-GG-FILLET`).
+Setback: `sᵢ = rᵢ / tan(θᵢ / 2) = rᵢ · tan(|τᵢ| / 2)` (`DERIV-fillet-setback`).
 
 Limit cases:
 

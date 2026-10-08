@@ -12,13 +12,14 @@
 
 ### Language and build
 
-| Package               | Why                                                                                                                              | Alternatives rejected                                     |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
-| `typescript`          | compiler and type checker; pinned to 6.0 because `typescript-eslint` requires `<6.1` (ADR-0009)                                  | TypeScript 7: no typed lint yet                           |
-| `@types/node`         | Node.js types for the tooling (ESLint plugin, configuration files)                                                               | —                                                         |
-| `vite`                | development server of the playground and library build (user requirement)                                                        | —                                                         |
-| `vitest`              | tests, sharing Vite's configuration and transforms                                                                               | Jest: separate transform pipeline                         |
-| `@vitest/coverage-v8` | test coverage of `src/`, with 100 % thresholds (lines, branches, functions, statements): every behavior of the library is tested | `@vitest/coverage-istanbul`: slower, instruments the code |
+| Package               | Why                                                                                                                                | Alternatives rejected                                     |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| `typescript`          | compiler and type checker; pinned to 6.0 because `typescript-eslint` requires `<6.1` (ADR-0009)                                    | TypeScript 7: no typed lint yet                           |
+| `@types/node`         | Node.js types for the tooling (ESLint plugin, configuration files)                                                                 | —                                                         |
+| `vite`                | development server of the playground and library build (user requirement)                                                          | —                                                         |
+| `vitest`              | tests, sharing Vite's configuration and transforms                                                                                 | Jest: separate transform pipeline                         |
+| `@vitest/coverage-v8` | test coverage of `src/`, with 100 % thresholds (lines, branches, functions, statements): every behavior of the library is tested   | `@vitest/coverage-istanbul`: slower, instruments the code |
+| `happy-dom`           | DOM implementation for the tests of `src/render/` (per-file `// @vitest-environment happy-dom`), so the shell keeps 100 % coverage | `jsdom`: heavier and slower                               |
 
 ### Lint
 

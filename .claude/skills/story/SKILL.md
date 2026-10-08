@@ -8,7 +8,7 @@ argument-hint: "[story id, e.g. EN-005]"
 
 Story: $ARGUMENTS (default: the next unfinished story of the started feature, printed by the session-start hook).
 
-1. **Check it may start**: status `ready`, or the Product Owner's explicit go-ahead in this conversation. Otherwise stop and ask.
+1. **Check it may start**: status `ready`, or the Product Owner's explicit go-ahead in this conversation. Otherwise stop and ask. Run `/triage` if issues are open (`gh issue list`).
 2. **Read**: the story, its feature (acceptance criteria, plan), the domain file, linked ADRs, derivations and `REF-*` it cites, the research note of the feature's spike. Missing business rule or source → guardrails of `CLAUDE.md`, stop format.
 3. **Branch** from an up-to-date `main`, never from another story branch:
    `git switch main && git pull --prune && git switch -c <type>/<id-lowercase>-<topic>`

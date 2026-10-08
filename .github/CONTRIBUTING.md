@@ -4,17 +4,12 @@ Thank you for your interest. This project is built in an unusual way: a coding a
 
 ## Ways to help
 
-- **Report a bug** or **propose an idea** with the issue forms; ideas are triaged into the backlog by the Product Owner.
+- **Report a bug** or **propose an idea** with the issue forms; the agent reads each issue and presents it to the owner, who decides.
 - **Point to a source**: every function cites a verified reference; a better or corrected source is a welcome issue.
 - **Security**: never in a public issue — see [SECURITY.md](../SECURITY.md).
 
-## Pull requests
+## No pull requests
 
-External pull requests are read, but changes are usually re-done through the backlog so that each one has its story, its sources and its tests. If you open one anyway:
+This repository is an experiment of agent-only development: every change is written by its coding agent and reviewed by the owner. **Pull requests from outside contributors are closed automatically** (ADR-0026); please open an issue instead — it is read, checked against the documentation and answered.
 
-1. One branch per change, named `<type>/<topic>` (`feat/rounded-corners`).
-2. Conventional Commits, checked by commitlint.
-3. `npm run check:all` green: Prettier, ESLint with zero warning, `tsc`, Vitest with 100 % coverage, `npm audit`, docs build.
-4. No runtime dependency; every development dependency justified in `docs/tooling/dependencies.md`.
-
-By contributing, you agree that your work is licensed under the [Apache License 2.0](../LICENSE) and that you follow the [code of conduct](./CODE_OF_CONDUCT.md).
+By opening an issue, you agree that your input may be used under the [Apache License 2.0](../LICENSE) and that you follow the [code of conduct](./CODE_OF_CONDUCT.md).

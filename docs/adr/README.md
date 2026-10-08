@@ -30,3 +30,5 @@ All ADRs were translated from French to English on 2026-10-08 (project rule: Eng
 | [0022](./0022-property-based-testing-and-link-checking.md) | Property-based tests, weekly link check, mutation tool deferred                 | Accepted               |
 | [0023](./0023-inspection-cadence.md)                       | Inspection cadence: demo at each feature, review and retrospective at each epic | Accepted               |
 | [0024](./0024-session-journal.md)                          | Session journal and transcript search instead of a database                     | Accepted               |
+| [0025](./0025-portable-core.md)                            | A portable core: any JavaScript engine, transcribable to another language       | Accepted               |
+| [0026](./0026-contributions-through-issues.md)             | Contributions through issues only; the agent writes every change                | Accepted               |

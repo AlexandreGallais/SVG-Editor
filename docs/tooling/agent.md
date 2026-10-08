@@ -19,6 +19,16 @@ The code is written by Claude Code under the Product Owner's review. Its configu
 | `.claude/hooks/guard-bash.ts`    | `PreToolUse`: denies `gh pr merge`, `--no-verify`, force push without lease    | every shell command                      |
 | `.claude/hooks/session-state.ts` | `SessionStart`: prints branch, uncommitted files, progress of started features | session start, resume, clear, compaction |
 
+## Searching past conversations
+
+Claude Code keeps each conversation as a JSONL file in `~/.claude/projects/<project-path>/` (local, never committed). The session journal ([journal](../process/journal.md), ADR-0024) is read first; the transcripts are the full archive:
+
+```sh
+cd ~/.claude/projects/-Users-alex-Documents-github-SVG-editor
+grep -l "Wispr" *.jsonl                                      # which conversation mentions a word
+jq -r 'select(.type == "user") | .message.content | strings' <id>.jsonl | grep -i "radius"
+```
+
 ## Rules for this folder
 
 - Hooks are TypeScript run by `node` (type stripping), linted as tooling, tested (`.claude/hooks/*.test.ts`): pure functions exported, effects under `if (import.meta.main)`.

@@ -29,3 +29,4 @@ All ADRs were translated from French to English on 2026-10-08 (project rule: Eng
 | [0021](./0021-agent-working-environment.md)                | Agent working environment: skills, rules, hooks and an independent auditor      | Accepted               |
 | [0022](./0022-property-based-testing-and-link-checking.md) | Property-based tests, weekly link check, mutation tool deferred                 | Accepted               |
 | [0023](./0023-inspection-cadence.md)                       | Inspection cadence: demo at each feature, review and retrospective at each epic | Accepted               |
+| [0024](./0024-session-journal.md)                          | Session journal and transcript search instead of a database                     | Accepted               |

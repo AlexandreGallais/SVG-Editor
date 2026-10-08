@@ -10,11 +10,12 @@ type PackageManifest = {
   readonly overrides?: Readonly<Record<string, string>>;
 };
 
-/** Page documenting every package (docs/tooling/dependencies.md). */
-const DEPENDENCIES_PAGE = readFileSync(
-  join(import.meta.dirname, "docs", "tooling", "dependencies.md"),
-  "utf8",
-);
+/** Installed-packages part of docs/tooling/dependencies.md (before "Considered for later"). */
+const DEPENDENCIES_PAGE =
+  readFileSync(join(import.meta.dirname, "docs", "tooling", "dependencies.md"), "utf8").split(
+    "## Considered for later",
+    1,
+  )[0] ?? "";
 
 /**
  * Parsed `package.json` of the repository.

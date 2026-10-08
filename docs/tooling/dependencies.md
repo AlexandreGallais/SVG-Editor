@@ -79,3 +79,14 @@
 | ------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | `deepmerge-ts` → `^8.0.0` | `eslint-plugin-functional` pulls a version affected by GHSA-ggr8-5vv4-36mx; 8.x fixes it                        |
 | `katex` → `^0.19.0`       | `@eslint/markdown` pulls a version affected by GHSA-238p-pmpm-9mq7 (math rendering, unused here); 0.19 fixes it |
+
+## Considered for later
+
+Not installed yet; to reconsider when the library grows (Product Owner, 2026-10-08).
+
+| Package                    | Would bring                                                                 | When                             |
+| -------------------------- | --------------------------------------------------------------------------- | -------------------------------- |
+| `knip`                     | unused files, exports and dependencies                                      | when `src/` has several layers   |
+| `size-limit`               | size budget of the published bundle                                         | before the first npm publication |
+| `@microsoft/api-extractor` | report of the public API, to detect breaking changes in pull requests       | once the public API stabilizes   |
+| `@stryker-mutator/core`    | mutation testing: proves the tests catch real changes, not only cover lines | when the geometry core exists    |

@@ -35,7 +35,7 @@ Reference behavior: Figma.
 - Radius entered **numerically**, never with the mouse.
 - Radius **per vertex**: select one or more vertices → type a value.
 - Global radius: applied to every vertex of the shape.
-- Geometry: arc tangent to both edges; setback `d = r / tan(θ/2)` (`REF-GG-FILLET`).
+- Geometry: arc tangent to both edges; setback `d = r / tan(θ/2)` (`DERIV-fillet-setback`).
 
 ### Radius clamping (ADR-0007)
 

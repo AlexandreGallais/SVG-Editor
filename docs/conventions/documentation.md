@@ -14,7 +14,7 @@ Every top-level function, type and module constant carries a `/** … */` block;
  * @param radius - fillet radius, >= 0
  * @param interiorAngle - interior angle in radians, in ]0, π[
  * @returns setback distance along each adjacent edge
- * @see REF-GG-FILLET
+ * @see DERIV-fillet-setback
  */
 ```
 

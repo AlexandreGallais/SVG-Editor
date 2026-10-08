@@ -77,7 +77,7 @@ Non-negotiable principles: schematic, orthogonal, integer, documented, dependenc
 1. `npm run fix` (Prettier then ESLint `--fix`: barrels, import paths, type imports, unused imports, blank lines).
 2. `npm run check:all` **green**: Prettier, ESLint (0 warning, Markdown included), secretlint, `tsc`, Vitest with 100 % coverage of `src/`, `npm audit`, latest versions, docs and playground builds.
 3. Docs up to date (`docs/domain/`, `docs/references.md`, derivations, ADRs, backlog).
-4. Summary to the user: functions added with `@kind` and `@see`; backlog items touched; what was checked and how.
+4. Summary to the user in French, shaped as in `docs/conventions/writing.md` (messages to the Product Owner): result, changes, evidence, decisions needed, next step; functions with `@kind` and `@see`. Log the session in `docs/process/journal.md` before a pause.
 
 Never announce a task as finished without having seen `npm run check:all` pass. If it fails, say so with the output. A new test that reads files must be **mutation-checked**: make it fail on purpose once.
 

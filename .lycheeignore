@@ -1,0 +1,4 @@
+# Link checker exclusions (ADR-0022): one regular expression per line, each with its reason.
+# Local development server, only up during `npm run dev`.
+^https?://localhost
+# Backlog templates (docs/backlog/_*.md) link as if copied into stories/: excluded by path in links.yml.

@@ -9,6 +9,7 @@ GitHub Actions, on every pull request and on `main`. A pull request can be merge
 | `ci.yml`      | branch         | branch name (`validate-branch-name`)                                                                                                                                                                                      |
 | `ci.yml`      | dependencies   | GitHub dependency review: a new vulnerable dependency fails                                                                                                                                                               |
 | `codeql.yml`  | analyze        | CodeQL security and quality queries on the TypeScript code (also weekly)                                                                                                                                                  |
+| `links.yml`   | links          | weekly and on demand: lychee checks every link of the Markdown files — bibliography sources and internal links (ADR-0022); exclusions in `.lycheeignore`                                                                  |
 | `release.yml` | release-please | on `main` only: versioning and changelog ([releases](./releases.md))                                                                                                                                                      |
 
 Secrets are checked three times: `secretlint` on staged files before each commit, `secretlint` in CI, and GitHub's secret scanning with push protection (repository setting).

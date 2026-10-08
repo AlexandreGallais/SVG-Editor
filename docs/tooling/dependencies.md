@@ -12,14 +12,16 @@
 
 ### Language and build
 
-| Package               | Why                                                                                                                                | Alternatives rejected                                     |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
-| `typescript`          | compiler and type checker; pinned to 6.0 because `typescript-eslint` requires `<6.1` (ADR-0009)                                    | TypeScript 7: no typed lint yet                           |
-| `@types/node`         | Node.js types for the tooling (ESLint plugin, configuration files)                                                                 | —                                                         |
-| `vite`                | development server of the playground and library build (user requirement)                                                          | —                                                         |
-| `vitest`              | tests, sharing Vite's configuration and transforms                                                                                 | Jest: separate transform pipeline                         |
-| `@vitest/coverage-v8` | test coverage of `src/`, with 100 % thresholds (lines, branches, functions, statements): every behavior of the library is tested   | `@vitest/coverage-istanbul`: slower, instruments the code |
-| `happy-dom`           | DOM implementation for the tests of `src/render/` (per-file `// @vitest-environment happy-dom`), so the shell keeps 100 % coverage | `jsdom`: heavier and slower                               |
+| Package               | Why                                                                                                                                               | Alternatives rejected                                                        |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `typescript`          | compiler and type checker; pinned to 6.0 because `typescript-eslint` requires `<6.1` (ADR-0009)                                                   | TypeScript 7: no typed lint yet                                              |
+| `@types/node`         | Node.js types for the tooling (ESLint plugin, configuration files)                                                                                | —                                                                            |
+| `vite`                | development server of the playground and library build (user requirement)                                                                         | —                                                                            |
+| `vitest`              | tests, sharing Vite's configuration and transforms                                                                                                | Jest: separate transform pipeline                                            |
+| `@vitest/coverage-v8` | test coverage of `src/`, with 100 % thresholds (lines, branches, functions, statements): every behavior of the library is tested                  | `@vitest/coverage-istanbul`: slower, instruments the code                    |
+| `happy-dom`           | DOM implementation for the tests of `src/render/` (per-file `// @vitest-environment happy-dom`), so the shell keeps 100 % coverage                | `jsdom`: heavier and slower                                                  |
+| `fast-check`          | property-based tests of `math` and `geometry` (ADR-0022): random inputs, shrunk counterexamples, seeded replay; MIT, one dependency (`pure-rand`) | hand-written random loops: no shrinking, no replay; `jsverify`: unmaintained |
+| `@fast-check/vitest`  | `test.prop` for Vitest: properties reported as tests, with the failing seed in the test name (ADR-0022)                                           | calling `fc.assert` inside `it`: more boilerplate per property               |
 
 ### Lint
 
@@ -85,9 +87,9 @@
 
 Not installed yet; to reconsider when the library grows (Product Owner, 2026-10-08).
 
-| Package                    | Would bring                                                                 | When                             |
-| -------------------------- | --------------------------------------------------------------------------- | -------------------------------- |
-| `knip`                     | unused files, exports and dependencies                                      | when `src/` has several layers   |
-| `size-limit`               | size budget of the published bundle                                         | before the first npm publication |
-| `@microsoft/api-extractor` | report of the public API, to detect breaking changes in pull requests       | once the public API stabilizes   |
-| `@stryker-mutator/core`    | mutation testing: proves the tests catch real changes, not only cover lines | when the geometry core exists    |
+| Package                    | Would bring                                                                 | When                                                                                                                  |
+| -------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `knip`                     | unused files, exports and dependencies                                      | when `src/` has several layers                                                                                        |
+| `size-limit`               | size budget of the published bundle                                         | before the first npm publication                                                                                      |
+| `@microsoft/api-extractor` | report of the public API, to detect breaking changes in pull requests       | once the public API stabilizes                                                                                        |
+| `@stryker-mutator/core`    | mutation testing: proves the tests catch real changes, not only cover lines | when stryker-js issue 6210 (Vitest 5 runs no test against mutants) is fixed and released — tried 2026-10-08, ADR-0022 |

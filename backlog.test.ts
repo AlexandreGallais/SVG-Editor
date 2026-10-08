@@ -24,7 +24,7 @@ const STATUSES: Readonly<Record<string, readonly string[]>> = {
 const ID_PATTERNS: Readonly<Record<string, RegExp>> = {
   epics: /^E\d{2}$/u,
   features: /^F\d{2}$/u,
-  stories: /^(?:US|EN|SP|AUD|VAL|REV|RET)-\d{3}$/u,
+  stories: /^(?:US|EN|SP|CHK|AUD|VAL|REV|RET)-\d{3}$/u,
 };
 
 /**
@@ -211,8 +211,8 @@ function parentStatuses(item: Item): ReadonlyMap<string, string> {
   return parent === undefined ? new Map() : tableStatuses(join(BACKLOG, folder, parent));
 }
 
-/** Story kinds every feature needs: research spike, audit, validation (ADR-0020). */
-const FRAME_PREFIXES = ["SP-", "AUD-", "VAL-"];
+/** Story kinds every feature needs: research spike, checkpoint, audit, validation (ADR-0020, ADR-0028). */
+const FRAME_PREFIXES = ["SP-", "CHK-", "AUD-", "VAL-"];
 
 /** Story kinds every started epic needs: review, retrospective (ADR-0023). */
 const CLOSING_PREFIXES = ["REV-", "RET-"];
@@ -335,7 +335,7 @@ describe("backlog", () => {
     expect(mismatches.map((item) => item.file)).toEqual([]);
   });
 
-  it("frames every feature with a research spike, an audit and a validation (ADR-0020)", () => {
+  it("frames every feature with a spike, a checkpoint, an audit and a validation (ADR-0020, ADR-0028)", () => {
     const stories = items().filter((item) => item.folder === "stories");
     const features = [...new Set(stories.map((story) => story.fields["feature"] ?? ""))].filter(
       (feature) => feature !== "",

@@ -1,0 +1,42 @@
+import { describe, expect, it } from "vitest";
+
+import { turningAngle } from "./turning-angle";
+
+/** Decimals compared: atan2 of exact integers is correct to the last bits of a double. */
+const DECIMALS = 12;
+
+describe("turningAngle (DERIV-turning-angle check table)", () => {
+  it("is +π/2 for a clockwise quarter turn on screen", () => {
+    // a = (100, 0), b = (0, 50): perp dot 5000, dot 0.
+    expect(turningAngle({ x: 0, y: 0 }, { x: 100, y: 0 }, { x: 100, y: 50 })).toBeCloseTo(
+      Math.PI / 2,
+      DECIMALS,
+    );
+  });
+
+  it("is −π/2 for a counter-clockwise quarter turn on screen", () => {
+    // a = (10, 0), b = (0, −10): perp dot −100, dot 0.
+    expect(turningAngle({ x: 0, y: 0 }, { x: 10, y: 0 }, { x: 10, y: -10 })).toBeCloseTo(
+      -Math.PI / 2,
+      DECIMALS,
+    );
+  });
+
+  it("is 0 for aligned vertices", () => {
+    // a = (5, 0), b = (5, 0): perp dot 0, dot 25.
+    expect(turningAngle({ x: 0, y: 0 }, { x: 5, y: 0 }, { x: 10, y: 0 })).toBeCloseTo(0, DECIMALS);
+  });
+
+  it("is π for a back-turn", () => {
+    // a = (10, 0), b = (−10, 0): perp dot 0, dot −100.
+    expect(Math.abs(turningAngle({ x: 0, y: 0 }, { x: 10, y: 0 }, { x: 0, y: 0 }))).toBeCloseTo(
+      Math.PI,
+      DECIMALS,
+    );
+  });
+
+  it("is 0 when an edge has zero length", () => {
+    // Repeated vertex: atan2(0, 0) = 0, no turn.
+    expect(Math.abs(turningAngle({ x: 0, y: 0 }, { x: 0, y: 0 }, { x: 10, y: 0 }))).toBe(0);
+  });
+});

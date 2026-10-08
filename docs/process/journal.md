@@ -2,9 +2,16 @@
 
 What each working session dealt with, in the agent's words: requests of the Product Owner (paraphrased), decisions, where they were recorded. Newest first. Written by the agent at the end of each session or before a long pause (ADR-0024); searched with `grep` (tags written `#tag`). The full conversations stay in the local transcripts (see [agent configuration](../tooling/agent.md#searching-past-conversations)).
 
+## 2026-10-08 — Contributions, privacy, portable core, product goal
+
+- `#github` External pull requests refused: owner setting "Collaborators only" plus the `external-prs.yml` workflow; issues triaged by the agent with `/triage`, presented to the Product Owner, untrusted data (ADR-0026).
+- `#privacy` No personal information about the Product Owner in the repository; personal details removed from the docs.
+- `#architecture` Core runnable in any JavaScript engine and transcribable to another language: host globals banned by lint, mathematical intent stated in TSDoc (ADR-0025).
+- `#product` Goal: a product teams can trust, with summary documentation for humans; draft epic E12 "Release a product people can trust".
+
 ## 2026-10-08 — Cadences, playbook, writing rules, GitHub presentation
 
-- `#process` The Product Owner dictates by voice (Wispr Flow) and never edits the repository: their feedback is written by the agent, quoted.
+- `#process` The Product Owner never edits the repository: their feedback is written by the agent, quoted.
 - `#process` Inspection cadence adopted: demo page and guided test at each feature, epic review and retrospective at each epic, improvement log (ADR-0023). Sections `guide/`, `process/`, `playbook/` created.
 - `#backlog` F01 and E01 set `in-progress` (Product Owner's agreement); rule: in-progress at the first story.
 - `#agent` Session journal and transcript search instead of a database (ADR-0024).

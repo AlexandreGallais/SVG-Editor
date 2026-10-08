@@ -73,7 +73,7 @@ The [glossary](../domain/) defines the domain terms; this list fixes the words u
 
 ## Messages to the Product Owner
 
-The Product Owner reads in French and dictates by voice; every end-of-task message has the same shape:
+The Product Owner reads in French; every end-of-task message has the same shape:
 
 1. **Result** in one sentence: done, partly done, or blocked.
 2. **What changed**: bullets or a table, user-visible effect first; each technical word explained at first use.

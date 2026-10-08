@@ -14,6 +14,7 @@ The code is written by Claude Code under the Product Owner's review. Its configu
 | `.claude/skills/audit/`          | `/audit` — feature audit with the auditor subagent                             | on demand                                |
 | `.claude/skills/review/`         | `/review` — feature demo page, epic review (ADR-0023)                          | on demand                                |
 | `.claude/skills/retro/`          | `/retro` — epic retrospective, evolvability, playbook (ADR-0023)               | on demand                                |
+| `.claude/skills/triage/`         | `/triage` — open issues presented with a recommendation (ADR-0026)             | on demand                                |
 | `.claude/agents/auditor.md`      | independent read-only auditor, fresh context, tries to refute                  | from `/audit`                            |
 | `.claude/settings.json`          | permissions for routine commands; hooks below                                  | every session                            |
 | `.claude/hooks/guard-bash.ts`    | `PreToolUse`: denies `gh pr merge`, `--no-verify`, force push without lease    | every shell command                      |
@@ -24,8 +25,8 @@ The code is written by Claude Code under the Product Owner's review. Its configu
 Claude Code keeps each conversation as a JSONL file in `~/.claude/projects/<project-path>/` (local, never committed). The session journal ([journal](../process/journal.md), ADR-0024) is read first; the transcripts are the full archive:
 
 ```sh
-cd ~/.claude/projects/-Users-alex-Documents-github-SVG-editor
-grep -l "Wispr" *.jsonl                                      # which conversation mentions a word
+cd ~/.claude/projects/<project-path>
+grep -l "radius" *.jsonl                                     # which conversation mentions a word
 jq -r 'select(.type == "user") | .message.content | strings' <id>.jsonl | grep -i "radius"
 ```
 

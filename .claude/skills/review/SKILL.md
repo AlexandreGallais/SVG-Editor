@@ -12,7 +12,7 @@ Target: $ARGUMENTS. Decision: ADR-0023. Writing rules: `docs/guide/README.md`.
 
 1. Write `docs/guide/<feature-slug>.md` from `docs/guide/_feature-demo.md`: what the user can do, the ideas with every term explained, pictures produced by the library, a guided test with expected results, limits.
 2. Check every step of the guided test yourself in the playground (`npm run dev`) or by tests; replay the feature's acceptance criteria.
-3. List the page in `docs/guide/README.md`; open the pull request; ask the Product Owner to run the guided test and tell you what they see; write their feedback yourself, quoting them (French kept as said). They dictate by voice: read for intent.
+3. List the page in `docs/guide/README.md`; open the pull request; ask the Product Owner to run the guided test and tell you what they see; write their feedback yourself, quoting them (French kept as said). Read their messages for intent.
 4. Feedback that reveals a misunderstanding: record it, propose stories or domain changes, never adjust silently.
 
 ## Epic review (REV)

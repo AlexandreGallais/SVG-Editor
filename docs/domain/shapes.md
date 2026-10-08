@@ -46,6 +46,7 @@ Rule: **local proportional reduction per edge** (`DERIV-local-radius-clamp`).
 - Never an "anti-corner": the arcs of one edge never overlap.
 - No error message: the effective value simply caps.
 - Only the vertices adjacent to a conflicting edge are reduced.
+- A spike — a vertex where the contour turns back on itself — is today consumed by its fillet; whether it should keep its point is open (Q16).
 
 Storing the value (Q8, settled):
 

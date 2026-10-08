@@ -40,9 +40,9 @@ In delivery order.
 
 ## Feature plan
 
-| Acceptance criterion                      | Realized by             | Verified by             |
-| ----------------------------------------- | ----------------------- | ----------------------- |
-| 1 — rectangle rendered                    | US-001, EN-002, US-002  | US-002, VAL-001         |
-| 2 — global radius, requested vs effective | EN-003 → EN-007, US-003 | US-003, VAL-001         |
-| 3 — clamping reference cases              | EN-005, EN-006          | EN-005 tests, VAL-001   |
-| 4 — precision and orientation             | EN-001, US-001          | EN-001 and US-001 tests |
+| Acceptance criterion                      | Realized by             | Verified by                      |
+| ----------------------------------------- | ----------------------- | -------------------------------- |
+| 1 — rectangle rendered                    | US-001, EN-002, US-002  | US-002, VAL-001                  |
+| 2 — global radius, requested vs effective | EN-003 → EN-007, US-003 | US-003, VAL-001                  |
+| 3 — clamping reference cases              | EN-005, EN-006          | EN-005 and EN-006 tests, VAL-001 |
+| 4 — precision and orientation             | EN-001, US-001          | EN-001 and US-001 tests          |

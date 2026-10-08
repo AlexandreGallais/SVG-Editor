@@ -17,7 +17,7 @@ it("returns the height of an equilateral triangle", () => {
 ```
 
 - When the expected value cannot be computed by hand: **stop** (research request or derivation to validate).
-- Float comparisons: `toBeCloseTo` with a justified number of decimals, or the project's `EPSILON` (once defined, question Q10).
+- Float comparisons: `toBeCloseTo` with a justified number of decimals, or the project's `EPSILON = 1e-9` (Q10, `src/math/epsilon.ts`).
 - DOM tests (`src/render/`, `src/interaction/`): start the file with `// @vitest-environment happy-dom`; the shell stays thin, the logic lives in the core.
 
 ## Properties (ADR-0022)

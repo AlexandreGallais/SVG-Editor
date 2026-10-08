@@ -67,6 +67,8 @@ Every started epic closes with `REV` (epic report and user test) then `RET` (ret
 | Epic, feature | `draft` → `ready` → `in-progress` → `done`                                            |
 | Story         | `draft` → `ready` → `done` on `main` (`in-progress` only on its branch; or `dropped`) |
 
+An epic or a feature becomes `in-progress` when its first story starts, and `done` when its closing stories are merged (`VAL` for a feature; `REV` and `RET` for an epic). The agent proposes the change, the Product Owner agrees (decision of 2026-10-08).
+
 The order of the files in a folder is not the priority: the Product Owner's order lives in the parent's table (epics in `epics/README.md`, features in their epic, stories in their feature).
 
 ## Files

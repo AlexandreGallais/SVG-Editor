@@ -2,7 +2,7 @@
 id: F01
 epic: E01
 title: Rectangle with corner radius
-status: draft
+status: in-progress
 ---
 
 # E01 · F01 — Rectangle with corner radius

@@ -6,6 +6,7 @@
 | [US-001](./E01-F01-US-001-rectangle-contour.md)             | F01     | Rectangle contour from width and height         | done   |
 | [EN-002](./E01-F01-EN-002-sharp-contour-path-data.md)       | F01     | Path data of a sharp contour                    | done   |
 | [US-002](./E01-F01-US-002-sharp-rectangle-in-playground.md) | F01     | Draw a sharp rectangle in the playground        | done   |
+| [US-004](./E01-F01-US-004-fixed-scale-playground.md)        | F01     | Show shapes at a fixed scale in the playground  | ready  |
 | [EN-003](./E01-F01-EN-003-corner-turning-angle.md)          | F01     | Turning angle at a contour vertex               | draft  |
 | [EN-004](./E01-F01-EN-004-fillet-setback.md)                | F01     | Fillet setback                                  | draft  |
 | [EN-005](./E01-F01-EN-005-local-radius-clamp.md)            | F01     | Local proportional radius clamp                 | draft  |

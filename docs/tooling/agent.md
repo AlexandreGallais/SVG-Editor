@@ -12,6 +12,8 @@ The code is written by Claude Code under the Product Owner's review. Its configu
 | `.claude/skills/spike/`          | `/spike` — research spike of a feature (ADR-0020)                              | on demand                                |
 | `.claude/skills/derivation/`     | `/derivation` — writing a `DERIV-*`                                            | on demand                                |
 | `.claude/skills/audit/`          | `/audit` — feature audit with the auditor subagent                             | on demand                                |
+| `.claude/skills/review/`         | `/review` — feature demo page, epic review (ADR-0023)                          | on demand                                |
+| `.claude/skills/retro/`          | `/retro` — epic retrospective, evolvability, playbook (ADR-0023)               | on demand                                |
 | `.claude/agents/auditor.md`      | independent read-only auditor, fresh context, tries to refute                  | from `/audit`                            |
 | `.claude/settings.json`          | permissions for routine commands; hooks below                                  | every session                            |
 | `.claude/hooks/guard-bash.ts`    | `PreToolUse`: denies `gh pr merge`, `--no-verify`, force push without lease    | every shell command                      |

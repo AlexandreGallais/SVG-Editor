@@ -48,6 +48,10 @@ Procedure: the `/audit` skill. Sections A to E are first reviewed by the indepen
 
 List the sources and questions the next feature will need: they feed its research spike.
 
+## H. Light evolvability check
+
+The six questions of the [evolvability review](../process/) in one line each (size, tools, fitness functions, patterns, agent configuration, process). What deserves action goes to the [improvement log](../process/improvements.md), treated at the epic retrospective (ADR-0023).
+
 ## Findings table (in the `AUD` story)
 
 | Check                                        | Result | Evidence                                   | Action |

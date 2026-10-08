@@ -27,6 +27,9 @@ Non-negotiable principles: schematic, orthogonal, integer, documented, dependenc
 | Sources: where to look, when to stop, how to ask     | `docs/research/README.md`                       |
 | Bibliography `REF-*` / derivations `DERIV-*`         | `docs/references.md`, `docs/derivations/`       |
 | Tooling, dependencies, Git, CI, releases             | `docs/tooling/`                                 |
+| Cadences, improvement log, retrospectives            | `docs/process/`                                 |
+| Plain-language guide for the Product Owner           | `docs/guide/`                                   |
+| Reusable method for future projects                  | `docs/playbook/`                                |
 
 `docs/` is the documentation site (<https://alexandregallais.github.io/synoptic-studio/>): every page is linked from its folder's `README.md`.
 
@@ -63,7 +66,8 @@ Non-negotiable principles: schematic, orthogonal, integer, documented, dependenc
 
 ## Lifecycles
 
-- **Feature** (ADR-0020): research spike `SP` (`/spike`) → stories `US` / `EN` (`/story`) → audit `AUD` (`/audit`, with the `auditor` subagent) → validation `VAL` by the Product Owner. Regression and end-to-end tests come with the applications.
+- **Feature** (ADR-0020): research spike `SP` (`/spike`) → stories `US` / `EN` (`/story`) → audit `AUD` (`/audit`, with the `auditor` subagent) → validation `VAL` with a plain-language demo page and guided test (`/review`). Regression and end-to-end tests come with the applications.
+- **Epic** (ADR-0023): review `REV` (`/review`: epic report, user test) → retrospective `RET` (`/retro`: evolvability review, playbook update). Ideas and irritants go to `docs/process/improvements.md` when they happen.
 - **Story** (`/story`): branch `<type>/<id>-<topic>` from an up-to-date `main` (never stacked), one commit per task (`Refs: <ID>.Tn`), status `done` in the last commit (`Closes: <ID>`), `check:all`, pull request, **stop** — the Product Owner merges.
 - **Math and geometry**: tests first — examples computed by hand and justified, degenerate cases, then properties (ADR-0022); a missing source → `/derivation` or a research request.
 - Tooling, CI, `.claude/` and backlog writing may go directly to `main` when the user asks. No `develop` branch; `origin` = github.com/AlexandreGallais/synoptic-studio (public, rebase merges only).

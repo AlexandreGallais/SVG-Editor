@@ -16,4 +16,5 @@ Audit: $ARGUMENTS. Checklist: `docs/conventions/audit.md` (A–G); findings go i
 6. **Fix** small findings in the audit's commits; larger ones become stories (Product Owner decides their priority).
 7. **Breadth checks**: `npm run check:all`; the weekly link check is green (or run lychee); `CLAUDE.md`, `.claude/rules/`, `docs/conventions/`, `docs/tooling/` still describe reality.
 8. **G**: list the sources and questions the next feature needs, for its spike.
-9. Branch, commits per task, pull request as for a story (`/story` steps 3–10).
+9. **H, light evolvability check**: the six questions of `docs/process/README.md` in one line each; anything worth acting on goes to the improvement log for the epic retrospective.
+10. Branch, commits per task, pull request as for a story (`/story` steps 3–10).

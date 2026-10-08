@@ -15,6 +15,13 @@ Four tools built on the same `editor` library, from geometry to business use:
 
 From one project to another, the same symbols can be used by different business libraries: the library gives the symbol its business meaning for that project.
 
+## Purpose
+
+- **A product, not a demo**: a library and editors that teams drawing synoptic views can adopt with confidence, doing better for this work than general vector editors.
+- **Trust through quality**: every behavior specified, sourced, tested and documented; summary documents let a reader understand the project without reading everything.
+- **Portable mathematics**: the library computes its own geometry (never through the SVG or DOM APIs), runs in any JavaScript engine — browser or server — and can be transcribed into another language if speed requires it (ADR-0025).
+- **Built by an agent**: Claude Code writes every change, the Product Owner reviews; outside input comes through issues (ADR-0026).
+
 ## Principles
 
 - **Schematic**: a synoptic view must stay readable.

@@ -15,3 +15,4 @@ Ordered by the Product Owner (2026-10-08). Drafts written by Claude Code from th
 | 9     | [E09](./E09-route-pipes.md)                | Connect symbols with orthogonal pipes       | draft       |
 | 10    | [E10](./E10-draw-static-drawings.md)       | Draw and reuse static drawings              | draft       |
 | 11    | [E11](./E11-store-and-share.md)            | Store and share through a local server      | draft       |
+| 12    | [E12](./E12-release-a-trusted-product.md)  | Release a product people can trust          | draft       |

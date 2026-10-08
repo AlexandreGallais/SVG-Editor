@@ -27,3 +27,12 @@ A layer exists on disk only from its first module on (an empty folder has no mea
 - **Shell** (`render`, `interaction`, `playground`): effects allowed (DOM, events), but never reassigning a property of a parameter, nor mutating the model (its types are `readonly`).
 
 In practice: every decision is taken in the core; the shell only applies it.
+
+## Portability (ADR-0025)
+
+The core runs in any ECMAScript engine (browser, Node.js, server, worker) and can be transcribed into another language function by function:
+
+- ECMAScript only — no DOM, Node.js or host API (lint: `eslint/scopes/pure-layers.ts`);
+- plain read-only data in and out; no class, closure returned or exception;
+- the TSDoc states the mathematical intent where JavaScript differs from other languages (`%` sign, `.at` with a negative index, `-0`, `NaN`);
+- `number` is IEEE 754 binary64; `EPSILON` and `SVG_DECIMALS` are part of the specification.

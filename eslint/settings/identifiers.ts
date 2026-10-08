@@ -55,21 +55,39 @@ export const RESTRICTED_GLOBALS = [
   { message: "Ambiguous browser global (window.top).", name: "top" },
 ];
 
-/** Globals reaching the DOM or the host, forbidden in the functional core. */
+/**
+ * Globals of a host (browser or Node.js), forbidden in the functional core: it runs in any
+ * ECMAScript engine and stays portable to another language (ADR-0025).
+ */
 export const DOM_GLOBALS = [
+  "Buffer",
+  "Intl",
+  "__dirname",
+  "__filename",
   "console",
+  "crypto",
   "customElements",
   "document",
+  "fetch",
+  "global",
   "globalThis",
   "localStorage",
   "location",
+  "module",
   "navigator",
+  "process",
+  "queueMicrotask",
+  "require",
   "requestAnimationFrame",
   "sessionStorage",
   "setInterval",
   "setTimeout",
+  "structuredClone",
   "window",
-].map((name) => ({ message: "The functional core has no access to the DOM or the host.", name }));
+].map((name) => ({
+  message: "The functional core uses ECMAScript only: no DOM, no Node.js, no host API (ADR-0025).",
+  name,
+}));
 
 /** Non-deterministic properties: inputs are passed explicitly instead. */
 export const RESTRICTED_PROPERTIES = [

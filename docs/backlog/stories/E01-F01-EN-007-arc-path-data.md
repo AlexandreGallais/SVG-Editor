@@ -13,17 +13,16 @@ Write segments and circular arcs as path data with `A` commands (radius, flags, 
 
 ## Acceptance criteria
 
-- Given a quarter arc of radius 10 turning clockwise, when written, then the command is `A10 10 0 0 1 x y` with the right sweep flag.
-- Given the circle of EN-006, when written, then the path closes with `Z` and every number follows EN-001.
+Sources: `REF-SVG2-PATHS` §9.3.8–9.3.9, `REF-SVG2-IMPLNOTE` B.2.1, `DERIV-fillet-arc` steps 4–5 (SP-001).
+
+- Given an arc of radius 10 in the positive direction ending at `(100, 10)`, when written, then the command is `A10 10 0 0 1 100 10` (no rotation, small arc, sweep 1).
+- Given an arc in the negative direction, when written, then its sweep flag is `0`.
+- Given the 100 × 50 rectangle with radius 10, when written, then the path data is `M10 0 L90 0 A10 10 0 0 1 100 10 L100 40 A10 10 0 0 1 90 50 L10 50 A10 10 0 0 1 0 40 L0 10 A10 10 0 0 1 10 0 Z`.
+- Given the 100 × 100 square with radius 50, when written, then the path data is `M50 0 A50 50 0 0 1 100 50 A50 50 0 0 1 50 100 A50 50 0 0 1 0 50 A50 50 0 0 1 50 0 Z` and every number follows EN-001.
 
 ## Tasks
 
 One task = one commit, referenced as `EN-007.Tn`.
 
-- [ ] T1 — Verify the arc command syntax and flags (`REF-SVG2-PATHS` §9.3.8, `REF-SVG2-IMPLNOTE`) and update `docs/references.md` (1 h)
-- [ ] T2 — Write the tests of the cases above (1 h)
-- [ ] T3 — Implement the arc command and the path data of a rounded contour (`format`) (2 h)
-
-## Open points
-
-- Blocked while `REF-SVG2-IMPLNOTE` is `[unverified]`.
+- [ ] T1 — Arc command `A` (`format`, `REF-SVG2-PATHS` §9.3.8) with its tests (1 h)
+- [ ] T2 — Path data of a closed sequence of segments and arcs (`format`) with the cases above (2 h)

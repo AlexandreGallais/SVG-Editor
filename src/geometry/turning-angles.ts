@@ -1,4 +1,4 @@
-import { cyclicVertex } from "./cyclic-vertex";
+import { cyclicItem } from "./cyclic-item";
 import { turningAngle } from "./turning-angle";
 
 import type { Point } from "../math";
@@ -16,9 +16,9 @@ import type { Point } from "../math";
 export function turningAngles(contour: readonly Point[]): readonly number[] {
   return contour.map((vertex, index) =>
     turningAngle(
-      cyclicVertex(contour, index - 1, vertex),
+      cyclicItem(contour, index - 1, vertex),
       vertex,
-      cyclicVertex(contour, index + 1, vertex),
+      cyclicItem(contour, index + 1, vertex),
     ),
   );
 }

@@ -24,5 +24,5 @@
 
 ## For the audit (AUD-001)
 
-- `cyclicVertex` relies on JavaScript `%` and `.at` with negative indexes (ADR-0025): state the intent in its TSDoc.
+- `cyclicVertex` relied on JavaScript `%` and `.at` with negative indexes (ADR-0025): done in EN-005 — generalized into `cyclicItem` with a non-negative modulo stated in its TSDoc.
 - The center of the fillet is computed but not needed by the path data; keep it tested for later uses.

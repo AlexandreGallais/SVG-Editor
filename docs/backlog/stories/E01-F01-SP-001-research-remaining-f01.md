@@ -18,10 +18,20 @@ Find, read and record the sources of EN-005, EN-006, EN-007, US-003 and VAL-001 
 
 ## Questions
 
-- EN-005: is the CSS corner-overlap factor (`REF-CSS-BR`) still stated as in `DERIV-local-radius-clamp` steps 2–3?
-- EN-006: where are the tangent points (vertex ± setback along each unit edge) and the arc center of a fillet; how is a vector normalized (source for the norm)?
-- EN-007: exact syntax of the SVG arc command `A` (radii, rotation, large-arc and sweep flags, end point) and the meaning of the sweep flag in the SVG frame (`REF-SVG2-PATHS` §9.3.8, `REF-SVG2-IMPLNOTE`, currently unverified); is the large-arc flag always 0 for a fillet (`|τ| < π`)?
-- US-003: display of the requested and the effective radius (`docs/domain/shapes.md` §2, Q8) — any open business point?
+Inventory (T1): what each remaining story needs, and where it comes from.
+
+| Story  | Needs                                                                 | Source                                                                                                          |
+| ------ | --------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| EN-005 | edge length `L = ‖e‖`                                                 | Euclidean norm (`REF-MATHWORLD-VECTOR-NORM`)                                                                    |
+| EN-005 | factor per edge `f = min(1, L / S)`, per vertex `g = min(fᵢ₋₁, fᵢ)`   | `DERIV-local-radius-clamp`, principle of `REF-CSS-BR` §4.5                                                      |
+| EN-005 | setback at a vertex                                                   | `DERIV-fillet-setback` (EN-004)                                                                                 |
+| EN-006 | unit direction of an edge; zero-length edges (size 0, Q15)            | `REF-MATHWORLD-UNIT-VECTOR`; zero vector handled explicitly                                                     |
+| EN-006 | tangent points, arc center, turning direction of the arc              | to derive: `DERIV-fillet-arc` (Euclid III.18, IV.4; rotation by a quarter turn `REF-MATHWORLD-ROTATION-MATRIX`) |
+| EN-006 | segment of zero length after clamping (circle)                        | `EPSILON = 1e-9` (Q10, ADR-0003)                                                                                |
+| EN-007 | `A rx ry x-axis-rotation large-arc-flag sweep-flag x y`, flag grammar | `REF-SVG2-PATHS` §9.3.8, §9.3.9                                                                                 |
+| EN-007 | meaning of the flags; zero radius; radii too small                    | `REF-SVG2-IMPLNOTE` B.2.1, B.2.5                                                                                |
+| EN-007 | "positive-angle" direction on screen                                  | `REF-SVG2-COORDS` §8.4 (y down)                                                                                 |
+| US-003 | requested vs effective radius, display                                | `docs/domain/shapes.md` §2 (Q8, settled) — no open business point                                               |
 
 ## Tasks
 

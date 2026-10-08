@@ -39,4 +39,10 @@ describe("turningAngle (DERIV-turning-angle check table)", () => {
     // Repeated vertex: atan2(0, 0) = 0, no turn.
     expect(Math.abs(turningAngle({ x: 0, y: 0 }, { x: 0, y: 0 }, { x: 10, y: 0 }))).toBe(0);
   });
+
+  it("is 0 when the outgoing edge has zero length, whatever the sign of the zeros", () => {
+    // a = (−10, −10), b = (0, 0): a · b = −0 + −0 = −0 and atan2(+0, −0) = π in IEEE 754;
+    // a zero-length edge has no direction, so the intended result is 0 (ADR-0025).
+    expect(turningAngle({ x: 10, y: 10 }, { x: 0, y: 0 }, { x: 0, y: 0 })).toBe(0);
+  });
 });

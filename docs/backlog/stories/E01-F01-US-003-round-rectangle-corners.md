@@ -23,7 +23,7 @@ Written during the story (ADR-0028): steps in the playground, expected result of
 
 ## Open points
 
-- A rectangle of size 0 has no corner to round: no arc is drawn and the effective radius equals the requested one, so nothing is signaled. To confirm with the Product Owner at the next stop.
+- Where no arc can exist — a rectangle of size 0, an aligned vertex — `effectiveRadii` keeps the requested radius (factor 1), so nothing would be signaled although nothing is rounded. Should the effective radius shown be 0 there? Question for the Product Owner at the next stop (EN-005 audit).
 
 ## Tasks
 

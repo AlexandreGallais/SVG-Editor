@@ -1,0 +1,39 @@
+# Autonomous runs (ADR-0028), authorized by the Product Owner on 2026-10-08: enables auto-merge on
+# story pull requests labeled `autonomous` that target a feature branch (`feature/f01-…`). GitHub
+# merges them only once the required checks of the `feature branches` ruleset are green. Nothing
+# reaches `main` this way: the feature pull request into `main` is merged by the Product Owner.
+# The agent never merges; removing the label before the merge stops it.
+name: Story auto-merge
+
+on:
+  pull_request:
+    types: [labeled, opened, reopened, ready_for_review]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  auto-merge:
+    name: Enable auto-merge
+    if: >-
+      contains(github.event.pull_request.labels.*.name, 'autonomous')
+      && github.event.pull_request.author_association == 'OWNER'
+      && startsWith(github.event.pull_request.base.ref, 'feature/')
+      && !github.event.pull_request.draft
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check the branch is a story allowed in autonomous runs
+        env:
+          BRANCH: ${{ github.event.pull_request.head.ref }}
+        run: |
+          if ! printf '%s' "$BRANCH" | grep -Eq '^[a-z]+/(us|en|sp|chk|aud)-[0-9]{3}-'; then
+            echo "Branch $BRANCH is not a US, EN, SP, CHK or AUD story: no auto-merge (ADR-0028)."
+            exit 1
+          fi
+      - name: Enable auto-merge (rebase)
+        env:
+          # Built-in token: merges into a feature branch need no release, hence no personal token.
+          GH_TOKEN: ${{ github.token }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: gh pr merge "$PR_URL" --auto --rebase

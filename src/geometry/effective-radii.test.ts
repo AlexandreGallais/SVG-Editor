@@ -54,6 +54,15 @@ describe("effectiveRadii (DERIV-local-radius-clamp, ADR-0007)", () => {
     }
   });
 
+  it("[F01.AC3] gives the same circle with radius 1000 on every corner of a square of 100", () => {
+    // S = 1000 + 1000 = 2000 on every edge → f = 100 / 2000 = 0.05 → r′ = 0.05 × 1000 = 50.
+    const radii = effectiveRadii(rectangle(100, 100, [1000, 1000, 1000, 1000]));
+
+    for (const radius of radii) {
+      expect(radius).toBeCloseTo(50, DECIMALS);
+    }
+  });
+
   it("[F01.AC3] keeps 50 on a square of 100: a circle", () => {
     // S = 100 = L on every edge → f = 1.
     const radii = effectiveRadii(rectangle(100, 100, [50, 50, 50, 50]));

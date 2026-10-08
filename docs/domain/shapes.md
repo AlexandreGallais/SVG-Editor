@@ -64,7 +64,7 @@ Storing the value (Q8, settled):
 
 ### Rectangle
 
-- Parameters: `width`, `height` (integers ≥ 0; negative forbidden, 0 allowed — Q15), optional global radius.
+- Parameters: `width`, `height` (integers ≥ 0; negative forbidden, 0 allowed — Q15) and a global corner `radius` (integer ≥ 0; 0 = sharp corners). A radius larger than the rectangle is valid: it is clamped, not refused (ADR-0007); the requested value is kept (Q8).
 - Result: contour of 4 vertices.
 
 ### Regular polygon

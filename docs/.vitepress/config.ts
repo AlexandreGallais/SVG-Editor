@@ -5,6 +5,9 @@ import { defineConfig } from "vitepress";
 
 import type { DefaultTheme } from "vitepress";
 
+/** Base path of the published site (`/SVG-Editor/` on GitHub Pages), `/` locally. */
+const BASE = process.env["DOCS_BASE"] ?? "/";
+
 /** Root folder of the documentation site. */
 const DOCS_ROOT = join(import.meta.dirname, "..");
 
@@ -87,6 +90,7 @@ function apiItems(): DefaultTheme.SidebarItem[] {
  * @see docs/tooling/documentation-site.md
  */
 export default defineConfig({
+  base: BASE,
   cleanUrls: true,
   description: "Integer, orthogonal, path-only SVG editing library for synoptic-view symbols.",
   lang: "en",

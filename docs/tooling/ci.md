@@ -21,8 +21,9 @@ All under the repository page → **Settings**.
 
 1. **General → Pull Requests**: uncheck _Allow merge commits_ and _Allow squash merging_; keep **Allow rebase merging** only; check **Automatically delete head branches** and **Always suggest updating pull request branches**.
 2. **Actions → General → Workflow permissions**: keep _Read repository contents and packages permissions_ (each workflow declares its own); check **Allow GitHub Actions to create and approve pull requests** (release-please).
-3. **Advanced Security**: enable **Dependency graph** (done), **Dependabot alerts**, **Dependabot security updates**, **Secret Protection** with **Push protection**. Code scanning: leave the CodeQL _Default setup_ **off** — the `codeql.yml` workflow is the advanced setup, both would conflict.
-4. **Rules → Rulesets → New ruleset → New branch ruleset**:
+3. **Pages → Build and deployment → Source**: **GitHub Actions** (the `docs` job deploys the site).
+4. **Advanced Security**: enable **Dependency graph** (done), **Dependabot alerts**, **Dependabot security updates**, **Secret Protection** with **Push protection**. Code scanning: leave the CodeQL _Default setup_ **off** — the `codeql.yml` workflow is the advanced setup, both would conflict.
+5. **Rules → Rulesets → New ruleset → New branch ruleset**:
    - name `main`, enforcement **Active**;
    - target branches: **Include default branch**;
    - bypass list: **Repository admin**, mode _Always_ — so that tooling and backlog commits can still go straight to `main` on request; story work always goes through a pull request;

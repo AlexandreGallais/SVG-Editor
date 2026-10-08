@@ -7,3 +7,4 @@ docs/api
 docs/.vitepress/cache
 docs/.vitepress/dist
 .husky/_
+CHANGELOG.md

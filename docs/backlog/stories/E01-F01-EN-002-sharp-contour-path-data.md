@@ -3,7 +3,7 @@ id: EN-002
 epic: E01
 feature: F01
 title: Path data of a sharp contour
-status: draft
+status: ready
 points: 1
 ---
 

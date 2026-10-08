@@ -3,7 +3,7 @@ id: EN-001
 epic: E01
 feature: F01
 title: Write numbers with fixed precision
-status: ready
+status: in-progress
 points: 2
 ---
 
@@ -23,7 +23,7 @@ Write a derived number in SVG output with at most `SVG_DECIMALS = 5` decimals (Q
 
 One task = one commit, referenced as `EN-001.Tn`.
 
-- [ ] T1 — Write the tests of the cases above, values computed by hand (1 h)
-- [ ] T2 — Add the `SVG_DECIMALS` constant module in `src/io/` (0.5 h)
-- [ ] T3 — Implement the number formatting function (`format`) with its TSDoc and `@see REF-SVG2-PATHS` (1.5 h)
-- [ ] T4 — Record the precision rule in `docs/domain/shapes.md` §1 if anything changes (0.5 h)
+- [x] T1 — Write the tests of the cases above, values computed by hand (1 h)
+- [x] T2 — Add the `SVG_DECIMALS` constant module in `src/io/` (0.5 h) — `svg-decimals.ts`
+- [x] T3 — Implement the number formatting function (`format`) with its TSDoc and `@see REF-SVG2-PATHS` (1.5 h) — `formatSvgNumber`
+- [x] T4 — Record the precision rule in `docs/domain/shapes.md` §1 if anything changes (0.5 h)

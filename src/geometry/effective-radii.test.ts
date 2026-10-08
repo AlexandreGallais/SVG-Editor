@@ -3,7 +3,6 @@ import { describe, expect, it } from "vitest";
 
 import { EPSILON } from "../math";
 
-import { cornerSetbacks } from "./corner-setbacks";
 import { edgeLengths } from "./edge-lengths";
 import { effectiveRadii } from "./effective-radii";
 
@@ -86,9 +85,9 @@ describe("effectiveRadii (DERIV-local-radius-clamp, ADR-0007)", () => {
     ({ height, radii, width }) => {
       const corners = rectangle(width, height, radii);
       const effective = effectiveRadii(corners);
-      const setbacks = cornerSetbacks(
-        corners.map((corner, index) => ({ ...corner, radius: effective[index] ?? 0 })),
-      );
+      // Independent of the production setbacks: on a rectangle with both sides > 0 every corner
+      // turns by π/2, so s = r′ · tan(π/4) = r′; with a side of 0 every τ is 0, so s = 0.
+      const setbacks = effective.map((radius) => (width > 0 && height > 0 ? radius : 0));
 
       const lengths = edgeLengths(corners.map((corner) => corner.point));
 

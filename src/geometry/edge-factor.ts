@@ -7,7 +7,7 @@
  * @kind geometry
  * @param length - length `L` of the edge, >= 0
  * @param demand - sum `S` of the setbacks requested at its two ends, >= 0
- * @returns factor in ]0, 1]
+ * @returns factor in [0, 1]: 0 when a zero-length edge carries a demand
  * @see DERIV-local-radius-clamp
  */
 export function edgeFactor(length: number, demand: number): number {

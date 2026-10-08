@@ -7,7 +7,7 @@ import { cyclicItem } from "./cyclic-item";
  *
  * @kind geometry
  * @param factors - factor of each edge, in drawing order
- * @returns one factor per vertex, in ]0, 1]
+ * @returns one factor per vertex, in [0, 1]
  * @see DERIV-local-radius-clamp
  */
 export function vertexFactors(factors: readonly number[]): readonly number[] {

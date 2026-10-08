@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.3.0](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.2.2...v0.3.0) (2026-10-08)
+
+
+### Features
+
+* **io:** write the path data of a sharp contour ([349f58e](https://github.com/AlexandreGallais/synoptic-studio/commit/349f58ee29753e487ac39fc2125eeac6a659f62d))
+
+
+### Documentation
+
+* **backlog:** set EN-002 done ([8c3221f](https://github.com/AlexandreGallais/synoptic-studio/commit/8c3221f48325adffca013702336909da3c966746))
+* **backlog:** set EN-002 ready ([78a73d7](https://github.com/AlexandreGallais/synoptic-studio/commit/78a73d72ed8dd03eb1cafff96b547f3daae45e0a))
+
 ## [0.2.2](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.2.1...v0.2.2) (2026-10-08)
 
 

@@ -22,6 +22,6 @@ Replay every acceptance criterion of F01 in the playground and against the deriv
 
 One task = one commit, referenced as `VAL-001.Tn`.
 
-- [ ] T1 — Replay the reference cases and record the results in the feature file (1 h)
+- [ ] T1 — Replay the reference cases; tag or write one test per criterion `[F01.AC1]`…`[F01.AC4]` (ADR-0027); record the results in the feature file (1.5 h)
 - [ ] T2 — Demo page `docs/guide/` in plain language (fillet, setback, clamp explained) with its guided test (2 h)
 - [ ] T3 — Product Owner runs the guided test and validates; feedback recorded (0.5 h)

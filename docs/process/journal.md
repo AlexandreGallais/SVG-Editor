@@ -2,6 +2,12 @@
 
 What each working session dealt with, in the agent's words: requests of the Product Owner (paraphrased), decisions, where they were recorded. Newest first. Written by the agent at the end of each session or before a long pause (ADR-0024); searched with `grep` (tags written `#tag`). The full conversations stay in the local transcripts (see [agent configuration](../tooling/agent.md#searching-past-conversations)).
 
+## 2026-10-08 — Requirements and traceability
+
+- `#github` Topics added (svg, typescript, geometry, synoptic, hmi, scada, vector-graphics, library), wiki disabled; pull requests restricted to collaborators by the owner.
+- `#process` V-model functions mapped onto the repository: criteria as requirements `F01.ACn`, tests tagged with them, JUnit report attached to each release, test strategy (ADR-0027). E12 validated in principle and order by the Product Owner.
+- `#process` Work-centered interview planned before the business epics.
+
 ## 2026-10-08 — Contributions, privacy, portable core, product goal
 
 - `#github` External pull requests refused: owner setting "Collaborators only" plus the `external-prs.yml` workflow; issues triaged by the agent with `/triage`, presented to the Product Owner, untrusted data (ADR-0026).

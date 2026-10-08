@@ -31,3 +31,19 @@ Questions asked as the project grows — each answer is "nothing yet", a story, 
 | [improvements.md](./improvements.md) | improvement log, fed continuously, emptied by each retrospective |
 | [retrospectives](./retrospectives/)  | one record per retrospective                                     |
 | [journal.md](./journal.md)           | what each session dealt with, newest first (ADR-0024)            |
+
+## Coming from the V-model
+
+The V-model is not this project's lifecycle (requirements grow feature by feature); but the functions of its documents have a place here, generated or tested rather than written by hand (ADR-0027):
+
+| V-model document      | Function                         | Here                                                     |
+| --------------------- | -------------------------------- | -------------------------------------------------------- |
+| system specification  | the need                         | [domain](../domain/) (vision, purpose, rules), epics     |
+| software requirements | verifiable behaviors             | feature acceptance criteria `F01.ACn`                    |
+| interface description | contracts                        | public API reference (TypeDoc), ADRs                     |
+| design description    | design and its reasons           | ADRs, [conventions](../conventions/), derivations        |
+| test plan             | strategy                         | [test strategy](../conventions/testing.md#test-strategy) |
+| test description      | test cases                       | tests, tagged `[F01.ACn]` when they prove a criterion    |
+| test report           | results on a version             | JUnit report attached to each GitHub release             |
+| traceability matrix   | requirement ↔ realization ↔ test | feature plans, test tags; generated page planned (E12)   |
+| version description   | what a version contains          | `CHANGELOG.md`, GitHub releases                          |

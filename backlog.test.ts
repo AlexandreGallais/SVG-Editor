@@ -238,6 +238,48 @@ function hasKinds(
   return prefixes.every((prefix) => ids.some((id) => id.startsWith(prefix)));
 }
 
+/** Folders whose tests may verify acceptance criteria (ADR-0027). */
+const TEST_ROOTS = ["src", "playground"];
+
+/**
+ * Concatenated content of every test file, where `[F01.AC3]` tags are looked for.
+ *
+ * @returns text of all `*.test.ts` files under the test roots
+ */
+function testSources(): string {
+  return TEST_ROOTS.flatMap((root) =>
+    readdirSync(join(import.meta.dirname, root), { recursive: true })
+      .map(String)
+      .filter((file) => file.endsWith(".test.ts"))
+      .map((file) => readFileSync(join(import.meta.dirname, root, file), "utf8")),
+  ).join("\n");
+}
+
+/**
+ * Section "Acceptance criteria" of a feature file.
+ *
+ * @param item - feature item
+ * @returns the section's text, empty when absent
+ */
+function criteriaSection(item: Item): string {
+  const text = readFileSync(join(BACKLOG, item.folder, item.file), "utf8");
+
+  return /^## Acceptance criteria\n(?<body>[\s\S]*?)(?=^## )/mu.exec(text)?.groups?.["body"] ?? "";
+}
+
+/**
+ * Criterion identifiers of a feature: one per numbered item of its "Acceptance criteria" section.
+ *
+ * @param item - feature item
+ * @returns `F01.AC1`, `F01.AC2`…
+ */
+function criteriaOf(item: Item): string[] {
+  return criteriaSection(item)
+    .matchAll(/^(?<number>\d+)\. /gmu)
+    .map((match) => `${item.fields["id"] ?? ""}.AC${match.groups?.["number"] ?? ""}`)
+    .toArray();
+}
+
 describe("backlog", () => {
   it("gives every item a well-formed id, a title and an allowed status", () => {
     expect(
@@ -310,6 +352,16 @@ describe("backlog", () => {
     const unclosed = epics.filter((epic) => !hasKinds(stories, ["epic", epic], CLOSING_PREFIXES));
 
     expect(unclosed).toEqual([]);
+  });
+
+  it("traces every criterion of a done feature to a test tagged with its id (ADR-0027)", () => {
+    const sources = testSources();
+    const untraced = items()
+      .filter((item) => item.folder === "features" && item.fields["status"] === "done")
+      .flatMap((item) => criteriaOf(item))
+      .filter((criterion) => !sources.includes(`[${criterion}]`));
+
+    expect(untraced).toEqual([]);
   });
 
   it("uses each id once", () => {

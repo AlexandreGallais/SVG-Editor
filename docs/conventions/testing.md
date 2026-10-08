@@ -38,6 +38,27 @@ test.prop({ a: VECTOR, b: VECTOR })("is symmetric", ({ a, b }) => {
 - A failure prints its seed and a shrunk counterexample: replay with `test.prop(…, { seed })`, then add the counterexample as an example test.
 - `toBe` compares with `Object.is` (`-0` differs from `0`): computed floats use `toBeCloseTo` with a justified precision.
 
+## Tests that prove a requirement (ADR-0027)
+
+A test proving a feature's acceptance criterion carries its identifier in its title, so that the criterion → test link is searchable and checked:
+
+```ts
+it("[F01.AC3] clamps a 100 × 25 rectangle with radius 100 to an effective radius of 12.5", () => {
+```
+
+`backlog.test.ts` fails when a `done` feature has a criterion no test names. The `VAL` story tags or writes these tests.
+
+## Test strategy
+
+| Item         | Rule                                                                                                                                                                                         |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Levels       | examples computed by hand; properties (fast-check); criterion tests `[F01.ACn]`; guided tests in the playground (`VAL`, `REV`); regression and end-to-end suites with the applications (E12) |
+| Environments | the core in Node.js without a DOM; `render` with happy-dom; browsers for end-to-end (later)                                                                                                  |
+| Independence | the `auditor` subagent re-derives and recomputes; the Product Owner runs the guided tests                                                                                                    |
+| Success      | every test green, 100 % coverage of `src/`, no `.skip` / `.only`, on every pull request and every release                                                                                    |
+| Regression   | every test runs on every pull request; a done feature's criterion tests are never deleted, only changed by a story citing the criterion                                                      |
+| Evidence     | each release carries its JUnit report (`test-report.xml`) as a release asset                                                                                                                 |
+
 ## Coverage
 
 `npm run test` measures the coverage of `src/` (`@vitest/coverage-v8`) and fails below **100 %** of lines, branches, functions and statements. Barrels and tests are excluded. An uncovered branch is either a missing test or dead code.

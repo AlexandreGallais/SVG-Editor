@@ -72,7 +72,7 @@ Non-negotiable principles: schematic, orthogonal, integer, documented, dependenc
 - **Feature** (ADR-0020): research spike `SP` (`/spike`) → stories `US` / `EN` (`/story`) → audit `AUD` (`/audit`, with the `auditor` subagent) → validation `VAL` with a plain-language demo page and guided test (`/review`). Regression and end-to-end tests come with the applications.
 - **Epic** (ADR-0023): review `REV` (`/review`: epic report, user test) → retrospective `RET` (`/retro`: evolvability review, playbook update). Ideas and irritants go to `docs/process/improvements.md` when they happen.
 - **Story** (`/story`): branch `<type>/<id>-<topic>` from an up-to-date `main` (never stacked), one commit per task (`Refs: <ID>.Tn`), status `done` in the last commit (`Closes: <ID>`), `check:all`, pull request, **stop** — the Product Owner merges.
-- **Math and geometry**: tests first — examples computed by hand and justified, degenerate cases, then properties (ADR-0022); a missing source → `/derivation` or a research request.
+- **Math and geometry**: tests first — examples computed by hand and justified, degenerate cases, then properties (ADR-0022); a missing source → `/derivation` or a research request. A test proving a feature criterion is titled `[F01.AC3] …` (ADR-0027).
 - Tooling, CI, `.claude/` and backlog writing may go directly to `main` when the user asks. No `develop` branch; `origin` = github.com/AlexandreGallais/synoptic-studio (public, rebase merges only).
 
 ## Definition of done — MANDATORY

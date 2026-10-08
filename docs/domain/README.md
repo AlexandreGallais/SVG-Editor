@@ -50,6 +50,9 @@ The French term is kept: it is the user's working vocabulary.
 | Corner radius      | Rayon de coin           | radius of the arc rounding a vertex                                                                              |
 | Fillet             | Congé                   | arc tangent to both edges of a vertex                                                                            |
 | Setback            | Recul                   | distance from the vertex to the fillet's tangent point, `r / tan(θ/2)`                                           |
+| Tangent point      | Point de tangence       | point where a fillet touches an edge, at the setback from the vertex                                             |
+| Effective radius   | Rayon effectif          | radius actually drawn after clamping (ADR-0007); derived at every evaluation, never stored (Q8)                  |
+| Spike              | Pointe                  | vertex where the contour turns back on itself (turning angle ±π); its rounding is open (Q16)                     |
 | Stroke             | Contour                 | band of fixed width along the outline                                                                            |
 | Stroke alignment   | Alignement du contour   | `inner`, `center`, `outer`                                                                                       |
 | Boolean operation  | Opération booléenne     | union, difference, intersection, exclusion, division, cut path                                                   |

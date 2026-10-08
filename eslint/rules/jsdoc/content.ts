@@ -24,7 +24,8 @@ export const JSDOC_CONTENT: TSESLint.FlatConfig.Config = {
     "jsdoc/escape-inline-tags": "error",
     "jsdoc/implements-on-classes": "error",
     "jsdoc/imports-as-dependencies": "error",
-    "jsdoc/informative-docs": "error",
+    // `@kind` holds a classification (e.g. `format` on `formatSvgNumber`), not a description.
+    "jsdoc/informative-docs": ["error", { excludedTags: ["kind"] }],
     // Main description: sentences. `@param` / `@returns`: lower-case fragments without final period.
     "jsdoc/match-description": ["error", JSDOC_DESCRIPTION_PATTERNS],
     // No naming constraint is expressed through JSDoc names.

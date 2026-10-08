@@ -90,7 +90,7 @@ Every function has a `@see`; every `@see` points to an existing, **verified** re
 
 ### `local/one-export-per-file`
 
-One exported value per module, named like the file; a type may sit next to it only if it is part of its signature. ADR-0015.
+One exported value per module, the file named in kebab-case after it; a type may sit next to it only if it is part of its signature. ADR-0019.
 
 ### `local/folder-has-index`
 

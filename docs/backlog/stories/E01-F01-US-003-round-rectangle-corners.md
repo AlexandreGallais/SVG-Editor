@@ -3,7 +3,7 @@ id: US-003
 epic: E01
 feature: F01
 title: Round the rectangle's corners in the playground
-status: draft
+status: ready
 points: 2
 ---
 
@@ -29,6 +29,6 @@ Written during the story (ADR-0028): steps in the playground, expected result of
 
 One task = one commit, referenced as `US-003.Tn`.
 
-- [ ] T1 — Add the global radius to the rectangle model (`domain`) (1 h)
-- [ ] T2 — Wire the radius input and the effective radius display in the playground (2 h)
-- [ ] T3 — Demonstrate the criteria to the Product Owner (0.5 h)
+- [ ] T1 — Global requested radius in the rectangle model, its validation, the rectangle's corners and its effective radius (`domain`), tests `[F01.AC2]` (1.5 h)
+- [ ] T2 — Radius input, effective radius shown next to the requested one, rounded path in the playground (`procedure`) (2 h)
+- [ ] T3 — Product Owner test card; demonstrated at VAL-001 (0.5 h)

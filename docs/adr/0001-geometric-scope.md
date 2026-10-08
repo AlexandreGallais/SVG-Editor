@@ -1,6 +1,6 @@
 # ADR-0001 — Geometric scope: segments and circular arcs
 
-**Status**: Accepted
+**Status**: Accepted — scope narrowed to symbols by ADR-0018
 
 ## Context
 

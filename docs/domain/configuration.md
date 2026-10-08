@@ -13,10 +13,9 @@ The Configurator gives symbols their business meaning, without touching their ge
 
 - Configuration is organized as **trees** of nodes. Each node carries interfaces and property groups.
 - Example: Pump → Positive displacement pump → Gear pump.
-- Scope: the higher a node, the more options it gathers (its children's included); the deeper, the narrower the selection.
-- Several trees can be combined: a business symbol may select a node of one tree and a sub-tree of another.
+- Scope (Q14): selecting a node brings **its own options and those of all its ancestors**. The deeper the node, the more options: "Gear pump" has the options of Pump, Positive displacement pump and Gear pump.
+- Several trees can be combined: a business symbol may also select a sub-tree of another tree, e.g. a pump adding "Alarms → Motor fault".
 - Properties are part of the cascade: a node's defaults apply to everything selected below it.
-- Exact rule for "which options does a selected node bring" (own + descendants, or own + ancestors): open question **Q14**.
 
 ## 3. Business types and business symbols
 

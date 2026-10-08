@@ -63,7 +63,7 @@ Storing the value (Q8, settled):
 
 ### Rectangle
 
-- Parameters: `width`, `height` (integers), optional global radius.
+- Parameters: `width`, `height` (integers ≥ 0; negative forbidden, 0 allowed — Q15), optional global radius.
 - Result: contour of 4 vertices.
 
 ### Regular polygon
@@ -151,4 +151,4 @@ See `interaction.md` §6.
 - Made by business users in the View Editor, with **more freedom** than symbols but few options.
 - A drawing has no parameter and no animation. Selecting a group and saving it creates a drawing.
 - Drawings go into a **drawing library shared between projects**, so that the same drawings are reused from one synoptic view to another.
-- Curves are allowed **only** in drawings (user decision); symbols keep ADR-0001. The exact pen behavior is open (**Q12**): Figma-like pen whose dragged handles produce Bézier curves (requires an ADR superseding ADR-0001 for drawings), a pen limited to segments and arcs, or no pen.
+- Curves are allowed **only** in drawings (Q12, ADR-0018): a Figma-like pen places points, and dragging a point pulls Bézier handles. Symbols keep ADR-0001 (segments and arcs only).

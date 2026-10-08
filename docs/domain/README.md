@@ -78,14 +78,15 @@ The French term is kept: it is the user's working vocabulary.
 | Q8  | Radius entered too large                | requested value stored, effective value derived                                                                                                                               | `shapes.md` §2              |
 | Q10 | Output precision and tolerance          | `SVG_DECIMALS = 5`; `EPSILON = 1e-9`                                                                                                                                          | `shapes.md` §1              |
 | Q11 | Contour orientation and starting vertex | clockwise on screen (SVG frame, y down), starting at the top-left vertex; a contour is cyclic: the last vertex joins the first, and every per-vertex computation wraps around | `shapes.md` §1              |
+| Q12 | Pen of the drawing tools                | Figma-like pen with Bézier handles, in static drawings only                                                                                                                   | ADR-0018                    |
+| Q13 | Rotation animation                      | property range remapped to the animation range (e.g. 0–100 → 0–90°, 0–180°, 0–360°)                                                                                           | `symbols-and-views.md` §3   |
+| Q14 | Configuration tree scope                | a selected node brings its own and its ancestors' options; sub-trees of other trees can be added                                                                              | `configuration.md` §2       |
+| Q15 | Rectangle of size 0 or negative         | negative forbidden; 0 allowed (degenerate rectangle, useful in animations)                                                                                                    | `shapes.md` §3              |
 
 ## Open questions
 
-| #   | Question                                                                                                 | File                      |
-| --- | -------------------------------------------------------------------------------------------------------- | ------------------------- |
-| Q4  | Ellipses: needed? (elliptical arcs are outside the ADR-0001 scope)                                       | `shapes.md`               |
-| Q7  | Undo / redo: command-based history, confirmed?                                                           | `interaction.md`          |
-| Q9  | Corner radius on vertices created by a boolean                                                           | `shapes.md`               |
-| Q12 | Pen of the drawing tools: Bézier handles (Figma-like), or segments and arcs only, or no pen              | `shapes.md` §8            |
-| Q13 | Rotation animation: a property value mapped to an angle, a continuous spin, or both                      | `symbols-and-views.md` §3 |
-| Q14 | Configuration tree semantics: which options a selected node brings, combining sub-trees of several trees | `configuration.md` §2     |
+| #   | Question                                                           | File             |
+| --- | ------------------------------------------------------------------ | ---------------- |
+| Q4  | Ellipses: needed? (elliptical arcs are outside the ADR-0001 scope) | `shapes.md`      |
+| Q7  | Undo / redo: command-based history, confirmed?                     | `interaction.md` |
+| Q9  | Corner radius on vertices created by a boolean                     | `shapes.md`      |

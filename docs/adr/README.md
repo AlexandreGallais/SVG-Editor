@@ -23,3 +23,4 @@ All ADRs were translated from French to English on 2026-10-08 (project rule: Eng
 | [0015](./0015-one-export-per-file.md)              | One export per file, named like the file                           | Accepted |
 | [0016](./0016-explicit-inputs.md)                  | Explicit inputs: no default nor optional parameter in the library  | Accepted |
 | [0017](./0017-in-repository-backlog.md)            | Agile backlog kept in the repository                               | Accepted |
+| [0018](./0018-curves-in-static-drawings.md)        | Bézier curves allowed in static drawings only                      | Accepted |

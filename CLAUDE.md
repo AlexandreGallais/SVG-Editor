@@ -51,7 +51,7 @@ Non-negotiable principles: schematic, orthogonal, integer, documented, dependenc
 ## Absolute prohibitions
 
 - Runtime dependency (`dependencies` stays empty). Any new dev package → a row in `docs/tooling/dependencies.md` (a test checks it).
-- Bézier curves, freehand; SVG primitives other than `svg`, `g`, `path`, `text`, `defs`; native SVG `stroke` (ADR-0001, ADR-0002).
+- Bézier curves and freehand **in symbols** (allowed only in static drawings, ADR-0018); SVG primitives other than `svg`, `g`, `path`, `text`, `defs`; native SVG `stroke` (ADR-0001, ADR-0002).
 - Function without `@kind` or `@see`; invented or `[unverified]` reference cited.
 - `any`, `!`, `as` without `eslint-disable-next-line … -- justification`; classes; `enum`.
 - Disabling an ESLint rule to make code pass. Fix the code; if the rule is wrong, tell the user (ADR if structural).
@@ -115,7 +115,8 @@ Research request: fill `docs/research/requests/_template.md` and ask the user to
 - A plugin upgrade makes `eslint/config.test.ts` fail until its new rules are decided in `eslint/rules/`: intended.
 - Autofix trap: `unicorn/prefer-import-meta-properties` turns `new URL(".", import.meta.url)` (trailing slash) into `import.meta.dirname` (none). Build paths with `join()`.
 - Docs pages: never write double curly braces (VitePress evaluates them); templates start with `_` and are not published.
-- Q10 and Q11 are settled (`SVG_DECIMALS = 5`, `EPSILON = 1e-9`, clockwise from the top-left vertex, cyclic contours). Open: Q12 (drawing pen), Q13 (rotation animation), Q14 (configuration tree scope).
+- Settled: Q10 (`SVG_DECIMALS = 5`, `EPSILON = 1e-9`), Q11 (clockwise from the top-left vertex, cyclic contours), Q12 (Béziers in drawings only, ADR-0018), Q13 (animation remapping), Q14 (node = own + ancestors' options), Q15 (size ≥ 0).
+- Stylelint is planned for SCSS but not installed: `braces` advisory GHSA-vfj7-8cjw-p6xm. When SCSS starts: install `stylelint`, `stylelint-config-standard-scss`, `stylelint-order`, `stylelint-config-recess-order`, after the audit exception list (documented, dev tools only, review date) — see `docs/tooling/versions-and-security.md`.
 
 ## Branches, commits, pull requests (user decision, 2026-10-08)
 

@@ -21,14 +21,18 @@
 
 An animatable part of a symbol reacts to a value set by a configuration rule:
 
-| Animation                     | Effect                                                                                                                                                      |
-| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Color                         | the part takes a color                                                                                                                                      |
-| Color blinking                | the part alternates between colors                                                                                                                          |
-| Opacity / visibility blinking | the part blinks by opacity or display                                                                                                                       |
-| Visibility                    | the part is shown or hidden                                                                                                                                 |
-| Partial fill                  | the part is filled up to a level (e.g. a tank level)                                                                                                        |
-| Rotation                      | the part rotates; animation values are not limited to integers or quarter turns (open question **Q13**: value mapped to an angle, continuous spin, or both) |
+| Animation                     | Effect                                                         |
+| ----------------------------- | -------------------------------------------------------------- |
+| Color                         | the part takes a color                                         |
+| Color blinking                | the part alternates between colors                             |
+| Opacity / visibility blinking | the part blinks by opacity or display                          |
+| Visibility                    | the part is shown or hidden                                    |
+| Partial fill                  | the part is filled up to a level (e.g. a tank level)           |
+| Rotation                      | the part rotates by an angle obtained by remapping (see below) |
+
+### Remapping (Q13)
+
+An animation does not read a property raw: the property's range is **remapped** to the animation's range. Example: a property from 0 to 100 drives a rotation remapped to 0–90°, 0–180° or 0–360°. The remap is set per animation, so that one property can drive any animation type.
 
 ## 4. Synoptic view (View Editor)
 

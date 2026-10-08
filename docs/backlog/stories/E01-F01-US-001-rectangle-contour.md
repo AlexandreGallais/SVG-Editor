@@ -15,6 +15,8 @@ As a symbol designer, I want a rectangle defined by an integer width and height 
 
 - Given width 100 and height 50, when the contour is built, then its vertices are (0, 0), (100, 0), (100, 50), (0, 50): clockwise on screen from the top-left vertex (Q11).
 - Given any integer width and height, when the contour is built, then every vertex has integer coordinates (ADR-0003).
+- Given width 0 or height 0, when the contour is built, then the degenerate rectangle is accepted (Q15).
+- Given a negative width or height, when the rectangle is created, then it is rejected (Q15).
 
 ## Tasks
 
@@ -24,7 +26,3 @@ One task = one commit, referenced as `US-001.Tn`.
 - [ ] T2 — Add the `Point` type module in `src/math/` (0.5 h)
 - [ ] T3 — Add the rectangle model type and its contour function (`domain`) in `src/model/` (2 h)
 - [ ] T4 — Re-export the new layers from `src/index.ts` (`npm run fix`) (0.5 h)
-
-## Open points
-
-- Width or height ≤ 0: rule to be decided by the Product Owner before `ready`.

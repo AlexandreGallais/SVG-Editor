@@ -17,6 +17,9 @@ hero:
       link: /api/
 
 features:
+  - title: Guide
+    details: What the library does, in plain language, with guided tests in the playground.
+    link: /guide/
   - title: Domain
     details: Shapes, symbols, views, pipes and interaction — the business source of truth.
     link: /domain/

@@ -19,6 +19,7 @@ const FOLDER_INDEX = "README.md";
 
 /** Site sections: title and folder, in reading order. */
 const SECTIONS = [
+  { folder: "guide", title: "Guide" },
   { folder: "domain", title: "Domain" },
   { folder: "adr", title: "Decisions" },
   { folder: "conventions", title: "Conventions" },
@@ -27,6 +28,8 @@ const SECTIONS = [
   { folder: "backlog", title: "Backlog" },
   { folder: "backlog/epics", title: "Epics" },
   { folder: "research", title: "Research" },
+  { folder: "process", title: "Process" },
+  { folder: "playbook", title: "Playbook" },
 ];
 
 /**

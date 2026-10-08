@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.7](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.6.6...v0.6.7) (2026-10-08)
+
+
+### Documentation
+
+* **adr:** add feature branches and autonomous runs ([773b4f9](https://github.com/AlexandreGallais/synoptic-studio/commit/773b4f9a17db21768614be42baca853c43a46769))
+
 ## [0.6.6](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.6.5...v0.6.6) (2026-10-08)
 
 

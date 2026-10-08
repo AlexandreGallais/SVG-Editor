@@ -46,6 +46,10 @@ Along the arc from `T_in` to `T_out`, the tangent turns from `u_in` to `u_out`, 
 
 `r = 0` gives `s = 0`, `T_in = T_out = V`: no arc. SVG would also draw an arc of zero radius as a straight line (`REF-SVG2-IMPLNOTE` B.2.5, step 1); the library never writes one.
 
+## Step 7 — Starting point of a rounded contour
+
+A contour starts at its top-left vertex (Q11). Once rounded, that vertex is no longer on the path; the path starts at `T_out` of the first vertex, so that its commands follow the vertices in order — edge to the second vertex first — and the first vertex's arc closes the path. This is a convention of the output, chosen for this order; starting at `T_in` would draw the same shape.
+
 ## Checks (test cases)
 
 Rectangle 100 × 50 from the top-left vertex, clockwise: `(0, 0)`, `(100, 0)`, `(100, 50)`, `(0, 50)`, effective radius 10 everywhere. Every corner has `τ = π/2`, so `s = 10 · tan(π/4) = 10`.
@@ -70,4 +74,5 @@ Each center is at distance `r` from both tangent points, e.g. `‖(90, 10) − (
 
 ## Limits
 
+- At `τ = 0`, `sign(τ) = 0` gives `C = V`; there is no arc, so no center is used.
 - The angle between `C − T_in` and `C − T_out` equals `|τ|`; the library never needs the center to write the path (only radius, flags and end point), but keeps it for later uses (hit-testing, snapping).

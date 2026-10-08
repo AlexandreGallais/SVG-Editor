@@ -3,7 +3,7 @@ id: US-001
 epic: E01
 feature: F01
 title: Rectangle contour from width and height
-status: ready
+status: in-progress
 points: 2
 ---
 
@@ -22,7 +22,7 @@ As a symbol designer, I want a rectangle defined by an integer width and height 
 
 One task = one commit, referenced as `US-001.Tn`.
 
-- [ ] T1 — Write the tests of the cases above (1 h)
-- [ ] T2 — Add the `Point` type module in `src/math/` (0.5 h)
-- [ ] T3 — Add the rectangle model type and its contour function (`domain`) in `src/model/` (2 h)
-- [ ] T4 — Re-export the new layers from `src/index.ts` (`npm run fix`) (0.5 h)
+- [x] T1 — Write the tests of the cases above (1 h)
+- [x] T2 — Add the `Point` type module in `src/math/` (0.5 h)
+- [x] T3 — Add the rectangle model type and its contour function (`domain`) in `src/model/` (2 h) — `Rectangle`, `rectangleContour`, `isValidRectangle`
+- [x] T4 — Re-export the new layers from `src/index.ts` (`npm run fix`) (0.5 h)

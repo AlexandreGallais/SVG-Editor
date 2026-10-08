@@ -64,7 +64,11 @@ function readNumber(document: Document, id: string): number {
  * @see docs/backlog/stories/E01-F01-US-002-sharp-rectangle-in-playground.md
  */
 function readRectangle(document: Document): Rectangle {
-  return { height: readNumber(document, "height"), width: readNumber(document, "width") };
+  return {
+    height: readNumber(document, "height"),
+    radius: 0,
+    width: readNumber(document, "width"),
+  };
 }
 
 /**

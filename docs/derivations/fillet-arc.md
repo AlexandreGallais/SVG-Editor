@@ -52,6 +52,8 @@ A contour starts at its top-left vertex (Q11). Once rounded, that vertex is no l
 
 Pieces without length are dropped: a segment between two tangent points that meet (two fillets covering a whole edge), or the arc of a corner that keeps no fillet (`T_in = T_out`). A piece is kept when the distance between its ends is at least `EPSILON` (Q10). Consecutive pieces therefore meet within `EPSILON`, not exactly.
 
+When the contour is written as path data, a final segment is left to `closepath`, which draws a straight line back to the start (`REF-SVG2-PATHS` §9.3.4): with every radius 0, the result is exactly the sharp path data `M p₀ L p₁ … Z`.
+
 ## Checks (test cases)
 
 Rectangle 100 × 50 from the top-left vertex, clockwise: `(0, 0)`, `(100, 0)`, `(100, 50)`, `(0, 50)`, effective radius 10 everywhere. Every corner has `τ = π/2`, so `s = 10 · tan(π/4) = 10`.

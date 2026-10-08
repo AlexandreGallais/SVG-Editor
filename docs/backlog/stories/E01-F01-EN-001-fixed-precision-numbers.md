@@ -3,7 +3,7 @@ id: EN-001
 epic: E01
 feature: F01
 title: Write numbers with fixed precision
-status: draft
+status: ready
 points: 2
 ---
 

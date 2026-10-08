@@ -31,3 +31,12 @@ status: draft
 | [F03](../features/E01-F03-per-vertex-corner-radius-and-node-editing.md) — Per-vertex corner radius and node editing | draft  |
 | [F04](../features/E01-F04-free-rotation-of-shapes.md) — Free rotation of shapes                                     | draft  |
 | [F05](../features/E01-F05-text.md) — Text                                                                           | draft  |
+
+## Closing
+
+After its last feature is validated (ADR-0023).
+
+| Story                                                                               | Status |
+| ----------------------------------------------------------------------------------- | ------ |
+| [REV-001](../stories/E01-REV-001-review-e01.md) — Review E01 with the Product Owner | draft  |
+| [RET-001](../stories/E01-RET-001-retrospective-e01.md) — Retrospective of E01       | draft  |

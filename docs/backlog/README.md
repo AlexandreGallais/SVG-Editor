@@ -37,7 +37,7 @@ EPIC          complete business need
 1. **Every item has a parent**: story → feature → epic.
 2. **Vertical slice**: a feature or a user story describes an observable behavior, never an isolated layer ("the geometry", "the tests").
 3. **A story is small**: finished, tested and accepted on its own, in a few working sessions at most. Without sprints, this replaces Scrum's "done within one sprint" (`REF-SCRUM-GUIDE`). It meets INVEST (`REF-HUMANIZING-SPLITTING`). Too big → split by behavior (simple case first, then variants), never "part 1 / part 2".
-4. **Story types** (`REF-SAFE-STORY`): `US` user story (user-visible behavior), `EN` enabler (exploration, architecture, infrastructure — e.g. a geometric function and its derivation), `SP` spike (time-boxed study, its acceptance criteria are the questions), `AUD` audit (compliance enabler: full check of a feature, [audit.md](../conventions/audit.md)), `VAL` feature validation (the Product Owner checks the feature's criteria).
+4. **Story types** (`REF-SAFE-STORY`): `US` user story (user-visible behavior), `EN` enabler (exploration, architecture, infrastructure — e.g. a geometric function and its derivation), `SP` spike (time-boxed study, its acceptance criteria are the questions), `AUD` audit (compliance enabler: full check of a feature, [audit.md](../conventions/audit.md)), `VAL` feature validation (demo page in the [guide](../guide/), the Product Owner runs its guided test and checks the feature's criteria), `REV` epic review and `RET` epic retrospective (attached to the epic, no feature; [process](../process/)).
 5. **Acceptance criteria**: Given / When / Then, one block per case, each observable.
 6. **Feature plan**: once a feature is refined, a table maps each acceptance criterion to the stories that realize it and to the story that verifies it, in delivery order.
 7. **A task is ≤ 1 day**, one verifiable result, estimated in hours (`REF-SCRUM-GUIDE`: work items of one day or less); stories are estimated in points. Tasks are numbered `T1`, `T2`… inside their story; **one task = one commit**, referenced as `US-004.T2`.
@@ -56,7 +56,9 @@ Every feature is delivered in the same order, checked by `backlog.test.ts` (a fe
 | 1    | `SP` research spike | sources, derivations and research requests for **all** the feature's stories, before any code ([research protocol](../research/) §8) |
 | 2    | `US`, `EN`          | implementation, one story per pull request                                                                                           |
 | 3    | `AUD` audit         | the feature in depth, the project in breadth ([audit.md](../conventions/audit.md))                                                   |
-| 4    | `VAL` validation    | the Product Owner checks the feature's acceptance criteria                                                                           |
+| 4    | `VAL` validation    | plain-language demo page and guided test; the Product Owner checks the feature's acceptance criteria                                 |
+
+Every started epic closes with `REV` (epic report and user test) then `RET` (retrospective, evolvability review, playbook) — ADR-0023, checked by the same test. Their files are `E01-REV-001-slug.md`, listed in the epic's **Closing** table.
 
 ## Statuses
 
@@ -69,7 +71,7 @@ The order of the files in a folder is not the priority: the Product Owner's orde
 
 ## Files
 
-Every item is a Markdown file starting with a front-matter block (`key: value` lines, no nesting). Templates: `_epic.md`, `_feature.md`, `_story.md`, `_spike.md`, `_audit.md` in this folder (not published on the site).
+Every item is a Markdown file starting with a front-matter block (`key: value` lines, no nesting). Templates: `_epic.md`, `_feature.md`, `_story.md`, `_spike.md`, `_audit.md`, `_review.md`, `_retro.md` in this folder (not published on the site).
 
 | Field    | Epic  | Feature     | Story                                              |
 | -------- | ----- | ----------- | -------------------------------------------------- |

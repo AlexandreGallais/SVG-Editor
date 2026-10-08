@@ -24,7 +24,7 @@ const STATUSES: Readonly<Record<string, readonly string[]>> = {
 const ID_PATTERNS: Readonly<Record<string, RegExp>> = {
   epics: /^E\d{2}$/u,
   features: /^F\d{2}$/u,
-  stories: /^(?:US|EN|SP|AUD|VAL)-\d{3}$/u,
+  stories: /^(?:US|EN|SP|AUD|VAL|REV|RET)-\d{3}$/u,
 };
 
 /**
@@ -119,6 +119,29 @@ function hasValidStatus(item: Item): boolean {
 /** Parent field of each child folder. */
 const PARENT_FIELDS: Readonly<Record<string, string>> = { features: "epic", stories: "feature" };
 
+/** Story kinds attached to an epic rather than a feature: review and retrospective (ADR-0023). */
+const EPIC_STORY = /^(?:REV|RET)-/u;
+
+/**
+ * Whether a story belongs directly to its epic (review, retrospective).
+ *
+ * @param item - backlog item
+ * @returns `true` for a `REV` or `RET` story
+ */
+function isEpicStory(item: Item): boolean {
+  return item.folder === "stories" && EPIC_STORY.test(item.fields["id"] ?? "");
+}
+
+/**
+ * Front-matter field naming an item's parent.
+ *
+ * @param item - backlog item
+ * @returns `epic` for features and epic stories, `feature` for other stories, `undefined` for epics
+ */
+function parentField(item: Item): string | undefined {
+  return isEpicStory(item) ? "epic" : PARENT_FIELDS[item.folder];
+}
+
 /**
  * Whether an item is attached to an existing parent (features to epics, stories to features).
  *
@@ -127,7 +150,7 @@ const PARENT_FIELDS: Readonly<Record<string, string>> = { features: "epic", stor
  * @returns `true` when the item needs no parent or its parent exists
  */
 function hasParent(item: Item, parents: Readonly<Record<string, ReadonlySet<string>>>): boolean {
-  const field = PARENT_FIELDS[item.folder];
+  const field = parentField(item);
 
   return field === undefined || (parents[field]?.has(item.fields[field] ?? "") ?? false);
 }
@@ -181,7 +204,7 @@ const PARENT_FOLDERS: Readonly<Record<string, string>> = { features: "epics", st
  * @returns map from item id to the status written in the parent's table, empty without parent file
  */
 function parentStatuses(item: Item): ReadonlyMap<string, string> {
-  const folder = PARENT_FOLDERS[item.folder] ?? "";
+  const folder = isEpicStory(item) ? "epics" : (PARENT_FOLDERS[item.folder] ?? "");
   const prefix = expectedPrefix(item).replace(`${item.fields["id"] ?? ""}-`, "");
   const parent = readdirSync(join(BACKLOG, folder)).find((file) => file.startsWith(prefix));
 
@@ -191,19 +214,28 @@ function parentStatuses(item: Item): ReadonlyMap<string, string> {
 /** Story kinds every feature needs: research spike, audit, validation (ADR-0020). */
 const FRAME_PREFIXES = ["SP-", "AUD-", "VAL-"];
 
+/** Story kinds every started epic needs: review, retrospective (ADR-0023). */
+const CLOSING_PREFIXES = ["REV-", "RET-"];
+
 /**
- * Whether a feature has a research spike, an audit and a validation story.
+ * Whether the stories of one parent include every required kind.
  *
  * @param stories - every story item
- * @param feature - feature id
- * @returns `true` when the three framing stories exist
+ * @param parent - `["feature", "F01"]` or `["epic", "E01"]`
+ * @param prefixes - id prefixes that must all be present
+ * @returns `true` when each prefix starts the id of one of the parent's stories
  */
-function isFramed(stories: readonly Item[], feature: string): boolean {
+function hasKinds(
+  stories: readonly Item[],
+  parent: readonly [string, string],
+  prefixes: readonly string[],
+): boolean {
+  const [field, value] = parent;
   const ids = stories
-    .filter((story) => story.fields["feature"] === feature)
+    .filter((story) => story.fields[field] === value)
     .map((story) => story.fields["id"] ?? "");
 
-  return FRAME_PREFIXES.every((prefix) => ids.some((id) => id.startsWith(prefix)));
+  return prefixes.every((prefix) => ids.some((id) => id.startsWith(prefix)));
 }
 
 describe("backlog", () => {
@@ -263,9 +295,21 @@ describe("backlog", () => {
 
   it("frames every feature with a research spike, an audit and a validation (ADR-0020)", () => {
     const stories = items().filter((item) => item.folder === "stories");
-    const features = [...new Set(stories.map((story) => story.fields["feature"] ?? ""))];
+    const features = [...new Set(stories.map((story) => story.fields["feature"] ?? ""))].filter(
+      (feature) => feature !== "",
+    );
 
-    expect(features.filter((feature) => !isFramed(stories, feature))).toEqual([]);
+    expect(
+      features.filter((feature) => !hasKinds(stories, ["feature", feature], FRAME_PREFIXES)),
+    ).toEqual([]);
+  });
+
+  it("closes every started epic with a review and a retrospective (ADR-0023)", () => {
+    const stories = items().filter((item) => item.folder === "stories");
+    const epics = [...new Set(stories.map((story) => story.fields["epic"] ?? ""))];
+    const unclosed = epics.filter((epic) => !hasKinds(stories, ["epic", epic], CLOSING_PREFIXES));
+
+    expect(unclosed).toEqual([]);
   });
 
   it("uses each id once", () => {

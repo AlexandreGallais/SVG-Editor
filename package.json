@@ -3,10 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "description": "Integer, orthogonal, path-only SVG editing library for synoptic-view symbols.",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexandreGallais/synoptic-studio.git"
+  },
+  "homepage": "https://alexandregallais.github.io/synoptic-studio/",
   "type": "module",
   "sideEffects": false,
   "files": [
-    "dist"
+    "dist",
+    "LICENSE",
+    "NOTICE"
   ],
   "exports": {
     ".": {

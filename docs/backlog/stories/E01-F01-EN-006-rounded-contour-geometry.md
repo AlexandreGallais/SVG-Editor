@@ -3,7 +3,7 @@ id: EN-006
 epic: E01
 feature: F01
 title: "Rounded contour geometry: segments and arcs"
-status: draft
+status: ready
 points: 5
 ---
 

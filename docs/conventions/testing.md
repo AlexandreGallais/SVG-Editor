@@ -24,6 +24,15 @@ it("returns the height of an equilateral triangle", () => {
 
 `npm run test` measures the coverage of `src/` (`@vitest/coverage-v8`) and fails below **100 %** of lines, branches, functions and statements. Barrels and tests are excluded. An uncovered branch is either a missing test or dead code.
 
+## Checking the tests themselves
+
+- A test that reads files (backlog, bibliography, barrels) is **mutation-checked** once: break the input on purpose and see it fail — a test that cannot fail checks nothing.
+- Feature audits mutate each function once (flip a sign, swap an operator) and check that a test fails ([audit.md](./audit.md) A4).
+
+## Later: regression and end-to-end tests
+
+Not now (ADR-0020): while the library is being built, unit tests and feature audits are the safety net. Regression suites and end-to-end tests of the applications come when the applications exist.
+
 ## ESLint relaxations in tests (`eslint/scopes/tests.ts`)
 
 Literal numbers allowed, free function length, callback nesting up to 4, dev dependencies allowed, no `@kind`. Every other rule applies, including naming and JSDoc of module constants.

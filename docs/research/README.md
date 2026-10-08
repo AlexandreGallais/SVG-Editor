@@ -82,3 +82,13 @@ On receiving the answer, Claude Code:
 ## 7. Research done by Claude Code itself
 
 When WebSearch / WebFetch are available, Claude Code may do levels 4 and 5 without a request. Same recording: note in `notes/`, dated entry in `docs/references.md`, **before** the code. Example: [note 0001](./notes/0001-tooling-practices.md).
+
+## 8. Feature research spike
+
+The `SP` story opening every feature (ADR-0020), done **before** its implementation stories:
+
+1. List every formula, algorithm, specification point and interface behavior the feature's stories need.
+2. For each one: an existing verified `REF-*` or `DERIV-*`, or a new source found and read (levels 4–5, recorded in `docs/references.md` with its date), or a derivation written, or a research request opened (§5) — never "to be found later".
+3. Write a research note `notes/NNNN-<feature>.md`: what was found, for which story, what remains open.
+4. Update the stories: acceptance criteria from the sources' examples, `@see` targets in the tasks, blocked points.
+5. Ask the Product Owner the business questions found on the way (`docs/domain/README.md` open questions).

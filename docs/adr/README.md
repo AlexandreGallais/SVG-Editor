@@ -25,3 +25,4 @@ All ADRs were translated from French to English on 2026-10-08 (project rule: Eng
 | [0017](./0017-in-repository-backlog.md)            | Agile backlog kept in the repository                               | Accepted               |
 | [0018](./0018-curves-in-static-drawings.md)        | Bézier curves allowed in static drawings only                      | Accepted               |
 | [0019](./0019-kebab-case-file-names.md)            | Kebab-case file names, one export per file                         | Accepted               |
+| [0020](./0020-feature-research-and-audit.md)       | Every feature starts with a research spike and ends with an audit  | Accepted               |

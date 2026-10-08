@@ -21,7 +21,7 @@ Screen frame of SVG: x to the right, **y down** (`REF-SVG2-COORDS` §8.4).
 
 ## Step 2 — Tangent points
 
-The fillet touches each edge at distance `s` from `V` (`DERIV-fillet-setback`, steps 1–4: the two tangent lengths are equal):
+The fillet touches each edge at distance `s` from `V` (`DERIV-fillet-setback`, steps 1–4: the two tangent lengths are equal); a point at distance `s` along a unit direction is `V + s · u` (scalar multiplication and addition in components, `REF-OPENSTAX-CALC3-VECTORS`):
 
 - on the incoming edge: `T_in = V − s · u_in`;
 - on the outgoing edge: `T_out = V + s · u_out`.

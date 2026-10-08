@@ -14,6 +14,16 @@ Status: **[verified]** = source consulted online (date when known); **[unverifie
 | `REF-INKSCAPE-SHAPEBUILDER` | Inkscape 1.3 release notes — Shape Builder Tool (on-canvas boolean tool). <https://wiki.inkscape.org/wiki/Release_notes/1.3>                                                                | shape builder                           | [verified]   |
 | `REF-INKSCAPE-BOOL`         | Inkscape Beginners' Guide — Boolean Operations. <https://inkscape-manuals.readthedocs.io/en/1.1/boolean-operations.html>                                                                    | semantics of boolean operations         | [verified]   |
 
+## Vectors and angles
+
+| ID                                | Reference                                                                                                                                                                                             | Used for                          | Status                |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- | --------------------- |
+| `REF-MATHWORLD-VECTOR-ADDITION`   | E. W. Weisstein, "Vector Addition", MathWorld: component form `A+B = (a₁+b₁, …, aₙ+bₙ)`. <https://mathworld.wolfram.com/VectorAddition.html>                                                          | vector difference in components   | [verified] 2026-10-08 |
+| `REF-MATHWORLD-VECTOR-DIFFERENCE` | E. W. Weisstein, "Vector Difference", MathWorld: `A − B = A + (−B)`. <https://mathworld.wolfram.com/VectorDifference.html>                                                                            | edge vectors                      | [verified] 2026-10-08 |
+| `REF-MATHWORLD-DOT`               | E. W. Weisstein, "Dot Product", MathWorld: `A·B = AₓBₓ + A_yB_y = ‖A‖‖B‖cos θ`. <https://mathworld.wolfram.com/DotProduct.html>                                                                       | dot product                       | [verified] 2026-10-08 |
+| `REF-MATHWORLD-PERP-DOT`          | E. W. Weisstein, "Perp Dot Product", MathWorld: `a⊥·b = \|a\| \|b\| sin θ`, `a⊥` = `a` rotated 90° to the left. <https://mathworld.wolfram.com/PerpDotProduct.html>                                   | 2D cross product, sine of a turn  | [verified] 2026-10-08 |
+| `REF-MDN-ATAN2`                   | MDN, `Math.atan2(y, x)`: counter-clockwise angle in `[−π, π]` between the positive x-axis and `(x, y)`. <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/atan2> | signed angle from sine and cosine | [verified] 2026-10-08 |
+
 ## Computational geometry
 
 | ID                      | Reference                                                                                                                                                                               | Used for                                 | Status       |

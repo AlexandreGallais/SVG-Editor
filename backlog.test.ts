@@ -24,7 +24,7 @@ const STATUSES: Readonly<Record<string, readonly string[]>> = {
 const ID_PATTERNS: Readonly<Record<string, RegExp>> = {
   epics: /^E\d{2}$/u,
   features: /^F\d{2}$/u,
-  stories: /^(?:US|EN|SP|VAL)-\d{3}$/u,
+  stories: /^(?:US|EN|SP|AUD|VAL)-\d{3}$/u,
 };
 
 /**
@@ -163,6 +163,24 @@ function indexStatuses(folder: string): ReadonlyMap<string, string> {
   );
 }
 
+/** Story kinds every feature needs: research spike, audit, validation (ADR-0020). */
+const FRAME_PREFIXES = ["SP-", "AUD-", "VAL-"];
+
+/**
+ * Whether a feature has a research spike, an audit and a validation story.
+ *
+ * @param stories - every story item
+ * @param feature - feature id
+ * @returns `true` when the three framing stories exist
+ */
+function isFramed(stories: readonly Item[], feature: string): boolean {
+  const ids = stories
+    .filter((story) => story.fields["feature"] === feature)
+    .map((story) => story.fields["id"] ?? "");
+
+  return FRAME_PREFIXES.every((prefix) => ids.some((id) => id.startsWith(prefix)));
+}
+
 describe("backlog", () => {
   it("gives every item a well-formed id, a title and an allowed status", () => {
     expect(
@@ -206,6 +224,13 @@ describe("backlog", () => {
     );
 
     expect(mismatches.map((item) => item.file)).toEqual([]);
+  });
+
+  it("frames every feature with a research spike, an audit and a validation (ADR-0020)", () => {
+    const stories = items().filter((item) => item.folder === "stories");
+    const features = [...new Set(stories.map((story) => story.fields["feature"] ?? ""))];
+
+    expect(features.filter((feature) => !isFramed(stories, feature))).toEqual([]);
   });
 
   it("uses each id once", () => {

@@ -29,10 +29,12 @@ In delivery order.
 | [US-004](../stories/E01-F01-US-004-fixed-scale-playground.md)        | User story | Show shapes at a fixed scale in the playground  | done   |
 | [EN-003](../stories/E01-F01-EN-003-corner-turning-angle.md)          | Enabler    | Turning angle at a contour vertex               | done   |
 | [EN-004](../stories/E01-F01-EN-004-fillet-setback.md)                | Enabler    | Fillet setback                                  | done   |
+| [SP-001](../stories/E01-F01-SP-001-research-remaining-f01.md)        | Spike      | Research for the remaining stories of F01       | draft  |
 | [EN-005](../stories/E01-F01-EN-005-local-radius-clamp.md)            | Enabler    | Local proportional radius clamp                 | draft  |
 | [EN-006](../stories/E01-F01-EN-006-rounded-contour-geometry.md)      | Enabler    | Rounded contour geometry: segments and arcs     | draft  |
 | [EN-007](../stories/E01-F01-EN-007-arc-path-data.md)                 | Enabler    | Path data with arcs                             | draft  |
 | [US-003](../stories/E01-F01-US-003-round-rectangle-corners.md)       | User story | Round the rectangle's corners in the playground | draft  |
+| [AUD-001](../stories/E01-F01-AUD-001-audit-f01.md)                   | Audit      | Audit F01: rectangle with corner radius         | draft  |
 | [VAL-001](../stories/E01-F01-VAL-001-validate-rectangle.md)          | Validation | Validate F01 on the reference cases             | draft  |
 
 ## Feature plan

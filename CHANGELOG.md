@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.6.2](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.6.1...v0.6.2) (2026-10-08)
+
+
+### Documentation
+
+* **adr:** adopt an agent working environment and property-based tests ([e80daaa](https://github.com/AlexandreGallais/synoptic-studio/commit/e80daaa99c2ba5da8ba9b93bca4dd7ac1b8b154b))
+* **backlog:** interview the Product Owner and use the auditor in audits ([86c4c6d](https://github.com/AlexandreGallais/synoptic-studio/commit/86c4c6d8899bc6bd96d1867e5be0539937834eca))
+* record agent and verification practices ([ea1dea3](https://github.com/AlexandreGallais/synoptic-studio/commit/ea1dea37da0c5c9474fc526a43316969d6565247))
+
+
+### Build and dependencies
+
+* **deps:** add fast-check for property-based tests ([6676286](https://github.com/AlexandreGallais/synoptic-studio/commit/6676286d15104f0d907d55545ae1e1fac68fc28b))
+
 ## [0.6.1](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.6.0...v0.6.1) (2026-10-08)
 
 

@@ -1,21 +1,21 @@
 # Commands
 
-| Command                                            | Role                                                                                              |
-| -------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `npm run dev`                                      | Vite server on `playground/` (`http://localhost:5173`)                                            |
-| `npm run build`                                    | `npm audit`, then library build (`dist/editor.js`) + declarations (`dist/types/`)                 |
-| `npm run test` / `test:watch`                      | Vitest (library, custom rules, ESLint audit, dependency documentation)                            |
-| `npm run lint` / `lint:fix`                        | ESLint, zero warning tolerated                                                                    |
-| `npm run lint:secrets`                             | secretlint: no key, token or password in any file                                                 |
-| `npm run format` / `format:check`                  | Prettier                                                                                          |
-| `npm run typecheck`                                | `tsc --noEmit`                                                                                    |
-| `npm run fix`                                      | Prettier then ESLint `--fix`: **run before `check`**                                              |
-| `npm run check`                                    | Prettier + ESLint + secretlint + `tsc` + Vitest + `npm audit`: **must be green to finish a task** |
-| `npm run deps:audit`                               | `npm audit`, any severity fails                                                                   |
-| `npm run deps:outdated`                            | fails when a dependency is not on its latest version                                              |
-| `npm run check:all`                                | `check` + `deps:outdated` + documentation build (what CI runs)                                    |
-| `npm run docs:dev` / `docs:build` / `docs:preview` | documentation site (TypeDoc API generated first)                                                  |
-| `npm run docs:api`                                 | regenerate `docs/api/` from the TSDoc                                                             |
+| Command                                            | Role                                                                                                                |
+| -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `npm run dev`                                      | Vite server on `playground/` (`http://localhost:5173`)                                                              |
+| `npm run build`                                    | `npm audit`, then library build (`dist/editor.js`) + declarations (`dist/types/`)                                   |
+| `npm run test` / `test:watch`                      | Vitest with coverage of `src/` (100 % required) — library, custom rules, ESLint audit, dependency and backlog tests |
+| `npm run lint` / `lint:fix`                        | ESLint, zero warning tolerated                                                                                      |
+| `npm run lint:secrets`                             | secretlint: no key, token or password in any file                                                                   |
+| `npm run format` / `format:check`                  | Prettier                                                                                                            |
+| `npm run typecheck`                                | `tsc --noEmit`                                                                                                      |
+| `npm run fix`                                      | Prettier then ESLint `--fix`: **run before `check`**                                                                |
+| `npm run check`                                    | Prettier + ESLint + secretlint + `tsc` + Vitest + `npm audit`: **must be green to finish a task**                   |
+| `npm run deps:audit`                               | `npm audit`, any severity fails                                                                                     |
+| `npm run deps:outdated`                            | fails when a dependency is not on its latest version                                                                |
+| `npm run check:all`                                | `check` + `deps:outdated` + documentation build (what CI runs)                                                      |
+| `npm run docs:dev` / `docs:build` / `docs:preview` | documentation site (TypeDoc API generated first)                                                                    |
+| `npm run docs:api`                                 | regenerate `docs/api/` from the TSDoc                                                                               |
 
 ## Playground
 

@@ -4,7 +4,8 @@ Versions and changelog are produced from the commit history by **release-please*
 
 1. Every push on `main` updates a release pull request (`chore(main): release x.y.z`) holding the next version in `package.json` and the new section of `CHANGELOG.md`.
 2. Merging that pull request tags `vx.y.z`, publishes the GitHub release, then **publishes the documentation site** to GitHub Pages (`docs` job of `release.yml`, `https://alexandregallais.github.io/SVG-Editor/`). The site can also be published by hand: _Actions → Release → Run workflow_.
-3. The first version is `0.1.0` (`initial-version`): the library stays below `1.0.0` until the Product Owner decides it is stable.
+3. The release pull request is updated with the Actions token, which triggers no workflow: **close and reopen it** to run the CI before merging (or give release-please a personal access token).
+4. The first version is `0.1.0` (`initial-version`): the library stays below `1.0.0` until the Product Owner decides it is stable.
 
 | Commits since the last release      | Next version (before 1.0.0)    | After 1.0.0 |
 | ----------------------------------- | ------------------------------ | ----------- |

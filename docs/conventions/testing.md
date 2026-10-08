@@ -20,6 +20,10 @@ it("returns the height of an equilateral triangle", () => {
 - Float comparisons: `toBeCloseTo` with a justified number of decimals, or the project's `EPSILON` (once defined, question Q10).
 - No DOM test yet (no `jsdom`): the shell stays thin, the logic lives in the core.
 
+## Coverage
+
+`npm run test` measures the coverage of `src/` (`@vitest/coverage-v8`) and fails below **100 %** of lines, branches, functions and statements. Barrels and tests are excluded. An uncovered branch is either a missing test or dead code.
+
 ## ESLint relaxations in tests (`eslint/scopes/tests.ts`)
 
 Literal numbers allowed, free function length, callback nesting up to 4, dev dependencies allowed, no `@kind`. Every other rule applies, including naming and JSDoc of module constants.

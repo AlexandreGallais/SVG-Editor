@@ -23,6 +23,13 @@ export default defineConfig({
   },
   root: join(ROOT, "playground"),
   test: {
+    coverage: {
+      exclude: ["src/**/index.ts", "src/**/*.test.ts"],
+      include: ["src/**/*.ts"],
+      provider: "v8",
+      reporter: ["text-summary"],
+      thresholds: { 100: true },
+    },
     include: ["src/**/*.test.ts", "eslint/**/*.test.ts", "*.test.ts"],
     root: ROOT,
     setupFiles: ["vitest.setup.ts"],

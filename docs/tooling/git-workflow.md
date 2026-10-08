@@ -9,6 +9,16 @@
 - No `develop` branch, no long-lived branch.
 - Branch names are checked by `validate-branch-name` (pattern in `package.json`): `main`, `<type>/<kebab-case>`, plus the bots' `dependabot/…` and `release-please--…`.
 
+## After a merge
+
+```sh
+git switch main
+git pull --prune
+git branch -d <story-branch>
+```
+
+The remote branch is deleted by GitHub on merge; `fetch.prune` keeps local references clean.
+
 ## Commit messages
 
 Conventional Commits (`REF-CONVENTIONAL-COMMITS`), checked by commitlint on every commit and in CI (`commitlint.config.ts`):

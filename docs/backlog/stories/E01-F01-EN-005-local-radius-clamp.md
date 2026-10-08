@@ -3,7 +3,7 @@ id: EN-005
 epic: E01
 feature: F01
 title: Local proportional radius clamp
-status: draft
+status: ready
 points: 3
 ---
 
@@ -28,5 +28,6 @@ Float results are compared within `EPSILON = 1e-9` (Q10).
 One task = one commit, referenced as `EN-005.Tn`.
 
 - [ ] T1 — `EPSILON` (Q10) and edge length `norm` (`math`, `REF-MATHWORLD-VECTOR-NORM`) with their tests (0.5 h)
-- [ ] T2 — Factor per edge (`geometry`, `DERIV-local-radius-clamp` step 2) with the tests of the check table (1 h)
-- [ ] T3 — Factor per vertex and effective radii (`geometry`, step 3), properties: effective ≤ requested, setbacks of an edge ≤ its length (1.5 h)
+- [ ] T2 — Generalize `cyclicVertex` into `cyclicItem`, used for vertices and for per-vertex numbers (`geometry`) (0.5 h)
+- [ ] T3 — `Corner` (vertex and requested radius), setbacks, edge lengths, factor per edge (`geometry`, `DERIV-local-radius-clamp` steps 1–2) with the check table (1 h)
+- [ ] T4 — Factor per vertex and effective radii (`geometry`, step 3); properties: 0 ≤ effective ≤ requested, setbacks of an edge ≤ its length (1.5 h)

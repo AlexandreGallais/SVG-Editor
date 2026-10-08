@@ -10,7 +10,7 @@
 | [EN-003](./E01-F01-EN-003-corner-turning-angle.md)          | F01     | Turning angle at a contour vertex               | done   |
 | [EN-004](./E01-F01-EN-004-fillet-setback.md)                | F01     | Fillet setback                                  | done   |
 | [SP-001](./E01-F01-SP-001-research-remaining-f01.md)        | F01     | Research for the remaining stories of F01       | done   |
-| [EN-005](./E01-F01-EN-005-local-radius-clamp.md)            | F01     | Local proportional radius clamp                 | draft  |
+| [EN-005](./E01-F01-EN-005-local-radius-clamp.md)            | F01     | Local proportional radius clamp                 | ready  |
 | [EN-006](./E01-F01-EN-006-rounded-contour-geometry.md)      | F01     | Rounded contour geometry: segments and arcs     | draft  |
 | [CHK-001](./E01-F01-CHK-001-checkpoint-f01.md)              | F01     | Checkpoint in the middle of F01                 | draft  |
 | [EN-007](./E01-F01-EN-007-arc-path-data.md)                 | F01     | Path data with arcs                             | draft  |

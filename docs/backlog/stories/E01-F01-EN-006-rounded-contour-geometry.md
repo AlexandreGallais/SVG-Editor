@@ -4,7 +4,7 @@ epic: E01
 feature: F01
 title: "Rounded contour geometry: segments and arcs"
 status: draft
-points: 3
+points: 5
 ---
 
 # E01 · F01 · EN-006 — Rounded contour geometry: segments and arcs
@@ -13,15 +13,19 @@ Evaluate a contour with effective radii into a closed sequence of segments and c
 
 ## Acceptance criteria
 
+Sources: `DERIV-fillet-arc` (check table), `EPSILON` of Q10 (SP-001).
+
 - Given a 100 × 100 square with effective radius 50 everywhere, when evaluated, then the result is 4 quarter arcs and no segment of positive length.
-- Given a 100 × 50 rectangle with effective radius 10, when evaluated, then it has 4 segments and 4 quarter arcs, tangent points 10 away from each corner.
+- Given a 100 × 50 rectangle with effective radius 10, when evaluated, then it has 4 segments and 4 quarter arcs, with the tangent points and centers of the `DERIV-fillet-arc` table (e.g. corner `(100, 0)`: from `(90, 0)` to `(100, 10)`, center `(90, 10)`, positive direction).
+- Given a concave corner (`u_in = (1, 0)`, `u_out = (0, −1)`, `r = 5`), when evaluated, then its arc goes from `(5, 0)` to `(10, −5)` around `(5, −5)` in the negative direction.
 - Given radius 0 everywhere, when evaluated, then the result is the sharp contour.
+- Given a rectangle of size 0 × 50, when evaluated, then no `NaN` appears.
 
 ## Tasks
 
 One task = one commit, referenced as `EN-006.Tn`.
 
-- [ ] T1 — Write the tests of the cases above (1.5 h)
-- [ ] T2 — Define the segment and arc geometry types (0.5 h)
-- [ ] T3 — Implement tangent points and arc of a filleted corner (`geometry`) (2 h)
-- [ ] T4 — Implement the closed sequence of segments and arcs (`geometry`) (1.5 h)
+- [ ] T1 — `EPSILON` (Q10) and vector helpers `add`, `scale`, `unit` (zero vector → `(0, 0)`), `quarterTurn` (`math`; `REF-MATHWORLD-VECTOR-ADDITION`, `REF-MATHWORLD-UNIT-VECTOR`, `REF-MATHWORLD-ROTATION-MATRIX`) with tests and properties (1.5 h)
+- [ ] T2 — Segment and arc types (start, end, center, radius, direction) (0.5 h)
+- [ ] T3 — Fillet of a corner: tangent points, center, direction (`geometry`, `DERIV-fillet-arc`) with the check table (2 h)
+- [ ] T4 — Closed sequence of segments and arcs; segments shorter than `EPSILON` dropped (`geometry`) (1.5 h)

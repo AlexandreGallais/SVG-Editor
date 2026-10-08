@@ -3,7 +3,7 @@ id: EN-003
 epic: E01
 feature: F01
 title: Turning angle at a contour vertex
-status: draft
+status: ready
 points: 3
 ---
 

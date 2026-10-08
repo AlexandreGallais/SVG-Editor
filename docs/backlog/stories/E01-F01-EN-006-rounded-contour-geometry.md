@@ -3,7 +3,7 @@ id: EN-006
 epic: E01
 feature: F01
 title: "Rounded contour geometry: segments and arcs"
-status: ready
+status: done
 points: 5
 ---
 
@@ -25,8 +25,8 @@ Sources: `DERIV-fillet-arc` (check table), `EPSILON` of Q10 introduced by EN-005
 
 One task = one commit, referenced as `EN-006.Tn`.
 
-- [ ] T1 — Vector helpers `add`, `scale`, `unit` (zero vector → `(0, 0)`), `quarterTurn` (`math`; `REF-MATHWORLD-VECTOR-ADDITION`, `REF-OPENSTAX-CALC3-VECTORS`, `REF-MATHWORLD-UNIT-VECTOR`, `REF-MATHWORLD-ROTATION-MATRIX`) with tests and properties (1.5 h)
-- [ ] T2 — Segment and arc types (start, end, center, radius, direction) (0.5 h)
-- [ ] T3 — Fillet of a corner: tangent points, center, direction (`geometry`, `DERIV-fillet-arc`) with the check table (2 h)
-- [ ] T4 — Closed sequence of segments and arcs; segments shorter than `EPSILON` dropped (`geometry`) (1.5 h)
-- [ ] T5 — Audit findings: spike limit documented and raised as Q16; `Arc` radius contract; chaining within `EPSILON` and the drop rule stated in the derivation; citations of `unit`, `add` and the references aligned (0.5 h)
+- [x] T1 — Vector helpers `add`, `scale`, `unit` (zero vector → `(0, 0)`), `quarterTurn` (`math`; `REF-MATHWORLD-VECTOR-ADDITION`, `REF-OPENSTAX-CALC3-VECTORS`, `REF-MATHWORLD-UNIT-VECTOR`, `REF-MATHWORLD-ROTATION-MATRIX`) with tests and properties (1.5 h)
+- [x] T2 — Segment and arc types (start, end, center, radius, direction) (0.5 h)
+- [x] T3 — Fillet of a corner: tangent points, center, direction (`geometry`, `DERIV-fillet-arc`) with the check table (2 h)
+- [x] T4 — Closed sequence of segments and arcs; segments shorter than `EPSILON` dropped (`geometry`) (1.5 h)
+- [x] T5 — Audit findings: spike limit documented and raised as Q16; `Arc` radius contract; chaining within `EPSILON` and the drop rule stated in the derivation; citations of `unit`, `add` and the references aligned (0.5 h)

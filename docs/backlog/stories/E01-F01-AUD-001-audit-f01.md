@@ -3,7 +3,7 @@ id: AUD-001
 epic: E01
 feature: F01
 title: "Audit F01: rectangle with corner radius"
-status: ready
+status: done
 points: 3
 ---
 
@@ -26,10 +26,10 @@ Full check of F01 in depth and of the project in breadth, following [audit.md](.
 
 One task = one commit, referenced as `AUD-001.Tn`.
 
-- [ ] T1 — A. Independent review by the `auditor` subagent; mathematics, mutation spot-checks, missing properties (3 h)
-- [ ] T2 — B. Sources re-verified (1 h)
-- [ ] T3 — C, D, E. Provenance, duplicates, consistency (2 h)
-- [ ] T4 — F, G. Quality gates and research list for the next feature; findings table (1 h)
+- [x] T1 — A. Independent review by the `auditor` subagent; mathematics, mutation spot-checks, missing properties (3 h)
+- [x] T2 — B. Sources re-verified (1 h)
+- [x] T3 — C, D, E. Provenance, duplicates, consistency (2 h)
+- [x] T4 — F, G. Quality gates and research list for the next feature; findings table (1 h)
 
 ## Findings
 

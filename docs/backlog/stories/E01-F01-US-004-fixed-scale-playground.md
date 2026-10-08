@@ -3,7 +3,7 @@ id: US-004
 epic: E01
 feature: F01
 title: Show shapes at a fixed scale in the playground
-status: ready
+status: done
 points: 1
 ---
 
@@ -23,6 +23,6 @@ Asked by the Product Owner after US-002 (2026-10-08): the automatic framing made
 
 One task = one commit, referenced as `US-004.Tn`.
 
-- [ ] T1 — View box equal to the canvas size in pixels, origin a margin away from the top-left corner (1 h)
-- [ ] T2 — Redraw when the window is resized (0.5 h)
-- [ ] T3 — Demonstrate the criteria to the Product Owner (0.5 h)
+- [x] T1 — View box equal to the canvas size in pixels, origin a margin away from the top-left corner (1 h)
+- [x] T2 — Redraw when the window is resized (0.5 h)
+- [x] T3 — Demonstrate the criteria to the Product Owner (0.5 h) — in the pull request: `npm run dev`

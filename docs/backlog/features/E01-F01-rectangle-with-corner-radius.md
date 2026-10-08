@@ -26,7 +26,7 @@ In delivery order.
 | [US-001](../stories/E01-F01-US-001-rectangle-contour.md)             | User story | Rectangle contour from width and height         | draft  |
 | [EN-002](../stories/E01-F01-EN-002-sharp-contour-path-data.md)       | Enabler    | Path data of a sharp contour                    | draft  |
 | [US-002](../stories/E01-F01-US-002-sharp-rectangle-in-playground.md) | User story | Draw a sharp rectangle in the playground        | draft  |
-| [US-004](../stories/E01-F01-US-004-fixed-scale-playground.md)        | User story | Show shapes at a fixed scale in the playground  | ready  |
+| [US-004](../stories/E01-F01-US-004-fixed-scale-playground.md)        | User story | Show shapes at a fixed scale in the playground  | done   |
 | [EN-003](../stories/E01-F01-EN-003-corner-turning-angle.md)          | Enabler    | Turning angle at a contour vertex               | draft  |
 | [EN-004](../stories/E01-F01-EN-004-fillet-setback.md)                | Enabler    | Fillet setback                                  | draft  |
 | [EN-005](../stories/E01-F01-EN-005-local-radius-clamp.md)            | Enabler    | Local proportional radius clamp                 | draft  |

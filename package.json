@@ -1,6 +1,6 @@
 {
   "name": "editor",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "description": "Integer, orthogonal, path-only SVG editing library for synoptic-view symbols.",
   "type": "module",

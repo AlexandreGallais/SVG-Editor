@@ -23,6 +23,11 @@ jobs:
           token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
+      # The release pull request merges itself (rebase) once its CI is green (option B).
+      - if: steps.release.outputs.prs_created == 'true'
+        run: gh pr merge "${{ fromJSON(steps.release.outputs.pr).number }}" --auto --rebase --repo "${{ github.repository }}"
+        env:
+          GH_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
 
   # Publishes the documentation site when a version is released (or on manual run).
   # Runs here because a release created with GITHUB_TOKEN triggers no other workflow.

@@ -124,6 +124,7 @@ Research request: fill `docs/research/requests/_template.md` and ask the user to
 - When a commit is rejected by lint-staged, check `git status` for files left **staged** by a previous attempt before retrying (a staged stale file comes back after each revert).
 - A tooling change that makes existing files invalid must be committed together with the fix of those files.
 - After the user merges a pull request: `git switch main && git pull --prune && git branch -d <branch>`, then set the story to `done` on `main`.
+- Release pull requests merge themselves once green (auto-merge); a release follows every merged story.
 - release-please uses the secret `RELEASE_PLEASE_TOKEN` (expires 2026-12-31: remind the user in December).
 - Docs site: <https://alexandregallais.github.io/synoptic-studio/>, published on each release (or _Actions → Release → Run workflow_).
 - `npm run test` requires 100 % coverage of `src/`.

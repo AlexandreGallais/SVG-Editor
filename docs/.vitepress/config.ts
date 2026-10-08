@@ -5,7 +5,7 @@ import { defineConfig } from "vitepress";
 
 import type { DefaultTheme } from "vitepress";
 
-/** Base path of the published site (`/SVG-Editor/` on GitHub Pages), `/` locally. */
+/** Base path of the published site (`/synoptic-studio/` on GitHub Pages), `/` locally. */
 const BASE = process.env["DOCS_BASE"] ?? "/";
 
 /** Root folder of the documentation site. */

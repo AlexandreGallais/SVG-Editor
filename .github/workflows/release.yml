@@ -19,6 +19,8 @@ jobs:
       - id: release
         uses: googleapis/release-please-action@v5
         with:
+          # Personal access token: pull requests it updates trigger the CI (docs/tooling/releases.md).
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
 

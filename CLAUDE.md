@@ -124,14 +124,14 @@ Research request: fill `docs/research/requests/_template.md` and ask the user to
 - When a commit is rejected by lint-staged, check `git status` for files left **staged** by a previous attempt before retrying (a staged stale file comes back after each revert).
 - A tooling change that makes existing files invalid must be committed together with the fix of those files.
 - After the user merges a pull request: `git switch main && git pull --prune && git branch -d <branch>`, then set the story to `done` on `main`.
-- Release pull requests get no CI (Actions token): ask the user to close and reopen them.
-- Docs site: <https://alexandregallais.github.io/SVG-Editor/>, published on each release (or _Actions → Release → Run workflow_).
+- release-please uses the secret `RELEASE_PLEASE_TOKEN` (expires 2026-12-31: remind the user in December).
+- Docs site: <https://alexandregallais.github.io/synoptic-studio/>, published on each release (or _Actions → Release → Run workflow_).
 - `npm run test` requires 100 % coverage of `src/`.
 
 ## Branches, commits, pull requests (user decision, 2026-10-08)
 
 - **Story work** (anything under `src/`, `playground/`, or a story's docs): one branch per story `<type>/<story-id>-<topic>` (e.g. `feat/us-004-rectangle-contour`), **one commit per task** with `Refs: US-004.T2`, last commit `Closes: US-004`. When done: `npm run check:all`, push, open a pull request on GitHub (`gh pr create`, template `.github/pull_request_template.md`), then **stop**: the user reviews and merges (rebase merge). Never merge a story branch yourself.
 - **Tooling, CI and backlog writing**: may be committed directly on `main` when the user asks for it.
-- No `develop` branch, no long-lived branch. Remote: `origin` = github.com/AlexandreGallais/SVG-Editor (public).
+- No `develop` branch, no long-lived branch. Remote: `origin` = github.com/AlexandreGallais/synoptic-studio (public).
 - Versions and changelog: release-please on `main` (`docs/tooling/releases.md`); commit types and `!` must therefore be exact.
 - Repository settings (branch protection, rebase-only merges…) are listed in `docs/tooling/ci.md`; they need the owner's GitHub rights.

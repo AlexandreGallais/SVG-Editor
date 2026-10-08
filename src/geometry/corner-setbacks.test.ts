@@ -2,6 +2,8 @@ import { describe, expect, it } from "vitest";
 
 import { cornerSetbacks } from "./corner-setbacks";
 
+import type { Corner } from "./corner";
+
 /** Decimals compared: tangents of doubles, correct to their last bits. */
 const DECIMALS = 9;
 

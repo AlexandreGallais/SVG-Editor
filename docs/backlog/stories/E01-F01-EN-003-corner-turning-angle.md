@@ -3,7 +3,7 @@ id: EN-003
 epic: E01
 feature: F01
 title: Turning angle at a contour vertex
-status: ready
+status: done
 points: 3
 ---
 
@@ -21,11 +21,7 @@ Compute, at each vertex of a cyclic contour, the turning angle between the incom
 
 One task = one commit, referenced as `EN-003.Tn`.
 
-- [ ] T1 — Verify a source for the turning angle formula (atan2 of cross and dot products) and record it in `docs/references.md`; otherwise write a derivation (1 h)
-- [ ] T2 — Write the tests of the cases above (1 h)
-- [ ] T3 — Implement vector subtraction, dot and cross products (`math`, one file each) (2 h)
-- [ ] T4 — Implement the turning angle at a vertex (`geometry`) (1.5 h)
-
-## Open points
-
-- Blocked until a verified source or a validated derivation exists (CLAUDE.md guardrail).
+- [x] T1 — Verify a source for the turning angle formula (atan2 of cross and dot products) and record it in `docs/references.md`; otherwise write a derivation (1 h) — `DERIV-turning-angle`, MathWorld and MDN verified
+- [x] T2 — Write the tests of the cases above (1 h)
+- [x] T3 — Implement vector subtraction, dot and cross products (`math`, one file each) (2 h) — `subtract`, `dot`, `perpDot`
+- [x] T4 — Implement the turning angle at a vertex (`geometry`) (1.5 h) — `turningAngle`, `turningAngles`, `cyclicVertex`

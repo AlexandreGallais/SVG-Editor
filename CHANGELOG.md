@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.2.1...v0.2.2) (2026-10-08)
+
+
+### Documentation
+
+* **backlog:** set stories done in their pull request ([f567ab2](https://github.com/AlexandreGallais/synoptic-studio/commit/f567ab29130e4db3f259ab130cc69d9c8887d265))
+
 ## [0.2.1](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.2.0...v0.2.1) (2026-10-08)
 
 

@@ -35,7 +35,7 @@ Non-negotiable principles: schematic, orthogonal, integer, documented, dependenc
 - Pipeline (ADR-0005): typed integers → model (integers) → evaluated geometry (floats, segments + arcs) → SVG. The SVG is an output: never read the DOM back.
 - **Functional core, imperative shell** (ADR-0014): `math` → `io` are pure; `render`, `interaction`, `playground` carry the effects.
 - **A function never modifies its arguments**: it takes values and returns a result.
-- **One export per file, the file named like it** (ADR-0015); a type may sit next to a function only if it is part of its signature.
+- **One export per file, the file named in kebab-case after it** (`formatSvgNumber` → `format-svg-number.ts`, ADR-0019); a type may sit next to a function only if it is part of its signature.
 - **No default nor optional parameter** in `src/` (ADR-0016): defaults belong to the model.
 - **Every function**: exactly one `@kind` (`math`, `geometry`, `domain`, `format`, `procedure`), one `@see` to a **verified** source, complete and austere TSDoc. Size limits per kind (ADR-0011).
 - **Never invent a reference.** No verifiable source → derivation in `docs/derivations/` or research request.

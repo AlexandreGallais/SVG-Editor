@@ -68,7 +68,7 @@ export const BARREL_FILES = ["src/**/index.ts", "eslint/**/index.ts"];
 /** Lists of rule themes, one import per theme file. */
 export const AGGREGATOR_FILES = ["eslint/rules/*/all.ts"];
 
-/** Modules subject to one export per file, named like it (ADR-0015). */
+/** Modules subject to one export per file, named like it (ADR-0019). */
 export const SINGLE_EXPORT_FILES = ["src/**/*.ts", "playground/**/*.ts"];
 
 /** Files exempt from one export per file: barrels, entry points and tests. */

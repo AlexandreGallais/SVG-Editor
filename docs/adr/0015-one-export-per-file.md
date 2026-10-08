@@ -1,6 +1,6 @@
 # ADR-0015 — One export per file, named like the file
 
-**Status**: Accepted
+**Status**: Superseded by ADR-0019
 
 ## Context
 

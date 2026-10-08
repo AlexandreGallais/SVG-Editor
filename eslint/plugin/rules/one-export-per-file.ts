@@ -112,6 +112,20 @@ function referencedTypes(text: string, candidates: readonly string[]): ReadonlyS
   return new Set(candidates.filter((name) => wordPattern(name).test(text)));
 }
 
+/**
+ * Kebab-case file name of an exported identifier: `formatSvgNumber` → `format-svg-number`.
+ *
+ * @param name - camelCase, PascalCase or UPPER_CASE identifier
+ * @returns lower-case words joined by hyphens
+ */
+function kebabCase(name: string): string {
+  return name
+    .replaceAll(/(?<lower>[a-z0-9])(?<upper>[A-Z])/gu, "$<lower>-$<upper>")
+    .replaceAll(/(?<acronym>[A-Z]+)(?<word>[A-Z][a-z])/gu, "$<acronym>-$<word>")
+    .replaceAll("_", "-")
+    .toLowerCase();
+}
+
 /** Problem found in a module, ready to be reported. */
 type Problem = {
   readonly data?: Readonly<Record<string, string>>;
@@ -196,9 +210,17 @@ function exportProblems(
  * @returns a mismatch problem, or nothing
  */
 function filenameProblems(main: ExportedName, expected: string): Problem[] {
-  return main.name === expected
+  const fileName = kebabCase(main.name);
+
+  return fileName === expected
     ? []
-    : [{ data: { expected, name: main.name }, messageId: "filenameMismatch", node: main.node }];
+    : [
+        {
+          data: { expected, fileName, name: main.name },
+          messageId: "filenameMismatch",
+          node: main.node,
+        },
+      ];
 }
 
 /**
@@ -207,7 +229,7 @@ function filenameProblems(main: ExportedName, expected: string): Problem[] {
  * Types may be exported next to the value only when they appear in its declaration (its
  * contract). A module without value exports exactly one type, named like the file.
  *
- * @see ADR-0015
+ * @see ADR-0019
  */
 export const ONE_EXPORT_PER_FILE_RULE = createRule<[], MessageIds>({
   create: (context) => ({
@@ -241,12 +263,12 @@ export const ONE_EXPORT_PER_FILE_RULE = createRule<[], MessageIds>({
       filenameMismatch:
         "The file exports `{{name}}`: rename the file `{{name}}.ts` (found `{{expected}}.ts`).",
       multipleTypes:
-        "A type-only module exports exactly one type; move `{{name}}` to `{{name}}.ts`.",
-      multipleValues: "One exported value per module; move `{{name}}` to `{{name}}.ts`.",
+        "A type-only module exports exactly one type; move `{{name}}` to its own kebab-case file.",
+      multipleValues: "One exported value per module; move `{{name}}` to its own kebab-case file.",
       noExport: "A library module exports exactly one value or type.",
       reexport: "Re-exports belong to the folder's `index.ts`.",
       unrelatedType:
-        "Type `{{name}}` is not part of the exported value's signature: move it to `{{name}}.ts`.",
+        "Type `{{name}}` is not part of the exported value's signature: move it to its own kebab-case file.",
     },
     schema: [],
     type: "problem",

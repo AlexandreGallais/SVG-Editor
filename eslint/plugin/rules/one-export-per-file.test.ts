@@ -6,13 +6,18 @@ import { ONE_EXPORT_PER_FILE_RULE } from "./one-export-per-file";
 const TESTER = new RuleTester();
 
 /** Module named after the function `filletSetback`. */
-const FILLET_SETBACK = "/project/src/geometry/filletSetback.ts";
+const FILLET_SETBACK = "/project/src/geometry/fillet-setback.ts";
 
 /** Module named after the type `Point`. */
-const POINT = "/project/src/math/Point.ts";
+const POINT = "/project/src/math/point.ts";
 
 TESTER.run("one-export-per-file", ONE_EXPORT_PER_FILE_RULE, {
   invalid: [
+    {
+      code: "export function filletSetback(): void {}",
+      errors: [{ messageId: "filenameMismatch" }],
+      filename: "/project/src/geometry/filletSetback.ts",
+    },
     {
       code: "export function other(): void {}",
       errors: [{ messageId: "filenameMismatch" }],
@@ -54,5 +59,7 @@ TESTER.run("one-export-per-file", ONE_EXPORT_PER_FILE_RULE, {
       filename: FILLET_SETBACK,
     },
     { code: "export const filletSetback = 1;", filename: FILLET_SETBACK },
+    { code: "export const SVG_DECIMALS = 5;", filename: "/project/src/io/svg-decimals.ts" },
+    { code: "export function toSVGPath(): void {}", filename: "/project/src/io/to-svg-path.ts" },
   ],
 });

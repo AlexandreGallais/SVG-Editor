@@ -28,7 +28,7 @@ In delivery order.
 | [US-002](../stories/E01-F01-US-002-sharp-rectangle-in-playground.md) | User story | Draw a sharp rectangle in the playground        | draft  |
 | [US-004](../stories/E01-F01-US-004-fixed-scale-playground.md)        | User story | Show shapes at a fixed scale in the playground  | done   |
 | [EN-003](../stories/E01-F01-EN-003-corner-turning-angle.md)          | Enabler    | Turning angle at a contour vertex               | done   |
-| [EN-004](../stories/E01-F01-EN-004-fillet-setback.md)                | Enabler    | Fillet setback                                  | ready  |
+| [EN-004](../stories/E01-F01-EN-004-fillet-setback.md)                | Enabler    | Fillet setback                                  | done   |
 | [EN-005](../stories/E01-F01-EN-005-local-radius-clamp.md)            | Enabler    | Local proportional radius clamp                 | draft  |
 | [EN-006](../stories/E01-F01-EN-006-rounded-contour-geometry.md)      | Enabler    | Rounded contour geometry: segments and arcs     | draft  |
 | [EN-007](../stories/E01-F01-EN-007-arc-path-data.md)                 | Enabler    | Path data with arcs                             | draft  |

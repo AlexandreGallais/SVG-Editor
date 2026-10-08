@@ -3,7 +3,7 @@ id: EN-004
 epic: E01
 feature: F01
 title: Fillet setback
-status: ready
+status: done
 points: 2
 ---
 
@@ -22,6 +22,6 @@ Compute the setback `s = r · tan(|τ| / 2)` of a fillet at a vertex (`DERIV-loc
 
 One task = one commit, referenced as `EN-004.Tn`.
 
-- [ ] T1 — Verify `REF-GG-FILLET` online and mark it `[verified]`, or request research (1 h)
-- [ ] T2 — Write the tests of the cases above (0.5 h)
-- [ ] T3 — Implement the fillet setback (`geometry`) (1 h)
+- [x] T1 — Verify `REF-GG-FILLET` online and mark it `[verified]`, or request research (1 h) — not found online; replaced by `DERIV-fillet-setback` (Euclid, MathWorld, verified)
+- [x] T2 — Write the tests of the cases above (0.5 h)
+- [x] T3 — Implement the fillet setback (`geometry`) (1 h) — `filletSetback`

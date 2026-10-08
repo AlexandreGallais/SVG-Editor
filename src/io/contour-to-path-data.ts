@@ -1,24 +1,12 @@
-import { formatSvgNumber } from "./format-svg-number";
+import { formatCoordinatePair } from "./format-coordinate-pair";
 
 import type { Point } from "../math";
 
-/** Separator between path-data commands and between coordinates (SVG 2 §9.3.9, `wsp`). */
+/** Separator between path-data commands (SVG 2 §9.3.9, `wsp`). */
 const SEPARATOR = " ";
 
 /** `closepath` command: draws the last edge back to the initial point (SVG 2 §9.3.4). */
 const CLOSE_PATH = "Z";
-
-/**
- * Coordinate pair of a path-data command, numbers at fixed precision: `x y`.
- *
- * @kind format
- * @param point - vertex to write
- * @returns `"x y"` written with `formatSvgNumber`
- * @see REF-SVG2-PATHS
- */
-function pointToCoordinatePair(point: Point): string {
-  return `${formatSvgNumber(point.x)}${SEPARATOR}${formatSvgNumber(point.y)}`;
-}
 
 /**
  * Path data of a closed contour with sharp corners: `M p₀ L p₁ … L pₙ₋₁ Z`.
@@ -33,7 +21,7 @@ function pointToCoordinatePair(point: Point): string {
  */
 export function contourToPathData(contour: readonly Point[]): string {
   const commands = contour.map(
-    (vertex, index) => `${index === 0 ? "M" : "L"}${pointToCoordinatePair(vertex)}`,
+    (vertex, index) => `${index === 0 ? "M" : "L"}${formatCoordinatePair(vertex)}`,
   );
 
   return contour.length === 0 ? "" : [...commands, CLOSE_PATH].join(SEPARATOR);

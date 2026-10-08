@@ -7,6 +7,7 @@ import { describe, expect, it } from "vitest";
 type PackageManifest = {
   readonly dependencies?: Readonly<Record<string, string>>;
   readonly devDependencies?: Readonly<Record<string, string>>;
+  readonly overrides?: Readonly<Record<string, string>>;
 };
 
 /** Page documenting every package (docs/tooling/dependencies.md). */

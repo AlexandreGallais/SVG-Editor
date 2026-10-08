@@ -11,7 +11,7 @@ In `src/` and `playground/` (barrels, entry points and tests excepted):
 - any other type lives in its own file, named like it (`Point.ts`), exporting only that type;
 - non-exported helpers may stay in the file only if they serve its single export; a helper shared by two modules becomes its own module.
 
-```
+```text
 src/geometry/
   index.ts              export * from "./filletSetback"; …
   filletSetback.ts      export function filletSetback(…): Setback   (+ export type Setback)

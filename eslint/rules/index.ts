@@ -3,6 +3,7 @@ export * from "./functional";
 export * from "./imports";
 export * from "./jsdoc";
 export * from "./local";
+export * from "./markdown";
 export * from "./stylistic";
 export * from "./typescript";
 export * from "./unicorn";

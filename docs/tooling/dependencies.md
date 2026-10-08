@@ -21,22 +21,23 @@
 
 ### Lint
 
-| Package                          | Why                                                                                | Alternatives rejected                                                                                      |
-| -------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `eslint`                         | the linter; every rule decided explicitly (ADR-0010)                               | —                                                                                                          |
-| `@eslint/js`                     | lists the live core rules for the completeness audit (`eslint/config.test.ts`)     | deprecated `builtinRules` API                                                                              |
-| `typescript-eslint`              | TypeScript parser and type-aware rules                                             | —                                                                                                          |
-| `@typescript-eslint/utils`       | typed helpers to write the custom `local/*` rules                                  | untyped `Rule.RuleModule`                                                                                  |
-| `@typescript-eslint/rule-tester` | tests of the custom rules with Vitest                                              | ESLint's untyped RuleTester                                                                                |
-| `jiti`                           | loads `eslint.config.ts`, the method documented by ESLint (`REF-ESLINT-TS-CONFIG`) | experimental native flag                                                                                   |
-| `eslint-plugin-jsdoc`            | mandatory, well-formed TSDoc                                                       | —                                                                                                          |
-| `eslint-plugin-import-x`         | cycles, layer boundaries, import order and resolution                              | `eslint-plugin-import`: slower, less maintained; a home-made cycle checker: re-inventing a maintained tool |
-| `eslint-plugin-unused-imports`   | **removes** unused imports on save (core and typescript-eslint only report)        | —                                                                                                          |
-| `eslint-plugin-functional`       | immutability and no classes: "a function never modifies its arguments" (ADR-0014)  | —                                                                                                          |
-| `eslint-plugin-unicorn`          | ~370 modern best-practice rules                                                    | `eslint-plugin-sonarjs`: overlaps unicorn and complexity rules                                             |
-| `@stylistic/eslint-plugin`       | blank lines between statements and comment style, which Prettier does not decide   | —                                                                                                          |
-| `eslint-config-prettier`         | turns off the ESLint rules that conflict with Prettier (ADR-0013)                  | `eslint-plugin-prettier`: discouraged by Prettier (`REF-PRETTIER-LINTERS`)                                 |
-| `prettier`                       | code formatting                                                                    | —                                                                                                          |
+| Package                          | Why                                                                                                                                          | Alternatives rejected                                                                                      |
+| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `eslint`                         | the linter; every rule decided explicitly (ADR-0010)                                                                                         | —                                                                                                          |
+| `@eslint/js`                     | lists the live core rules for the completeness audit (`eslint/config.test.ts`)                                                               | deprecated `builtinRules` API                                                                              |
+| `typescript-eslint`              | TypeScript parser and type-aware rules                                                                                                       | —                                                                                                          |
+| `@typescript-eslint/utils`       | typed helpers to write the custom `local/*` rules                                                                                            | untyped `Rule.RuleModule`                                                                                  |
+| `@typescript-eslint/rule-tester` | tests of the custom rules with Vitest                                                                                                        | ESLint's untyped RuleTester                                                                                |
+| `jiti`                           | loads `eslint.config.ts`, the method documented by ESLint (`REF-ESLINT-TS-CONFIG`)                                                           | experimental native flag                                                                                   |
+| `eslint-plugin-jsdoc`            | mandatory, well-formed TSDoc                                                                                                                 | —                                                                                                          |
+| `eslint-plugin-import-x`         | cycles, layer boundaries, import order and resolution                                                                                        | `eslint-plugin-import`: slower, less maintained; a home-made cycle checker: re-inventing a maintained tool |
+| `eslint-plugin-unused-imports`   | **removes** unused imports on save (core and typescript-eslint only report)                                                                  | —                                                                                                          |
+| `eslint-plugin-functional`       | immutability and no classes: "a function never modifies its arguments" (ADR-0014)                                                            | —                                                                                                          |
+| `eslint-plugin-unicorn`          | ~370 modern best-practice rules                                                                                                              | `eslint-plugin-sonarjs`: overlaps unicorn and complexity rules                                             |
+| `@stylistic/eslint-plugin`       | blank lines between statements and comment style, which Prettier does not decide                                                             | —                                                                                                          |
+| `eslint-config-prettier`         | turns off the ESLint rules that conflict with Prettier (ADR-0013)                                                                            | `eslint-plugin-prettier`: discouraged by Prettier (`REF-PRETTIER-LINTERS`)                                 |
+| `@eslint/markdown`               | lints the structure of every Markdown page (headings, links, code languages, tables) inside ESLint, with the same "every rule decided" audit | `markdownlint-cli2`: depends on `braces`, vulnerable without fix (GHSA-vfj7-8cjw-p6xm)                     |
+| `prettier`                       | code formatting                                                                                                                              | —                                                                                                          |
 
 ### Documentation site
 
@@ -73,6 +74,7 @@
 
 ## Overrides
 
-| Override                  | Why                                                                                      |
-| ------------------------- | ---------------------------------------------------------------------------------------- |
-| `deepmerge-ts` → `^8.0.0` | `eslint-plugin-functional` pulls a version affected by GHSA-ggr8-5vv4-36mx; 8.x fixes it |
+| Override                  | Why                                                                                                             |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `deepmerge-ts` → `^8.0.0` | `eslint-plugin-functional` pulls a version affected by GHSA-ggr8-5vv4-36mx; 8.x fixes it                        |
+| `katex` → `^0.19.0`       | `@eslint/markdown` pulls a version affected by GHSA-238p-pmpm-9mq7 (math rendering, unused here); 0.19 fixes it |

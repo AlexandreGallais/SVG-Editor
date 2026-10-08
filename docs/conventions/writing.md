@@ -34,6 +34,10 @@ No tutorial, no history, no design discussion, no restating of the name (`jsdoc/
 - No filler ("simply", "just", "obviously"), no marketing, no speculation.
 - Link instead of repeating: each fact lives in one place (CLAUDE.md summarizes and links).
 
+## Checked by ESLint
+
+Markdown pages are linted by `@eslint/markdown` (`eslint/rules/markdown/structure.ts`): heading levels, one `#` title, code block languages, no bare URL, no missing link fragment, table column counts. Layout is Prettier's.
+
 ## Where things go
 
 | Content                                  | Place                                                  |

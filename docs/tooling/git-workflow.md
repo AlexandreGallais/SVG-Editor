@@ -13,7 +13,7 @@
 
 Conventional Commits (`REF-CONVENTIONAL-COMMITS`), checked by commitlint on every commit and in CI (`commitlint.config.ts`):
 
-```
+```text
 <type>(<scope>): <subject in imperative mood>
 
 <body: why, wrapped at 100 columns>
@@ -37,7 +37,7 @@ Footers are Git trailers (`Key: value`) after a blank line:
 | `BREAKING CHANGE:` | incompatible API change, described                                                  | `BREAKING CHANGE: polygonToPathData takes a Contour` |
 | `Co-Authored-By:`  | co-author                                                                           | added on commits written by Claude Code              |
 
-```
+```text
 feat(geometry): add fillet setback
 
 Setback of a corner fillet, d = r / tan(θ/2), with hand-computed tests.

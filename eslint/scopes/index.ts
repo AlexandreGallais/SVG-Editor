@@ -2,6 +2,7 @@ export * from "./all";
 export * from "./barrels";
 export * from "./dom-layers";
 export * from "./language";
+export * from "./markdown-language";
 export * from "./modules";
 export * from "./playground";
 export * from "./pure-layers";

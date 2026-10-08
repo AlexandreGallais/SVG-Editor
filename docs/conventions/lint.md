@@ -9,7 +9,7 @@
 
 ## Layout of `eslint/`
 
-```
+```text
 eslint.config.ts          entry point: export default CONFIG
 eslint/
   config.ts               assembly: ignores → language → Prettier → themes → zones

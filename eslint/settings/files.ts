@@ -3,6 +3,9 @@ import { join } from "node:path";
 /** Absolute path of the repository root. */
 export const PROJECT_ROOT = join(import.meta.dirname, "..", "..");
 
+/** Markdown pages (documentation, backlog, CLAUDE.md, README). */
+export const MARKDOWN_FILES = ["**/*.md"];
+
 /** Every TypeScript file linted by the project. */
 export const TS_FILES = ["**/*.ts"];
 
@@ -14,6 +17,7 @@ export const IGNORED_FILES = [
   "docs/api/**",
   "docs/.vitepress/cache/**",
   "docs/.vitepress/dist/**",
+  "CHANGELOG.md",
   // Only TypeScript is authored; the rare JavaScript file is a tool's required format (.ncurc.cjs).
   "**/*.{js,cjs,mjs}",
 ];

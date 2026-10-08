@@ -3,7 +3,7 @@ id: CHK-001
 epic: E01
 feature: F01
 title: Checkpoint in the middle of F01
-status: draft
+status: ready
 points: 1
 ---
 

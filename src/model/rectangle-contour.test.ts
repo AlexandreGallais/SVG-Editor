@@ -1,9 +1,10 @@
+import { fc, test } from "@fast-check/vitest";
 import { describe, expect, it } from "vitest";
 
 import { rectangleContour } from "./rectangle-contour";
 
 describe("rectangleContour", () => {
-  it("lists the vertices clockwise on screen from the top-left one (Q11)", () => {
+  it("[F01.AC4] lists the vertices clockwise on screen from the top-left one (Q11)", () => {
     // y points down: top-left, top-right, bottom-right, bottom-left.
     expect(rectangleContour({ height: 50, radius: 0, width: 100 })).toEqual([
       { x: 0, y: 0 },
@@ -30,4 +31,24 @@ describe("rectangleContour", () => {
       { x: 0, y: 0 },
     ]);
   });
+});
+
+describe("rectangleContour (properties)", () => {
+  test.prop({
+    height: fc.integer({ max: 1000, min: 1 }),
+    width: fc.integer({ max: 1000, min: 1 }),
+  })(
+    "[F01.AC4] turns clockwise on screen: positive signed area with y down",
+    ({ height, width }) => {
+      const contour = rectangleContour({ height, radius: 0, width });
+      // Shoelace sum Σ (xᵢ yᵢ₊₁ − xᵢ₊₁ yᵢ) = 2 · width · height > 0 for a clockwise turn on screen.
+      const doubleArea = contour.reduce((sum, vertex, index) => {
+        const next = contour[(index + 1) % contour.length] ?? vertex;
+
+        return sum + vertex.x * next.y - next.x * vertex.y;
+      }, 0);
+
+      expect(doubleArea).toBe(2 * width * height);
+    },
+  );
 });

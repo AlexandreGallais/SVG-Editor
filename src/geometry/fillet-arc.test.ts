@@ -1,8 +1,15 @@
+import { fc, test } from "@fast-check/vitest";
 import { describe, expect, it } from "vitest";
 
 import { filletArc } from "./fillet-arc";
 
 import type { Point } from "../math";
+
+/** Integer point. */
+const POINT = fc.record({
+  x: fc.integer({ max: 500, min: -500 }),
+  y: fc.integer({ max: 500, min: -500 }),
+});
 
 /** Decimals compared: tangents and square roots of doubles. */
 const DECIMALS = 9;
@@ -119,4 +126,35 @@ describe("filletArc (DERIV-fillet-arc)", () => {
 
     expectPoint(arc.start, { x: 100 - 10 / Math.sqrt(3), y: 0 });
   });
+});
+
+describe("filletArc (properties)", () => {
+  test.prop({
+    next: POINT,
+    previous: POINT,
+    radius: fc.integer({ max: 100, min: 1 }),
+    vertex: POINT,
+  })(
+    "puts the center at the radius from both tangent points",
+    ({ next, previous, radius, vertex }) => {
+      const turn = Math.atan2(
+        (vertex.x - previous.x) * (next.y - vertex.y) -
+          (vertex.y - previous.y) * (next.x - vertex.x),
+        (vertex.x - previous.x) * (next.x - vertex.x) +
+          (vertex.y - previous.y) * (next.y - vertex.y),
+      );
+
+      // Corners with a real turn, away from the spike of Q16.
+      fc.pre(Math.abs(turn) > 0.01 && Math.abs(turn) < Math.PI - 0.1);
+
+      const arc = filletArc({ next, previous, vertex }, radius);
+
+      expect(Math.hypot(arc.center.x - arc.start.x, arc.center.y - arc.start.y)).toBeCloseTo(
+        radius,
+        6,
+      );
+
+      expect(Math.hypot(arc.center.x - arc.end.x, arc.center.y - arc.end.y)).toBeCloseTo(radius, 6);
+    },
+  );
 });

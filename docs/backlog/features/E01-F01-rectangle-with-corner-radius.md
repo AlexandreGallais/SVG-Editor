@@ -32,7 +32,7 @@ In delivery order.
 | [SP-001](../stories/E01-F01-SP-001-research-remaining-f01.md)        | Spike      | Research for the remaining stories of F01       | done   |
 | [EN-005](../stories/E01-F01-EN-005-local-radius-clamp.md)            | Enabler    | Local proportional radius clamp                 | done   |
 | [EN-006](../stories/E01-F01-EN-006-rounded-contour-geometry.md)      | Enabler    | Rounded contour geometry: segments and arcs     | done   |
-| [CHK-001](../stories/E01-F01-CHK-001-checkpoint-f01.md)              | Checkpoint | Checkpoint in the middle of F01                 | ready  |
+| [CHK-001](../stories/E01-F01-CHK-001-checkpoint-f01.md)              | Checkpoint | Checkpoint in the middle of F01                 | done   |
 | [EN-007](../stories/E01-F01-EN-007-arc-path-data.md)                 | Enabler    | Path data with arcs                             | draft  |
 | [US-003](../stories/E01-F01-US-003-round-rectangle-corners.md)       | User story | Round the rectangle's corners in the playground | draft  |
 | [AUD-001](../stories/E01-F01-AUD-001-audit-f01.md)                   | Audit      | Audit F01: rectangle with corner radius         | draft  |

@@ -33,16 +33,16 @@ eslint/
 | `rules/unused/`     | unused                                                                                                                                          |
 | `rules/local/`      | kinds, modules, documentation                                                                                                                   |
 
-| Zone (`scopes/`) | Files                                                                        | Effect                                                                               |
-| ---------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| `language.ts`    | `**/*.ts`                                                                    | typed parser, plugins, resolver                                                      |
-| `pure-layers.ts` | `src/math … src/io`                                                          | forbids the DOM and the host                                                         |
-| `dom-layers.ts`  | `src/render`, `src/interaction`, `playground`                                | relaxes the pure statement rules                                                     |
-| `modules.ts`     | `src/`, `playground/`                                                        | one export per file, file named like it; no default nor optional parameter in `src/` |
-| `playground.ts`  | `playground/index.ts`                                                        | load-time effects allowed                                                            |
-| `barrels.ts`     | `index.ts`, `rules/*/all.ts`                                                 | `local/barrel-exports`; any number of imports                                        |
-| `tooling.ts`     | `eslint/`, root `*.config.ts`, `*.setup.ts`, `*.test.ts`, `docs/.vitepress/` | Node.js, dev dependencies, no `@kind`                                                |
-| `tests.ts`       | `**/*.test.ts`                                                               | literal numbers, free length, no `@kind`                                             |
+| Zone (`scopes/`) | Files                                                                        | Effect                                                                                                                       |
+| ---------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `language.ts`    | `**/*.ts`                                                                    | typed parser, plugins, resolver                                                                                              |
+| `pure-layers.ts` | `src/math … src/io`                                                          | forbids the DOM and the host                                                                                                 |
+| `dom-layers.ts`  | `src/render`, `src/interaction`, `playground`                                | relaxes the pure statement rules                                                                                             |
+| `modules.ts`     | `src/`, `playground/`                                                        | one export per file, kebab-case file named after it; no default nor optional parameter and documented type members in `src/` |
+| `playground.ts`  | `playground/index.ts`                                                        | load-time effects allowed                                                                                                    |
+| `barrels.ts`     | `index.ts`, `rules/*/all.ts`                                                 | `local/barrel-exports`; any number of imports                                                                                |
+| `tooling.ts`     | `eslint/`, root `*.config.ts`, `*.setup.ts`, `*.test.ts`, `docs/.vitepress/` | Node.js, dev dependencies, no `@kind`                                                                                        |
+| `tests.ts`       | `**/*.test.ts`                                                               | literal numbers, free length, no `@kind`                                                                                     |
 
 The `eslint/` folder itself keeps kebab-case files exporting one constant each; the one-export rule targets the library and the playground.
 

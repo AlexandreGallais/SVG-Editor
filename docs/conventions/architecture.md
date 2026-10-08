@@ -19,7 +19,7 @@ Imports only go to the listed layers. Source table: `eslint/settings/layers.ts` 
 | `src/interaction/` | tools, hit-testing, snapping, commands                               | every `src/` layer                 | yes | `domain`, `procedure` |
 | `playground/`      | demonstration application                                            | **public API `src/index.ts` only** | yes | `procedure`           |
 
-A layer exists on disk only from its first module on (an empty folder has no meaningful barrel). Today `src/` only holds an empty `index.ts`.
+A layer exists on disk only from its first module on (an empty folder has no meaningful barrel). Layers present as of F01: `math`, `geometry`, `model`, `io`, `render`.
 
 ## Functional core, imperative shell (ADR-0014)
 

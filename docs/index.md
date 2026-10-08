@@ -29,10 +29,16 @@ features:
   - title: Tooling
     details: Commands, dependencies, versions, Git workflow, this site.
     link: /tooling/
+  - title: Backlog
+    details: Epics, features and stories — what is done, what comes next.
+    link: /backlog/
   - title: References
     details: Bibliography (REF-*) and home-made derivations (DERIV-*).
     link: /references
   - title: API
     details: One page per exported function, generated from the TSDoc.
     link: /api/
+  - title: Playground
+    details: The library at work in the browser, as of the last release.
+    link: https://alexandregallais.github.io/synoptic-studio/playground/
 ---

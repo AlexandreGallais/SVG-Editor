@@ -3,7 +3,7 @@ id: US-002
 epic: E01
 feature: F01
 title: Draw a sharp rectangle in the playground
-status: ready
+status: done
 points: 2
 ---
 
@@ -21,6 +21,6 @@ As a symbol designer, I want to type a width and a height and see the rectangle 
 
 One task = one commit, referenced as `US-002.Tn`.
 
-- [ ] T1 — Add the SVG element creation procedures in `src/render/` (`createSvgElement`, `createPathElement`, `@see REF-MDN-CREATEELEMENTNS`) (2 h)
-- [ ] T2 — Build the playground page: width and height inputs, canvas, pipeline panel (3 h)
-- [ ] T3 — Demonstrate the criteria to the Product Owner (0.5 h)
+- [x] T1 — Add the SVG element creation procedures in `src/render/` (`createSvgElement`, `createPathElement`, `@see REF-MDN-CREATEELEMENTNS`) (2 h)
+- [x] T2 — Build the playground page: width and height inputs, canvas, pipeline panel (3 h)
+- [x] T3 — Demonstrate the criteria to the Product Owner (0.5 h) — in the pull request: `npm run dev`, then type sizes

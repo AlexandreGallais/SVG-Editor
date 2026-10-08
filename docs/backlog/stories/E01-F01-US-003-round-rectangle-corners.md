@@ -39,7 +39,7 @@ Look closely at: whether the rounding behaves as you expect when the rectangle i
 
 ## Open points
 
-- Where no arc can exist — a rectangle of size 0, an aligned vertex — `effectiveRadii` keeps the requested radius (factor 1), so nothing would be signaled although nothing is rounded. Should the effective radius shown be 0 there? Question for the Product Owner at the next stop (EN-005 audit).
+- Where no arc can exist — a rectangle of size 0, an aligned vertex — the effective radius stays the requested one, so the page says "as requested" while nothing is rounded: open question **Q17** in `docs/domain/README.md`, to ask at VAL-001.
 
 ## Tasks
 

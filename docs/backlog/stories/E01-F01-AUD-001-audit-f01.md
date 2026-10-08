@@ -3,7 +3,7 @@ id: AUD-001
 epic: E01
 feature: F01
 title: "Audit F01: rectangle with corner radius"
-status: draft
+status: ready
 points: 3
 ---
 

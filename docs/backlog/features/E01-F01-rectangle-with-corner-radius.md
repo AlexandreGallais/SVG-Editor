@@ -35,7 +35,7 @@ In delivery order.
 | [CHK-001](../stories/E01-F01-CHK-001-checkpoint-f01.md)              | Checkpoint | Checkpoint in the middle of F01                 | done   |
 | [EN-007](../stories/E01-F01-EN-007-arc-path-data.md)                 | Enabler    | Path data with arcs                             | done   |
 | [US-003](../stories/E01-F01-US-003-round-rectangle-corners.md)       | User story | Round the rectangle's corners in the playground | done   |
-| [AUD-001](../stories/E01-F01-AUD-001-audit-f01.md)                   | Audit      | Audit F01: rectangle with corner radius         | ready  |
+| [AUD-001](../stories/E01-F01-AUD-001-audit-f01.md)                   | Audit      | Audit F01: rectangle with corner radius         | done   |
 | [VAL-001](../stories/E01-F01-VAL-001-validate-rectangle.md)          | Validation | Validate F01 on the reference cases             | draft  |
 
 ## Feature plan

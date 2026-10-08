@@ -1,3 +1,5 @@
+export type * from "./arc";
+export type * from "./contour-piece";
 export type * from "./corner";
 export * from "./corner-setbacks";
 export * from "./cyclic-item";
@@ -6,6 +8,7 @@ export * from "./edge-factors";
 export * from "./edge-lengths";
 export * from "./effective-radii";
 export * from "./fillet-setback";
+export type * from "./segment";
 export * from "./turning-angle";
 export * from "./turning-angles";
 export * from "./vertex-factors";

@@ -3,7 +3,7 @@ id: SP-001
 epic: E01
 feature: F01
 title: Research for the remaining stories of F01
-status: ready
+status: done
 points: 2
 ---
 
@@ -38,6 +38,6 @@ Inventory (T1): what each remaining story needs, and where it comes from.
 
 One task = one commit, referenced as `SP-001.Tn`.
 
-- [ ] T1 — Inventory the formulas and behaviors of EN-005 to VAL-001 (0.5 h)
-- [ ] T2 — Find, read and record the sources; write the derivations (3 h)
-- [ ] T3 — Write research note 0003 and update the stories (1 h)
+- [x] T1 — Inventory the formulas and behaviors of EN-005 to VAL-001 (0.5 h)
+- [x] T2 — Find, read and record the sources; write the derivations (3 h)
+- [x] T3 — Write research note 0003 and update the stories (1 h)

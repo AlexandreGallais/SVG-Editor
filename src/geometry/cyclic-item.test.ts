@@ -1,3 +1,4 @@
+import { fc, test } from "@fast-check/vitest";
 import { describe, expect, it } from "vitest";
 
 import { cyclicItem } from "./cyclic-item";
@@ -39,5 +40,14 @@ describe("cyclicItem", () => {
   it("works for one value per vertex as well", () => {
     // Radii of the four corners; the radius before the first corner is the last one.
     expect(cyclicItem([10, 20, 30, 40], -1, 0)).toBe(40);
+  });
+});
+
+describe("cyclicItem (properties)", () => {
+  test.prop({
+    index: fc.integer({ max: 1000, min: -1000 }),
+    items: fc.array(fc.integer(), { minLength: 1 }),
+  })("does not change after a whole turn", ({ index, items }) => {
+    expect(cyclicItem(items, index + items.length, 0)).toBe(cyclicItem(items, index, 0));
   });
 });

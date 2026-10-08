@@ -1,3 +1,4 @@
+import { fc, test } from "@fast-check/vitest";
 import { describe, expect, it } from "vitest";
 
 import { perpDot } from "./perp-dot";
@@ -15,5 +16,29 @@ describe("perpDot", () => {
 
   it("is zero for parallel vectors", () => {
     expect(perpDot({ x: 5, y: 0 }, { x: 10, y: 0 })).toBe(0);
+  });
+});
+
+describe("perpDot (properties)", () => {
+  test.prop({
+    a: fc.record({
+      x: fc.integer({ max: 1e4, min: -1e4 }),
+      y: fc.integer({ max: 1e4, min: -1e4 }),
+    }),
+    b: fc.record({
+      x: fc.integer({ max: 1e4, min: -1e4 }),
+      y: fc.integer({ max: 1e4, min: -1e4 }),
+    }),
+  })("is antisymmetric", ({ a, b }) => {
+    expect(perpDot(a, b) + perpDot(b, a)).toBeCloseTo(0, 9);
+  });
+
+  test.prop({
+    v: fc.record({
+      x: fc.integer({ max: 1e4, min: -1e4 }),
+      y: fc.integer({ max: 1e4, min: -1e4 }),
+    }),
+  })("is 0 for a vector with itself: no turn", ({ v }) => {
+    expect(perpDot(v, v)).toBeCloseTo(0, 9);
   });
 });

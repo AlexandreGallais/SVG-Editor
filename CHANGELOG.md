@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.6.0](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.5.0...v0.6.0) (2026-10-08)
+
+
+### Features
+
+* **geometry:** compute the fillet setback at a corner ([c7d7021](https://github.com/AlexandreGallais/synoptic-studio/commit/c7d7021e6f602b18a5cf72a9ab3b0427e1d49fa0))
+
+
+### Documentation
+
+* **backlog:** set EN-004 done ([30dc64a](https://github.com/AlexandreGallais/synoptic-studio/commit/30dc64a782427d676ceb2bec38ad9d10ba3f6cc6))
+* **backlog:** set EN-004 ready ([7cc33ef](https://github.com/AlexandreGallais/synoptic-studio/commit/7cc33efd8ba92a2fab3daf5bcb3e5f9d1e653429))
+* **geometry:** derive the fillet setback from Euclid ([583c11e](https://github.com/AlexandreGallais/synoptic-studio/commit/583c11e03bd367a40cf7c81ad034d090e841a11e))
+
 ## [0.5.0](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.4.0...v0.5.0) (2026-10-08)
 
 

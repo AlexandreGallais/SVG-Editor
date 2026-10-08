@@ -14,6 +14,8 @@ Target: $ARGUMENTS. Decision: ADR-0023. Writing rules: `docs/guide/README.md`.
 2. Check every step of the guided test yourself in the playground (`npm run dev`) or by tests; replay the feature's acceptance criteria.
 3. List the page in `docs/guide/README.md`; open the pull request; ask the Product Owner to run the guided test and tell you what they see; write their feedback yourself, quoting them (French kept as said). Read their messages for intent.
 4. Feedback that reveals a misunderstanding: record it, propose stories or domain changes, never adjust silently.
+5. Compare the Product Owner's account (often spoken) with what each test card and the demo meant to show: did they understand what you wanted to show? Record each gap as a misunderstood need (backlog) or an unclear demo (improve the cards and this skill).
+6. Then the feature pull request into `main` (`/run`, Validation), and the next feature prepared with the Product Owner: interview, research spike, feature branch.
 
 ## Epic review (REV)
 

@@ -2,23 +2,24 @@
 
 The code is written by Claude Code under the Product Owner's review. Its configuration is committed in `.claude/` (ADR-0021); `docs/` stays the source of truth, `.claude/` only adds procedures, pitfalls and guards.
 
-| Path                             | Role                                                                           | Loaded                                   |
-| -------------------------------- | ------------------------------------------------------------------------------ | ---------------------------------------- |
-| `CLAUDE.md`                      | rules true in every session, where to read, commands (under 200 lines)         | every session                            |
-| `.claude/rules/library.md`       | pitfalls of `src/` and `playground/`                                           | when those files are touched             |
-| `.claude/rules/docs.md`          | pitfalls of Markdown, backlog and bibliography                                 | when Markdown is touched                 |
-| `.claude/rules/tooling.md`       | pitfalls of lint, tests, dependencies, CI, hooks                               | when tooling is touched                  |
-| `.claude/skills/story/`          | `/story` — a story from branch to pull request                                 | on demand                                |
-| `.claude/skills/spike/`          | `/spike` — research spike of a feature (ADR-0020)                              | on demand                                |
-| `.claude/skills/derivation/`     | `/derivation` — writing a `DERIV-*`                                            | on demand                                |
-| `.claude/skills/audit/`          | `/audit` — feature audit with the auditor subagent                             | on demand                                |
-| `.claude/skills/review/`         | `/review` — feature demo page, epic review (ADR-0023)                          | on demand                                |
-| `.claude/skills/retro/`          | `/retro` — epic retrospective, evolvability, playbook (ADR-0023)               | on demand                                |
-| `.claude/skills/triage/`         | `/triage` — open issues presented with a recommendation (ADR-0026)             | on demand                                |
-| `.claude/agents/auditor.md`      | independent read-only auditor, fresh context, tries to refute                  | from `/audit`                            |
-| `.claude/settings.json`          | permissions for routine commands; hooks below                                  | every session                            |
-| `.claude/hooks/guard-bash.ts`    | `PreToolUse`: denies `gh pr merge`, `--no-verify`, force push without lease    | every shell command                      |
-| `.claude/hooks/session-state.ts` | `SessionStart`: prints branch, uncommitted files, progress of started features | session start, resume, clear, compaction |
+| Path                             | Role                                                                                     | Loaded                                   |
+| -------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------- |
+| `CLAUDE.md`                      | rules true in every session, where to read, commands (under 200 lines)                   | every session                            |
+| `.claude/rules/library.md`       | pitfalls of `src/` and `playground/`                                                     | when those files are touched             |
+| `.claude/rules/docs.md`          | pitfalls of Markdown, backlog and bibliography                                           | when Markdown is touched                 |
+| `.claude/rules/tooling.md`       | pitfalls of lint, tests, dependencies, CI, hooks                                         | when tooling is touched                  |
+| `.claude/skills/story/`          | `/story` — a story from branch to pull request                                           | on demand                                |
+| `.claude/skills/spike/`          | `/spike` — research spike of a feature (ADR-0020)                                        | on demand                                |
+| `.claude/skills/derivation/`     | `/derivation` — writing a `DERIV-*`                                                      | on demand                                |
+| `.claude/skills/audit/`          | `/audit` — feature audit with the auditor subagent                                       | on demand                                |
+| `.claude/skills/review/`         | `/review` — feature demo page, epic review (ADR-0023)                                    | on demand                                |
+| `.claude/skills/retro/`          | `/retro` — epic retrospective, evolvability, playbook (ADR-0023)                         | on demand                                |
+| `.claude/skills/triage/`         | `/triage` — open issues presented with a recommendation (ADR-0026)                       | on demand                                |
+| `.claude/skills/run/`            | `/run` — autonomous run on the feature branch, validation with local previews (ADR-0028) | on demand                                |
+| `.claude/agents/auditor.md`      | independent read-only auditor, fresh context, tries to refute                            | from `/audit`                            |
+| `.claude/settings.json`          | permissions for routine commands; hooks below                                            | every session                            |
+| `.claude/hooks/guard-bash.ts`    | `PreToolUse`: denies `gh pr merge`, `--no-verify`, force push without lease              | every shell command                      |
+| `.claude/hooks/session-state.ts` | `SessionStart`: prints branch, uncommitted files, progress of started features           | session start, resume, clear, compaction |
 
 ## Searching past conversations
 

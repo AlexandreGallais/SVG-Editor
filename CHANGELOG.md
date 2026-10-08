@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.6.5](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.6.4...v0.6.5) (2026-10-08)
+
+
+### Documentation
+
+* **adr:** keep the core portable to any engine and language ([f55a735](https://github.com/AlexandreGallais/synoptic-studio/commit/f55a735b751ff6ca14a9acd6d7bff2ba4d261822))
+* remove personal details from the documentation ([fcb51c1](https://github.com/AlexandreGallais/synoptic-studio/commit/fcb51c1a8b870926629132a583b7826ad5d8a896))
+
 ## [0.6.4](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.6.3...v0.6.4) (2026-10-08)
 
 

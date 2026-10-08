@@ -3,7 +3,7 @@ id: EN-002
 epic: E01
 feature: F01
 title: Path data of a sharp contour
-status: ready
+status: done
 points: 1
 ---
 
@@ -20,5 +20,5 @@ Turn a contour with sharp corners into the `d` attribute of a `<path>` (`M`, `L`
 
 One task = one commit, referenced as `EN-002.Tn`.
 
-- [ ] T1 — Write the tests of the cases above (1 h)
-- [ ] T2 — Implement the sharp contour to path data function (`format`) with `@see REF-SVG2-PATHS` (1.5 h)
+- [x] T1 — Write the tests of the cases above (1 h)
+- [x] T2 — Implement the sharp contour to path data function (`format`) with `@see REF-SVG2-PATHS` (1.5 h) — `contourToPathData`

@@ -3,7 +3,7 @@ id: EN-007
 epic: E01
 feature: F01
 title: Path data with arcs
-status: draft
+status: ready
 points: 2
 ---
 
@@ -24,5 +24,5 @@ Sources: `REF-SVG2-PATHS` §9.3.8–9.3.9, `REF-SVG2-IMPLNOTE` B.2.1, `DERIV-fil
 
 One task = one commit, referenced as `EN-007.Tn`.
 
-- [ ] T1 — Arc command `A` (`format`, `REF-SVG2-PATHS` §9.3.8) with its tests (1 h)
+- [ ] T1 — Coordinate pair as a shared `format` function (out of `contourToPathData`), and the arc command `A` (`REF-SVG2-PATHS` §9.3.8) with its tests (1 h)
 - [ ] T2 — Path data of a closed sequence of segments and arcs (`format`) with the cases above (2 h)

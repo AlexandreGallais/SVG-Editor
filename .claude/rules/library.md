@@ -15,3 +15,6 @@ paths:
 - Procedure verbs: `eslint/settings/verbs.ts` (add, sorted). Per-kind limits: `eslint/settings/kinds.ts` (change only with an ADR).
 - Tests: examples with hand-computed values justified in a comment, then properties with `test.prop({ … })` from `@fast-check/vitest` (record form: `max-params` is 3). `toBe` compares with `Object.is`, so `-0` differs from `0`: use `toBeCloseTo` for computed numbers.
 - DOM tests start with `// @vitest-environment happy-dom`.
+- Run `npx tsc --noEmit` before each commit: Vitest strips types, and the unused-imports autofix drops a type import written before the code that uses it (EN-005).
+- Zero vectors and signed zeros (ADR-0025): `atan2(+0, −0) = π`, `Math.sign(−0) = −0`, and `toEqual` tells `−0` from `0`. State the intended result for zero-length edges explicitly (see `turningAngle`, `unit`).
+- More than three parameters: group them in a named type (`CornerPoints`); tests with many columns use `it.each` over objects.

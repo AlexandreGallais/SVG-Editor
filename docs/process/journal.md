@@ -2,6 +2,10 @@
 
 What each working session dealt with, in the agent's words: requests of the Product Owner (paraphrased), decisions, where they were recorded. Newest first. Written by the agent at the end of each session or before a long pause (ADR-0024); searched with `grep` (tags written `#tag`). The full conversations stay in the local transcripts (see [agent configuration](../tooling/agent.md#searching-past-conversations)).
 
+## 2026-10-08 — Autonomous run of F01
+
+- `#run` The Product Owner started the run with `/run FO1` (read as F01, the only feature in progress). Scope: SP-001, EN-005, EN-006, CHK-001, EN-007, US-003, AUD-001; stop at VAL-001. Feature branch `feature/f01-rectangle-with-corner-radius`. No open issue.
+
 ## 2026-10-08 — Feature branches and autonomous runs
 
 - `#process` Autonomous runs authorized by the Product Owner: stories chain overnight on the feature branch `feature/f01-…`, each reviewed by the auditor and merged by GitHub when green (label `autonomous`); the feature pull request into `main` is merged by the Product Owner at `VAL`, after testing on local previews; one release per feature (ADR-0028). Direct auto-merge into `main` was refused by the agent's safety classifier and dropped.

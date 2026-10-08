@@ -9,7 +9,7 @@ paths:
 - Importing from another folder = importing **the folder** (`../geometry`); `npm run fix` corrects the path and updates the folder's `index.ts`.
 - A new layer (`src/<layer>/`) exists only with a first module and its `index.ts`, re-exported by `src/index.ts`.
 - Barrels: the autofix writes `export type *` for a folder holding only types and never switches back to `export *` once it holds values; `barrels.test.ts` then fails — replace the line by `export *`.
-- `noUncheckedIndexedAccess`: an index read is `T | undefined`; an unreachable fallback branch breaks the 100 % coverage. Prefer an explicit, testable fallback (see `cyclicVertex`).
+- `noUncheckedIndexedAccess`: an index read is `T | undefined`; an unreachable fallback branch breaks the 100 % coverage. Prefer an explicit, testable fallback (see `cyclicItem`).
 - Module constants: `UPPER_CASE` and documented; type members documented too (TypeDoc fails otherwise).
 - JSDoc description = sentences; `@param` / `@returns` = fragments without final period. `@kind` is declared in `tsdoc.json` (`jsdoc/check-values` off on purpose).
 - Procedure verbs: `eslint/settings/verbs.ts` (add, sorted). Per-kind limits: `eslint/settings/kinds.ts` (change only with an ADR).

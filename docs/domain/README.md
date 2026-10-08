@@ -52,6 +52,7 @@ The French term is kept: it is the user's working vocabulary.
 | Setback            | Recul                   | distance from the vertex to the fillet's tangent point, `r / tan(θ/2)`                                           |
 | Tangent point      | Point de tangence       | point where a fillet touches an edge, at the setback from the vertex                                             |
 | Effective radius   | Rayon effectif          | radius actually drawn after clamping (ADR-0007); derived at every evaluation, never stored (Q8)                  |
+| Requested radius   | Rayon demandé           | radius typed by the user and stored in the model; the effective radius derives from it (Q8)                      |
 | Spike              | Pointe                  | vertex where the contour turns back on itself (turning angle ±π); its rounding is open (Q16)                     |
 | Stroke             | Contour                 | band of fixed width along the outline                                                                            |
 | Stroke alignment   | Alignement du contour   | `inner`, `center`, `outer`                                                                                       |
@@ -95,9 +96,10 @@ The French term is kept: it is the user's working vocabulary.
 
 ## Open questions
 
-| #   | Question                                                                                                                                                                                                                                     | File             |
-| --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| Q4  | Ellipses: needed? (elliptical arcs are outside the ADR-0001 scope)                                                                                                                                                                           | `shapes.md`      |
-| Q7  | Undo / redo: command-based history, confirmed?                                                                                                                                                                                               | `interaction.md` |
-| Q9  | Corner radius on vertices created by a boolean                                                                                                                                                                                               | `shapes.md`      |
-| Q16 | A vertex where the contour turns back on itself (a spike, turning angle ±π) with a corner radius: today the clamp makes the fillet consume the spike; should the spike keep its point instead? (EN-006 audit; not reachable with rectangles) | `shapes.md`      |
+| #   | Question                                                                                                                                                                                                                                              | File             |
+| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| Q4  | Ellipses: needed? (elliptical arcs are outside the ADR-0001 scope)                                                                                                                                                                                    | `shapes.md`      |
+| Q7  | Undo / redo: command-based history, confirmed?                                                                                                                                                                                                        | `interaction.md` |
+| Q9  | Corner radius on vertices created by a boolean                                                                                                                                                                                                        | `shapes.md`      |
+| Q16 | A vertex where the contour turns back on itself (a spike, turning angle ±π) with a corner radius: today the clamp makes the fillet consume the spike; should the spike keep its point instead? (EN-006 audit; not reachable with rectangles)          | `shapes.md`      |
+| Q17 | Where no corner can be rounded (a rectangle of size 0, an aligned vertex), the effective radius stays equal to the requested one, so the interface says "as requested" while nothing is rounded: should it show 0 instead? (EN-005 and US-003 audits) | `shapes.md`      |

@@ -181,6 +181,9 @@ function updatePlayground(document: Document): void {
 
   if (isValid) {
     showRectangle(document, rectangle);
+  } else {
+    // The effective radius of the last valid rectangle would no longer match the inputs (Q8).
+    writeText(document, "effective", "");
   }
 }
 

@@ -23,3 +23,18 @@ One task = one commit, referenced as `CHK-001.Tn`.
 
 - [ ] T1 — Consistency of code, docs and agent configuration; fixes (1 h)
 - [ ] T2 — Light evolvability check; improvement log; test cards listed (0.5 h)
+
+## Light evolvability check (2026-10-09)
+
+| Question            | Answer                                                                                                                                                      |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Size                | 39 modules in `src/` (geometry 18, math 11, render 4, io 3, model 3); `check:all` 23 s; no layer close to a package split                                   |
+| Tools               | StrykerJS still blocked (stryker-js issue 6210 open); the auditor subagent plays the mutation role meanwhile (one real defect found per code story)         |
+| Fitness functions   | layer imports and purity already linted; next candidate: a test that every exported function of `geometry` has a property test (AUD-001)                    |
+| Patterns            | the same rectangle fixture is rebuilt in four test files; `CornerPoints` and `turningAngle(previous, vertex, next)` carry the same triple — improvement log |
+| Agent configuration | `CLAUDE.md` + rules 179 lines; two lessons added to the library rules; guards never hit in this run                                                         |
+| Process             | autonomous run working: 3 stories merged by GitHub after the auditor and the checks; each audit changed the story before merge                              |
+
+## Product Owner test cards so far
+
+None yet: US-003 is the first user story of this run; its card comes with it.

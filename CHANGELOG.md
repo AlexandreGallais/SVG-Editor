@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.4.0](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.3.0...v0.4.0) (2026-10-08)
+
+
+### Features
+
+* **playground:** draw a sharp rectangle from typed width and height ([9b28900](https://github.com/AlexandreGallais/synoptic-studio/commit/9b28900f4e346909e82ef234b5df4a1c6e0a893e))
+* **playground:** draw shapes at a fixed scale ([410301b](https://github.com/AlexandreGallais/synoptic-studio/commit/410301bd7b868b477aee40bad9dbbbe6e42adea8))
+* **playground:** keep the scale when the window is resized ([8ef3079](https://github.com/AlexandreGallais/synoptic-studio/commit/8ef3079b8aaee0894268ec5179f01c9ae5a72ed5))
+* **render:** create SVG canvas and path elements ([9568ebc](https://github.com/AlexandreGallais/synoptic-studio/commit/9568ebc1474151b097df86aaa74034d641219e0e))
+
+
+### Documentation
+
+* **backlog:** add US-004, fixed scale in the playground ([2a898ec](https://github.com/AlexandreGallais/synoptic-studio/commit/2a898eccad779c079bf9a1dc6babfb9e739f87d1))
+* **backlog:** set US-002 done ([a8f08c7](https://github.com/AlexandreGallais/synoptic-studio/commit/a8f08c7c6c783263bb9db8141424111837066795))
+* **backlog:** set US-002 ready ([39467e3](https://github.com/AlexandreGallais/synoptic-studio/commit/39467e30a5785c8bc42686cacdf6442c8a64fb03))
+* **backlog:** set US-004 done ([0c8e601](https://github.com/AlexandreGallais/synoptic-studio/commit/0c8e60192b02b3b4988372cebb96df808e10e114))
+
 ## [0.3.0](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.2.2...v0.3.0) (2026-10-08)
 
 

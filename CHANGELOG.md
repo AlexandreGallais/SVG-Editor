@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.6.3](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.6.2...v0.6.3) (2026-10-08)
+
+
+### Documentation
+
+* add the process, guide and playbook sections ([41d41c0](https://github.com/AlexandreGallais/synoptic-studio/commit/41d41c08e935d376b12cb440c8031633f55205a7))
+* **adr:** inspect each feature with a demo and each epic with a review ([a0c3803](https://github.com/AlexandreGallais/synoptic-studio/commit/a0c380319a1057baaa445936ce2f9211105e3181))
+
+
+### Build and dependencies
+
+* **deps:** update eslint-plugin-jsdoc to 65.2.1 ([e548ef6](https://github.com/AlexandreGallais/synoptic-studio/commit/e548ef64b29fd9d6ce016ee5670770a5ef46db97))
+
 ## [0.6.2](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.6.1...v0.6.2) (2026-10-08)
 
 

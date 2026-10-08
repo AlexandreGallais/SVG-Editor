@@ -53,11 +53,15 @@
       <h1>Rectangle</h1>
       <label>Width <input id="width" type="number" min="0" step="1" value="120" /></label>
       <label>Height <input id="height" type="number" min="0" step="1" value="80" /></label>
+      <label>Radius <input id="radius" type="number" min="0" step="1" value="10" /></label>
+      <p id="effective"></p>
       <p id="status" role="status"></p>
       <h2>Model (integers)</h2>
       <pre id="model"></pre>
       <h2>Contour (vertices)</h2>
       <pre id="contour"></pre>
+      <h2>Evaluated contour (segments and arcs)</h2>
+      <pre id="pieces"></pre>
       <h2>SVG output (<code>d</code>)</h2>
       <pre id="path-data"></pre>
     </aside>

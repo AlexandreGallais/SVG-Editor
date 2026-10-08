@@ -1,9 +1,14 @@
 import {
-  contourToPathData,
+  EPSILON,
+  contourPiecesToPathData,
   createPathElement,
   createSvgElement,
+  effectiveCornerRadius,
+  formatSvgNumber,
   isValidRectangle,
   rectangleContour,
+  rectangleCorners,
+  roundedContour,
 } from "../src";
 
 import type { Rectangle } from "../src";
@@ -14,11 +19,14 @@ const MARGIN = 10;
 /** Indentation of the JSON shown in the pipeline panel. */
 const JSON_INDENT = 2;
 
-/** Message shown when a size is not an integer ≥ 0. */
-const INVALID_MESSAGE = "Width and height must be integers ≥ 0.";
+/** Message shown when a value is not an integer ≥ 0. */
+const INVALID_MESSAGE = "Width, height and radius must be integers ≥ 0.";
 
 /** Specification of the story demonstrated by this page. */
-const STORY = "docs/backlog/stories/E01-F01-US-002-sharp-rectangle-in-playground.md";
+const STORY = "docs/backlog/stories/E01-F01-US-003-round-rectangle-corners.md";
+
+/** Inputs of the rectangle, in display order. */
+const INPUTS = ["width", "height", "radius"];
 
 /**
  * Selects a required element of the page by its id.
@@ -56,17 +64,17 @@ function readNumber(document: Document, id: string): number {
 }
 
 /**
- * Reads the rectangle typed in the width and height inputs.
+ * Reads the rectangle typed in the width, height and radius inputs.
  *
  * @kind procedure
  * @param document - page document
  * @returns the rectangle, possibly invalid (checked by `isValidRectangle`)
- * @see docs/backlog/stories/E01-F01-US-002-sharp-rectangle-in-playground.md
+ * @see docs/backlog/stories/E01-F01-US-003-round-rectangle-corners.md
  */
 function readRectangle(document: Document): Rectangle {
   return {
     height: readNumber(document, "height"),
-    radius: 0,
+    radius: readNumber(document, "radius"),
     width: readNumber(document, "width"),
   };
 }
@@ -93,7 +101,7 @@ function writeText(document: Document, id: string, text: string): void {
  * @see docs/backlog/stories/E01-F01-US-002-sharp-rectangle-in-playground.md
  */
 function setValidity(document: Document, isValid: boolean): void {
-  for (const id of ["width", "height"]) {
+  for (const id of INPUTS) {
     selectElement(document, id).setAttribute("aria-invalid", String(!isValid));
   }
 
@@ -115,17 +123,37 @@ function readCanvasSize(document: Document): { readonly height: number; readonly
 }
 
 /**
- * Draws a rectangle at a fixed scale (1 user unit = 1 CSS pixel, US-004) and shows each
- * pipeline stage: model, contour, path data.
+ * Shows the effective corner radius next to the requested one, and says when it was reduced to
+ * fit the rectangle (Q8: the requested value is kept, the effective one is derived).
+ *
+ * @kind procedure
+ * @param document - page document
+ * @param rectangle - valid rectangle
+ * @see docs/backlog/stories/E01-F01-US-003-round-rectangle-corners.md
+ */
+function writeEffectiveRadius(document: Document, rectangle: Rectangle): void {
+  const effective = effectiveCornerRadius(rectangle);
+  const isReduced = rectangle.radius - effective >= EPSILON;
+  const text = isReduced
+    ? `Effective radius: ${formatSvgNumber(effective)} (requested ${String(rectangle.radius)}, reduced to fit)`
+    : `Effective radius: ${formatSvgNumber(effective)} (as requested)`;
+
+  writeText(document, "effective", text);
+}
+
+/**
+ * Draws a rectangle with its rounded corners at a fixed scale (1 user unit = 1 CSS pixel, US-004)
+ * and shows each pipeline stage: model, contour, evaluated contour, path data.
  *
  * @kind procedure
  * @param document - page document
  * @param rectangle - valid rectangle to draw
- * @see docs/backlog/stories/E01-F01-US-002-sharp-rectangle-in-playground.md
+ * @see docs/backlog/stories/E01-F01-US-003-round-rectangle-corners.md
  */
 function showRectangle(document: Document, rectangle: Rectangle): void {
   const contour = rectangleContour(rectangle);
-  const pathData = contourToPathData(contour);
+  const pieces = roundedContour(rectangleCorners(rectangle));
+  const pathData = contourPiecesToPathData(pieces);
   const viewBox = { ...readCanvasSize(document), x: -MARGIN, y: -MARGIN };
   const svg = createSvgElement(document, viewBox);
 
@@ -133,6 +161,8 @@ function showRectangle(document: Document, rectangle: Rectangle): void {
   selectElement(document, "canvas").replaceChildren(svg);
   writeText(document, "model", JSON.stringify(rectangle, undefined, JSON_INDENT));
   writeText(document, "contour", JSON.stringify(contour, undefined, JSON_INDENT));
+  writeText(document, "pieces", JSON.stringify(pieces, undefined, JSON_INDENT));
+  writeEffectiveRadius(document, rectangle);
   writeText(document, "path-data", pathData);
 }
 
@@ -163,7 +193,7 @@ function updatePlayground(document: Document): void {
  * @see docs/backlog/stories/E01-F01-US-002-sharp-rectangle-in-playground.md
  */
 function mountPlayground(document: Document): void {
-  for (const id of ["width", "height"]) {
+  for (const id of INPUTS) {
     selectElement(document, id).addEventListener("input", () => {
       updatePlayground(document);
     });

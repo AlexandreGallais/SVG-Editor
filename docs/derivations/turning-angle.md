@@ -43,4 +43,4 @@ The formulas hold in the mathematical frame (y up). In the SVG frame (y down) th
 
 ## Limits
 
-- A zero-length edge (repeated vertex, e.g. a rectangle of width 0, Q15) gives `atan2(0, 0) = 0`: no turn, hence no fillet. The sign of that zero is not meaningful.
+- A zero-length edge (repeated vertex, e.g. a rectangle of width 0, Q15) has no direction: both products are 0 and τ is taken as 0 — no turn, hence no fillet. This is stated explicitly, not left to `atan2(0, 0)`: with signed zeros, `atan2(+0, −0) = π` in IEEE 754 (found by the EN-005 audit, e.g. a = (−10, −10), b = (0, 0)). The sign of that zero is not meaningful.

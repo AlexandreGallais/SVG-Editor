@@ -19,7 +19,7 @@ Full check of F01 in depth and of the project in breadth, following [audit.md](.
 
 ## Notes
 
-- F01 functions merged before ADR-0022 have no properties yet: `subtract`, `dot`, `perpDot`, `turningAngle`, `turningAngles`, `cyclicVertex`, `filletSetback`, `formatSvgNumber`, `contourToPathData`, `rectangleContour`, `isValidRectangle`. T1 adds them where an invariant can be stated.
+- F01 functions merged before ADR-0022 have no properties yet: `subtract`, `dot`, `perpDot`, `turningAngle`, `turningAngles`, `cyclicItem`, `filletSetback`, `edgeLengths`, `edgeFactor`, `edgeFactors`, `vertexFactors`, `cornerSetbacks` (also through general polygons, not only rectangles), `formatSvgNumber`, `contourToPathData`, `rectangleContour`, `isValidRectangle`. T1 adds them where an invariant can be stated.
 - Found while preparing the audit (2026-10-08): the F01 story table showed EN-001, US-001, EN-002, US-002 as `draft` although done; fixed, and `backlog.test.ts` now checks parents' tables.
 
 ## Tasks

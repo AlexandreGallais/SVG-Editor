@@ -30,7 +30,7 @@ In delivery order.
 | [EN-003](../stories/E01-F01-EN-003-corner-turning-angle.md)          | Enabler    | Turning angle at a contour vertex               | done   |
 | [EN-004](../stories/E01-F01-EN-004-fillet-setback.md)                | Enabler    | Fillet setback                                  | done   |
 | [SP-001](../stories/E01-F01-SP-001-research-remaining-f01.md)        | Spike      | Research for the remaining stories of F01       | done   |
-| [EN-005](../stories/E01-F01-EN-005-local-radius-clamp.md)            | Enabler    | Local proportional radius clamp                 | draft  |
+| [EN-005](../stories/E01-F01-EN-005-local-radius-clamp.md)            | Enabler    | Local proportional radius clamp                 | ready  |
 | [EN-006](../stories/E01-F01-EN-006-rounded-contour-geometry.md)      | Enabler    | Rounded contour geometry: segments and arcs     | draft  |
 | [CHK-001](../stories/E01-F01-CHK-001-checkpoint-f01.md)              | Checkpoint | Checkpoint in the middle of F01                 | draft  |
 | [EN-007](../stories/E01-F01-EN-007-arc-path-data.md)                 | Enabler    | Path data with arcs                             | draft  |

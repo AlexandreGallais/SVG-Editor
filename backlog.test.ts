@@ -147,6 +147,22 @@ function expectedPrefix(item: Item): string {
     .join("");
 }
 
+/**
+ * Statuses shown in a folder index (`README.md` rows `| [ID](…) | … | status |`).
+ *
+ * @param folder - backlog folder
+ * @returns map from item id to the status written in the index
+ */
+function indexStatuses(folder: string): ReadonlyMap<string, string> {
+  const text = readFileSync(join(BACKLOG, folder, "README.md"), "utf8");
+
+  return new Map(
+    text
+      .matchAll(/^\| \[(?<id>[A-Z]+-?\d+)\]\([^)]*\)[^\n]*\|\s*(?<status>[a-z-]+)\s*\|$/gmu)
+      .map((match) => [match.groups?.["id"] ?? "", match.groups?.["status"] ?? ""] as const),
+  );
+}
+
 describe("backlog", () => {
   it("gives every item a well-formed id, a title and an allowed status", () => {
     expect(
@@ -174,6 +190,16 @@ describe("backlog", () => {
     );
 
     expect(unquoted).toEqual([]);
+  });
+
+  it("shows in every folder index the status written in each file", () => {
+    const mismatches = items().filter((item) => {
+      const shown = indexStatuses(item.folder).get(item.fields["id"] ?? "");
+
+      return shown !== undefined && shown !== item.fields["status"];
+    });
+
+    expect(mismatches.map((item) => item.file)).toEqual([]);
   });
 
   it("uses each id once", () => {

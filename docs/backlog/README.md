@@ -14,7 +14,7 @@ The structure is **checked by a test** (`backlog.test.ts`): unique IDs, valid st
 | Scrum Master  | Claude Code                 | keeps the backlog and its links, prepares refinement, checks the method                           |
 | Developers    | Claude Code (with the user) | split features into stories and stories into tasks, implement, test, demonstrate                  |
 
-The Product Owner is one person (`REF-SCRUM-GUIDE`). Claude Code never sets an epic or a feature to `ready`, nor a story to `done`, without the user's explicit agreement.
+The Product Owner is one person (`REF-SCRUM-GUIDE`). Claude Code never sets an epic or a feature to `ready` without the user's explicit agreement. A story is set to `done` in the **last commit of its pull request**: merging the pull request is the Product Owner's acceptance, so `main` only ever holds a story as `done` once accepted.
 
 ## The four levels
 
@@ -49,10 +49,10 @@ File names and titles carry the ancestry: `E01-F01-US-001-slug.md`, titled `E01 
 
 ## Statuses
 
-| Item          | Statuses                                                  |
-| ------------- | --------------------------------------------------------- |
-| Epic, feature | `draft` → `ready` → `in-progress` → `done`                |
-| Story         | `draft` → `ready` → `in-progress` → `done` (or `dropped`) |
+| Item          | Statuses                                                                              |
+| ------------- | ------------------------------------------------------------------------------------- |
+| Epic, feature | `draft` → `ready` → `in-progress` → `done`                                            |
+| Story         | `draft` → `ready` → `done` on `main` (`in-progress` only on its branch; or `dropped`) |
 
 The order of the files in a folder is not the priority: the Product Owner's order lives in the parent's table (epics in `epics/README.md`, features in their epic, stories in their feature).
 
@@ -73,7 +73,7 @@ Every item is a Markdown file starting with a front-matter block (`key: value` l
 1. **Write** (now): epics, then features, then stories — everything is written before implementation starts.
 2. **Refine**: split the next feature into stories, write its feature plan, set what the Product Owner agrees to `ready`.
 3. **Implement**: one `ready` story at a time, on its own branch, one commit per task, Definition of Done, then a pull request.
-4. **Accept**: the Product Owner accepts the story; when a feature's `VAL` story is accepted, the feature is `done`.
+4. **Accept**: the Product Owner merges the pull request, which already sets the story to `done`; when a feature's `VAL` story is merged, the feature is `done`. No status commit is needed after the merge.
 
 | Index                   | Content                                |
 | ----------------------- | -------------------------------------- |

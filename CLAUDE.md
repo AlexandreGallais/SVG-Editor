@@ -55,7 +55,7 @@ Non-negotiable principles: schematic, orthogonal, integer, documented, dependenc
 - Function without `@kind` or `@see`; invented or `[unverified]` reference cited.
 - `any`, `!`, `as` without `eslint-disable-next-line … -- justification`; classes; `enum`.
 - Disabling an ESLint rule to make code pass. Fix the code; if the rule is wrong, tell the user (ADR if structural).
-- Setting an epic or feature to `ready`, or a story to `done`, without the user's agreement.
+- Setting an epic or feature to `ready` without the user's agreement. A story becomes `done` only in the last commit of its pull request (merge = acceptance).
 - Sprints or iterations: the backlog is iteration-free (ADR-0017).
 
 ## Definition of done — MANDATORY
@@ -123,7 +123,7 @@ Research request: fill `docs/research/requests/_template.md` and ask the user to
 - Tests are written first, but committed **with** the implementation: the pre-commit hook lints a compiling tree only.
 - When a commit is rejected by lint-staged, check `git status` for files left **staged** by a previous attempt before retrying (a staged stale file comes back after each revert).
 - A tooling change that makes existing files invalid must be committed together with the fix of those files.
-- After the user merges a pull request: `git switch main && git pull --prune && git branch -d <branch>`, then set the story to `done` on `main`.
+- After the user merges a pull request: `git switch main && git pull --prune && git branch -d <branch>`. No status commit: the story was set to `done` in the pull request's last commit, with the index tables.
 - Release pull requests merge themselves once green (auto-merge); a release follows every merged story.
 - release-please uses the secret `RELEASE_PLEASE_TOKEN` (expires 2026-12-31: remind the user in December).
 - Docs site: <https://alexandregallais.github.io/synoptic-studio/>, published on each release (or _Actions → Release → Run workflow_).

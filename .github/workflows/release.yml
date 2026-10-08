@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       releases_created: ${{ steps.release.outputs.releases_created }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
     steps:
       - id: release
         uses: googleapis/release-please-action@v5
@@ -28,6 +29,25 @@ jobs:
         run: gh pr merge "${{ fromJSON(steps.release.outputs.pr).number }}" --auto --rebase --repo "${{ github.repository }}"
         env:
           GH_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+
+  # Attaches the test results of the released version to its GitHub release (ADR-0027).
+  test-report:
+    needs: release-please
+    if: needs.release-please.outputs.releases_created == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npx vitest run --reporter=default --reporter=junit --outputFile.junit=test-report.xml
+      - run: gh release upload "${{ needs.release-please.outputs.tag_name }}" test-report.xml --clobber
+        env:
+          GH_TOKEN: ${{ github.token }}
 
   # Publishes the documentation site when a version is released (or on manual run).
   # Runs here because a release created with GITHUB_TOKEN triggers no other workflow.

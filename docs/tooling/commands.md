@@ -16,10 +16,11 @@
 | `npm run check:all`                                | `check` + `deps:outdated` + documentation build (what CI runs)                                                      |
 | `npm run docs:dev` / `docs:build` / `docs:preview` | documentation site (TypeDoc API generated first)                                                                    |
 | `npm run docs:api`                                 | regenerate `docs/api/` from the TSDoc                                                                               |
+| `npm run playground:build`                         | static build of the playground into the docs site (`docs/.vitepress/dist/playground/`)                              |
 
 ## Playground
 
-`playground/index.html` loads `playground/index.ts`, which may only import the public API (`../src`). It will show each pipeline stage (integer model → `d` → `<path>`) as features arrive.
+`playground/index.html` loads `playground/index.ts`, which may only import the public API (`../src`). It is published with the docs site on each release: <https://alexandregallais.github.io/synoptic-studio/playground/> (menu _Playground_). It will show each pipeline stage (integer model → `d` → `<path>`) as features arrive.
 
 ## Build
 

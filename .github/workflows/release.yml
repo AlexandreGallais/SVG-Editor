@@ -52,6 +52,9 @@ jobs:
       - run: npm run docs:build
         env:
           DOCS_BASE: /${{ github.event.repository.name }}/
+      - run: npm run playground:build
+        env:
+          PLAYGROUND_BASE: /${{ github.event.repository.name }}/playground/
       - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v5
         with:

@@ -40,13 +40,14 @@
     "deps:audit": "npm audit --audit-level=low",
     "deps:outdated": "ncu",
     "check": "npm run format:check && npm run lint && npm run lint:secrets && npm run typecheck && npm run test && npm run deps:audit",
-    "check:all": "npm run check && npm run deps:outdated && npm run docs:build",
+    "check:all": "npm run check && npm run deps:outdated && npm run docs:build && npm run playground:build",
     "docs:api": "typedoc",
     "docs:dev": "npm run docs:api && vitepress dev docs",
     "docs:build": "npm run docs:api && vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "prepare": "husky",
-    "lint:secrets": "secretlint \"**/*\""
+    "lint:secrets": "secretlint \"**/*\"",
+    "playground:build": "vite build --mode playground"
   },
   "devDependencies": {
     "@commitlint/cli": "21.2.3",

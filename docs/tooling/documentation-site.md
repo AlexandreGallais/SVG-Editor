@@ -6,6 +6,10 @@
 - **TypeDoc** + `typedoc-plugin-markdown` + `typedoc-vitepress-theme` (`REF-TYPEDOC-MARKDOWN`): one Markdown page per exported symbol of `src/index.ts`, generated in `docs/api/` (not committed) with its sidebar. Each page shows the TSDoc: description, formula, `@kind`, parameters, `@see`. Types link to their pages, so one navigates from function to function.
 - TypeDoc runs with `treatWarningsAsErrors` and validation of undocumented or unexported symbols: an incomplete TSDoc fails the docs build.
 
+## Playground
+
+The playground is built by `npm run playground:build` (`vite build --mode playground`) into `docs/.vitepress/dist/playground/` and published with the site: it shows the state of `main` at the last release. `check:all` builds it too, so a broken playground fails the CI.
+
 ## Layout
 
 | Folder               | Section of the site |

@@ -3,7 +3,7 @@
 Versions and changelog are produced from the commit history by **release-please** (`.github/workflows/release.yml`), from Conventional Commits.
 
 1. Every push on `main` updates a release pull request (`chore(main): release x.y.z`) holding the next version in `package.json` and the new section of `CHANGELOG.md`.
-2. That pull request **merges itself** (GitHub auto-merge, rebase) as soon as its CI is green: every story merged on `main` produces a release (Product Owner choice, 2026-10-08: the version mainly keeps the changelog and the docs site up to date). Merging it tags `vx.y.z`, publishes the GitHub release, then **publishes the documentation site** to GitHub Pages (`docs` job of `release.yml`, `https://alexandregallais.github.io/synoptic-studio/`). The site can also be published by hand: _Actions → Release → Run workflow_.
+2. That pull request **merges itself** (GitHub auto-merge, rebase) as soon as its CI is green: every story merged on `main` produces a release (Product Owner choice, 2026-10-08: the version mainly keeps the changelog and the docs site up to date). Merging it tags `vx.y.z`, publishes the GitHub release, then **publishes the documentation site and the playground** to GitHub Pages (`docs` job of `release.yml`, `https://alexandregallais.github.io/synoptic-studio/`). The site can also be published by hand: _Actions → Release → Run workflow_.
 3. release-please runs with the personal access token `RELEASE_PLEASE_TOKEN` (repository secret, fine-grained: Contents, Pull requests, Issues read and write; **expires 2026-12-31**, renew it before), so the CI runs on its pull requests.
 4. The first version is `0.1.0` (`initial-version`): the library stays below `1.0.0` until the Product Owner decides it is stable.
 

@@ -105,6 +105,10 @@ export default defineConfig({
       ...SECTIONS.map((section) => ({ link: `/${section.folder}/`, text: section.title })),
       { link: "/references", text: "References" },
       { link: "/api/", text: "API" },
+      {
+        link: "https://alexandregallais.github.io/synoptic-studio/playground/",
+        text: "Playground",
+      },
     ],
     outline: "deep",
     search: { provider: "local" },

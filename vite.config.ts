@@ -46,7 +46,7 @@ export default defineConfig(({ mode }) => ({
       reporter: ["text-summary"],
       thresholds: { 100: true },
     },
-    include: ["src/**/*.test.ts", "eslint/**/*.test.ts", "*.test.ts"],
+    include: ["src/**/*.test.ts", "eslint/**/*.test.ts", "*.test.ts", ".claude/hooks/*.test.ts"],
     root: ROOT,
     setupFiles: ["vitest.setup.ts"],
   },

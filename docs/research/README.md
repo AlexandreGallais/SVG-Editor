@@ -85,7 +85,7 @@ When WebSearch / WebFetch are available, Claude Code may do levels 4 and 5 witho
 
 ## 8. Feature research spike
 
-The `SP` story opening every feature (ADR-0020), done **before** its implementation stories:
+The `SP` story opening every feature (ADR-0020), done **before** its implementation stories (procedure: the `/spike` skill):
 
 1. List every formula, algorithm, specification point and interface behavior the feature's stories need.
 2. For each one: an existing verified `REF-*` or `DERIV-*`, or a new source found and read (levels 4–5, recorded in `docs/references.md` with its date), or a derivation written, or a research request opened (§5) — never "to be found later".

@@ -2,17 +2,20 @@
 
 The `AUD` story closing every feature (ADR-0020). It checks the feature **in depth** and the whole project **in breadth**. Each check leaves evidence in the story's **Findings** table; a problem is fixed in the audit, or becomes a story.
 
+Procedure: the `/audit` skill. Sections A to E are first reviewed by the independent `auditor` subagent (fresh context, read-only, ADR-0021); each of its findings is reproduced before being recorded.
+
 ## A. Mathematics (feature, in depth)
 
 1. Re-derive every formula of the feature from its `@see` (derivation or reference), without looking at the code.
 2. Recompute every expected test value by hand; compare with the test.
 3. Look for missing cases: degenerate input (0, empty, aligned, coincident), sign, bounds, very large values.
 4. **Mutation spot-check**: break each function once (flip a sign, swap an operator, change a constant) and check that at least one test fails; restore. Record each mutation and the failing test.
+5. **Properties**: every function with a stateable invariant has `test.prop` properties (ADR-0022); add the missing ones.
 
 ## B. Sources
 
 1. Feature: re-open every `@see` target online — still reachable, still saying what is cited; update the `[verified] YYYY-MM-DD` date in `docs/references.md`.
-2. Project: every URL of `docs/references.md` still answers (spot-check or a link checker); `[unverified]` rows: try again, or keep them uncited.
+2. Project: the weekly link check (`links.yml`) is green — run it on demand if needed; `[unverified]` rows: try again, or keep them uncited.
 3. No `@see` points to an `[unverified]` row (lint guarantees it; check no `eslint-disable` bypasses it).
 
 ## C. Provenance (no copied code)
@@ -39,6 +42,7 @@ The `AUD` story closing every feature (ADR-0020). It checks the feature **in dep
 1. `npm run check:all` green; coverage 100 %; `npm run build` green.
 2. No `.skip` / `.only` in tests; every `eslint-disable` has a justification still valid.
 3. The feature is demonstrable (playground or tests) for its `VAL` story.
+4. Agent configuration (`CLAUDE.md`, `.claude/rules/`, skills) still matches the project; contradictions removed.
 
 ## G. Next feature
 

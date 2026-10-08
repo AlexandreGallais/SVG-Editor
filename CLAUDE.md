@@ -61,28 +61,12 @@ Non-negotiable principles: schematic, orthogonal, integer, documented, dependenc
 - Setting an epic or feature to `ready` without the user's agreement; merging a story pull request yourself.
 - Sprints or iterations (ADR-0017).
 
-## Feature lifecycle (ADR-0020)
+## Lifecycles
 
-1. **Research spike** (`SP`): sources, derivations and research requests for all the feature's stories, before any code (`docs/research/README.md` §8).
-2. **Implementation stories** (`US`, `EN`), one pull request each.
-3. **Audit** (`AUD`): mathematics re-derived and recomputed, mutation spot-checks, sources re-verified, provenance, duplicates, consistency of the whole project (`docs/conventions/audit.md`).
-4. **Validation** (`VAL`): the Product Owner checks the feature's criteria.
-
-Regression and end-to-end tests come when the applications exist, not before.
-
-## Story lifecycle
-
-1. Pick the next `ready` story; read its feature, the domain file, the linked ADRs and derivations; check the guardrails.
-2. Branch from an up-to-date `main`: `<type>/<story-id>-<topic>` (e.g. `feat/en-005-local-radius-clamp`). Never stack a branch on another story's branch.
-3. First commit: set the story `ready` if not yet (with the index tables).
-4. `math` / `geometry`: **tests first** (nominal, degenerate, values computed by hand and justified in a comment); see them fail.
-5. Implement in small documented functions, one per file; a high-level function = a sequence of named calls.
-6. **One commit per task**, Conventional Commits, footer `Refs: <ID>.Tn` (tests are committed with their implementation: the pre-commit hook needs a compiling tree).
-7. Last commit: tick the tasks and set the story `done` (story file and index tables), footer `Closes: <ID>`: merging the pull request is the Product Owner's acceptance.
-8. `npm run check:all`, push, `gh pr create` (template `.github/pull_request_template.md`), wait for the CI, **stop** for review.
-9. After the merge: `git switch main && git pull --prune && git branch -d <branch>`.
-
-Tooling, CI and backlog writing may be committed directly on `main` when the user asks for it. No `develop` branch, no long-lived branch; remote `origin` = github.com/AlexandreGallais/synoptic-studio (public, rebase merges only).
+- **Feature** (ADR-0020): research spike `SP` (`/spike`) → stories `US` / `EN` (`/story`) → audit `AUD` (`/audit`, with the `auditor` subagent) → validation `VAL` by the Product Owner. Regression and end-to-end tests come with the applications.
+- **Story** (`/story`): branch `<type>/<id>-<topic>` from an up-to-date `main` (never stacked), one commit per task (`Refs: <ID>.Tn`), status `done` in the last commit (`Closes: <ID>`), `check:all`, pull request, **stop** — the Product Owner merges.
+- **Math and geometry**: tests first — examples computed by hand and justified, degenerate cases, then properties (ADR-0022); a missing source → `/derivation` or a research request.
+- Tooling, CI, `.claude/` and backlog writing may go directly to `main` when the user asks. No `develop` branch; `origin` = github.com/AlexandreGallais/synoptic-studio (public, rebase merges only).
 
 ## Definition of done — MANDATORY
 
@@ -124,28 +108,10 @@ Research request: fill `docs/research/requests/_template.md` and ask the user to
 
 ## Known pitfalls
 
-Tooling:
-
-- **TypeScript is pinned to 6.0** (`typescript-eslint` does not support 7). **VitePress is on 2.0 alpha** (1.6 bundles a vulnerable Vite 5). Do not change either without an ADR.
-- Barrels: the autofix writes `export type *` for a folder that only holds types, and never switches back to `export *` once it holds values. `barrels.test.ts` fails then: replace the line by `export *`.
-- Importing from another folder = importing **the folder** (`../geometry`); the autofix corrects the path.
-- `unicorn/prefer-import-meta-properties` turns `new URL(".", import.meta.url)` (trailing slash) into `import.meta.dirname` (none): build paths with `join()`.
-- `noUncheckedIndexedAccess`: an index read is `T | undefined`; a fallback branch that tests cannot reach breaks the 100 % coverage. Prefer an explicit, testable fallback (see `cyclicVertex`).
-- A plugin upgrade makes `eslint/config.test.ts` fail until its new rules are decided in `eslint/rules/`: intended.
-- Procedure verbs: `eslint/settings/verbs.ts` (add, sorted). Per-kind limits: `eslint/settings/kinds.ts` (+ ADR).
-
-Writing:
-
-- Module constants: `UPPER_CASE` and documented, tests included; in `src/`, type members are documented too (TypeDoc fails otherwise).
-- JSDoc description = sentences; `@param` / `@returns` = fragments without final period. `@kind` is a JSDoc 3 tag redefined by the project (`jsdoc/check-values` off, declared in `tsdoc.json`).
-- Markdown: a `|` inside a table cell, even in code, must be escaped `\|`; never write double curly braces (VitePress evaluates them); front-matter values containing `: ` are quoted; templates start with `_` and are not published.
-- Commit scopes are a closed list (`commitlint.config.ts`): derivations use `docs(geometry)`; body lines ≤ 100 characters.
-
-Git and GitHub:
+Area pitfalls load with the files they concern: `.claude/rules/library.md` (`src/`, `playground/`), `docs.md` (Markdown), `tooling.md` (lint, tests, CI, hooks). Agent setup: `docs/tooling/agent.md`.
 
 - When lint-staged rejects a commit, check `git status` for files left **staged** by the previous attempt before retrying.
-- A tooling change that makes existing files invalid is committed together with the fix of those files.
 - `main` moves on its own (release commits): rebase before pushing to `main`.
-- Release pull requests merge themselves once green; a release follows every merged story and publishes the docs site and the playground. Manual publication: _Actions → Release → Run workflow_.
+- Release pull requests merge themselves once green; each release publishes the docs site and the playground (manual: _Actions → Release → Run workflow_).
 - release-please uses the secret `RELEASE_PLEASE_TOKEN` (**expires 2026-12-31**: remind the user in December).
-- Stylelint is planned for SCSS but not installed (`braces` advisory GHSA-vfj7-8cjw-p6xm): when SCSS starts, install `stylelint`, `stylelint-config-standard-scss`, `stylelint-order`, `stylelint-config-recess-order` through a documented audit exception list (`docs/tooling/versions-and-security.md`).
+- Guards (hook `guard-bash`): `gh pr merge`, `--no-verify` and force pushes without lease are denied — do not look for a workaround.

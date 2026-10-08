@@ -11,3 +11,4 @@ How the project is built, checked, documented, versioned and released.
 | [ci.md](./ci.md)                                       | GitHub Actions checks, branch protection, repository settings   |
 | [releases.md](./releases.md)                           | automatic versions and changelog                                |
 | [documentation-site.md](./documentation-site.md)       | VitePress site, TypeDoc API pages, PDF                          |
+| [agent.md](./agent.md)                                 | Claude Code configuration: rules, skills, auditor, hooks        |

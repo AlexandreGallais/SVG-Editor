@@ -47,13 +47,14 @@ export const DOM_LAYER_FILES = [
 /** Playground app (dev server). */
 export const PLAYGROUND_FILES = ["playground/**/*.ts"];
 
-/** Lint configuration and custom ESLint plugin (Node.js tooling). */
+/** Lint configuration, custom ESLint plugin and agent hooks (Node.js tooling). */
 export const TOOLING_FILES = [
   "eslint/**/*.ts",
   "*.config.ts",
   "*.setup.ts",
   "*.test.ts",
   "docs/.vitepress/**/*.ts",
+  ".claude/hooks/**/*.ts",
 ];
 
 /** Root configuration files whose tools require a default export. */

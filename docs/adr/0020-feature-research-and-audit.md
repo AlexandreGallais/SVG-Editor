@@ -15,7 +15,7 @@ Every feature follows the same frame, enforced by the backlog test:
 3. **Audit** (`AUD`): a full check of the feature **in depth** and of the whole project **in breadth**, following the checklist of [audit.md](../conventions/audit.md): mathematics recomputed, sources re-verified, provenance of the code, duplicates, consistency of code, domain, ADRs and backlog. Findings are fixed in the audit or become stories.
 4. **Validation** (`VAL`): the Product Owner validates the feature's acceptance criteria.
 
-Regression and end-to-end tests are **not** part of this frame yet: they come when the applications exist (Product Owner, 2026-10-09).
+Regression and end-to-end tests are **not** part of this frame yet: they come when the applications exist (Product Owner, 2026-10-08).
 
 ## Consequences
 

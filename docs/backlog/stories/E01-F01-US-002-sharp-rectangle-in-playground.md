@@ -3,7 +3,7 @@ id: US-002
 epic: E01
 feature: F01
 title: Draw a sharp rectangle in the playground
-status: draft
+status: ready
 points: 2
 ---
 

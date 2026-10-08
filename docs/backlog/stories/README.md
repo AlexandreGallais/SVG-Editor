@@ -3,7 +3,7 @@
 | ID                                                          | Feature | Story                                           | Status |
 | ----------------------------------------------------------- | ------- | ----------------------------------------------- | ------ |
 | [EN-001](./E01-F01-EN-001-fixed-precision-numbers.md)       | F01     | Write numbers with fixed precision              | done   |
-| [US-001](./E01-F01-US-001-rectangle-contour.md)             | F01     | Rectangle contour from width and height         | draft  |
+| [US-001](./E01-F01-US-001-rectangle-contour.md)             | F01     | Rectangle contour from width and height         | ready  |
 | [EN-002](./E01-F01-EN-002-sharp-contour-path-data.md)       | F01     | Path data of a sharp contour                    | draft  |
 | [US-002](./E01-F01-US-002-sharp-rectangle-in-playground.md) | F01     | Draw a sharp rectangle in the playground        | draft  |
 | [EN-003](./E01-F01-EN-003-corner-turning-angle.md)          | F01     | Turning angle at a contour vertex               | draft  |

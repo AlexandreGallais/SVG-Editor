@@ -92,8 +92,9 @@ The French term is kept: it is the user's working vocabulary.
 
 ## Open questions
 
-| #   | Question                                                           | File             |
-| --- | ------------------------------------------------------------------ | ---------------- |
-| Q4  | Ellipses: needed? (elliptical arcs are outside the ADR-0001 scope) | `shapes.md`      |
-| Q7  | Undo / redo: command-based history, confirmed?                     | `interaction.md` |
-| Q9  | Corner radius on vertices created by a boolean                     | `shapes.md`      |
+| #   | Question                                                                                                                                                                                                                                     | File             |
+| --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| Q4  | Ellipses: needed? (elliptical arcs are outside the ADR-0001 scope)                                                                                                                                                                           | `shapes.md`      |
+| Q7  | Undo / redo: command-based history, confirmed?                                                                                                                                                                                               | `interaction.md` |
+| Q9  | Corner radius on vertices created by a boolean                                                                                                                                                                                               | `shapes.md`      |
+| Q16 | A vertex where the contour turns back on itself (a spike, turning angle ±π) with a corner radius: today the clamp makes the fillet consume the spike; should the spike keep its point instead? (EN-006 audit; not reachable with rectangles) | `shapes.md`      |

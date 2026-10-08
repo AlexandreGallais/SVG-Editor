@@ -6,7 +6,8 @@ import type { Vector } from "./vector";
  * Vector of length 1 with the direction of a vector.
  *
  * Formula: v̂ = v / ‖v‖, defined for a nonzero vector; the zero vector (an edge of length 0, Q15)
- * has no direction and gives (0, 0), never a division by zero.
+ * has no direction and gives (0, 0), never a division by zero (convention of `DERIV-fillet-arc`
+ * step 1; the cited definition covers nonzero vectors only).
  *
  * @kind math
  * @param vector - direction to normalize

@@ -4,7 +4,8 @@ import type { Vector } from "./vector";
 /**
  * Point moved by a vector, component-wise.
  *
- * Formula: p + v = (pₓ + vₓ, p_y + v_y).
+ * Formula: p + v = (pₓ + vₓ, p_y + v_y) — vector addition, the point being read as its vector
+ * from the origin.
  *
  * @kind math
  * @param point - start point

@@ -3,7 +3,7 @@ id: US-001
 epic: E01
 feature: F01
 title: Rectangle contour from width and height
-status: draft
+status: ready
 points: 2
 ---
 

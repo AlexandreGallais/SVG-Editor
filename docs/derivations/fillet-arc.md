@@ -17,7 +17,7 @@ Screen frame of SVG: x to the right, **y down** (`REF-SVG2-COORDS` §8.4).
 
 ## Step 1 — Unit directions
 
-`u = w / ‖w‖` with `‖w‖ = √(x² + y²)` (`REF-MATHWORLD-UNIT-VECTOR`, `REF-MATHWORLD-VECTOR-NORM`). A zero-length edge (a size of 0, Q15) has no direction: its unit vector is taken as `(0, 0)`. Its turning angle is then 0 (`atan2(0, 0) = 0`, `DERIV-turning-angle`), so `s = 0` and the vertex keeps no arc.
+`u = w / ‖w‖` with `‖w‖ = √(x² + y²)` (`REF-MATHWORLD-UNIT-VECTOR`, `REF-MATHWORLD-VECTOR-NORM`). A zero-length edge (a size of 0, Q15) has no direction: its unit vector is taken as `(0, 0)`. Its turning angle is then taken as 0 explicitly (`DERIV-turning-angle`: not left to `atan2`, which gives π for `atan2(+0, −0)`), so `s = 0` and the vertex keeps no arc.
 
 ## Step 2 — Tangent points
 

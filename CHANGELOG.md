@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.6](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.6.5...v0.6.6) (2026-10-08)
+
+
+### Documentation
+
+* **adr:** trace acceptance criteria to tests and releases ([55f0054](https://github.com/AlexandreGallais/synoptic-studio/commit/55f0054711065fae3eaf0d54264b87b913fe0344))
+
 ## [0.6.5](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.6.4...v0.6.5) (2026-10-08)
 
 

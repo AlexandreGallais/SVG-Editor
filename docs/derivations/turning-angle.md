@@ -1,6 +1,6 @@
 # DERIV-turning-angle — Turning angle at a contour vertex
 
-Used by: EN-003, `DERIV-local-radius-clamp` (notation `τᵢ`). Sources: `REF-MATHWORLD-VECTOR-ADDITION`, `REF-MATHWORLD-VECTOR-DIFFERENCE`, `REF-MATHWORLD-DOT`, `REF-MATHWORLD-PERP-DOT`, `REF-MDN-ATAN2`.
+Used by: EN-003, `DERIV-local-radius-clamp` (notation `τᵢ`). Sources: `REF-MATHWORLD-VECTOR-ADDITION`, `REF-MATHWORLD-VECTOR-DIFFERENCE`, `REF-MATHWORLD-DOT`, `REF-MATHWORLD-PERP-DOT`, `REF-MATHWORLD-ROTATION-MATRIX`, `REF-MDN-ATAN2`.
 
 ## Notation
 
@@ -19,7 +19,7 @@ A vector difference is the sum with the second vector reversed, `A − B = A + (
 ## Step 2 — Cosine and sine of the turn
 
 - Dot product: `a · b = aₓbₓ + a_y b_y = |a| |b| cos τ` (`REF-MATHWORLD-DOT`).
-- Perp dot product: `a` rotated a quarter turn to the left is `a⊥ = (−a_y, aₓ)`, and `a⊥ · b = |a| |b| sin τ`, `τ` measured from `a` to `b` (`REF-MATHWORLD-PERP-DOT`). In components: `a⊥ · b = aₓ b_y − a_y bₓ`.
+- Perp dot product: `a⊥ · b = |a| |b| sin τ`, `τ` measured from `a` to `b`, with `a⊥` = `a` rotated a quarter turn to the left (`REF-MATHWORLD-PERP-DOT`). The rotation matrix with θ = π/2 gives its components, `a⊥ = (−a_y, aₓ)` (`REF-MATHWORLD-ROTATION-MATRIX`), hence `a⊥ · b = aₓ b_y − a_y bₓ` (dot product in components, `REF-MATHWORLD-DOT`).
 
 ## Step 3 — Angle
 

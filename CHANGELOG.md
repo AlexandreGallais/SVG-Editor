@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.6.4](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.6.3...v0.6.4) (2026-10-08)
+
+
+### Documentation
+
+* add contributing guide, code of conduct and issue forms ([ca40791](https://github.com/AlexandreGallais/synoptic-studio/commit/ca407913161aa7b10bce2785809cdb1b939a89a4))
+* **adr:** keep a session journal instead of a database ([ecc285d](https://github.com/AlexandreGallais/synoptic-studio/commit/ecc285dec76f8a9165a5543e3c5db73c837e91d3))
+* **backlog:** set F01 and E01 in progress ([de7b5ab](https://github.com/AlexandreGallais/synoptic-studio/commit/de7b5abd993b10e056783eb1f66a6262af3dcadd))
+* extend the writing rules ([e4b1f07](https://github.com/AlexandreGallais/synoptic-studio/commit/e4b1f0720dc3d8d6bdf5f3975c887e88ad92b788))
+* write the feedback of the Product Owner on their behalf ([d5819fa](https://github.com/AlexandreGallais/synoptic-studio/commit/d5819fa349659039af9516c68e2fdbe264be0b05))
+
 ## [0.6.3](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.6.2...v0.6.3) (2026-10-08)
 
 

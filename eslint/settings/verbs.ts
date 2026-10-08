@@ -28,6 +28,7 @@ export const PROCEDURE_VERBS = [
   "mount",
   "move",
   "open",
+  "read",
   "redo",
   "register",
   "remove",

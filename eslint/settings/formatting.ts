@@ -44,6 +44,9 @@ export const DOCUMENTED_CONTEXTS = [
   "ExportNamedDeclaration[declaration.type='VariableDeclaration']",
 ];
 
+/** Library declarations requiring a JSDoc block: those above plus type members (TypeDoc validation). */
+export const LIBRARY_DOCUMENTED_CONTEXTS = [...DOCUMENTED_CONTEXTS, "TSPropertySignature"];
+
 /** Fragment without final period: `@param x - abscissa of the point`. */
 const TAG_FRAGMENT = {
   match: String.raw`^[\s\S]*[^.\s]\s*$`,

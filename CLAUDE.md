@@ -127,6 +127,7 @@ Research request: fill `docs/research/requests/_template.md` and ask the user to
 - release-please uses the secret `RELEASE_PLEASE_TOKEN` (expires 2026-12-31: remind the user in December).
 - Docs site: <https://alexandregallais.github.io/synoptic-studio/>, published on each release (or _Actions → Release → Run workflow_).
 - `npm run test` requires 100 % coverage of `src/`.
+- Before pushing, run `npm run check:all` (the pre-push hook does): the docs build (TypeDoc) catches what `check` does not.
 - New layer folder: write its modules **before** running `npm run fix`. A barrel built while the folder is empty gets `export type *` (type-only); re-check `src/index.ts` uses `export *` for any folder holding values.
 
 ## Branches, commits, pull requests (user decision, 2026-10-08)

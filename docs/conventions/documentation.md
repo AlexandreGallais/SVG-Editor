@@ -2,7 +2,7 @@
 
 ## Mandatory everywhere (`jsdoc/require-jsdoc`)
 
-Every top-level function, type and module constant carries a `/** … */` block.
+Every top-level function, type and module constant carries a `/** … */` block; in `src/`, every **type member** too (`/** Abscissa, growing to the right. */`), since TypeDoc fails the docs build on an undocumented property.
 
 ```ts
 /**

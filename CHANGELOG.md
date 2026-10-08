@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.5.0](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.4.0...v0.5.0) (2026-10-08)
+
+
+### Features
+
+* **geometry:** compute the turning angle at each contour vertex ([2a75345](https://github.com/AlexandreGallais/synoptic-studio/commit/2a753455ec4a83018da28f13b41d74c31c73455f))
+* **math:** add vector subtraction, dot and perp dot products ([00c3613](https://github.com/AlexandreGallais/synoptic-studio/commit/00c36137031c2035330141cdfff736d579d7af66))
+
+
+### Documentation
+
+* **backlog:** set EN-003 done ([c20d143](https://github.com/AlexandreGallais/synoptic-studio/commit/c20d143972c36c2a7841e832acc609cc51e48039))
+* **backlog:** set EN-003 ready ([9b7296a](https://github.com/AlexandreGallais/synoptic-studio/commit/9b7296a1b8e98b8c0d963d32f15699aaa8c019f7))
+* **geometry:** derive the turning angle at a contour vertex ([2958131](https://github.com/AlexandreGallais/synoptic-studio/commit/295813143ed5d39a9f753c80ae470ae768eb86d6))
+
 ## [0.4.0](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.3.0...v0.4.0) (2026-10-08)
 
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.8](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.6.7...v0.6.8) (2026-10-08)
+
+
+### Documentation
+
+* record the start of the autonomous run of F01 ([de28b1f](https://github.com/AlexandreGallais/synoptic-studio/commit/de28b1f3e967d90c9b46481c9f45f60936337ea0))
+
 ## [0.6.7](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.6.6...v0.6.7) (2026-10-08)
 
 

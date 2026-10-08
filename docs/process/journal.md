@@ -2,6 +2,13 @@
 
 What each working session dealt with, in the agent's words: requests of the Product Owner (paraphrased), decisions, where they were recorded. Newest first. Written by the agent at the end of each session or before a long pause (ADR-0024); searched with `grep` (tags written `#tag`). The full conversations stay in the local transcripts (see [agent configuration](../tooling/agent.md#searching-past-conversations)).
 
+## 2026-10-08 — Feature branches and autonomous runs
+
+- `#process` Autonomous runs authorized by the Product Owner: stories chain overnight on the feature branch `feature/f01-…`, each reviewed by the auditor and merged by GitHub when green (label `autonomous`); the feature pull request into `main` is merged by the Product Owner at `VAL`, after testing on local previews; one release per feature (ADR-0028). Direct auto-merge into `main` was refused by the agent's safety classifier and dropped.
+- `#github` Ruleset `feature branches` created (same five checks, rebase only); branch names `feature/f01-…` allowed.
+- `#backlog` Checkpoint story `CHK` in the middle of each feature (CHK-001 in F01); a Product Owner test card in every user story.
+- `#process` After `RET`: fresh research on agent-built projects, playbook and starter kit.
+
 ## 2026-10-08 — Requirements and traceability
 
 - `#github` Topics added (svg, typescript, geometry, synoptic, hmi, scada, vector-graphics, library), wiki disabled; pull requests restricted to collaborators by the owner.

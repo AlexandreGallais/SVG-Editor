@@ -15,4 +15,5 @@ Rules that made it work:
 - **Research before code**: a spike finds and reads every source of a feature; implementation stories are rarely blocked.
 - **Audit after code**: mathematics re-derived, values recomputed, mutation spot-checks, sources re-opened, duplicates and consistency.
 - **Plain language at every demo**: the Product Owner tests what they understand, not what the agent says.
+- **Feature branches and autonomous runs**: technical stories chain overnight on the feature's branch and merge themselves when every check and an independent reviewer pass; user stories leave a test card; nothing reaches `main` before the Product Owner validates the feature on local previews and merges it (ADR-0028).
 - **Improvement log**: ideas are written when they happen and treated at the retrospective, not lost in a chat.

@@ -14,7 +14,7 @@ The structure is **checked by a test** (`backlog.test.ts`): unique IDs, valid st
 | Scrum Master  | Claude Code                 | keeps the backlog and its links, prepares refinement, checks the method                           |
 | Developers    | Claude Code (with the user) | split features into stories and stories into tasks, implement, test, demonstrate                  |
 
-The Product Owner is one person (`REF-SCRUM-GUIDE`). Claude Code never sets an epic or a feature to `ready` without the user's explicit agreement. A story is set to `done` in the **last commit of its pull request**: merging the pull request is the Product Owner's acceptance, so `main` only ever holds a story as `done` once accepted.
+The Product Owner is one person (`REF-SCRUM-GUIDE`). Claude Code never sets an epic or a feature to `ready` without the user's explicit agreement. A story is set to `done` in the **last commit of its pull request**, merged into its feature branch (by the Product Owner, or by GitHub in an authorized run once every check passes). The Product Owner's acceptance is given on the test cards and at the feature's validation, by merging the feature pull request: `main` only ever holds a story as `done` once its feature is accepted (ADR-0028).
 
 ## The four levels
 
@@ -37,7 +37,7 @@ EPIC          complete business need
 1. **Every item has a parent**: story → feature → epic.
 2. **Vertical slice**: a feature or a user story describes an observable behavior, never an isolated layer ("the geometry", "the tests").
 3. **A story is small**: finished, tested and accepted on its own, in a few working sessions at most. Without sprints, this replaces Scrum's "done within one sprint" (`REF-SCRUM-GUIDE`). It meets INVEST (`REF-HUMANIZING-SPLITTING`). Too big → split by behavior (simple case first, then variants), never "part 1 / part 2".
-4. **Story types** (`REF-SAFE-STORY`): `US` user story (user-visible behavior), `EN` enabler (exploration, architecture, infrastructure — e.g. a geometric function and its derivation), `SP` spike (time-boxed study, its acceptance criteria are the questions), `AUD` audit (compliance enabler: full check of a feature, [audit.md](../conventions/audit.md)), `VAL` feature validation (demo page in the [guide](../guide/), the Product Owner runs its guided test and checks the feature's criteria), `REV` epic review and `RET` epic retrospective (attached to the epic, no feature; [process](../process/)).
+4. **Story types** (`REF-SAFE-STORY`): `US` user story (user-visible behavior), `EN` enabler (exploration, architecture, infrastructure — e.g. a geometric function and its derivation), `SP` spike (time-boxed study, its acceptance criteria are the questions), `AUD` audit (compliance enabler: full check of a feature, [audit.md](../conventions/audit.md)), `VAL` feature validation (demo page in the [guide](../guide/), the Product Owner runs its guided test and checks the feature's criteria), `CHK` checkpoint in the middle of a feature (docs and methods brought up to date, light evolvability check, ADR-0028), `REV` epic review and `RET` epic retrospective (attached to the epic, no feature; [process](../process/)). Each user story carries a **Product Owner test card** (section `## Product Owner test`): what to try in the playground and what to expect.
 5. **Acceptance criteria**: Given / When / Then, one block per case, each observable. A **feature's** numbered criteria are its requirements (`F01.AC3`, ADR-0027): each one appropriate, complete, correct, feasible, necessary, singular, unambiguous and verifiable; once the feature is `done`, a criterion is changed only by a new story citing it.
 6. **Feature plan**: once a feature is refined, a table maps each acceptance criterion to the stories that realize it and to the story that verifies it, in delivery order.
 7. **A task is ≤ 1 day**, one verifiable result, estimated in hours (`REF-SCRUM-GUIDE`: work items of one day or less); stories are estimated in points. Tasks are numbered `T1`, `T2`… inside their story; **one task = one commit**, referenced as `US-004.T2`.
@@ -49,14 +49,14 @@ File names and titles carry the ancestry: `E01-F01-US-001-slug.md`, titled `E01 
 
 ## Feature frame (ADR-0020)
 
-Every feature is delivered in the same order, checked by `backlog.test.ts` (a feature with stories has at least one `SP`, one `AUD` and one `VAL`):
+Every feature is delivered in the same order, checked by `backlog.test.ts` (a feature with stories has at least one `SP`, one `CHK`, one `AUD` and one `VAL`):
 
-| Step | Story               | Content                                                                                                                              |
-| ---- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| 1    | `SP` research spike | sources, derivations and research requests for **all** the feature's stories, before any code ([research protocol](../research/) §8) |
-| 2    | `US`, `EN`          | implementation, one story per pull request                                                                                           |
-| 3    | `AUD` audit         | the feature in depth, the project in breadth ([audit.md](../conventions/audit.md))                                                   |
-| 4    | `VAL` validation    | plain-language demo page and guided test; the Product Owner checks the feature's acceptance criteria                                 |
+| Step | Story                                            | Content                                                                                                                                                              |
+| ---- | ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1    | `SP` research spike                              | sources, derivations and research requests for **all** the feature's stories, before any code ([research protocol](../research/) §8)                                 |
+| 2    | `US`, `EN`, and a `CHK` checkpoint in the middle | implementation on the feature branch, one story per pull request; in an authorized run they chain and merge themselves into the feature branch when green (ADR-0028) |
+| 3    | `AUD` audit                                      | the feature in depth, the project in breadth ([audit.md](../conventions/audit.md))                                                                                   |
+| 4    | `VAL` validation                                 | plain-language demo page and guided test; the Product Owner checks the feature's acceptance criteria                                                                 |
 
 Every started epic closes with `REV` (epic report and user test) then `RET` (retrospective, evolvability review, playbook) — ADR-0023, checked by the same test. Their files are `E01-REV-001-slug.md`, listed in the epic's **Closing** table.
 
@@ -73,7 +73,7 @@ The order of the files in a folder is not the priority: the Product Owner's orde
 
 ## Files
 
-Every item is a Markdown file starting with a front-matter block (`key: value` lines, no nesting). Templates: `_epic.md`, `_feature.md`, `_story.md`, `_spike.md`, `_audit.md`, `_review.md`, `_retro.md` in this folder (not published on the site).
+Every item is a Markdown file starting with a front-matter block (`key: value` lines, no nesting). Templates: `_epic.md`, `_feature.md`, `_story.md`, `_spike.md`, `_checkpoint.md`, `_audit.md`, `_review.md`, `_retro.md` in this folder (not published on the site).
 
 | Field    | Epic  | Feature     | Story                                              |
 | -------- | ----- | ----------- | -------------------------------------------------- |

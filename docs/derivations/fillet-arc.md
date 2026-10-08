@@ -50,6 +50,8 @@ Along the arc from `T_in` to `T_out`, the tangent turns from `u_in` to `u_out`, 
 
 A contour starts at its top-left vertex (Q11). Once rounded, that vertex is no longer on the path; the path starts at `T_out` of the first vertex, so that its commands follow the vertices in order — edge to the second vertex first — and the first vertex's arc closes the path. This is a convention of the output, chosen for this order; starting at `T_in` would draw the same shape.
 
+Pieces without length are dropped: a segment between two tangent points that meet (two fillets covering a whole edge), or the arc of a corner that keeps no fillet (`T_in = T_out`). A piece is kept when the distance between its ends is at least `EPSILON` (Q10). Consecutive pieces therefore meet within `EPSILON`, not exactly.
+
 ## Checks (test cases)
 
 Rectangle 100 × 50 from the top-left vertex, clockwise: `(0, 0)`, `(100, 0)`, `(100, 50)`, `(0, 50)`, effective radius 10 everywhere. Every corner has `τ = π/2`, so `s = 10 · tan(π/4) = 10`.
@@ -74,5 +76,6 @@ Each center is at distance `r` from both tangent points, e.g. `‖(90, 10) − (
 
 ## Limits
 
+- The turning angle must be in ]−π, π[. At a vertex where the contour turns back on itself (`τ = ±π`, a spike), `tan(|τ|/2)` is huge: the clamp then reduces the radius to almost 0 while the setback covers the whole edge, so the spike is consumed. The intended behavior is an open question (Q16); the sign of `τ` there also depends on the sign of a zero.
 - At `τ = 0`, `sign(τ) = 0` gives `C = V`; there is no arc, so no center is used.
 - The angle between `C − T_in` and `C − T_out` equals `|τ|`; the library never needs the center to write the path (only radius, flags and end point), but keeps it for later uses (hit-testing, snapping).

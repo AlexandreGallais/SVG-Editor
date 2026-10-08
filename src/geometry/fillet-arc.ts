@@ -11,7 +11,8 @@ import type { CornerPoints } from "./corner-points";
  *
  * Formulas: T_in = V − s · u_in, T_out = V + s · u_out, C = T_in + sign(τ) · r · u_in⊥, positive
  * when τ > 0, with s = r · tan(|τ| / 2). Degenerates to the vertex (start = end = V) when no arc
- * exists: aligned vertex, zero-length edge or radius 0.
+ * exists: aligned vertex, zero-length edge or radius 0. The turning angle must be in ]−π, π[: a
+ * spike (τ = ±π) is outside the derivation (Q16).
  *
  * @kind geometry
  * @param corner - vertex `V` with its previous and next vertices

@@ -148,19 +148,44 @@ function expectedPrefix(item: Item): string {
 }
 
 /**
- * Statuses shown in a folder index (`README.md` rows `| … [ID](…) | … | status |`).
+ * Statuses shown in the item tables of a Markdown file (rows `| … [ID](…) | … | status |`).
+ *
+ * @param path - Markdown file
+ * @returns map from item id to the status written in the table
+ */
+function tableStatuses(path: string): ReadonlyMap<string, string> {
+  return new Map(
+    readFileSync(path, "utf8")
+      .matchAll(/^\|[^\n[]*\[(?<id>[A-Z]+-?\d+)\]\([^)]*\)[^\n]*\|\s*(?<status>[a-z-]+)\s*\|$/gmu)
+      .map((match) => [match.groups?.["id"] ?? "", match.groups?.["status"] ?? ""] as const),
+  );
+}
+
+/**
+ * Statuses shown in a folder index (`README.md`).
  *
  * @param folder - backlog folder
  * @returns map from item id to the status written in the index
  */
 function indexStatuses(folder: string): ReadonlyMap<string, string> {
-  const text = readFileSync(join(BACKLOG, folder, "README.md"), "utf8");
+  return tableStatuses(join(BACKLOG, folder, "README.md"));
+}
 
-  return new Map(
-    text
-      .matchAll(/^\|[^\n[]*\[(?<id>[A-Z]+-?\d+)\]\([^)]*\)[^\n]*\|\s*(?<status>[a-z-]+)\s*\|$/gmu)
-      .map((match) => [match.groups?.["id"] ?? "", match.groups?.["status"] ?? ""] as const),
-  );
+/** Folder of the parent of each child folder. */
+const PARENT_FOLDERS: Readonly<Record<string, string>> = { features: "epics", stories: "features" };
+
+/**
+ * Statuses shown in the table of an item's parent (stories in their feature, features in their epic).
+ *
+ * @param item - feature or story
+ * @returns map from item id to the status written in the parent's table, empty without parent file
+ */
+function parentStatuses(item: Item): ReadonlyMap<string, string> {
+  const folder = PARENT_FOLDERS[item.folder] ?? "";
+  const prefix = expectedPrefix(item).replace(`${item.fields["id"] ?? ""}-`, "");
+  const parent = readdirSync(join(BACKLOG, folder)).find((file) => file.startsWith(prefix));
+
+  return parent === undefined ? new Map() : tableStatuses(join(BACKLOG, folder, parent));
 }
 
 /** Story kinds every feature needs: research spike, audit, validation (ADR-0020). */
@@ -221,6 +246,16 @@ describe("backlog", () => {
   it("shows in every folder index the status written in each file", () => {
     const mismatches = items().filter(
       (item) => indexStatuses(item.folder).get(item.fields["id"] ?? "") !== item.fields["status"],
+    );
+
+    expect(mismatches.map((item) => item.file)).toEqual([]);
+  });
+
+  it("shows every feature and story in its parent's table, with the status written in its file", () => {
+    const mismatches = items().filter(
+      (item) =>
+        item.folder !== "epics" &&
+        parentStatuses(item).get(item.fields["id"] ?? "") !== item.fields["status"],
     );
 
     expect(mismatches.map((item) => item.file)).toEqual([]);

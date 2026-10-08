@@ -1,3 +1,4 @@
+import { fc, test } from "@fast-check/vitest";
 import { describe, expect, it } from "vitest";
 
 import { filletSetback } from "./fillet-setback";
@@ -28,5 +29,16 @@ describe("filletSetback (DERIV-fillet-setback check table)", () => {
   it("only depends on the size of the turn, not its direction", () => {
     // A counter-clockwise quarter turn gives the same setback as a clockwise one.
     expect(filletSetback(10, -Math.PI / 2)).toBeCloseTo(10, DECIMALS);
+  });
+});
+
+describe("filletSetback (properties)", () => {
+  test.prop({
+    angle: fc.double({ max: Math.PI - 0.01, min: -(Math.PI - 0.01), noNaN: true }),
+    radius: fc.integer({ max: 1000, min: 0 }),
+  })("is >= 0, even in the turn and proportional to the radius", ({ angle, radius }) => {
+    expect(filletSetback(radius, angle)).toBeGreaterThanOrEqual(0);
+    expect(filletSetback(radius, -angle)).toBe(filletSetback(radius, angle));
+    expect(filletSetback(2 * radius, angle)).toBeCloseTo(2 * filletSetback(radius, angle), 6);
   });
 });

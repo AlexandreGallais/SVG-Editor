@@ -1,3 +1,4 @@
+import { fc, test } from "@fast-check/vitest";
 import { describe, expect, it } from "vitest";
 
 import { turningAngle } from "./turning-angle";
@@ -45,4 +46,38 @@ describe("turningAngle (DERIV-turning-angle check table)", () => {
     // a zero-length edge has no direction, so the intended result is 0 (ADR-0025).
     expect(turningAngle({ x: 10, y: 10 }, { x: 0, y: 0 }, { x: 0, y: 0 })).toBe(0);
   });
+});
+
+describe("turningAngle (properties)", () => {
+  test.prop({
+    next: fc.record({
+      x: fc.integer({ max: 1e4, min: -1e4 }),
+      y: fc.integer({ max: 1e4, min: -1e4 }),
+    }),
+    offset: fc.record({
+      x: fc.integer({ max: 1e4, min: -1e4 }),
+      y: fc.integer({ max: 1e4, min: -1e4 }),
+    }),
+    previous: fc.record({
+      x: fc.integer({ max: 1e4, min: -1e4 }),
+      y: fc.integer({ max: 1e4, min: -1e4 }),
+    }),
+    vertex: fc.record({
+      x: fc.integer({ max: 1e4, min: -1e4 }),
+      y: fc.integer({ max: 1e4, min: -1e4 }),
+    }),
+  })(
+    "stays in [−π, π] and does not change when the corner is moved",
+    ({ next, offset, previous, vertex }) => {
+      const angle = turningAngle(previous, vertex, next);
+      const moved = turningAngle(
+        { x: previous.x + offset.x, y: previous.y + offset.y },
+        { x: vertex.x + offset.x, y: vertex.y + offset.y },
+        { x: next.x + offset.x, y: next.y + offset.y },
+      );
+
+      expect(Math.abs(angle)).toBeLessThanOrEqual(Math.PI);
+      expect(moved).toBeCloseTo(angle, 9);
+    },
+  );
 });

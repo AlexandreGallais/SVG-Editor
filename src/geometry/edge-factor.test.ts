@@ -1,3 +1,4 @@
+import { fc, test } from "@fast-check/vitest";
 import { describe, expect, it } from "vitest";
 
 import { edgeFactor } from "./edge-factor";
@@ -19,5 +20,18 @@ describe("edgeFactor (DERIV-local-radius-clamp step 2)", () => {
   it("is 1 on a zero-length edge without demand: no division by zero", () => {
     // S ≤ L is tested first: 0 ≤ 0.
     expect(edgeFactor(0, 0)).toBe(1);
+  });
+});
+
+describe("edgeFactor (properties)", () => {
+  test.prop({
+    demand: fc.integer({ max: 5000, min: 0 }),
+    length: fc.integer({ max: 5000, min: 0 }),
+  })("stays in [0, 1] and fits the reduced demand in the edge", ({ demand, length }) => {
+    const factor = edgeFactor(length, demand);
+
+    expect(factor).toBeGreaterThanOrEqual(0);
+    expect(factor).toBeLessThanOrEqual(1);
+    expect(factor * demand).toBeLessThanOrEqual(length * (1 + 1e-12));
   });
 });

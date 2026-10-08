@@ -61,6 +61,6 @@ Refs: EN-001.T2, DERIV-local-radius-clamp
 | ------------ | ---------------------------------------------------------------------------------------------- |
 | `pre-commit` | `lint-staged`: Prettier + ESLint `--fix` on staged TypeScript, secretlint on every staged file |
 | `commit-msg` | commitlint                                                                                     |
-| `pre-push`   | branch name, `npm run check`, `npm run deps:outdated`                                          |
+| `pre-push`   | branch name, `npm run check:all` (check, latest versions, docs build)                          |
 
 Hooks are installed by `npm install` (`prepare` script). Bypassing them (`--no-verify`) is not allowed.

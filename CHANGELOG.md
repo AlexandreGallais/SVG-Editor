@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.1](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.1.0...v0.1.1) (2026-10-08)
+
+
+### Documentation
+
+* **tooling:** list the tools considered for later ([2f3851c](https://github.com/AlexandreGallais/synoptic-studio/commit/2f3851c412088a9cc176bff85039d9be2463870c))
+
+
+### Build and dependencies
+
+* **tooling:** require full coverage and add standard repository files ([0a35732](https://github.com/AlexandreGallais/synoptic-studio/commit/0a35732274683c207bed0c9a8be8ae97bc8ae7e3))
+
 ## 0.1.0 (2026-10-08)
 
 

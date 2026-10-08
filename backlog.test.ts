@@ -40,7 +40,13 @@ function frontMatter(text: string): Record<string, string> {
     block.split("\n").map((line) => {
       const [key = "", ...value] = line.split(":");
 
-      return [key.trim(), value.join(":").trim()];
+      return [
+        key.trim(),
+        value
+          .join(":")
+          .trim()
+          .replace(/^"(?<inner>.*)"$/u, "$<inner>"),
+      ];
     }),
   );
 }
@@ -126,6 +132,21 @@ function hasParent(item: Item, parents: Readonly<Record<string, ReadonlySet<stri
   return field === undefined || (parents[field]?.has(item.fields[field] ?? "") ?? false);
 }
 
+/**
+ * File-name prefix of an item: its ancestors' ids then its own (`E01-F01-US-001-`).
+ *
+ * @param item - backlog item
+ * @returns `E01-`, `E01-F01-` or `E01-F01-US-001-`, ancestors first
+ */
+function expectedPrefix(item: Item): string {
+  const { epic = "", feature = "", id = "" } = item.fields;
+
+  return [epic, feature, id]
+    .filter((part) => part !== "")
+    .map((part) => `${part}-`)
+    .join("");
+}
+
 describe("backlog", () => {
   it("gives every item a well-formed id, a title and an allowed status", () => {
     expect(
@@ -135,12 +156,24 @@ describe("backlog", () => {
     ).toEqual([]);
   });
 
-  it("names every file after its id", () => {
+  it("names every file after its parents and its id", () => {
     expect(
       items()
-        .filter((item) => !item.file.startsWith(`${item.fields["id"] ?? ""}-`))
+        .filter((item) => !item.file.startsWith(expectedPrefix(item)))
         .map((item) => item.file),
     ).toEqual([]);
+  });
+
+  it("quotes front-matter values containing a colon (YAML)", () => {
+    const unquoted = Object.keys(STATUSES).flatMap((folder) =>
+      readdirSync(join(BACKLOG, folder))
+        .filter((file) => file.endsWith(".md"))
+        .filter((file) =>
+          /^\w+: [^"\n]*: /mu.test(readFileSync(join(BACKLOG, folder, file), "utf8")),
+        ),
+    );
+
+    expect(unquoted).toEqual([]);
   });
 
   it("uses each id once", () => {

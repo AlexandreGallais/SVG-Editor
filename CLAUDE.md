@@ -2,10 +2,11 @@
 
 ## Project
 
-TypeScript library `editor` to create **SVG symbols** for **synoptic views**, and two applications built on it:
+TypeScript library `editor` to create **SVG symbols** for **synoptic views**, and the tools built on it (`docs/domain/README.md`):
 
-- **Symbol Editor**: draws shapes, ports, parameters.
-- **View Editor**: assembles symbols, sets parameters, draws pipes.
+- **Symbol Editor**: strict numeric shapes, ports, animatable parts.
+- **Configurator**: configuration trees, interfaces, property groups, business types and libraries.
+- **View Editor**: places business symbols, overrides defaults, chooses pop-up lines, draws pipes and static drawings.
 
 A library of small named functions, each backed by a source, composed so that they read like formulas. A dev server (`playground/`) lets the user play with it.
 
@@ -114,7 +115,7 @@ Research request: fill `docs/research/requests/_template.md` and ask the user to
 - A plugin upgrade makes `eslint/config.test.ts` fail until its new rules are decided in `eslint/rules/`: intended.
 - Autofix trap: `unicorn/prefer-import-meta-properties` turns `new URL(".", import.meta.url)` (trailing slash) into `import.meta.dirname` (none). Build paths with `join()`.
 - Docs pages: never write double curly braces (VitePress evaluates them); templates start with `_` and are not published.
-- Open domain questions blocking the first shapes: **Q10** (`SVG_DECIMALS`, `EPSILON`) and **Q11** (contour orientation, starting vertex) in `docs/domain/README.md`.
+- Q10 and Q11 are settled (`SVG_DECIMALS = 5`, `EPSILON = 1e-9`, clockwise from the top-left vertex, cyclic contours). Open: Q12 (drawing pen), Q13 (rotation animation), Q14 (configuration tree scope).
 
 ## Branches, commits, pull requests (user decision, 2026-10-08)
 

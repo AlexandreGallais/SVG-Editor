@@ -2,12 +2,11 @@
 
 ## 1. Symbol
 
-- A symbol = a `<g>` group containing:
-  - a **shape tree** (see `interaction.md` §6)
-  - **ports**
-  - **parameters** with default values
+- A symbol = a `<g>` group containing a **shape tree** (see `interaction.md` §6), **ports** and **animatable parts**.
+- A symbol has no business meaning: interfaces, properties and rules come from the Configurator ([configuration.md](./configuration.md)).
 - No SVG `<symbol>` / `<use>` element: symbol behavior is carried by the model, rendering stays a `<g>`.
 - Symbol origin: integer reference point for placement.
+- Inside the Symbol Editor, shapes may be rotated by any integer angle in degrees ([shapes.md](./shapes.md) §1).
 
 ## 2. Ports (connection points)
 
@@ -18,39 +17,28 @@
 | Exit direction | `N`, `E`, `S`, `W` — needed by orthogonal routing (the pipe leaves the port perpendicularly to the edge); rotates with the instance (ADR-0008) |
 | Count          | free; e.g. a pump usually has 2, sometimes more                                                                                                |
 
-## 3. Parameters
+## 3. Animations
 
-A parameter = name, type, default value, **binding** to a property of a shape of the symbol.
+An animatable part of a symbol reacts to a value set by a configuration rule:
 
-| Type      | Binding example                                                |
-| --------- | -------------------------------------------------------------- |
-| `color`   | fill or stroke of a shape                                      |
-| `number`  | stroke width, text size                                        |
-| `text`    | content of a text                                              |
-| `boolean` | visibility of a shape or sub-group                             |
-| `enum`    | state (e.g. running / stopped / fault) → set of applied values |
+| Animation                     | Effect                                                                                                                                                      |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Color                         | the part takes a color                                                                                                                                      |
+| Color blinking                | the part alternates between colors                                                                                                                          |
+| Opacity / visibility blinking | the part blinks by opacity or display                                                                                                                       |
+| Visibility                    | the part is shown or hidden                                                                                                                                 |
+| Partial fill                  | the part is filled up to a level (e.g. a tank level)                                                                                                        |
+| Rotation                      | the part rotates; animation values are not limited to integers or quarter turns (open question **Q13**: value mapped to an angle, continuous spin, or both) |
 
-The Symbol Editor declares the parameters. The View Editor only fills them in.
+## 4. Synoptic view (View Editor)
 
-## 4. Presets (business types)
+- Contains: instances of business symbols, pipes, static drawings.
+- Allowed on an instance: position (integer), rotation by **quarter turns only** (ADR-0008), override of default property values (live preview of animations), checking / unchecking pop-up lines ([configuration.md](./configuration.md) §5).
+- Forbidden: changing the symbol's geometry; adding a property not defined by the configuration.
+- Duplicating instances: yes.
+- Rotation: integer `q ∈ {0, 1, 2, 3}`, pivot = symbol origin; port directions rotate with the instance.
 
-- Preset = symbol + set of parameter values + **business name**.
-- Example: symbol "text box" → presets "Pressure sensor", "Temperature sensor", "Flow sensor".
-- Goal: the view designer handles business objects, not shapes.
-- An instance of a preset can still have its parameters changed.
-
-## 5. Synoptic view (View Editor)
-
-- Contains: instances of symbols or presets, pipes.
-- Allowed on an instance: position (integer), parameter values.
-- Forbidden: changing the symbol's geometry.
-- Duplicating instances: yes (e.g. N sensors from the same symbol).
-- Instance rotation: **quarter turns only** (ADR-0008).
-  - Stored as an integer `q ∈ {0, 1, 2, 3}`.
-  - Pivot: the symbol origin, to stay on integers.
-  - Port directions rotate with the instance.
-
-## 6. Pipes
+## 5. Pipes
 
 ### Drawing
 
@@ -74,12 +62,8 @@ Standards to consult to go further: `REF-ISO-10628`, `REF-ISA-5-1`, `REF-ISA-101
 
 ### Diagonals (45°)
 
-Excluded in v1:
+Excluded in v1 (process diagram conventions, orthogonal routing algorithms). Can be reintroduced through a dedicated ADR.
 
-- Process diagram conventions use horizontal and vertical lines.
-- The reference routing algorithms are orthogonal.
-- Can be reintroduced later through a dedicated ADR, as an explicit option.
+## 6. Storage
 
-## 7. Export (Q5)
-
-To be defined: symbol format (SVG + JSON metadata? JSON only?) and view format.
+Files read through a local server (Q5, [configuration.md](./configuration.md) §6).

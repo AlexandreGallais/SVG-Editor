@@ -12,6 +12,22 @@ Processing chain: typed numbers → integer model → computed geometry → `<pa
 
 Consequence: every shape is described by numbers. The drawing is **determined**, not drawn by hand.
 
+### Contour orientation (Q11)
+
+- Contours are listed **clockwise on screen** (SVG frame, y pointing down), **starting at the top-left vertex**.
+- A contour is **cyclic**: the last vertex joins the first; every per-vertex computation (corner radius, clamping) wraps around, so the first vertex sees the last edge and the last vertex sees the first edge.
+
+### Precision (Q10)
+
+- `SVG_DECIMALS = 5`: derived coordinates are written with at most 5 decimals.
+- `EPSILON = 1e-9`: tolerance of floating-point comparisons.
+- The user only ever enters integers; decimals only appear in derived geometry and output.
+
+### Rotation of shapes
+
+- In the Symbol Editor, a shape may be rotated by **any integer angle in degrees** (e.g. a rectangle tilted by 45°). The angle is stored; the rotated vertices are derived (ADR-0003).
+- Instances in the View Editor only rotate by quarter turns (ADR-0008).
+
 ## 2. Corner radius
 
 Reference behavior: Figma.
@@ -72,12 +88,13 @@ Functional reference: Inkscape's Star/Polygon tool.
 - Parameters: content, font, integer size, anchor (start / middle / end), color.
 - Reason: converting text to paths requires reading font files, hence a library or a heavy home-made parser.
 
-### Out of scope
+### Out of scope (symbols)
 
-- **Pen**: deemed useless by the user.
-- **Freeform drawing**: contrary to the "logical" principle.
-- **Bézier curves**, Figma's **Bend** tool, handle **mirroring**: they only exist with Béziers (ADR-0001).
+- **Pen** and **freeform drawing** in the Symbol Editor: contrary to the "logical" principle.
+- **Bézier curves**, Figma's **Bend** tool, handle **mirroring** in symbols (ADR-0001).
 - **Corner smoothing** (Figma squircle smoothing): produces Béziers.
+
+Static drawings of the View Editor follow other rules (§8).
 
 ## 4. Node editing
 
@@ -128,3 +145,10 @@ Rules:
 ## 7. Shape tree
 
 See `interaction.md` §6.
+
+## 8. Static drawings
+
+- Made by business users in the View Editor, with **more freedom** than symbols but few options.
+- A drawing has no parameter and no animation. Selecting a group and saving it creates a drawing.
+- Drawings go into a **drawing library shared between projects**, so that the same drawings are reused from one synoptic view to another.
+- Curves are allowed **only** in drawings (user decision); symbols keep ADR-0001. The exact pen behavior is open (**Q12**): Figma-like pen whose dragged handles produce Bézier curves (requires an ADR superseding ADR-0001 for drawings), a pen limited to segments and arcs, or no pen.

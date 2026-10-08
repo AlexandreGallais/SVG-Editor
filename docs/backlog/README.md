@@ -18,19 +18,19 @@ The Product Owner is one person (`REF-SCRUM-GUIDE`). Claude Code never sets an e
 
 ## The four levels
 
-```
+```text
 EPIC          complete business need
 └─ FEATURE    capability the user can see and test
    ├─ STORY   one behavior, finished and accepted on its own
    │  └─ TASK one unit of work (≤ 1 day)
 ```
 
-| Level   | File                                              | Written by                                            | Validated by  |
-| ------- | ------------------------------------------------- | ----------------------------------------------------- | ------------- |
-| Epic    | `epics/E01-slug.md`                               | Product Owner (drafts may be proposed by Claude Code) | Product Owner |
-| Feature | `features/F01-slug.md`                            | Product Owner with the team                           | Product Owner |
-| Story   | `stories/US-001-slug.md`, `EN-…`, `SP-…`, `VAL-…` | developers                                            | Product Owner |
-| Task    | checklist inside its story file                   | developers                                            | the developer |
+| Level   | File                                                      | Written by                                            | Validated by  |
+| ------- | --------------------------------------------------------- | ----------------------------------------------------- | ------------- |
+| Epic    | `epics/E01-slug.md`                                       | Product Owner (drafts may be proposed by Claude Code) | Product Owner |
+| Feature | `features/E01-F01-slug.md`                                | Product Owner with the team                           | Product Owner |
+| Story   | `stories/E01-F01-US-001-slug.md` (also `EN`, `SP`, `VAL`) | developers                                            | Product Owner |
+| Task    | checklist inside its story file                           | developers                                            | the developer |
 
 ## Rules
 
@@ -44,6 +44,8 @@ EPIC          complete business need
 8. **Definition of Done**: [conventions](../conventions/) — `npm run check` green, docs updated, demonstrated in the playground or by tests, accepted by the Product Owner.
 9. **One story in progress at a time**; an abandoned story is set to `dropped` with the reason, never renamed "part 2".
 10. **Commits reference the backlog** through footers (`Refs:`, `Closes:`, see [Git workflow](../tooling/git-workflow.md)).
+
+File names and titles carry the ancestry: `E01-F01-US-001-slug.md`, titled `E01 · F01 · US-001 — …`, so that an item's epic and feature are visible at a glance. The test checks that the prefix matches the front matter. Commits keep the short story ID (`Refs: US-001.T2`): it is unique.
 
 ## Statuses
 
@@ -63,7 +65,7 @@ Every item is a Markdown file starting with a front-matter block (`key: value` l
 | `id`     | `E01` | `F01`       | `US-001`, `EN-001`, `SP-001`, `VAL-001` |
 | `title`  | ✔     | ✔           | ✔                                       |
 | `status` | ✔     | ✔           | ✔                                       |
-| parent   | —     | `epic: E01` | `feature: F01`                          |
+| parent   | —     | `epic: E01` | `epic: E01`, `feature: F01`             |
 | other    | —     | —           | `points`                                |
 
 ## Workflow

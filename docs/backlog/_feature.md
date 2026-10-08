@@ -5,7 +5,7 @@ title: The capability, in a short sentence
 status: draft
 ---
 
-# F00 — The capability
+# E00 · F00 — The capability
 
 **Benefit hypothesis**: what the user gains, stated so that it can be checked.
 

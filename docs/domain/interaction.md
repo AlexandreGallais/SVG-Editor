@@ -46,10 +46,13 @@ Rules:
 - Tolerance expressed in **screen pixels** (zoom-independent).
 - Priority: snapping to an object wins over alignment snapping, even a farther one (Inkscape behavior).
 
-## 5. Align and distribute
+## 5. Colors, align and distribute
+
+- Colors: fill and stroke colors picked from a palette or typed.
 
 - Align: left, horizontal center, right, top, vertical middle, bottom.
-- Distribute: equal horizontal / vertical spacing.
+- Distribute: equal horizontal / vertical spacing (constant gaps).
+- Shape builder (Inkscape-like): select shapes, then keep or merge the regions built from their edges and intersections ([shapes.md](./shapes.md) §5).
 - Works **whatever the group** of the objects: computed on bounding boxes in world coordinates.
 
 ## 6. Shape tree (layers)

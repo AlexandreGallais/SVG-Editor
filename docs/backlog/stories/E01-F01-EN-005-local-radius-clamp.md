@@ -31,3 +31,4 @@ One task = one commit, referenced as `EN-005.Tn`.
 - [ ] T2 — Generalize `cyclicVertex` into `cyclicItem`, used for vertices and for per-vertex numbers (`geometry`) (0.5 h)
 - [ ] T3 — `Corner` (vertex and requested radius), setbacks, edge lengths, factor per edge (`geometry`, `DERIV-local-radius-clamp` steps 1–2) with the check table (1 h)
 - [ ] T4 — Factor per vertex and effective radii (`geometry`, step 3); properties: 0 ≤ effective ≤ requested, setbacks of an edge ≤ its length (1.5 h)
+- [ ] T5 — Audit findings: `turningAngle` gave π on a zero-length edge after a negative incoming vector (signed zeros), now 0 explicitly; factor ranges `[0, 1]`; independent setbacks in the overlap property (1 h)

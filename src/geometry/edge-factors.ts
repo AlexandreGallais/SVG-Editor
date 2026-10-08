@@ -9,7 +9,7 @@ import { edgeFactor } from "./edge-factor";
  * @kind geometry
  * @param lengths - length of each edge, in drawing order
  * @param setbacks - setback requested at each corner, in drawing order
- * @returns one factor per edge, in ]0, 1]
+ * @returns one factor per edge, in [0, 1]
  * @see DERIV-local-radius-clamp
  */
 export function edgeFactors(

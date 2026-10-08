@@ -3,25 +3,64 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>editor — playground</title>
+    <title>synoptic-studio — playground</title>
     <style>
       :root {
         color-scheme: light dark;
         font-family: system-ui, sans-serif;
       }
       body {
+        display: grid;
+        grid-template-columns: 1fr 22rem;
+        min-height: 100vh;
         margin: 0;
+      }
+      #canvas {
         display: grid;
         place-items: center;
-        min-height: 100vh;
+        background: repeating-conic-gradient(#8881 0 25%, transparent 0 50%) 0 0 / 20px 20px;
+      }
+      #canvas svg {
+        width: min(90%, 40rem);
+        height: auto;
+        overflow: visible;
+      }
+      #canvas path {
+        fill: #4a7bd0;
+      }
+      aside {
+        padding: 1rem;
+        border-left: 1px solid #8884;
+        overflow: auto;
+      }
+      label {
+        display: block;
+        margin-block: 0.5rem;
+      }
+      input[aria-invalid="true"] {
+        outline: 2px solid #d04a4a;
+      }
+      pre {
+        font-size: 0.8rem;
+        white-space: pre-wrap;
+        word-break: break-all;
       }
     </style>
   </head>
   <body>
-    <main>
-      <h1>editor — playground</h1>
-      <p id="status">Loading…</p>
-    </main>
+    <main id="canvas"></main>
+    <aside>
+      <h1>Rectangle</h1>
+      <label>Width <input id="width" type="number" min="0" step="1" value="120" /></label>
+      <label>Height <input id="height" type="number" min="0" step="1" value="80" /></label>
+      <p id="status" role="status"></p>
+      <h2>Model (integers)</h2>
+      <pre id="model"></pre>
+      <h2>Contour (vertices)</h2>
+      <pre id="contour"></pre>
+      <h2>SVG output (<code>d</code>)</h2>
+      <pre id="path-data"></pre>
+    </aside>
     <script type="module" src="./index.ts"></script>
   </body>
 </html>

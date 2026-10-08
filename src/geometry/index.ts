@@ -4,6 +4,8 @@ export * from "./cyclic-item";
 export * from "./edge-factor";
 export * from "./edge-factors";
 export * from "./edge-lengths";
+export * from "./effective-radii";
 export * from "./fillet-setback";
 export * from "./turning-angle";
 export * from "./turning-angles";
+export * from "./vertex-factors";

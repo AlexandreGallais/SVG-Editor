@@ -1,15 +1,15 @@
 # Stories
 
-| ID                                                          | Feature | Story                                           | Status |
-| ----------------------------------------------------------- | ------- | ----------------------------------------------- | ------ |
-| [EN-001](./E01-F01-EN-001-fixed-precision-numbers.md)       | F01     | Write numbers with fixed precision              | ready  |
-| [US-001](./E01-F01-US-001-rectangle-contour.md)             | F01     | Rectangle contour from width and height         | draft  |
-| [EN-002](./E01-F01-EN-002-sharp-contour-path-data.md)       | F01     | Path data of a sharp contour                    | draft  |
-| [US-002](./E01-F01-US-002-sharp-rectangle-in-playground.md) | F01     | Draw a sharp rectangle in the playground        | draft  |
-| [EN-003](./E01-F01-EN-003-corner-turning-angle.md)          | F01     | Turning angle at a contour vertex               | draft  |
-| [EN-004](./E01-F01-EN-004-fillet-setback.md)                | F01     | Fillet setback                                  | draft  |
-| [EN-005](./E01-F01-EN-005-local-radius-clamp.md)            | F01     | Local proportional radius clamp                 | draft  |
-| [EN-006](./E01-F01-EN-006-rounded-contour-geometry.md)      | F01     | Rounded contour geometry: segments and arcs     | draft  |
-| [EN-007](./E01-F01-EN-007-arc-path-data.md)                 | F01     | Path data with arcs                             | draft  |
-| [US-003](./E01-F01-US-003-round-rectangle-corners.md)       | F01     | Round the rectangle's corners in the playground | draft  |
-| [VAL-001](./E01-F01-VAL-001-validate-rectangle.md)          | F01     | Validate F01 on the reference cases             | draft  |
+| ID                                                          | Feature | Story                                           | Status      |
+| ----------------------------------------------------------- | ------- | ----------------------------------------------- | ----------- |
+| [EN-001](./E01-F01-EN-001-fixed-precision-numbers.md)       | F01     | Write numbers with fixed precision              | in-progress |
+| [US-001](./E01-F01-US-001-rectangle-contour.md)             | F01     | Rectangle contour from width and height         | draft       |
+| [EN-002](./E01-F01-EN-002-sharp-contour-path-data.md)       | F01     | Path data of a sharp contour                    | draft       |
+| [US-002](./E01-F01-US-002-sharp-rectangle-in-playground.md) | F01     | Draw a sharp rectangle in the playground        | draft       |
+| [EN-003](./E01-F01-EN-003-corner-turning-angle.md)          | F01     | Turning angle at a contour vertex               | draft       |
+| [EN-004](./E01-F01-EN-004-fillet-setback.md)                | F01     | Fillet setback                                  | draft       |
+| [EN-005](./E01-F01-EN-005-local-radius-clamp.md)            | F01     | Local proportional radius clamp                 | draft       |
+| [EN-006](./E01-F01-EN-006-rounded-contour-geometry.md)      | F01     | Rounded contour geometry: segments and arcs     | draft       |
+| [EN-007](./E01-F01-EN-007-arc-path-data.md)                 | F01     | Path data with arcs                             | draft       |
+| [US-003](./E01-F01-US-003-round-rectangle-corners.md)       | F01     | Round the rectangle's corners in the playground | draft       |
+| [VAL-001](./E01-F01-VAL-001-validate-rectangle.md)          | F01     | Validate F01 on the reference cases             | draft       |

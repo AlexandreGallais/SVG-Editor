@@ -19,7 +19,7 @@ Consequence: every shape is described by numbers. The drawing is **determined**,
 
 ### Precision (Q10)
 
-- `SVG_DECIMALS = 5`: derived coordinates are written with at most 5 decimals.
+- `SVG_DECIMALS = 5`: derived coordinates are written with at most 5 decimals, in their shortest form: no trailing zeros (`2.5`, not `2.50000`), never a negative zero (`-0.000001` is written `0`).
 - `EPSILON = 1e-9`: tolerance of floating-point comparisons.
 - The user only ever enters integers; decimals only appear in derived geometry and output.
 

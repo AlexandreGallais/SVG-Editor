@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.2.0](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.1.1...v0.2.0) (2026-10-08)
+
+
+### Features
+
+* **math:** add the Point type ([606fcaf](https://github.com/AlexandreGallais/synoptic-studio/commit/606fcafac810839c435d6676f342784c68c4c411))
+* **model:** add the rectangle contour and its validation ([14c324b](https://github.com/AlexandreGallais/synoptic-studio/commit/14c324bc5611cb2fd32077158e11ca67186671f8))
+
+
+### Bug fixes
+
+* **model:** document type members and catch it before the docs build ([280c024](https://github.com/AlexandreGallais/synoptic-studio/commit/280c02489b3a97e1241b9c2cff03232a5f9cb2e0))
+
+
+### Documentation
+
+* **backlog:** set US-001 ready ([4312d02](https://github.com/AlexandreGallais/synoptic-studio/commit/4312d02f096ff9151f79b05a36e082e47880af50))
+* **backlog:** tick US-001 tasks and record the empty-barrel pitfall ([c4a3ae9](https://github.com/AlexandreGallais/synoptic-studio/commit/c4a3ae955352c2c87a514ee6ad3cc13f18288f4f))
+
 ## [0.1.1](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.1.0...v0.1.1) (2026-10-08)
 
 

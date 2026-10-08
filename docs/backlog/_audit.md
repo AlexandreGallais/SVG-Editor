@@ -9,7 +9,7 @@ points: 3
 
 # E00 · F00 · AUD-000 — Audit F00
 
-Full check of F00 in depth and of the project in breadth, following [audit.md](../../conventions/audit.md) (ADR-0020).
+Full check of F00 in depth and of the project in breadth, following [audit.md](../../conventions/audit.md) (ADR-0020), with the `/audit` skill.
 
 ## Acceptance criteria
 
@@ -21,7 +21,7 @@ Full check of F00 in depth and of the project in breadth, following [audit.md](.
 
 One task = one commit, referenced as `AUD-000.Tn`.
 
-- [ ] T1 — A. Mathematics and mutation spot-checks (2 h)
+- [ ] T1 — A. Independent review by the `auditor` subagent; mathematics, mutation spot-checks, missing properties (3 h)
 - [ ] T2 — B. Sources re-verified (1 h)
 - [ ] T3 — C, D, E. Provenance, duplicates, consistency (2 h)
 - [ ] T4 — F, G. Quality gates and research list for the next feature; findings table (1 h)

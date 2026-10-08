@@ -82,7 +82,7 @@ Every item is a Markdown file starting with a front-matter block (`key: value` l
 ## Workflow
 
 1. **Write** (now): epics, then features, then stories — everything is written before implementation starts.
-2. **Refine**: split the next feature into stories — research spike first, audit and validation last — write its feature plan, set what the Product Owner agrees to `ready`.
+2. **Refine**: interview the Product Owner on the next feature (business rules, edge cases, what is out of scope), split it into stories — research spike first, audit and validation last — write its feature plan, set what the Product Owner agrees to `ready`.
 3. **Implement**: one `ready` story at a time, on its own branch, one commit per task, Definition of Done, then a pull request.
 4. **Accept**: the Product Owner merges the pull request, which already sets the story to `done`; when a feature's `VAL` story is merged, the feature is `done`. No status commit is needed after the merge.
 

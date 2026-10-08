@@ -25,4 +25,4 @@ What it does not do yet, and which feature will.
 
 ## Your feedback
 
-Written by the Product Owner during `VAL`: what surprised you, what does not match what you meant.
+Said by the Product Owner during `VAL`, quoted by the agent (in French if said in French): what surprised you, what does not match what you meant.

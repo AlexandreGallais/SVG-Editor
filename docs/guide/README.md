@@ -11,7 +11,7 @@ Written at the end of each feature (`VAL`, demo page) and of each epic (`REV`, e
 3. Numbers from the playground rather than symbols: "a 100 × 25 rectangle with radius 100 gets radius 12.5".
 4. A picture (SVG produced by the library, or a sketch) for every geometric idea.
 5. Say the limits: what the feature does not do yet, and which feature will.
-6. The guided test is a list of steps with the expected result of each; the Product Owner ticks or comments.
+6. The guided test is a list of steps with the expected result of each; the Product Owner says what they see, and the agent records it, quoting them.
 
 ## Pages
 

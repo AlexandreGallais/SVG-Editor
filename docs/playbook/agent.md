@@ -25,4 +25,4 @@ Sources: `REF-CC-BEST-PRACTICES`, `REF-CC-MEMORY`, `REF-CC-SKILLS`, `REF-CC-HOOK
 
 ## The Product Owner's role
 
-The agent designs, implements, tests and documents; the Product Owner sets priorities, answers business questions, sets stories `ready`, tests the demos, merges pull requests, and writes in the improvement log. In public discussions this mode is often called agentic coding; unlike "vibe coding", every change is reviewed, tested and sourced.
+The agent designs, implements, tests and documents; the Product Owner sets priorities, answers business questions, sets stories `ready`, tests the demos, merges pull requests, and writes in the improvement log. The Product Owner calls this mode "vibe coding"; in its original sense the term means accepting code without reading it, whereas here every change is reviewed, tested and sourced — through checks rather than line-by-line reading. The Product Owner may dictate by voice: the agent reads for intent, asks when a decision is ambiguous, and writes the Product Owner's feedback into the repository, quoting them.

@@ -28,4 +28,4 @@ The ADRs and domain answers of this epic, one line each, in plain words.
 
 ## Your feedback
 
-Written by the Product Owner during `REV`.
+Said by the Product Owner during `REV`, quoted by the agent.

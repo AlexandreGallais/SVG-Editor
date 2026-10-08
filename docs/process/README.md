@@ -4,13 +4,13 @@ How the project inspects itself and adapts (ADR-0023). The backlog method is in 
 
 ## Cadences
 
-| When               | What                                                                                   | Who                       | Output                                                                             |
-| ------------------ | -------------------------------------------------------------------------------------- | ------------------------- | ---------------------------------------------------------------------------------- |
-| any time           | write an idea, an irritant or a lesson                                                 | both                      | a row in the [improvement log](./improvements.md)                                  |
-| start of a feature | refinement interview, research spike `SP`                                              | both, then agent          | stories, sources                                                                   |
-| end of a feature   | audit `AUD` (with light evolvability check), validation `VAL` (demo page, guided test) | agent, then Product Owner | findings, [guide](../guide/) page, feedback                                        |
-| end of an epic     | review `REV`: epic report and user test                                                | agent, then Product Owner | guide report, backlog and domain changes                                           |
-| end of an epic     | retrospective `RET`: way of working, evolvability, playbook                            | both                      | [retrospective record](./retrospectives/), ADRs, stories, [playbook](../playbook/) |
+| When               | What                                                                                    | Who                       | Output                                                                             |
+| ------------------ | --------------------------------------------------------------------------------------- | ------------------------- | ---------------------------------------------------------------------------------- |
+| any time           | raise an idea, an irritant or a lesson (the agent writes it, quoting the Product Owner) | both                      | a row in the [improvement log](./improvements.md)                                  |
+| start of a feature | refinement interview, research spike `SP`                                               | both, then agent          | stories, sources                                                                   |
+| end of a feature   | audit `AUD` (with light evolvability check), validation `VAL` (demo page, guided test)  | agent, then Product Owner | findings, [guide](../guide/) page, feedback                                        |
+| end of an epic     | review `REV`: epic report and user test                                                 | agent, then Product Owner | guide report, backlog and domain changes                                           |
+| end of an epic     | retrospective `RET`: way of working, evolvability, playbook                             | both                      | [retrospective record](./retrospectives/), ADRs, stories, [playbook](../playbook/) |
 
 ## Evolvability review (in every `RET`, light in every `AUD`)
 
@@ -29,3 +29,4 @@ Questions asked as the project grows — each answer is "nothing yet", a story, 
 | ------------------------------------ | ---------------------------------------------------------------- |
 | [improvements.md](./improvements.md) | improvement log, fed continuously, emptied by each retrospective |
 | [retrospectives](./retrospectives/)  | one record per retrospective                                     |
+| [journal.md](./journal.md)           | what each session dealt with, newest first (ADR-0024)            |

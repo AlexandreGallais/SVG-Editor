@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.6.1](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.6.0...v0.6.1) (2026-10-08)
+
+
+### Documentation
+
+* **adr:** open every feature with research and close it with an audit ([02fe633](https://github.com/AlexandreGallais/synoptic-studio/commit/02fe633b419a4e095e445227e56a743e01452452))
+* **backlog:** frame features with research, audit and validation ([d878721](https://github.com/AlexandreGallais/synoptic-studio/commit/d878721cc018e4daabb8be4bb097946a7848c831))
+* reorganize CLAUDE.md and fix stale statements ([bc40731](https://github.com/AlexandreGallais/synoptic-studio/commit/bc4073136558db9d6aed38db012f229dc04961fc))
+
 ## [0.6.0](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.5.0...v0.6.0) (2026-10-08)
 
 

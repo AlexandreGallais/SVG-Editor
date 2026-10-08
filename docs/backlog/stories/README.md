@@ -8,7 +8,7 @@
 | [US-002](./E01-F01-US-002-sharp-rectangle-in-playground.md) | F01     | Draw a sharp rectangle in the playground        | done   |
 | [US-004](./E01-F01-US-004-fixed-scale-playground.md)        | F01     | Show shapes at a fixed scale in the playground  | done   |
 | [EN-003](./E01-F01-EN-003-corner-turning-angle.md)          | F01     | Turning angle at a contour vertex               | done   |
-| [EN-004](./E01-F01-EN-004-fillet-setback.md)                | F01     | Fillet setback                                  | ready  |
+| [EN-004](./E01-F01-EN-004-fillet-setback.md)                | F01     | Fillet setback                                  | done   |
 | [EN-005](./E01-F01-EN-005-local-radius-clamp.md)            | F01     | Local proportional radius clamp                 | draft  |
 | [EN-006](./E01-F01-EN-006-rounded-contour-geometry.md)      | F01     | Rounded contour geometry: segments and arcs     | draft  |
 | [EN-007](./E01-F01-EN-007-arc-path-data.md)                 | F01     | Path data with arcs                             | draft  |

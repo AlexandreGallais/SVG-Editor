@@ -151,7 +151,8 @@ function updatePlayground(document: Document): void {
 }
 
 /**
- * Mounts the playground: redraws on every input, then draws the initial rectangle.
+ * Mounts the playground: redraws on every input and window resize, then draws the initial
+ * rectangle.
  *
  * @kind procedure
  * @param document - page document
@@ -163,6 +164,10 @@ function mountPlayground(document: Document): void {
       updatePlayground(document);
     });
   }
+
+  document.defaultView?.addEventListener("resize", () => {
+    updatePlayground(document);
+  });
 
   updatePlayground(document);
 }

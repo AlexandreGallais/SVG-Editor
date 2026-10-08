@@ -3,7 +3,7 @@ id: SP-001
 epic: E01
 feature: F01
 title: Research for the remaining stories of F01
-status: draft
+status: ready
 points: 2
 ---
 

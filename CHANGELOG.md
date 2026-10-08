@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.2.0...v0.2.1) (2026-10-08)
+
+
+### Documentation
+
+* **backlog:** set US-001 done ([105e476](https://github.com/AlexandreGallais/synoptic-studio/commit/105e4768e75c65909b3c67a6f493369211d7a27f))
+
 ## [0.2.0](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.1.1...v0.2.0) (2026-10-08)
 
 

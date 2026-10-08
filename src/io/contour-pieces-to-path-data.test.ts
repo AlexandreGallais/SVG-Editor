@@ -68,6 +68,13 @@ describe("contourPiecesToPathData (REF-SVG2-PATHS §9.3.3–9.3.8)", () => {
     );
   });
 
+  it("drops the zero-length edges of a rectangle of size 0 (Q15)", () => {
+    // 0 × 50: two segments remain, (0, 0) → (0, 50) and back, the second left to Z.
+    const pieces = roundedContour(corners(0, 50, 0));
+
+    expect(contourPiecesToPathData(pieces)).toBe("M0 0 L0 50 Z");
+  });
+
   it("gives an empty d for no piece", () => {
     expect(contourPiecesToPathData([])).toBe("");
   });

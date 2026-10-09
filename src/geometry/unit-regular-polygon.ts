@@ -1,0 +1,25 @@
+import type { Point } from "../math";
+
+/**
+ * Vertices of a regular polygon on the unit circle centered at the origin, with a horizontal
+ * bottom edge (a flat base), in the SVG frame (y pointing down).
+ *
+ * The vertices run clockwise on screen from the topmost one, the leftmost on a tie (Q11, Q18):
+ * the `j`-th is at the angle `βⱼ = −π/2 + (2⌊n/2⌋ + 1 − 2j) π / n` of the mathematical frame,
+ * written `(cos βⱼ, −sin βⱼ)` once the y axis is flipped. The start is chosen by its index,
+ * never by comparing floating coordinates. A zero ordinate is written `+0`, never `−0`.
+ *
+ * @kind geometry
+ * @param corners - number of corners `n`, an integer >= 3
+ * @returns the `n` vertices in drawing order
+ * @see DERIV-regular-polygon-fit
+ */
+export function unitRegularPolygon(corners: number): readonly Point[] {
+  const start = 2 * Math.floor(corners / 2) + 1;
+
+  return Array.from({ length: corners }, (empty, index) => {
+    const angle = -Math.PI / 2 + ((start - 2 * index) * Math.PI) / corners;
+
+    return { x: Math.cos(angle), y: 0 - Math.sin(angle) };
+  });
+}

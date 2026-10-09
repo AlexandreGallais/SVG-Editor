@@ -15,4 +15,5 @@ export * from "./rounded-contour";
 export type * from "./segment";
 export * from "./turning-angle";
 export * from "./turning-angles";
+export * from "./unit-regular-polygon";
 export * from "./vertex-factors";

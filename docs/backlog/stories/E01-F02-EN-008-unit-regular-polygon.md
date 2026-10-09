@@ -9,7 +9,7 @@ points: 2
 
 # E01 · F02 · EN-008 — Unit regular polygon with a flat base
 
-The n vertices of a regular polygon on the unit circle, with a horizontal bottom edge, in the SVG frame (`DERIV-regular-polygon-fit` step 1, sources from SP-002).
+The n vertices of a regular polygon on the unit circle, with a horizontal bottom edge, in the SVG frame (`DERIV-regular-polygon-fit` steps 1–2, with the y flip of step 5 already applied; sources from SP-002).
 
 ## Acceptance criteria
 

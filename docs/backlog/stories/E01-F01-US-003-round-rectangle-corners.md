@@ -39,7 +39,7 @@ Look closely at: whether the rounding behaves as you expect when the rectangle i
 
 ## Open points
 
-- Where no arc can exist — a rectangle of size 0, an aligned vertex — the effective radius stays the requested one, so the page says "as requested" while nothing is rounded: open question **Q17** in `docs/domain/README.md`, to ask at VAL-001.
+- Where no arc can exist — a rectangle of size 0, an aligned vertex — the effective radius stays the requested one, so the page says "as requested" while nothing is rounded: question Q17, settled by the Product Owner on 2026-10-09: kept as is, the radius applies when the shape grows.
 
 ## Tasks
 

@@ -78,7 +78,8 @@
             <strong>requested</strong> radius is the number you type; it is kept. The
             <strong>effective</strong> radius is the one drawn: smaller when the shape is too small
             for the request. A <strong>polygon</strong> has 3 to 12 equal sides and a flat base; it
-            fills its width × height box without being stretched.
+            fills its width × height box without being stretched. Sizes are screen pixels: a value
+            above 100 000 becomes 100 000.
           </p>
         </details>
       </section>
@@ -93,9 +94,15 @@
       <label id="corners-field" hidden
         >Corners <input id="corners" type="number" min="3" max="12" step="1" value="6"
       /></label>
-      <label>Width <input id="width" type="number" min="0" step="1" value="120" /></label>
-      <label>Height <input id="height" type="number" min="0" step="1" value="80" /></label>
-      <label>Radius <input id="radius" type="number" min="0" step="1" value="10" /></label>
+      <label
+        >Width <input id="width" type="number" min="0" max="100000" step="1" value="120"
+      /></label>
+      <label
+        >Height <input id="height" type="number" min="0" max="100000" step="1" value="80"
+      /></label>
+      <label
+        >Radius <input id="radius" type="number" min="0" max="100000" step="1" value="10"
+      /></label>
       <p id="effective"></p>
       <p id="status" role="status"></p>
       <h2>Model (integers)</h2>

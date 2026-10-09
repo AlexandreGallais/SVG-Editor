@@ -21,7 +21,7 @@
 | [EN-008](./E01-F02-EN-008-unit-regular-polygon.md)          | F02     | Unit regular polygon with a flat base           | done   |
 | [US-005](./E01-F02-US-005-regular-polygon-contour.md)       | F02     | Regular polygon contour fitted in its box       | done   |
 | [CHK-002](./E01-F02-CHK-002-checkpoint-f02.md)              | F02     | Checkpoint in the middle of F02                 | done   |
-| [US-006](./E01-F02-US-006-round-polygon-corners.md)         | F02     | Round the polygon's corners                     | ready  |
+| [US-006](./E01-F02-US-006-round-polygon-corners.md)         | F02     | Round the polygon's corners                     | done   |
 | [US-007](./E01-F02-US-007-shape-selector-playground.md)     | F02     | Choose rectangle or polygon in the playground   | ready  |
 | [AUD-002](./E01-F02-AUD-002-audit-f02.md)                   | F02     | Audit F02: regular polygon with corner radius   | ready  |
 | [VAL-002](./E01-F02-VAL-002-validate-polygon.md)            | F02     | Validate F02 on the reference cases             | ready  |

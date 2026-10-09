@@ -9,6 +9,8 @@ status: draft
 
 **Benefit hypothesis**: the designer shapes any contour vertex by vertex.
 
+**Product Owner's wish (VAL-001, 2026-10-09)**: click a vertex to see its configuration and change its corner radius alone, as in Figma — e.g. a rectangle with a single rounded corner. The geometry of F01 already works per vertex (`Corner`); F01 gives the same radius to every corner.
+
 ## Acceptance criteria
 
 1. Vertices can be selected, added on an edge, moved by integers and deleted.

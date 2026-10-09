@@ -26,3 +26,18 @@ One task = one commit, referenced as `VAL-001.Tn`. This story is not merged auto
 - [ ] T2 — Guided test in the playground: the nine steps of the US-003 card, one at a time, with what to do and what to look at (Product Owner, 2026-10-09) (2 h)
 - [ ] T3 — Demo page in `docs/guide/` in plain language (fillet, setback, clamp explained) (1.5 h)
 - [ ] T4 — Product Owner runs the guided test and validates; feedback recorded; feature pull request into `main` (0.5 h)
+
+## Product Owner's account (2026-10-09)
+
+Nine steps of the guided test run in the local playground. Quoted from the Product Owner, in French:
+
+- Steps 1–9: « tout a l'air parfait pour moi », « t'as bien compris ce que je voulais ».
+- Step 9: refused values, as expected.
+
+Compared with what each step meant to show: every step was understood as intended; no misunderstanding of the need, no unclear step. Remarks, none blocking F01:
+
+| Remark                                                                                                                                        | Where it goes                                                      |
+| --------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| Change the radius vertex by vertex, by clicking a vertex to see its configuration (Figma-like), e.g. a rectangle with a single rounded corner | F03 (per-vertex corner radius and node editing), noted in its file |
+| Measure the drawing precisely with the browser's SVG API (bounding box, lengths) to help the tests                                            | improvement log, for the end-to-end tests of E12                   |
+| Specialized expert agents (mathematics, code, agile…) with their own documentation, running as background tasks                               | improvement log, for the E01 retrospective                         |

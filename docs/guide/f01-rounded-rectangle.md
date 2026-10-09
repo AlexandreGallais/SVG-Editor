@@ -44,4 +44,4 @@ Run `npm run dev` and open `http://localhost:5173`: the **Guided test** panel at
 
 ## Your feedback
 
-Said by the Product Owner during `VAL-001`, quoted by the agent.
+Said by the Product Owner during `VAL-001` (2026-10-09), quoted by the agent: « T'as bien compris ce que je voulais » — « tout a l'air parfait pour moi ». Next wish: change the radius of a single corner by clicking it (F03).

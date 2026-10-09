@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.6.9](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.6.8...v0.6.9) (2026-10-09)
+
+
+### Documentation
+
+* record the stop of the F01 autonomous run ([cb4c0ce](https://github.com/AlexandreGallais/synoptic-studio/commit/cb4c0ce6f8ba547724da211919bcc0d5e17a9353))
+
+
+### Build and dependencies
+
+* **deps:** update happy-dom to 20.14.6 ([3d03db1](https://github.com/AlexandreGallais/synoptic-studio/commit/3d03db12242534d035b6cf106d0592a77b5c8ead))
+
 ## [0.6.8](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.6.7...v0.6.8) (2026-10-08)
 
 

@@ -22,4 +22,19 @@ Pause between the polygon contour and the rounding and playground stories of F02
 One task = one commit, referenced as `CHK-002.Tn`.
 
 - [x] T1 — Consistency of code, docs and agent configuration; fixes (1 h)
-- [ ] T2 — Light evolvability check; improvement log; test cards listed (0.5 h)
+- [x] T2 — Light evolvability check; improvement log; test cards listed (0.5 h)
+
+## Light evolvability check (2026-10-09)
+
+| Question            | Answer                                                                                                                                                                                                                                                           |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Size                | 52 modules in `src/` (geometry 21, math 11, model 10, io 6, render 4); 287 tests; `check:all` 28 s (23 s at CHK-001); no layer close to a package split                                                                                                          |
+| Tools               | StrykerJS still blocked (stryker-js issue 6210 open); the auditor keeps the mutation role and every story added mutation checks. `knip` still waiting for the retrospective. New: `npm run deps:tools` (GitHub Actions, Node.js LTS), asked by the Product Owner |
+| Fitness functions   | nothing new; "every exported `math` / `geometry` function has a property test" holds for the four new ones — still a candidate check                                                                                                                             |
+| Patterns            | test helpers repeat: `expectPoints` in two test files, the shoelace signed area in two; the size rule was duplicated and is now `isModelSize` (US-005 review) — improvement log                                                                                  |
+| Agent configuration | `CLAUDE.md` + rules 184 lines; state line and tooling rule updated; guards never hit in this run                                                                                                                                                                 |
+| Process             | the auditor now reviews before the `done` commit (EN-008 had to reorder its commits; `/run` step 5 now says so); every review changed the story before merge (3 for 3)                                                                                           |
+
+## Product Owner test cards so far
+
+None yet in F02: US-005 has no playground of its own; US-007 will carry the card that also shows US-005 and US-006.

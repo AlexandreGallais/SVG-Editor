@@ -40,7 +40,7 @@ Run `npm run dev` and open `http://localhost:5173`: the **Guided test** panel at
 
 - One radius for the whole rectangle: a radius per corner comes with F03 (node editing).
 - Only rectangles: regular polygons come with F02.
-- Open questions: a spike — a corner where the outline turns back on itself — is swallowed by its rounding (Q16).
+- A spike — a corner where the outline turns back on itself — is swallowed by its rounding, on purpose (Q16).
 
 ## Your feedback
 

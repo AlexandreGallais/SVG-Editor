@@ -14,7 +14,7 @@ import type { Corner } from "./corner";
  * becomes the segment between the arcs of its two corners. The sequence starts at the end of the
  * first corner's arc and closes with that arc (`DERIV-fillet-arc` step 7); pieces without length
  * are dropped. Vertices that turn back on themselves (spikes, τ = ±π) are outside the derivation
- * (open question Q16).
+ * (Q16: such a spike is consumed by its fillet).
  *
  * @kind geometry
  * @param corners - vertices with their requested radii, clockwise from the top-left vertex (Q11)

@@ -78,6 +78,6 @@ Each center is at distance `r` from both tangent points, e.g. `‖(90, 10) − (
 
 ## Limits
 
-- The turning angle must be in ]−π, π[. At a vertex where the contour turns back on itself (`τ = ±π`, a spike), `tan(|τ|/2)` is huge: the clamp then reduces the radius to almost 0 while the setback covers the whole edge, so the spike is consumed. The intended behavior is an open question (Q16); the sign of `τ` there also depends on the sign of a zero.
+- The turning angle must be in ]−π, π[. At a vertex where the contour turns back on itself (`τ = ±π`, a spike), `tan(|τ|/2)` is huge: the clamp then reduces the radius to almost 0 while the setback covers the whole edge, so the spike is consumed. This is the intended behavior (Q16, settled by the Product Owner); the sign of `τ` there also depends on the sign of a zero.
 - At `τ = 0`, `sign(τ) = 0` gives `C = V`; there is no arc, so no center is used.
 - The angle between `C − T_in` and `C − T_out` equals `|τ|`; the library never needs the center to write the path (only radius, flags and end point), but keeps it for later uses (hit-testing, snapping).

@@ -28,4 +28,8 @@ describe("isValidRectangle", () => {
   it("accepts a radius larger than the rectangle: it is clamped, not refused (ADR-0007)", () => {
     expect(isValidRectangle({ height: 25, radius: 1000, width: 100 })).toBe(true);
   });
+
+  it("[F02.AC5] sets no upper limit: the cap of 100 000 belongs to the interface (Q20)", () => {
+    expect(isValidRectangle({ height: 5_000_000, radius: 250_000, width: 1_000_000 })).toBe(true);
+  });
 });

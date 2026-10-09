@@ -21,10 +21,10 @@ Consequence: every shape is described by numbers. The drawing is **determined**,
 
 ### Size (Q20)
 
-- No upper limit in the model nor in the calculations: a size is any integer ≥ 0.
+- No upper limit chosen in the model nor in the calculations: a size is any safe integer ≥ 0 (up to 2⁵³ − 1, the largest integer a double holds exactly); coordinates lose precision long before that bound.
 - Good practice: one user unit is one screen pixel. Draw a view at the size of its screen — even a wall of 8K screens stays far below 100 000 pixels — and let the SVG scale for a screen seen from far.
 - The interface caps a width, height or radius typed above 100 000 at 100 000 (US-008).
-- `EPSILON` stays absolute: below millions of units, rounding errors are about 1e-12, far under it. Above, tiny segments of rounding may remain (AUD-002): a relative tolerance is not needed for real screens.
+- `EPSILON` stays absolute. Rounding errors are about 1e-16 × the size: 1e-11 at 100 000, 1e-10 at a million, so under `EPSILON` = 1e-9 up to a few million units. Beyond, tiny segments of rounding may remain, and near the largest safe integer an output coordinate can be off by 0.5 (AUD-002): a relative tolerance is not needed for real screens.
 
 ### Precision (Q10)
 

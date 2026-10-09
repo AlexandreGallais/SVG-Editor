@@ -42,7 +42,7 @@ The start is chosen by its index, never by comparing floating coordinates.
 ## Step 4 — Uniform scale
 
 `s = min(w / Wᵤ, h / Hᵤ)`.
-At least one dimension is reached exactly (`w` or `h`, or both). `Wᵤ` and `Hᵤ` are positive for `n ≥ 3`; a size of 0 gives `s = 0`: every vertex is the center of the box (Q15).
+At least one dimension is reached (`w` or `h`, or both), exactly in theory, within `EPSILON` in floating point. `Wᵤ` and `Hᵤ` are positive for `n ≥ 3`; a size of 0 gives `s = 0`: every vertex is the center of the box (Q15).
 
 ## Step 5 — Placement in the SVG frame
 
@@ -58,7 +58,7 @@ At the maximal radius, every edge carries two equal fillets, clamped to meet at 
 
 `ρ = ½ a cot(π/n)`, the inradius `r` of the polygon (`REF-MATHWORLD-REGULAR-POLYGON` (3)).
 
-The fillet's center is the point of the bisector at distance `ρ` from both edges (`DERIV-fillet-setback` step 1). The incircle is tangent to every side (`REF-MATHWORLD-INCIRCLE`): its center is at distance `r = ρ` from both edges of the corner, so it lies on the same bisector (Euclid IV.4, `REF-EUCLID-IV4`), at the same point. Every fillet is therefore an arc of the incircle, and the fillets meet at the middles of the edges: the rounded polygon **is** its incircle, of radius `s · cos(π/n)` once scaled (`REF-MATHWORLD-REGULAR-POLYGON` (4), `R = s`).
+The fillet's center `D` is the point of the bisector at distance `ρ` from both edges of the corner `B` (`DERIV-fillet-setback` step 1). The incircle is tangent to every side (`REF-MATHWORLD-INCIRCLE`): its center `O` is at distance `r = ρ` from both edges, the feet `E` and `F` of its perpendiculars being the points of contact (Euclid III.18, `REF-EUCLID-III18`). The right triangles `BEO` and `BFO` share the hypotenuse `BO` and have `OE = OF`, so `BE = BF` (Euclid I.47, `REF-EUCLID-I47`); their three sides being equal, their angles at `B` are equal (Euclid I.8, `REF-EUCLID-I8`): `O` lies on the bisector. On the bisector, the distance to the edges grows with the distance to `B`, so one point only is at distance `ρ`: `O = D`. Every fillet is therefore an arc of the incircle, and the fillets meet at the middles of the edges: the rounded polygon **is** its incircle, of radius `s · cos(π/n)` once scaled (`REF-MATHWORLD-REGULAR-POLYGON` (4), `R = s`).
 
 ## Checks
 

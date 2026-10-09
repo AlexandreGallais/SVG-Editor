@@ -60,7 +60,11 @@ describe("regularPolygonCorners (DERIV-regular-polygon-fit step 6)", () => {
 
     expect(effectiveCornerRadius(corners)).toBeCloseTo(inradius, DECIMALS);
 
-    const arcs = arcsOf(roundedContour(corners));
+    const pieces = roundedContour(corners);
+    const arcs = arcsOf(pieces);
+
+    expect(arcs).toHaveLength(3);
+    expect(pieces.every((piece) => piece.kind === "arc")).toBe(true);
 
     for (const arc of arcs) {
       expect(arc.center.x).toBeCloseTo(50, DECIMALS);

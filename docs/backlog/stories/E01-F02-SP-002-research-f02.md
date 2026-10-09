@@ -3,7 +3,7 @@ id: SP-002
 epic: E01
 feature: F02
 title: Research for F02
-status: draft
+status: ready
 points: 2
 ---
 

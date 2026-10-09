@@ -2,7 +2,7 @@
 id: F02
 epic: E01
 title: Regular polygon with corner radius
-status: draft
+status: in-progress
 ---
 
 # E01 · F02 — Regular polygon with corner radius
@@ -24,14 +24,14 @@ In delivery order.
 
 | ID                                                               | Type       | Title                                         | Status |
 | ---------------------------------------------------------------- | ---------- | --------------------------------------------- | ------ |
-| [SP-002](../stories/E01-F02-SP-002-research-f02.md)              | Spike      | Research for F02                              | draft  |
-| [EN-008](../stories/E01-F02-EN-008-unit-regular-polygon.md)      | Enabler    | Unit regular polygon with a flat base         | draft  |
-| [US-005](../stories/E01-F02-US-005-regular-polygon-contour.md)   | User story | Regular polygon contour fitted in its box     | draft  |
-| [CHK-002](../stories/E01-F02-CHK-002-checkpoint-f02.md)          | Checkpoint | Checkpoint in the middle of F02               | draft  |
-| [US-006](../stories/E01-F02-US-006-round-polygon-corners.md)     | User story | Round the polygon's corners                   | draft  |
-| [US-007](../stories/E01-F02-US-007-shape-selector-playground.md) | User story | Choose rectangle or polygon in the playground | draft  |
-| [AUD-002](../stories/E01-F02-AUD-002-audit-f02.md)               | Audit      | Audit F02: regular polygon with corner radius | draft  |
-| [VAL-002](../stories/E01-F02-VAL-002-validate-polygon.md)        | Validation | Validate F02 on the reference cases           | draft  |
+| [SP-002](../stories/E01-F02-SP-002-research-f02.md)              | Spike      | Research for F02                              | ready  |
+| [EN-008](../stories/E01-F02-EN-008-unit-regular-polygon.md)      | Enabler    | Unit regular polygon with a flat base         | ready  |
+| [US-005](../stories/E01-F02-US-005-regular-polygon-contour.md)   | User story | Regular polygon contour fitted in its box     | ready  |
+| [CHK-002](../stories/E01-F02-CHK-002-checkpoint-f02.md)          | Checkpoint | Checkpoint in the middle of F02               | ready  |
+| [US-006](../stories/E01-F02-US-006-round-polygon-corners.md)     | User story | Round the polygon's corners                   | ready  |
+| [US-007](../stories/E01-F02-US-007-shape-selector-playground.md) | User story | Choose rectangle or polygon in the playground | ready  |
+| [AUD-002](../stories/E01-F02-AUD-002-audit-f02.md)               | Audit      | Audit F02: regular polygon with corner radius | ready  |
+| [VAL-002](../stories/E01-F02-VAL-002-validate-polygon.md)        | Validation | Validate F02 on the reference cases           | ready  |
 
 ## Feature plan
 

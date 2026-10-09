@@ -3,7 +3,7 @@ id: EN-008
 epic: E01
 feature: F02
 title: Unit regular polygon with a flat base
-status: draft
+status: ready
 points: 2
 ---
 

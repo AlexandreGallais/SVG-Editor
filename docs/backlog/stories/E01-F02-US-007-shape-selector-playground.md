@@ -3,7 +3,7 @@ id: US-007
 epic: E01
 feature: F02
 title: Choose rectangle or polygon in the playground
-status: draft
+status: ready
 points: 3
 ---
 

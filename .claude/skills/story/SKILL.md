@@ -21,7 +21,7 @@ Story: $ARGUMENTS (default: the next unfinished story of the started feature, pr
 7. **Last commit**: tick the tasks, status `done` in the story file, the stories index and the feature's table — `docs(backlog): set <ID> done`, footer `Closes: <ID>`.
 8. `npm run check:all` (the pre-push hook runs it too), `git push -u origin <branch>`, then
    `gh pr create --base feature/f01-<topic> --title "<type>(<scope>): <summary>" --body-file <filled .github/pull_request_template.md>` (not a draft; in an autonomous run, `/run` adds `--label autonomous` after the auditor's review).
-9. Wait for the CI (`gh pr checks <n> --watch`), fix if red.
+9. Wait for the CI by reading its statuses (every 15 s, stop at the first failing check, at most 12 minutes; see `/run` step 7); read a failure at once with `gh run view <run> --log-failed` and fix it.
 10. **Stop**: summarize to the Product Owner in French — functions with `@kind` and `@see`, sources, what was checked and how, link to the pull request. Never merge it.
 
 After the merge: `git switch feature/f01-<topic> && git pull --prune && git branch -d <branch>`. The feature reaches `main` through its feature pull request at `VAL` (`/run`, Validation).

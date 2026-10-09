@@ -23,7 +23,9 @@ Scope: $ARGUMENTS. Never without the Product Owner's explicit start in this conv
 4. **Checkpoint** (`CHK`): update docs and methods as the project grows; check consistency of code, docs, `CLAUDE.md` and rules; run the light evolvability check (`docs/process/README.md`); list the test cards written so far; log what deserves the retrospective.
 5. **Independent review**: delegate to the `auditor` subagent the story's diff (`git diff feature/f01-<topic>...HEAD`), its criteria, derivations and sources; fix correctness findings; record the rest in the pull request body.
 6. `gh pr create --base feature/f01-<topic> --label autonomous …` (never the label for `VAL`, `REV`, `RET`).
-7. Wait for the merge: `gh pr checks <n> --watch`, then poll `gh pr view <n> --json state` until `MERGED`. Branch behind its base: `gh pr update-branch <n> --rebase`. A red check: fix on the story branch; after three failed attempts, stop.
+7. Wait for the merge by **reading the statuses**, never by waiting blindly (Product Owner, 2026-10-09): every 15 s, `gh pr view <n> --json state` (stop at `MERGED`) and `gh pr checks <n>` (stop at the first `fail`); give up after 12 minutes — the CI takes about 3 to 4. Branch behind its base: `gh pr update-branch <n> --rebase`.
+   - A failing check: read it at once (`gh run view <run> --log-failed`), fix on the story branch, push; after three failed attempts, stop.
+   - "Dependencies not up-to-date": a patch was published meanwhile — update it on the story branch (`npm install -D --save-exact <pkg>@<version>`, `build(deps)` commit) and on `main` too.
 8. `git switch feature/f01-<topic> && git pull --prune && git branch -d <branch>`; next story.
 
 ## Stop when

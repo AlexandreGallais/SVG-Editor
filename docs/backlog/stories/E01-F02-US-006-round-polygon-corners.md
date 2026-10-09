@@ -3,7 +3,7 @@ id: US-006
 epic: E01
 feature: F02
 title: Round the polygon's corners
-status: ready
+status: done
 points: 2
 ---
 

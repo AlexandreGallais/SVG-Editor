@@ -20,7 +20,7 @@ What could be read:
 
 - an ISA page names a "diamond" symbol of ISA-5.1, defined in 2009 for safety instrumented systems and drawn inside a box (`REF-ISA-INTECH-2019`); its geometry is not stated — reading it as a square standing on a vertex is an assumption;
 - search summaries, not readings (pages refused): circle, square, circle in a square and hexagon (computer function) in ISA-5.1, triangles in valve symbols;
-- the symbol standards themselves (ISA-5.1, ISO 10628-2, ISO 14617, IEC 60617) and ISA-101 are paid: not read, not cited.
+- the symbol standards themselves (ISA-5.1, ISO 10628-2, ISO 14617, IEC 60617) and ISA-101 are paid: not read, not cited — written before research 0004, which then read the public IEC 60617 symbol pages (below).
 
 What it costs: one segment and one arc per corner in the path data, about 50 to 60 characters each with 5 decimals (measured by the auditor on the format of `src/io/`); 100 corners make about 6 kB. The limit is a matter of usefulness, not of performance.
 

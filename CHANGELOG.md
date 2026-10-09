@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.6](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.7.5...v0.7.6) (2026-10-09)
+
+
+### Build and dependencies
+
+* **tooling:** check that GitHub Actions and Node.js are up-to-date ([2b9fbd9](https://github.com/AlexandreGallais/synoptic-studio/commit/2b9fbd96fda60a0a8db78746a64dce7eedb2ac19))
+
 ## [0.7.5](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.7.4...v0.7.5) (2026-10-09)
 
 

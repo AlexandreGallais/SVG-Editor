@@ -15,6 +15,7 @@ Consequence: every shape is described by numbers. The drawing is **determined**,
 ### Contour orientation (Q11)
 
 - Contours are listed **clockwise on screen** (SVG frame, y pointing down), **starting at the top-left vertex**.
+- Where no vertex is both topmost and leftmost (a triangle pointing up), the contour starts at the topmost vertex, the leftmost on a tie (Q18): the start is a natural one, not a strict rule; only the clockwise order matters to the geometry.
 - A contour is **cyclic**: the last vertex joins the first; every per-vertex computation (corner radius, clamping) wraps around, so the first vertex sees the last edge and the last vertex sees the first edge.
 - Once its corners are rounded, the top-left vertex is no longer on the drawn outline: the written path starts where the first corner's arc ends and closes with that arc, keeping the clockwise order (`DERIV-fillet-arc` step 7).
 
@@ -61,7 +62,7 @@ Storing the value (Q8, settled):
 ### Useful special case
 
 - Square of side `c` + radius `c/2` on all 4 corners = **circle**. The circle is therefore not a primitive: it is a rounded square.
-- Same for a regular polygon with maximal radius: it tends to its inscribed circle.
+- Same for a regular polygon with maximal radius: every fillet stops at the middle of its edges, so the polygon becomes exactly its inscribed circle.
 
 ## 3. Creation tools
 
@@ -84,7 +85,8 @@ Functional reference: Inkscape's Star/Polygon tool.
 - The shape stays regular.
 - It touches the width, the height, or both, depending on `n` and the ratio `w/h`.
 - Default orientation: **flat base** (horizontal bottom edge). `n=4` gives a square, not a diamond.
-- Fitted on the sharp-cornered polygon; the corner radius then rounds inwards.
+- Fitted on the sharp-cornered polygon; the corner radius then rounds inwards. At the maximal radius the shape is its inscribed circle and may no longer touch the box (a hexagon in 100 × 100 becomes a circle of diameter 86.6): accepted by the Product Owner (2026-10-09) — removing the radius makes it touch again; a shape filling its box whatever its rounding would be a separate "fill the parent" option.
+- Number of corners: integer `n ≥ 3`; its largest allowed value is open (Q19), researched in SP-002 from the polygons actually used in synoptic and process symbols.
 
 ### Text
 

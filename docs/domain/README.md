@@ -95,6 +95,7 @@ The French term is kept: it is the user's working vocabulary.
 | Q15 | Rectangle of size 0 or negative                                                         | negative forbidden; 0 allowed (degenerate rectangle, useful in animations)                                                                                                    | `shapes.md` §3              |
 | Q16 | Rounding of a spike (a vertex where the contour turns back on itself, turning angle ±π) | the fillet consumes the spike, as today: rounding is allowed to eat length (Product Owner, 2026-10-09, who believes Figma behaves alike — not verified)                       | `shapes.md` §2              |
 | Q17 | Effective radius where no corner can be rounded (size 0, aligned vertex)                | keep it as is: the requested radius is kept on the vertex and shown "as requested"; it applies as soon as the shape grows (Product Owner, 2026-10-09)                         | `shapes.md` §2              |
+| Q18 | Starting vertex of a contour without a single top-left vertex (a triangle pointing up)  | no strict rule: start where it is natural (Product Owner, 2026-10-09); the topmost vertex, the leftmost on a tie — the top-left one for a rectangle (Q11); clockwise stays    | `shapes.md` §1              |
 
 ## Open questions
 
@@ -103,3 +104,4 @@ The French term is kept: it is the user's working vocabulary.
 | Q4  | Ellipses: needed? (elliptical arcs are outside the ADR-0001 scope) | `shapes.md`      |
 | Q7  | Undo / redo: command-based history, confirmed?                     | `interaction.md` |
 | Q9  | Corner radius on vertices created by a boolean                     | `shapes.md`      |
+| Q19 | Regular polygon: largest number of corners worth allowing (SP-002) | `shapes.md`      |

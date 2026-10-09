@@ -3,7 +3,7 @@ id: CHK-002
 epic: E01
 feature: F02
 title: Checkpoint in the middle of F02
-status: ready
+status: in-progress
 points: 1
 ---
 
@@ -21,5 +21,5 @@ Pause between the polygon contour and the rounding and playground stories of F02
 
 One task = one commit, referenced as `CHK-002.Tn`.
 
-- [ ] T1 — Consistency of code, docs and agent configuration; fixes (1 h)
+- [x] T1 — Consistency of code, docs and agent configuration; fixes (1 h)
 - [ ] T2 — Light evolvability check; improvement log; test cards listed (0.5 h)

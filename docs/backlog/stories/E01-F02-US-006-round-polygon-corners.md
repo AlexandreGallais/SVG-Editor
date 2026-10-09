@@ -27,4 +27,4 @@ None of its own: shown by US-007's card.
 One task = one commit, referenced as `US-006.Tn`.
 
 - [ ] T1 — Tests of the cases above, each expected value computed by hand (1 h)
-- [ ] T2 — Polygon corners and effective radius in `src/model/`, sharing what the rectangle already uses; `@see` `DERIV-regular-polygon-fit` step 6; `Corner.point` TSDoc and `shapes.md` §1: model vertices are integers, derived contours (polygon, booleans) may be fractional (ADR-0003) (1.5 h)
+- [ ] T2 — Polygon corners and effective radius in `src/model/`, sharing what the rectangle already uses; `@see` `DERIV-regular-polygon-fit` step 6 (1.5 h)

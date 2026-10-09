@@ -134,7 +134,7 @@ function readCanvasSize(document: Document): { readonly height: number; readonly
  * @see docs/backlog/stories/E01-F01-US-003-round-rectangle-corners.md
  */
 function writeEffectiveRadius(document: Document, rectangle: Rectangle): void {
-  const effective = effectiveCornerRadius(rectangle);
+  const effective = effectiveCornerRadius(rectangleCorners(rectangle));
   const isReduced = rectangle.radius - effective >= EPSILON;
   const text = isReduced
     ? `Effective radius: ${formatSvgNumber(effective)} (requested ${String(rectangle.radius)}, reduced to fit)`

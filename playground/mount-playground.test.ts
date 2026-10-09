@@ -1,6 +1,7 @@
 // @vitest-environment happy-dom
 import { beforeAll, describe, expect, it } from "vitest";
 
+import { GUIDED_STEPS } from "./guided-steps";
 import page from "./index.html?raw";
 import { mountPlayground } from "./mount-playground";
 
@@ -78,6 +79,21 @@ function click(id: string): void {
   document.querySelector<HTMLButtonElement>(`#${id}`)?.click();
 }
 
+/**
+ * Clicks a button of the page several times.
+ *
+ * @param id - button id
+ * @param count - number of clicks, >= 0
+ */
+function clickTimes(id: string, count: number): void {
+  if (!(count > 0)) {
+    return;
+  }
+
+  click(id);
+  clickTimes(id, count - 1);
+}
+
 describe("playground", () => {
   beforeAll(() => {
     // The page as served, without its script tag: the test mounts the playground itself.
@@ -127,7 +143,7 @@ describe("playground", () => {
     expect(text("effective")).toBe("");
   });
 
-  it("walks the nine steps of the guided test, each showing what it tells to look at", () => {
+  it("[F02.AC1] walks the steps of the guided test (F01 and F02), each showing what it tells to look at", () => {
     // "Previous" on the first step stays there and types its values again.
     click("guide-previous");
 
@@ -142,6 +158,17 @@ describe("playground", () => {
       "Effective radius: 100 (as requested)",
       "Effective radius: 0 (as requested)",
       "",
+      // F02 (US-007 and US-008 cards).
+      "Effective radius: 0 (as requested)",
+      "Effective radius: 0 (as requested)",
+      "Effective radius: 0 (as requested)",
+      "Effective radius: 0 (as requested)",
+      "Effective radius: 43.30127 (requested 1000, reduced to fit)",
+      "Effective radius: 28.86751 (requested 1000, reduced to fit)",
+      "Effective radius: 10 (as requested)",
+      "",
+      "Effective radius: 10 (as requested)",
+      "Effective radius: 10 (as requested)",
     ];
 
     for (const [index, effective] of expected.entries()) {
@@ -150,9 +177,9 @@ describe("playground", () => {
       click("guide-next");
     }
 
-    // Past the last step, the guide stays on it: the wrong value is refused.
-    expect(text("guide-number")).toBe("9");
-    expect(text("status")).toBe("Width, height and radius must be integers ≥ 0.");
+    // Past the last step, the guide stays on it: the width typed is capped at 100 000.
+    expect(text("guide-number")).toBe("19");
+    expect(document.querySelector<HTMLInputElement>("#width")?.value).toBe("100000");
   });
 
   it("[F02.AC4] stays on the rectangle after the steps of the F01 guided test", () => {
@@ -166,6 +193,7 @@ describe("playground", () => {
     type("width", "100");
     type("height", "100");
     type("radius", "0");
+    type("corners", "6");
     chooseShape("polygon");
 
     // Hexagon (6 corners by default) in 100 × 100: flat top and bottom at (100 − 50√3)/2.
@@ -228,16 +256,23 @@ describe("playground", () => {
     expect(text("path-data")).toBe("M0 0 L100 0 L100 100 L0 100 Z");
   });
 
-  it("returns to the rectangle when a step of the F01 guided test is shown", () => {
-    chooseShape("polygon");
-    click("guide-previous");
+  it("[F02.AC4] sets the shape and the corners of each step of the guided test", () => {
+    // Back to step 1 (Previous stays on the first step), then on to step 10, the first of F02.
+    clickTimes("guide-previous", GUIDED_STEPS.length);
 
-    // The steps of F01 show rectangles: the selector follows, whatever was chosen before.
     expect(document.querySelector<HTMLSelectElement>("#shape")?.value).toBe("rectangle");
     expect(isCornersFieldHidden()).toBe(true);
+
+    clickTimes("guide-next", 9);
+
+    expect(text("guide-number")).toBe("10");
+    expect(document.querySelector<HTMLSelectElement>("#shape")?.value).toBe("polygon");
+    expect(isCornersFieldHidden()).toBe(false);
+    expect(valueOf("corners")).toBe("6");
   });
 
   it("[F02.AC5] caps a width or a radius above 100 000 at 100 000, in the input too (Q20)", () => {
+    chooseShape("rectangle");
     type("width", "250000");
 
     expect(valueOf("width")).toBe("100000");

@@ -23,7 +23,7 @@ Replay every acceptance criterion of F02 in the playground and against the deriv
 One task = one commit, referenced as `VAL-002.Tn`. This story is not merged automatically (ADR-0028).
 
 - [x] T1 — One test per criterion `[F02.AC1]`…`[F02.AC5]`, the playground ones in `playground/mount-playground.test.ts` (1.5 h)
-- [ ] T2 — Guided test in the playground: the steps of the US-007 card, then a capped size (US-008 card, F02.AC5), one at a time (2 h)
+- [x] T2 — Guided test in the playground: the steps of the US-007 card, then a capped size (US-008 card, F02.AC5), one at a time (2 h)
 - [ ] T3 — Demo page in `docs/guide/` in plain language (fit in a box, inscribed circle explained) (1.5 h)
 - [ ] T4 — Product Owner runs the guided test and validates; feedback recorded; feature pull request into `main` (0.5 h)
 

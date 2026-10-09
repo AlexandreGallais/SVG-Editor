@@ -14,6 +14,7 @@ import {
 
 import { GUIDED_STEPS } from "./guided-steps";
 
+import type { GuidedStep } from "./guided-step";
 import type { Corner, Rectangle, RegularPolygon } from "../src";
 
 /** Distance from the canvas top-left corner to the shape origin, in user units (= CSS pixels). */
@@ -294,7 +295,7 @@ function updatePlayground(document: Document): void {
  *
  * @kind procedure
  * @param document - page document
- * @param id - `width`, `height` or `radius`
+ * @param id - `corners`, `width`, `height` or `radius`
  * @param value - number to show in the input
  * @see docs/backlog/stories/E01-F01-VAL-001-validate-rectangle.md
  */
@@ -323,6 +324,22 @@ function writeShapeValue(document: Document, shape: string): void {
 }
 
 /**
+ * Types the values of a step of the guided test into the inputs, without firing any event.
+ *
+ * @kind procedure
+ * @param document - page document
+ * @param step - step whose shape and numbers are typed
+ * @see docs/backlog/stories/E01-F02-VAL-002-validate-polygon.md
+ */
+function writeStepValues(document: Document, step: GuidedStep): void {
+  writeShapeValue(document, step.values.shape);
+  writeInputValue(document, "corners", step.values.corners);
+  writeInputValue(document, "width", step.values.width);
+  writeInputValue(document, "height", step.values.height);
+  writeInputValue(document, "radius", step.values.radius);
+}
+
+/**
  * Reads which step of the guided test is shown.
  *
  * @kind procedure
@@ -335,7 +352,8 @@ function readGuidedStep(document: Document): number {
 }
 
 /**
- * Shows one step of the guided test and types its values, so that the drawing follows (VAL-001).
+ * Shows one step of the guided test and types its values, so that the drawing follows (VAL-001,
+ * VAL-002).
  *
  * @kind procedure
  * @param document - page document
@@ -357,10 +375,7 @@ function showGuidedStep(document: Document, index: number): void {
   writeText(document, "guide-explanation", step.explanation);
   writeText(document, "guide-look", step.look);
 
-  writeShapeValue(document, "rectangle");
-  writeInputValue(document, "width", step.values.width);
-  writeInputValue(document, "height", step.values.height);
-  writeInputValue(document, "radius", step.values.radius);
+  writeStepValues(document, step);
 
   updatePlayground(document);
 }

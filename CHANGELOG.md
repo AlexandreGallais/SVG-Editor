@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.11](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.7.10...v0.7.11) (2026-10-09)
+
+
+### Documentation
+
+* **backlog:** keep fixed and stretched polygons as two kinds (F06) ([334e1f0](https://github.com/AlexandreGallais/synoptic-studio/commit/334e1f0d34fc24acaf4db0c20601a692e1d1cee0))
+
 ## [0.7.10](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.7.9...v0.7.10) (2026-10-09)
 
 

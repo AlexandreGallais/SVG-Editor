@@ -71,11 +71,22 @@
             The <strong>radius</strong> says how much a corner is rounded: the curve starts that
             many pixels before the corner. The <strong>requested</strong> radius is the number you
             type; it is kept. The <strong>effective</strong> radius is the one drawn: smaller when
-            the rectangle is too small for the request.
+            the shape is too small for the request. A <strong>polygon</strong> has 3 to 12 equal
+            sides and a flat base; it fills its width × height box without being stretched.
           </p>
         </details>
       </section>
-      <h1>Rectangle</h1>
+      <h1>Shape</h1>
+      <label
+        >Shape
+        <select id="shape">
+          <option value="rectangle" selected>Rectangle</option>
+          <option value="polygon">Polygon</option>
+        </select>
+      </label>
+      <label id="corners-field" hidden
+        >Corners <input id="corners" type="number" min="3" max="12" step="1" value="6"
+      /></label>
       <label>Width <input id="width" type="number" min="0" step="1" value="120" /></label>
       <label>Height <input id="height" type="number" min="0" step="1" value="80" /></label>
       <label>Radius <input id="radius" type="number" min="0" step="1" value="10" /></label>

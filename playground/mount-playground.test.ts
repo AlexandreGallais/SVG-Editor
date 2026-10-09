@@ -32,6 +32,41 @@ function type(id: string, value: string): void {
 }
 
 /**
+ * Chooses a shape in the selector and fires its `change` event, as a user would.
+ *
+ * @param value - `rectangle` or `polygon`
+ */
+function chooseShape(value: string): void {
+  const select = document.querySelector<HTMLSelectElement>("#shape");
+
+  if (select === null) {
+    return;
+  }
+
+  select.value = value;
+  select.dispatchEvent(new Event("change"));
+}
+
+/**
+ * Whether the field of the number of corners is hidden.
+ *
+ * @returns the `hidden` state of `#corners-field`
+ */
+function isCornersFieldHidden(): boolean {
+  return document.querySelector<HTMLElement>("#corners-field")?.hidden === true;
+}
+
+/**
+ * Value shown in an input.
+ *
+ * @param id - input id
+ * @returns its value, empty when absent
+ */
+function valueOf(id: string): string {
+  return document.querySelector<HTMLInputElement>(`#${id}`)?.value ?? "";
+}
+
+/**
  * Clicks a button of the page.
  *
  * @param id - button id
@@ -108,5 +143,74 @@ describe("playground", () => {
     // Past the last step, the guide stays on it: the wrong value is refused.
     expect(text("guide-number")).toBe("9");
     expect(text("status")).toBe("Width, height and radius must be integers ≥ 0.");
+  });
+
+  it("[F02.AC4] opens on the rectangle, without the number of corners", () => {
+    click("guide-previous");
+
+    expect(document.querySelector<HTMLSelectElement>("#shape")?.value).toBe("rectangle");
+    expect(isCornersFieldHidden()).toBe(true);
+  });
+
+  it("[F02.AC4] draws a polygon in the same box, keeping width, height and radius", () => {
+    type("width", "100");
+    type("height", "100");
+    type("radius", "0");
+    chooseShape("polygon");
+
+    // Hexagon (6 corners by default) in 100 × 100: flat top and bottom at (100 − 50√3)/2.
+    expect(isCornersFieldHidden()).toBe(false);
+    expect([valueOf("width"), valueOf("height"), valueOf("radius")]).toEqual(["100", "100", "0"]);
+
+    expect(text("path-data")).toBe(
+      "M25 6.69873 L75 6.69873 L100 50 L75 93.30127 L25 93.30127 L0 50 Z",
+    );
+  });
+
+  it("[F02.AC4] follows the number of corners: a triangle pointing up", () => {
+    type("corners", "3");
+
+    expect(text("path-data")).toBe("M50 6.69873 L100 93.30127 L0 93.30127 Z");
+  });
+
+  it("[F02.AC2] shows the incircle radius when the radius is too big", () => {
+    type("corners", "6");
+    type("radius", "1000");
+
+    // Inradius of the hexagon: 50 cos(π/6) = 43.30127.
+    expect(text("effective")).toBe("Effective radius: 43.30127 (requested 1000, reduced to fit)");
+  });
+
+  it("[F02.AC1] refuses 13 corners and 2.5 corners", () => {
+    type("corners", "13");
+
+    expect(text("status")).toBe(
+      "Width, height and radius must be integers ≥ 0, and corners an integer from 3 to 12.",
+    );
+
+    expect(document.querySelector("#corners")?.getAttribute("aria-invalid")).toBe("true");
+    expect(text("effective")).toBe("");
+
+    type("corners", "2.5");
+
+    expect(document.querySelector("#corners")?.getAttribute("aria-invalid")).toBe("true");
+  });
+
+  it("[F02.AC4] goes back to the rectangle, the number of corners hidden and ignored", () => {
+    type("radius", "0");
+    chooseShape("rectangle");
+
+    expect(isCornersFieldHidden()).toBe(true);
+    expect(text("status")).toBe("");
+    expect(text("path-data")).toBe("M0 0 L100 0 L100 100 L0 100 Z");
+  });
+
+  it("returns to the rectangle when a step of the F01 guided test is shown", () => {
+    chooseShape("polygon");
+    click("guide-previous");
+
+    // The steps of F01 show rectangles: the selector follows, whatever was chosen before.
+    expect(document.querySelector<HTMLSelectElement>("#shape")?.value).toBe("rectangle");
+    expect(isCornersFieldHidden()).toBe(true);
   });
 });

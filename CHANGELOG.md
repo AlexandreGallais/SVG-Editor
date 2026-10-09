@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.1](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.8.0...v0.8.1) (2026-10-09)
+
+
+### Documentation
+
+* log the release of F02; state of the project ([81c2d5e](https://github.com/AlexandreGallais/synoptic-studio/commit/81c2d5e3f9347542f1d13303043b21ebff694765))
+
 ## [0.8.0](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.7.11...v0.8.0) (2026-10-09)
 
 

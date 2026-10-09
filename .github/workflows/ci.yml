@@ -25,6 +25,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run check:all
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
       - run: npm run build
 
   commits:

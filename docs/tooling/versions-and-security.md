@@ -5,6 +5,7 @@
 - `npm run deps:outdated` runs npm-check-updates with `.ncurc.cjs`: every package must be on its **latest** version, except TypeScript, limited to patch upgrades of 6.0 (ADR-0009). Any available upgrade makes the command fail.
 - It runs in CI (`check:all`) and before every `git push` (`.husky/pre-push`).
 - Upgrading: `npx ncu -u`, `npm install`, then `npm run check:all`. A plugin upgrade may add ESLint rules: decide them (see [lint](../conventions/lint.md)).
+- `npm run deps:tools` (`scripts/tool-versions.ts`) does the same for the tools outside npm: every GitHub Action of `.github/workflows/` must be on its latest major version (a tag `vN+1` fails the check), and `.nvmrc` on the latest Node.js LTS major (official release index). It runs in `check:all`, with `GITHUB_TOKEN` in CI and `gh auth token` locally. Dependabot proposes the action upgrades weekly; this check fails as soon as one is out (Product Owner, 2026-10-09: "all the tools", not only npm packages).
 - Pre-releases are not proposed by npm-check-updates; VitePress 2.0 alpha is the documented exception (ADR-0009).
 
 ## Vulnerabilities

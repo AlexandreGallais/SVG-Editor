@@ -52,6 +52,7 @@ export default defineConfig(({ mode }) => ({
       "eslint/**/*.test.ts",
       "*.test.ts",
       ".claude/hooks/*.test.ts",
+      "scripts/*.test.ts",
     ],
     root: ROOT,
     setupFiles: ["vitest.setup.ts"],

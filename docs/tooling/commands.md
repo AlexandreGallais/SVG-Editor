@@ -13,7 +13,8 @@
 | `npm run check`                                    | Prettier + ESLint + secretlint + `tsc` + Vitest + `npm audit`: **must be green to finish a task**                   |
 | `npm run deps:audit`                               | `npm audit`, any severity fails                                                                                     |
 | `npm run deps:outdated`                            | fails when a dependency is not on its latest version                                                                |
-| `npm run check:all`                                | `check` + `deps:outdated` + docs build + playground build (what CI and the pre-push hook run)                       |
+| `npm run deps:tools`                               | fails when a GitHub Action is not on its latest major version or `.nvmrc` not on the latest Node.js LTS             |
+| `npm run check:all`                                | `check` + `deps:outdated` + `deps:tools` + docs build + playground build (what CI and the pre-push hook run)        |
 | `npm run docs:dev` / `docs:build` / `docs:preview` | documentation site (TypeDoc API generated first)                                                                    |
 | `npm run docs:api`                                 | regenerate `docs/api/` from the TSDoc                                                                               |
 | `npm run playground:build`                         | static build of the playground into the docs site (`docs/.vitepress/dist/playground/`)                              |

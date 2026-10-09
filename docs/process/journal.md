@@ -7,6 +7,7 @@ What each working session dealt with, in the agent's words: requests of the Prod
 - `#run` The Product Owner started the run with `/run F02`. F02 is still `draft` without stories: the run opens with its refinement interview, then the research spike; no code before the Product Owner sets the stories `ready`.
 - `#backlog` Refinement: Q18 settled, Q19 open (SP-002), eight stories. The Product Owner relaunched `/run F02` right after being asked to agree: F02 set `in-progress`, its stories `ready`.
 - `#run` Feature branch `feature/f02-regular-polygon`. SP-002 done up to its last criterion (#43, not labeled): derivation completed, eight sources read, auditor found no correctness error and eight accuracy points, fixed. Stop: Q19 (largest number of corners) is the Product Owner's decision; the symbol standards are paid, request 0004 is optional.
+- `#tooling` The Product Owner asked that every tool be on its latest version, not only npm packages: `npm run deps:tools` (`scripts/tool-versions.ts`) in `check:all` fails when a GitHub Action has a newer major or `.nvmrc` is behind the latest Node.js LTS; made to fail on purpose once (Node 22, checkout v6).
 - `#tooling` Before the run: `eslint-plugin-jsdoc` 65.2.2 (a patch had turned `check:all` red); the feature branch pattern is written `feature/f<nn>-<topic>` in `CLAUDE.md`, the skills and the Git workflow (ADR-0028 keeps its F01 example).
 
 ## 2026-10-09 — F01 validated, merged and released

@@ -80,7 +80,7 @@ Non-negotiable principles: schematic, orthogonal, integer, documented, dependenc
 ## Definition of done — MANDATORY
 
 1. `npm run fix` (Prettier then ESLint `--fix`: barrels, import paths, type imports, unused imports, blank lines).
-2. `npm run check:all` **green**: Prettier, ESLint (0 warning, Markdown included), secretlint, `tsc`, Vitest with 100 % coverage of `src/`, `npm audit`, latest versions, docs and playground builds.
+2. `npm run check:all` **green**: Prettier, ESLint (0 warning, Markdown included), secretlint, `tsc`, Vitest with 100 % coverage of `src/`, `npm audit`, latest versions (npm packages, GitHub Actions, Node.js LTS), docs and playground builds.
 3. Docs up to date (`docs/domain/`, `docs/references.md`, derivations, ADRs, backlog).
 4. Summary to the user in French, shaped as in `docs/conventions/writing.md` (messages to the Product Owner): result, changes, evidence, decisions needed, next step; functions with `@kind` and `@see`. Log the session in `docs/process/journal.md` before a pause.
 
@@ -112,7 +112,7 @@ Research request: fill `docs/research/requests/_template.md` and ask the user to
 | `npm run docs:dev`  | documentation site (TypeDoc API regenerated)                              |
 | `npm run fix`       | Prettier + ESLint `--fix`                                                 |
 | `npm run check`     | Prettier, ESLint, secretlint, `tsc`, Vitest (100 % coverage), `npm audit` |
-| `npm run check:all` | `check` + latest versions + docs build + playground build (CI, pre-push)  |
+| `npm run check:all` | `check` + latest versions (npm, Actions, Node) + docs + playground builds |
 | `npm run build`     | library build (`dist/`)                                                   |
 
 ## Known pitfalls

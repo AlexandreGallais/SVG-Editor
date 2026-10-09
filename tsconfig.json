@@ -37,5 +37,13 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src", "playground", "eslint", "docs/.vitepress/*.ts", ".claude/hooks", "*.ts"]
+  "include": [
+    "src",
+    "playground",
+    "eslint",
+    "docs/.vitepress/*.ts",
+    ".claude/hooks",
+    "scripts",
+    "*.ts"
+  ]
 }

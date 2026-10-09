@@ -7,7 +7,8 @@ import type { Point } from "../math";
  * centers it there (`DERIV-regular-polygon-fit` steps 3–5).
  *
  * The scale is `s = min(width / spanX, height / spanY)`: the shape keeps its proportions and
- * reaches the width, the height or both, within `EPSILON`. The points must span both axes
+ * reaches the width, the height or both, within rounding errors relative to the box (a
+ * coordinate may lie about 1e-14 outside it, written 0 by the output). The points must span both axes
  * (`spanX > 0`, `spanY > 0`); a box of size 0 gives `s = 0`: every point goes to the center.
  * The y axis is not flipped: the points are already in the SVG frame.
  *

@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.3](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.7.2...v0.7.3) (2026-10-09)
+
+
+### Documentation
+
+* **backlog:** set F02 in progress and its stories ready ([ade478a](https://github.com/AlexandreGallais/synoptic-studio/commit/ade478a585019ea3dc8817bb2b04f160df885d2a))
+
 ## [0.7.2](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.7.1...v0.7.2) (2026-10-09)
 
 

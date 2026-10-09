@@ -11,6 +11,8 @@ import {
   roundedContour,
 } from "../src";
 
+import { GUIDED_STEPS } from "./guided-steps";
+
 import type { Rectangle } from "../src";
 
 /** Distance from the canvas top-left corner to the shape origin, in user units (= CSS pixels). */
@@ -188,8 +190,67 @@ function updatePlayground(document: Document): void {
 }
 
 /**
- * Mounts the playground: redraws on every input and window resize, then draws the initial
- * rectangle.
+ * Types a value into an input of the page, without firing any event.
+ *
+ * @kind procedure
+ * @param document - page document
+ * @param id - `width`, `height` or `radius`
+ * @param value - number to show in the input
+ * @see docs/backlog/stories/E01-F01-VAL-001-validate-rectangle.md
+ */
+function writeInputValue(document: Document, id: string, value: number): void {
+  const input = selectElement(document, id);
+
+  if (input instanceof HTMLInputElement) {
+    input.value = String(value);
+  }
+}
+
+/**
+ * Reads which step of the guided test is shown.
+ *
+ * @kind procedure
+ * @param document - page document
+ * @returns index of the step shown, 0 before the first one
+ * @see docs/backlog/stories/E01-F01-VAL-001-validate-rectangle.md
+ */
+function readGuidedStep(document: Document): number {
+  return Number(selectElement(document, "guide").dataset["step"] ?? "0");
+}
+
+/**
+ * Shows one step of the guided test and types its values, so that the drawing follows (VAL-001).
+ *
+ * @kind procedure
+ * @param document - page document
+ * @param index - step to show, kept within the first and the last step
+ * @see docs/backlog/stories/E01-F01-VAL-001-validate-rectangle.md
+ */
+function showGuidedStep(document: Document, index: number): void {
+  const position = Math.min(Math.max(index, 0), GUIDED_STEPS.length - 1);
+  const step = GUIDED_STEPS.at(position) ?? GUIDED_STEPS[0];
+
+  if (step === undefined) {
+    return;
+  }
+
+  selectElement(document, "guide").dataset["step"] = String(position);
+  writeText(document, "guide-number", String(position + 1));
+  writeText(document, "guide-count", String(GUIDED_STEPS.length));
+  writeText(document, "guide-title", step.title);
+  writeText(document, "guide-explanation", step.explanation);
+  writeText(document, "guide-look", step.look);
+
+  writeInputValue(document, "width", step.values.width);
+  writeInputValue(document, "height", step.values.height);
+  writeInputValue(document, "radius", step.values.radius);
+
+  updatePlayground(document);
+}
+
+/**
+ * Mounts the playground: redraws on every input and window resize, wires the guided test, then
+ * shows its first step.
  *
  * @kind procedure
  * @param document - page document
@@ -206,5 +267,13 @@ export function mountPlayground(document: Document): void {
     updatePlayground(document);
   });
 
-  updatePlayground(document);
+  selectElement(document, "guide-previous").addEventListener("click", () => {
+    showGuidedStep(document, readGuidedStep(document) - 1);
+  });
+
+  selectElement(document, "guide-next").addEventListener("click", () => {
+    showGuidedStep(document, readGuidedStep(document) + 1);
+  });
+
+  showGuidedStep(document, 0);
 }

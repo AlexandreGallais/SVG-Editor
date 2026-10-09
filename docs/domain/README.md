@@ -100,8 +100,9 @@ The French term is kept: it is the user's working vocabulary.
 
 ## Open questions
 
-| #   | Question                                                           | File             |
-| --- | ------------------------------------------------------------------ | ---------------- |
-| Q4  | Ellipses: needed? (elliptical arcs are outside the ADR-0001 scope) | `shapes.md`      |
-| Q7  | Undo / redo: command-based history, confirmed?                     | `interaction.md` |
-| Q9  | Corner radius on vertices created by a boolean                     | `shapes.md`      |
+| #   | Question                                                                                                                                                                                                                                                                  | File             |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| Q4  | Ellipses: needed? (elliptical arcs are outside the ADR-0001 scope)                                                                                                                                                                                                        | `shapes.md`      |
+| Q7  | Undo / redo: command-based history, confirmed?                                                                                                                                                                                                                            | `interaction.md` |
+| Q9  | Corner radius on vertices created by a boolean                                                                                                                                                                                                                            | `shapes.md`      |
+| Q20 | Largest size of a shape: sizes are any integer ≥ 0, but rounding grows with the size (segments of 1e-9 left at the maximal radius from 5 million units, an error visible at 5 decimals from 1e12) — set a practical range, or a tolerance relative to the size? (AUD-002) | `shapes.md`      |

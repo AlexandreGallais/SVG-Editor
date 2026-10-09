@@ -2,8 +2,8 @@
 # Local development server, only up during `npm run dev`.
 ^https?://localhost
 # Backlog templates (docs/backlog/_*.md) link as if copied into stories/: excluded by path in links.yml.
-# Standards publishers that refuse automated clients (HTTP 403 to lychee, WebFetch and research
-# tools alike, 2026-10-09); their pages are cited with that qualifier in docs/references.md.
+# Standards publishers that refuse automated clients such as lychee and WebFetch (HTTP 403,
+# 2026-10-09); their pages are cited with that qualifier in docs/references.md.
 ^https://library\.iec\.ch/
 ^https://webstore\.ansi\.org/
 ^https://www\.iso\.org/

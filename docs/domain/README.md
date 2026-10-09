@@ -46,7 +46,7 @@ The French term is kept: it is the user's working vocabulary.
 | Term               | French                  | Definition                                                                                                       |
 | ------------------ | ----------------------- | ---------------------------------------------------------------------------------------------------------------- |
 | Shape              | Forme                   | closed contour of vertices with a radius per vertex, rendered as a `<path>`                                      |
-| Vertex / Node      | Sommet / Nœud           | point of the contour, integer coordinates                                                                        |
+| Vertex / Node      | Sommet / Nœud           | point of the contour; integer coordinates in the model, fractional when derived (ADR-0003)                       |
 | Corner radius      | Rayon de coin           | radius of the arc rounding a vertex                                                                              |
 | Fillet             | Congé                   | arc tangent to both edges of a vertex                                                                            |
 | Setback            | Recul                   | distance from the vertex to the fillet's tangent point, `r / tan(θ/2)`                                           |

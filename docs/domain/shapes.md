@@ -5,7 +5,7 @@
 Processing chain: typed numbers → integer model → computed geometry → `<path>` (ADR-0005).
 
 - A shape = one or more **closed contours** (the first is the outside, the next ones are holes, produced by booleans).
-- A contour = ordered list of **vertices** with integer coordinates.
+- A contour = ordered list of **vertices**: integer coordinates when they are the model (a rectangle), fractional when they are derived from it (a regular polygon, later booleans), never written back (ADR-0003).
 - Each vertex carries an integer **corner radius** (0 = sharp corner).
 - The shape is rendered as a single `<path>` (ADR-0002).
 - Geometric primitives: segments and circular arcs only (ADR-0001).

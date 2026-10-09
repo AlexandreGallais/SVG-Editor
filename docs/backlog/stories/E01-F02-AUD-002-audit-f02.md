@@ -3,7 +3,7 @@ id: AUD-002
 epic: E01
 feature: F02
 title: "Audit F02: regular polygon with corner radius"
-status: in-progress
+status: done
 points: 3
 ---
 

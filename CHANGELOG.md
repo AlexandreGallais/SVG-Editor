@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.8](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.7.7...v0.7.8) (2026-10-09)
+
+
+### Documentation
+
+* record the Product Owner's view on Q20 ([b7a6950](https://github.com/AlexandreGallais/synoptic-studio/commit/b7a695002fb8b2b2c83e29564fe36845758da385))
+
 ## [0.7.7](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.7.6...v0.7.7) (2026-10-09)
 
 

@@ -3,7 +3,7 @@ id: VAL-001
 epic: E01
 feature: F01
 title: Validate F01 on the reference cases
-status: draft
+status: ready
 points: 2
 ---
 
@@ -20,8 +20,9 @@ Replay every acceptance criterion of F01 in the playground and against the deriv
 
 ## Tasks
 
-One task = one commit, referenced as `VAL-001.Tn`.
+One task = one commit, referenced as `VAL-001.Tn`. This story is not merged automatically (ADR-0028).
 
-- [ ] T1 — Replay the reference cases; tag or write one test per criterion `[F01.AC1]`…`[F01.AC4]` (ADR-0027); record the results in the feature file (1.5 h)
-- [ ] T2 — Demo page `docs/guide/` in plain language (fillet, setback, clamp explained) with its guided test (2 h)
-- [ ] T3 — Product Owner runs the guided test and validates; feedback recorded (0.5 h)
+- [ ] T1 — One test per criterion `[F01.AC1]`…`[F01.AC4]`, including a test of the playground in happy-dom (1.5 h)
+- [ ] T2 — Guided test in the playground: the nine steps of the US-003 card, one at a time, with what to do and what to look at (Product Owner, 2026-10-09) (2 h)
+- [ ] T3 — Demo page in `docs/guide/` in plain language (fillet, setback, clamp explained) (1.5 h)
+- [ ] T4 — Product Owner runs the guided test and validates; feedback recorded; feature pull request into `main` (0.5 h)

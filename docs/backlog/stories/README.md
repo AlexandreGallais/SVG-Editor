@@ -24,7 +24,7 @@
 | [US-006](./E01-F02-US-006-round-polygon-corners.md)         | F02     | Round the polygon's corners                      | done   |
 | [US-007](./E01-F02-US-007-shape-selector-playground.md)     | F02     | Choose rectangle or polygon in the playground    | done   |
 | [AUD-002](./E01-F02-AUD-002-audit-f02.md)                   | F02     | Audit F02: regular polygon with corner radius    | done   |
-| [US-008](./E01-F02-US-008-cap-playground-sizes.md)          | F02     | Cap the sizes typed in the playground at 100 000 | ready  |
+| [US-008](./E01-F02-US-008-cap-playground-sizes.md)          | F02     | Cap the sizes typed in the playground at 100 000 | done   |
 | [VAL-002](./E01-F02-VAL-002-validate-polygon.md)            | F02     | Validate F02 on the reference cases              | ready  |
 | [REV-001](./E01-REV-001-review-e01.md)                      | E01     | Review E01 with the Product Owner                | draft  |
 | [RET-001](./E01-RET-001-retrospective-e01.md)               | E01     | Retrospective of E01                             | draft  |

@@ -29,4 +29,6 @@ One task = one commit, referenced as `US-006.Tn`.
 - [x] T1 — `regularPolygonCorners` in `src/model/`; `effectiveCornerRadius` takes corners, shared by the rectangle and the polygon (playground updated); tests of the cases above, properties, mutations (2 h)
 - [x] T2 — Docs: derivation and domain (0.5 h)
 
+`@see` note: `regularPolygonCorners` is a `domain` function and cites `docs/domain/shapes.md#regular-polygon`; step 6 of `DERIV-regular-polygon-fit` names it in return (planned `@see` changed in T1).
+
 Mutation note: `Math.max` instead of `Math.min` in `effectiveCornerRadius` survives, and is equivalent today: every corner of a rectangle or of a regular polygon gets the same effective radius. It stops being equivalent with per-vertex radii (F03).

@@ -7,7 +7,8 @@ import type { Point } from "../math";
  * The vertices run clockwise on screen from the topmost one, the leftmost on a tie (Q11, Q18):
  * the `j`-th is at the angle `βⱼ = −π/2 + (2⌊n/2⌋ + 1 − 2j) π / n` of the mathematical frame,
  * written `(cos βⱼ, −sin βⱼ)` once the y axis is flipped. The start is chosen by its index,
- * never by comparing floating coordinates. A zero ordinate is written `+0`, never `−0`.
+ * never by comparing floating coordinates. No coordinate is `−0`; one that is zero in exact
+ * arithmetic may be off by about 1e-16 (cosine and sine of a double), which is accepted.
  *
  * @kind geometry
  * @param corners - number of corners `n`, an integer >= 3

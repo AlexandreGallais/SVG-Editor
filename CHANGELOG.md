@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.7](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.7.6...v0.7.7) (2026-10-09)
+
+
+### Documentation
+
+* log the stop of the F02 run at VAL-002 ([6f0c25a](https://github.com/AlexandreGallais/synoptic-studio/commit/6f0c25afb18f72bf98c679d630a67a3f69343b22))
+
 ## [0.7.6](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.7.5...v0.7.6) (2026-10-09)
 
 

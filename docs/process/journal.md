@@ -2,6 +2,10 @@
 
 What each working session dealt with, in the agent's words: requests of the Product Owner (paraphrased), decisions, where they were recorded. Newest first. Written by the agent at the end of each session or before a long pause (ADR-0024); searched with `grep` (tags written `#tag`). The full conversations stay in the local transcripts (see [agent configuration](../tooling/agent.md#searching-past-conversations)).
 
+## 2026-10-09 — Q20, the Product Owner's view
+
+- `#domain` On Q20 (largest size of a shape), the Product Owner said a user unit should render one screen pixel; even 8K screens side by side stay near 32 000 pixels, 10 000 being already extreme; a far screen is served by scaling the SVG, not by drawing huge views; people should be guided by good practice, e.g. the View Editor asking for the target screen. They leaned towards a tolerance relative to the size, then towards "as is, documented"; decision pending (improvement log, E08 idea).
+
 ## 2026-10-09 — Autonomous run of F02: stopped at VAL-002
 
 - `#run` Merged into `feature/f02-regular-polygon` after the auditor and the checks: SP-002 (#43), EN-008 (#46), US-005 (#48), CHK-002 (#49), US-006 (#50), US-007 (#51), AUD-002 (#52). Stop: the next story is VAL-002, with the Product Owner.

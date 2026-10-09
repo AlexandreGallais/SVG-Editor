@@ -18,3 +18,4 @@ paths:
 - Run `npx tsc --noEmit` before each commit: Vitest strips types, and the unused-imports autofix drops a type import written before the code that uses it (EN-005).
 - Zero vectors and signed zeros (ADR-0025): `atan2(+0, −0) = π`, `Math.sign(−0) = −0`, and `toEqual` tells `−0` from `0`. State the intended result for zero-length edges explicitly (see `turningAngle`, `unit`).
 - More than three parameters: group them in a named type (`CornerPoints`); tests with many columns use `it.each` over objects.
+- Playground visibility: page rules such as `label { display: block }` override the `hidden` attribute; keep the `[hidden] { display: none }` rule, and test what is displayed (`getComputedStyle`), the page head loaded (US-007).

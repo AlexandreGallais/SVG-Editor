@@ -236,4 +236,23 @@ describe("playground", () => {
     expect(document.querySelector<HTMLSelectElement>("#shape")?.value).toBe("rectangle");
     expect(isCornersFieldHidden()).toBe(true);
   });
+
+  it("[F02.AC5] caps a width or a radius above 100 000 at 100 000, in the input too (Q20)", () => {
+    type("width", "250000");
+
+    expect(valueOf("width")).toBe("100000");
+    expect(text("model")).toContain('"width": 100000');
+
+    type("radius", "500000");
+
+    expect(valueOf("radius")).toBe("100000");
+  });
+
+  it("[F02.AC5] keeps 100 000 and smaller values exactly", () => {
+    type("height", "100000");
+    type("width", "99999");
+
+    expect([valueOf("height"), valueOf("width")]).toEqual(["100000", "99999"]);
+    expect(text("model")).toContain('"width": 99999');
+  });
 });

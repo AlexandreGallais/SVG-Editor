@@ -15,7 +15,8 @@ status: draft
 
 - A second mode next to the uniform one of Q1: the polygon of F02 scaled separately in width and height (stretched), so that it reaches both sizes.
 - Stretching breaks regularity: the corners no longer have the same angle, so one requested radius gives different effective radii from corner to corner — the display needs one effective radius per vertex (F03).
-- Is the mode chosen per shape (stored in the model), and what is its default?
+- Two polygon kinds, chosen when drawing (Product Owner, 2026-10-09): a **fixed** (regular) polygon and a **stretched** one, each in the box the designer chose; they stay two distinct shapes with their own functions, not merged. Whether it is an option of the polygon tool or two entries of the shape menu is a UX choice for later.
+- Is the kind stored in the model of each shape, and which one is the default?
 - Does "the most proportionate possible" mean a plain stretch of the regular polygon, or another rule (e.g. for a pentagon or a hexagon whose vertices do not all touch the box)?
 
 ## Acceptance criteria

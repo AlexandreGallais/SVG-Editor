@@ -31,6 +31,5 @@ Written with the story: the steps, the expected result of each, and what to look
 
 One task = one commit, referenced as `US-007.Tn`.
 
-- [ ] T1 — Playground tests in happy-dom: selector, corners field, drawing, refused values (1.5 h)
-- [ ] T2 — Shape selector and corners field in the playground (2 h)
-- [ ] T3 — Product Owner test card (0.5 h)
+- [x] T1 — Shape selector and corners field in the playground, with happy-dom tests: selector, corners field, drawing, refused values, return to the rectangle; three mutations caught (3 h)
+- [ ] T2 — Product Owner test card (0.5 h)

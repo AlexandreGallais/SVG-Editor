@@ -2,6 +2,13 @@
 
 What each working session dealt with, in the agent's words: requests of the Product Owner (paraphrased), decisions, where they were recorded. Newest first. Written by the agent at the end of each session or before a long pause (ADR-0024); searched with `grep` (tags written `#tag`). The full conversations stay in the local transcripts (see [agent configuration](../tooling/agent.md#searching-past-conversations)).
 
+## 2026-10-09 — Autonomous run of F01: stopped at VAL-001
+
+- `#run` Seven stories merged into `feature/f01-rectangle-with-corner-radius` by GitHub after the auditor and the checks: SP-001 (#30), EN-005 (#31), EN-006 (#32), CHK-001 (#33), EN-007 (#34), US-003 (#35), AUD-001 (#36). Stop: the next story is VAL-001, with the Product Owner.
+- `#audit` Every story review found real gaps before merge: a signed-zero half turn in `turningAngle`, a radius never read by the playground, a wrong step in the test card, an untested part of F01.AC3, a test 1000 times too loose. Feature audit: 22 of 24 mutants caught, 2 equivalent.
+- `#domain` Open questions raised for the Product Owner: Q16 (spike consumed by its fillet), Q17 (effective radius shown where nothing can be rounded).
+- `#process` The Product Owner asked to wait for CI by reading its statuses, failing fast, with a time limit: `/run` and `/story` updated. The AUD-001 pull request had to be recreated (its creation was interrupted) and failed on a happy-dom patch published overnight.
+
 ## 2026-10-08 — Autonomous run of F01
 
 - `#run` The Product Owner started the run with `/run FO1` (read as F01, the only feature in progress). Scope: SP-001, EN-005, EN-006, CHK-001, EN-007, US-003, AUD-001; stop at VAL-001. Feature branch `feature/f01-rectangle-with-corner-radius`. No open issue.

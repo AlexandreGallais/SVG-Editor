@@ -85,7 +85,7 @@ Functional reference: Inkscape's Star/Polygon tool.
 - The shape stays regular.
 - It touches the width, the height, or both, depending on `n` and the ratio `w/h`.
 - Default orientation: **flat base** (horizontal bottom edge). `n=4` gives a square, not a diamond.
-- Fitted on the sharp-cornered polygon; the corner radius then rounds inwards. At the maximal radius the shape is its inscribed circle and may no longer touch the box (a hexagon in 100 × 100 becomes a circle of diameter 86.6): accepted by the Product Owner (2026-10-09) — removing the radius makes it touch again; a shape filling its box whatever its rounding would be a separate "fill the parent" option.
+- Fitted on the sharp-cornered polygon; the corner radius then rounds inwards, clamped exactly as for the rectangle (same geometry, no rule of its own). At the maximal radius the shape is its inscribed circle and may no longer touch the box (a hexagon in 100 × 100 becomes a circle of diameter 86.6): accepted by the Product Owner (2026-10-09) — removing the radius makes it touch again; a shape filling its box whatever its rounding would be a separate "fill the parent" option.
 - Number of corners: integer `3 ≤ n ≤ 12` (Q19): process and electrical symbols use triangles, squares, diamonds, hexagons and one octagon (note 0004); beyond 12 sides a polygon is hardly told from a circle, and the circle is already a rounded square.
 - Other orientations (a diamond is a square turned by 45°, the IEC hexagon stands on a vertex: 30°) come from rotation (F04), applied to the flat-based polygon.
 

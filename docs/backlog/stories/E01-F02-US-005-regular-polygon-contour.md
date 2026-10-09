@@ -18,7 +18,7 @@ As a symbol designer, I want a regular polygon defined by an integer number of c
 - Given n = 6 in 100 × 100, when the contour is built, then it is 100 wide and 86.60254 high, with flat top and bottom edges: (25, 6.69873), (75, 6.69873), (100, 50), (75, 93.30127), (25, 93.30127), (0, 50).
 - Given n = 8 in 100 × 100, when the contour is built, then both sizes are reached, from (29.28932, 0) (`DERIV-regular-polygon-fit`, checks).
 - Given a width or a height of 0, when the contour is built, then the degenerate polygon is accepted (Q15).
-- Given n < 3, n not an integer, n above the maximum of Q19, or a negative size, when the polygon is created, then it is refused.
+- Given n = 12, when the polygon is created, then it is accepted; given n < 3, n > 12 (Q19), n not an integer, or a negative size, then it is refused.
 - Given any valid polygon, when the contour is built, then only n, width, height and radius are stored; the vertices are derived (ADR-0003).
 
 ## Product Owner test

@@ -3,18 +3,18 @@
 ## Branches and pull requests
 
 - `main` is always green and protected; nothing lands on it without a pull request, except tooling and backlog work done on the owner's request.
-- **One branch = one feature** (ADR-0028): `feature/f01-<topic>`, created from `main` when the feature starts, merged into `main` by the Product Owner at the feature's validation, then deleted. It is the only branch that outlives a story.
+- **One branch = one feature** (ADR-0028): `feature/f<nn>-<topic>`, created from `main` when the feature starts, merged into `main` by the Product Owner at the feature's validation, then deleted. It is the only branch that outlives a story.
 - **One branch = one story**: `<type>/<story-id>-<topic>`, e.g. `feat/us-004-rectangle-contour`, `docs/en-002-fillet-derivation`, created from the up-to-date feature branch. The type is the Conventional Commits type of the story's main change.
 - **One commit = one task** of the story, with the task ID in a footer (`Refs: US-004.T2`).
 - When the story's Definition of Done is met, Claude Code pushes the branch and opens a pull request **into the feature branch** (template `.github/pull_request_template.md`). Merge: **rebase merge** once CI is green — by the Product Owner, or, in an authorized autonomous run, by GitHub itself: the pull request carries the label `autonomous` and `story-automerge.yml` enables auto-merge (ADR-0028).
 - At the feature's validation (`VAL`), Claude Code rebases the feature branch on `main`, does the validation work on a `VAL` branch made from it, and opens **one feature pull request** from that branch into `main` (it holds the whole feature and its validation); the Product Owner merges it (rebase: every task commit reaches `main`). Nothing reaches `main` without the Product Owner.
 - No `develop` branch; no long-lived branch other than the current feature's.
-- Branch names are checked by `validate-branch-name` (pattern in `package.json`): `main`, `feature/f01-<kebab-case>`, `<type>/<kebab-case>`, plus the bots' `dependabot/…` and `release-please--…`.
+- Branch names are checked by `validate-branch-name` (pattern in `package.json`): `main`, `feature/f<nn>-<kebab-case>`, `<type>/<kebab-case>`, plus the bots' `dependabot/…` and `release-please--…`.
 
 ## After a merge
 
 ```sh
-git switch feature/f01-<topic>   # or main, after the feature pull request
+git switch feature/f<nn>-<topic>   # or main, after the feature pull request
 git pull --prune
 git branch -d <story-branch>
 ```

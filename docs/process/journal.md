@@ -2,6 +2,11 @@
 
 What each working session dealt with, in the agent's words: requests of the Product Owner (paraphrased), decisions, where they were recorded. Newest first. Written by the agent at the end of each session or before a long pause (ADR-0024); searched with `grep` (tags written `#tag`). The full conversations stay in the local transcripts (see [agent configuration](../tooling/agent.md#searching-past-conversations)).
 
+## 2026-10-09 — Autonomous run of F02: refinement first
+
+- `#run` The Product Owner started the run with `/run F02`. F02 is still `draft` without stories: the run opens with its refinement interview, then the research spike; no code before the Product Owner sets the stories `ready`.
+- `#tooling` Before the run: `eslint-plugin-jsdoc` 65.2.2 (a patch had turned `check:all` red); the feature branch pattern is written `feature/f<nn>-<topic>` in `CLAUDE.md`, the skills and the Git workflow (ADR-0028 keeps its F01 example).
+
 ## 2026-10-09 — F01 validated, merged and released
 
 - `#validation` The Product Owner ran the nine-step guided test in the local playground over two sessions: every step understood as intended (« tout a l'air parfait pour moi »). Q16 settled (a spike is consumed by its fillet), Q17 settled (the radius stays where nothing is rounded).

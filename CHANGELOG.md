@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.10](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.7.9...v0.7.10) (2026-10-09)
+
+
+### Documentation
+
+* **backlog:** record the Product Owner's idea for SVG import (E11) ([9afa8d0](https://github.com/AlexandreGallais/synoptic-studio/commit/9afa8d0e4a009881a001ff755bef5fb9ddcb8bdc))
+
 ## [0.7.9](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.7.8...v0.7.9) (2026-10-09)
 
 

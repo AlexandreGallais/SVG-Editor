@@ -19,7 +19,7 @@
 | [VAL-001](./E01-F01-VAL-001-validate-rectangle.md)          | F01     | Validate F01 on the reference cases             | done   |
 | [SP-002](./E01-F02-SP-002-research-f02.md)                  | F02     | Research for F02                                | done   |
 | [EN-008](./E01-F02-EN-008-unit-regular-polygon.md)          | F02     | Unit regular polygon with a flat base           | done   |
-| [US-005](./E01-F02-US-005-regular-polygon-contour.md)       | F02     | Regular polygon contour fitted in its box       | ready  |
+| [US-005](./E01-F02-US-005-regular-polygon-contour.md)       | F02     | Regular polygon contour fitted in its box       | done   |
 | [CHK-002](./E01-F02-CHK-002-checkpoint-f02.md)              | F02     | Checkpoint in the middle of F02                 | ready  |
 | [US-006](./E01-F02-US-006-round-polygon-corners.md)         | F02     | Round the polygon's corners                     | ready  |
 | [US-007](./E01-F02-US-007-shape-selector-playground.md)     | F02     | Choose rectangle or polygon in the playground   | ready  |

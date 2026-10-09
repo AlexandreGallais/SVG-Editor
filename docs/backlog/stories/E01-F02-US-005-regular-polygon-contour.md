@@ -3,7 +3,7 @@ id: US-005
 epic: E01
 feature: F02
 title: Regular polygon contour fitted in its box
-status: ready
+status: done
 points: 3
 ---
 

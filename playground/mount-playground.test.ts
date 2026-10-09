@@ -48,12 +48,15 @@ function chooseShape(value: string): void {
 }
 
 /**
- * Whether the field of the number of corners is hidden.
+ * Whether the field of the number of corners is out of sight: its computed display, so that a
+ * style rule overriding the `hidden` attribute is caught.
  *
- * @returns the `hidden` state of `#corners-field`
+ * @returns `true` when `#corners-field` is not displayed
  */
 function isCornersFieldHidden(): boolean {
-  return document.querySelector<HTMLElement>("#corners-field")?.hidden === true;
+  const field = document.querySelector("#corners-field");
+
+  return field !== null && getComputedStyle(field).display === "none";
 }
 
 /**
@@ -82,8 +85,15 @@ describe("playground", () => {
     const parsed = parser.parseFromString(page, "text/html");
 
     parsed.querySelector("script")?.remove();
+    // The head carries the page's style: visibility is checked as the browser computes it.
+    document.head.replaceChildren(...parsed.head.childNodes);
     document.body.replaceChildren(...parsed.body.childNodes);
     mountPlayground(document);
+  });
+
+  it("[F02.AC4] opens on the rectangle, the selector on Rectangle, without the number of corners", () => {
+    expect(document.querySelector<HTMLSelectElement>("#shape")?.value).toBe("rectangle");
+    expect(isCornersFieldHidden()).toBe(true);
   });
 
   it("[F01.AC1] renders the rectangle as one <path>", () => {
@@ -145,7 +155,7 @@ describe("playground", () => {
     expect(text("status")).toBe("Width, height and radius must be integers ≥ 0.");
   });
 
-  it("[F02.AC4] opens on the rectangle, without the number of corners", () => {
+  it("[F02.AC4] stays on the rectangle after the steps of the F01 guided test", () => {
     click("guide-previous");
 
     expect(document.querySelector<HTMLSelectElement>("#shape")?.value).toBe("rectangle");
@@ -179,9 +189,11 @@ describe("playground", () => {
 
     // Inradius of the hexagon: 50 cos(π/6) = 43.30127.
     expect(text("effective")).toBe("Effective radius: 43.30127 (requested 1000, reduced to fit)");
+    // The circle of the hexagon: six arcs of radius 43.30127 and no line, from the top middle.
+    expect(text("path-data")).toMatch(/^M50 6\.69873 (?:A43\.30127 43\.30127 0 0 1 [\d. ]+){6}Z$/u);
   });
 
-  it("[F02.AC1] refuses 13 corners and 2.5 corners", () => {
+  it("[F02.AC1] refuses 13, 2, 2.5 and no corners", () => {
     type("corners", "13");
 
     expect(text("status")).toBe(
@@ -191,9 +203,12 @@ describe("playground", () => {
     expect(document.querySelector("#corners")?.getAttribute("aria-invalid")).toBe("true");
     expect(text("effective")).toBe("");
 
-    type("corners", "2.5");
+    for (const corners of ["2", "2.5", ""]) {
+      type("corners", corners);
 
-    expect(document.querySelector("#corners")?.getAttribute("aria-invalid")).toBe("true");
+      expect(text("status")).toContain("corners an integer from 3 to 12");
+      expect(document.querySelector("#corners")?.getAttribute("aria-invalid")).toBe("true");
+    }
   });
 
   it("[F02.AC4] goes back to the rectangle, the number of corners hidden and ignored", () => {

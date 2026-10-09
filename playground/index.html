@@ -43,6 +43,10 @@
         display: block;
         margin-block: 0.5rem;
       }
+      /* The label rule above would override the hidden attribute (US-007 review). */
+      [hidden] {
+        display: none;
+      }
       input[aria-invalid="true"] {
         outline: 2px solid #d04a4a;
       }

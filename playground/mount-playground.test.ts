@@ -177,6 +177,14 @@ describe("playground", () => {
     );
   });
 
+  it("[F02.AC3] writes the polygon with at most 5 decimals, clockwise from its top-left vertex", () => {
+    // Hexagon of the previous step: 6.69873 is (100 − 50√3)/2 = 6.698729… rounded to 5 decimals.
+    const numbers = text("path-data").match(/-?\d+(?:\.\d+)?/gu) ?? [];
+
+    expect(numbers.every((number) => (number.split(".", 2)[1] ?? "").length <= 5)).toBe(true);
+    expect(text("path-data").startsWith("M25 6.69873 L75 6.69873")).toBe(true);
+  });
+
   it("[F02.AC4] follows the number of corners: a triangle pointing up", () => {
     type("corners", "3");
 

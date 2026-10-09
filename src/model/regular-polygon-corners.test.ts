@@ -1,7 +1,7 @@
 import { fc, test } from "@fast-check/vitest";
 import { describe, expect, it } from "vitest";
 
-import { edgeLengths, roundedContour } from "../geometry";
+import { edgeLengths, effectiveRadii, roundedContour } from "../geometry";
 
 import { effectiveCornerRadius } from "./effective-corner-radius";
 import { regularPolygonCorners } from "./regular-polygon-corners";
@@ -79,6 +79,13 @@ describe("regularPolygonCorners (DERIV-regular-polygon-fit step 6)", () => {
     expect(effectiveCornerRadius(corners)).toBeCloseTo(10, DECIMALS);
   });
 
+  it("keeps the requested radius on a polygon of size 0, which draws nothing (Q17)", () => {
+    const corners = regularPolygonCorners({ corners: 6, height: 0, radius: 10, width: 0 });
+
+    expect(effectiveCornerRadius(corners)).toBe(10);
+    expect(roundedContour(corners)).toEqual([]);
+  });
+
   it("[F02.AC2] keeps the requested radius on every corner (Q8)", () => {
     const corners = regularPolygonCorners({ corners: 5, height: 100, radius: 1000, width: 100 });
 
@@ -120,5 +127,15 @@ describe("regularPolygonCorners (properties)", () => {
     const polygon = regularPolygonCorners({ corners, height: size, radius, width: size });
 
     expect(effectiveCornerRadius(polygon)).toBeLessThanOrEqual(radius * (1 + 1e-9));
+  });
+
+  test.prop({
+    corners: fc.integer({ max: 12, min: 3 }),
+    radius: fc.integer({ max: 2000, min: 0 }),
+    width: fc.integer({ max: 1000, min: 1 }),
+  })("gives every corner the same effective radius (AUD-002)", ({ corners, radius, width }) => {
+    const radii = effectiveRadii(regularPolygonCorners({ corners, height: width, radius, width }));
+
+    expect(Math.max(...radii) - Math.min(...radii)).toBeLessThan(1e-9 * Math.max(1, radius));
   });
 });

@@ -1,4 +1,5 @@
 export type * from "./arc";
+export * from "./bounding-box";
 export type * from "./contour-piece";
 export type * from "./corner";
 export type * from "./corner-points";
@@ -10,6 +11,7 @@ export * from "./edge-lengths";
 export * from "./effective-radii";
 export * from "./fillet-arc";
 export * from "./fillet-setback";
+export * from "./fit-in-box";
 export * from "./has-length";
 export * from "./rounded-contour";
 export type * from "./segment";

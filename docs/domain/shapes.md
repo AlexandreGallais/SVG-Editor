@@ -78,7 +78,7 @@ Functional reference: Inkscape's Star/Polygon tool.
 - Parameters: number of corners `n ≥ 3`, maximum `width` and `height` (integers), optional global radius.
 - Examples: `n=3` equilateral triangle, `n=4` square, `n=5` pentagon, `n=6` hexagon.
 - Rule: the shape fills as much of the `width × height` box as possible **without exceeding it**.
-- Derived vertices (cos/sin): not integers. They are **computed**, not stored (ADR-0003). `n`, `width`, `height` are stored.
+- Derived vertices (cos/sin): not integers. They are **computed**, not stored (ADR-0003). `n`, `width`, `height` and the requested `radius` are stored (`RegularPolygon`).
 
 **Chosen mode: uniform** (`DERIV-regular-polygon-fit`).
 

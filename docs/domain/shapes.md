@@ -48,7 +48,7 @@ Rule: **local proportional reduction per edge** (`DERIV-local-radius-clamp`).
 - No error message: the effective value simply caps.
 - Only the vertices adjacent to a conflicting edge are reduced.
 - A spike — a vertex where the contour turns back on itself — is today consumed by its fillet; whether it should keep its point is open (Q16).
-- Where no corner can be rounded (a size of 0, an aligned vertex), the effective radius stays equal to the requested one and the interface says "as requested"; whether it should show 0 is open (Q17).
+- Where no corner can be rounded (a size of 0, an aligned vertex), the radius stays on the vertex and the interface shows it "as requested": it applies as soon as the shape grows (Q17, settled).
 - Known limit: on a concave contour, an arc might touch a non-adjacent edge; the clamp only checks adjacent edges. To be detected, not corrected, when concave shapes arrive (F03, node editing); unreachable with rectangles.
 
 Storing the value (Q8, settled):

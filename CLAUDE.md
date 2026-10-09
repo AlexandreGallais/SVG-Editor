@@ -12,7 +12,7 @@ A library of small named functions, each backed by a verified source, composed s
 
 Non-negotiable principles: schematic, orthogonal, integer, documented, dependency-free.
 
-**State**: E01 · F01 (rectangle with corner radius) is done and released (v0.7.0); F02 (regular polygon) is validated; its feature pull request waits for the Product Owner's merge. Next feature: only when the Product Owner says so. The backlog (`docs/backlog/`) says what is done and what is next; implement only stories the Product Owner (the user) has set to `ready`.
+**State**: E01 · F01 (rectangle with corner radius) is done and released (v0.7.0); F02 (regular polygon) is done and released (v0.8.0); F03 is not started — wait for the Product Owner. The backlog (`docs/backlog/`) says what is done and what is next; implement only stories the Product Owner (the user) has set to `ready`.
 
 ## Where to read — BEFORE any task
 

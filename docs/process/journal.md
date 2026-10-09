@@ -2,6 +2,13 @@
 
 What each working session dealt with, in the agent's words: requests of the Product Owner (paraphrased), decisions, where they were recorded. Newest first. Written by the agent at the end of each session or before a long pause (ADR-0024); searched with `grep` (tags written `#tag`). The full conversations stay in the local transcripts (see [agent configuration](../tooling/agent.md#searching-past-conversations)).
 
+## 2026-10-09 — Autonomous run of F02: stopped at VAL-002
+
+- `#run` Merged into `feature/f02-regular-polygon` after the auditor and the checks: SP-002 (#43), EN-008 (#46), US-005 (#48), CHK-002 (#49), US-006 (#50), US-007 (#51), AUD-002 (#52). Stop: the next story is VAL-002, with the Product Owner.
+- `#domain` Q19 settled at 12 corners after research 0004, run by the Product Owner in claude.ai; polygon orientation through rotation recorded in F04; Q20 opened (largest size of a shape: rounding grows with the size).
+- `#audit` Every review changed its story; one real bug found only by review: the Corners field never hid in a browser (`label { display: block }` over `hidden`), invisible to the tests until they loaded the page's style. Feature audit: 26 of 27 mutants caught, 1 equivalent and now proved so.
+- `#tooling` Feature branch rebased on `main` to get `deps:tools`; `.lycheeignore` excludes IEC, ANSI and ISO, which refuse robots.
+
 ## 2026-10-09 — Autonomous run of F02: refinement first
 
 - `#run` The Product Owner started the run with `/run F02`. F02 is still `draft` without stories: the run opens with its refinement interview, then the research spike; no code before the Product Owner sets the stories `ready`.

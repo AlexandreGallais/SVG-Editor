@@ -3,7 +3,7 @@ id: VAL-002
 epic: E01
 feature: F02
 title: Validate F02 on the reference cases
-status: ready
+status: in-progress
 points: 2
 ---
 
@@ -22,7 +22,19 @@ Replay every acceptance criterion of F02 in the playground and against the deriv
 
 One task = one commit, referenced as `VAL-002.Tn`. This story is not merged automatically (ADR-0028).
 
-- [ ] T1 — One test per criterion `[F02.AC1]`…`[F02.AC4]`, the playground ones in `playground/mount-playground.test.ts` (1.5 h)
+- [x] T1 — One test per criterion `[F02.AC1]`…`[F02.AC5]`, the playground ones in `playground/mount-playground.test.ts` (1.5 h)
 - [ ] T2 — Guided test in the playground: the steps of the US-007 card, then a capped size (US-008 card, F02.AC5), one at a time (2 h)
 - [ ] T3 — Demo page in `docs/guide/` in plain language (fit in a box, inscribed circle explained) (1.5 h)
 - [ ] T4 — Product Owner runs the guided test and validates; feedback recorded; feature pull request into `main` (0.5 h)
+
+## Tests per criterion (2026-10-09)
+
+Written with the stories and the audit; counted at the validation (`[F02.ACn]` in test titles).
+
+| Criterion                                                  | Tests | Where                                                                                     |
+| ---------------------------------------------------------- | ----- | ----------------------------------------------------------------------------------------- |
+| F02.AC1 — uniform fit, flat base, refused values           | 12    | `unit-regular-polygon`, `regular-polygon-contour`, `is-valid-regular-polygon`, playground |
+| F02.AC2 — global radius, incircle at most                  | 6     | `regular-polygon-corners`, playground                                                     |
+| F02.AC3 — 5 decimals, clockwise, starting vertex           | 7     | `unit-regular-polygon`, `regular-polygon-contour`, playground                             |
+| F02.AC4 — shape selector                                   | 6     | playground                                                                                |
+| F02.AC5 — sizes capped at 100 000, no limit in the library | 3     | playground, `is-valid-rectangle`                                                          |

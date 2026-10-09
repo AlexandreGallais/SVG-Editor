@@ -32,6 +32,12 @@ const INVALID_POLYGON =
 /** Specification of the story demonstrated by this page. */
 const STORY = "docs/backlog/stories/E01-F02-US-007-shape-selector-playground.md";
 
+/** Largest width, height or radius the interface accepts, in pixels (Q20): a larger one is capped. */
+const MAX_SIZE = 100_000;
+
+/** Inputs capped at `MAX_SIZE`. */
+const SIZE_INPUTS = ["width", "height", "radius"];
+
 /** Number inputs of the shapes, in display order. */
 const INPUTS = ["corners", "width", "height", "radius"];
 
@@ -80,6 +86,22 @@ function readNumber(document: Document, id: string): number {
   const input = selectElement(document, id);
 
   return input instanceof HTMLInputElement ? input.valueAsNumber : NaN;
+}
+
+/**
+ * Caps the sizes typed above 100 000 at 100 000, in the inputs themselves (Q20); smaller values
+ * are kept exactly. The library has no upper limit: this belongs to the interface.
+ *
+ * @kind procedure
+ * @param document - page document
+ * @see docs/backlog/stories/E01-F02-US-008-cap-playground-sizes.md
+ */
+function writeCappedSizes(document: Document): void {
+  const tooLarge = SIZE_INPUTS.filter((id) => readNumber(document, id) > MAX_SIZE);
+
+  for (const id of tooLarge) {
+    writeInputValue(document, id, MAX_SIZE);
+  }
 }
 
 /**
@@ -251,6 +273,8 @@ function showShape(document: Document, reading: ShapeReading): void {
  * @see docs/backlog/stories/E01-F02-US-007-shape-selector-playground.md
  */
 function updatePlayground(document: Document): void {
+  writeCappedSizes(document);
+
   const isPolygon = readShapeKind(document) === "polygon";
   const reading = isPolygon ? readPolygonShape(document) : readRectangleShape(document);
 

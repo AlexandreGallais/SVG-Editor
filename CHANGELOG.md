@@ -1,5 +1,71 @@
 # Changelog
 
+## [0.7.0](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.6.9...v0.7.0) (2026-10-09)
+
+
+### Features
+
+* **geometry:** clamp corner radii locally and proportionally ([9e56066](https://github.com/AlexandreGallais/synoptic-studio/commit/9e56066063757f49da4dce532db8cc772fecd1fa))
+* **geometry:** compute setbacks, edge lengths and edge factors ([13edb44](https://github.com/AlexandreGallais/synoptic-studio/commit/13edb4437a95a438a492a9d82635e2b1e100f273))
+* **geometry:** compute the fillet arc of a corner ([f823c9f](https://github.com/AlexandreGallais/synoptic-studio/commit/f823c9f7db6cd4d5e18ac06297e6fc699f0baffd))
+* **geometry:** define segments and arcs of an evaluated contour ([b5ed937](https://github.com/AlexandreGallais/synoptic-studio/commit/b5ed9371a6e647787ef057028ac5c9fffa50cb0d))
+* **geometry:** evaluate a rounded contour into segments and arcs ([e6fa149](https://github.com/AlexandreGallais/synoptic-studio/commit/e6fa149a1d1517da9ea543b63129b2cb0888c2cc))
+* **io:** write the arc command of a fillet ([f234a40](https://github.com/AlexandreGallais/synoptic-studio/commit/f234a40c63c7cec154b4457f6b6ab8f29f8e7ff6))
+* **io:** write the path data of a rounded contour ([77fd981](https://github.com/AlexandreGallais/synoptic-studio/commit/77fd9816cb871b4f1df0671917c7ac930c9c33d1))
+* **math:** add EPSILON and the length of a vector ([fe4898c](https://github.com/AlexandreGallais/synoptic-studio/commit/fe4898c48d55ff286189e2b618541f1939f2224b))
+* **math:** add, scale, normalize and turn vectors ([f2280df](https://github.com/AlexandreGallais/synoptic-studio/commit/f2280df06c72be9814ebf61b0f43d3b4cbacbcc9))
+* **model:** give the rectangle a global corner radius ([d45eb58](https://github.com/AlexandreGallais/synoptic-studio/commit/d45eb585e65088db41edf4d122047be6a5cf851f))
+* **playground:** guide the Product Owner through the nine test steps ([14f98e3](https://github.com/AlexandreGallais/synoptic-studio/commit/14f98e3c18eff5c844e6c150e75e330db69f8822))
+* **playground:** round the rectangle corners with a radius input ([6b99a64](https://github.com/AlexandreGallais/synoptic-studio/commit/6b99a647e5e064bffd8b46b8e91fefab02245ad4))
+
+
+### Bug fixes
+
+* **geometry:** return no turn on a zero-length edge whatever the zeros ([cd51d9f](https://github.com/AlexandreGallais/synoptic-studio/commit/cd51d9f2516382ceef3028b3d92162494747e75c))
+* **playground:** clear the effective radius of a refused input ([a1ada4a](https://github.com/AlexandreGallais/synoptic-studio/commit/a1ada4a571b84f536b2fbb2ac6076f3358fa479c))
+
+
+### Refactoring
+
+* **geometry:** generalize cyclicVertex into cyclicItem ([7b6624f](https://github.com/AlexandreGallais/synoptic-studio/commit/7b6624f9dc90d847678bc6019508c13fbf3116a2))
+
+
+### Documentation
+
+* align the domain and the feature plan with what F01 built ([5510896](https://github.com/AlexandreGallais/synoptic-studio/commit/5510896f29f4332017f9679b605e022cd8255462))
+* apply the auditor findings on CHK-001 ([34b9711](https://github.com/AlexandreGallais/synoptic-studio/commit/34b9711cf810494c4b06e24e98ab84c138d20430))
+* **backlog:** apply the auditor findings on SP-001 ([a4001f7](https://github.com/AlexandreGallais/synoptic-studio/commit/a4001f75e5c690ec09efbfb325cc9a236d7f7d3b))
+* **backlog:** inventory the needs of the remaining F01 stories ([4df4013](https://github.com/AlexandreGallais/synoptic-studio/commit/4df40136582d81962e08d6508a2e3b09e09a6068))
+* **backlog:** record the findings of the F01 audit ([8d8851d](https://github.com/AlexandreGallais/synoptic-studio/commit/8d8851d6e80613b7b0da94a4c68ee8837ff2a4af))
+* **backlog:** record the light evolvability check of F01 ([6f6cca9](https://github.com/AlexandreGallais/synoptic-studio/commit/6f6cca9a605ee3a736c0a8fc609165e3783439d9))
+* **backlog:** record the Product Owner validation of F01 ([3c986a5](https://github.com/AlexandreGallais/synoptic-studio/commit/3c986a59f8a6d9d2085d4d3ec8c8821e6f7d743b))
+* **backlog:** set AUD-001 done ([878f685](https://github.com/AlexandreGallais/synoptic-studio/commit/878f68527542c779114c7c29fadd6873e2fb0d29))
+* **backlog:** set AUD-001 ready ([a2d0dde](https://github.com/AlexandreGallais/synoptic-studio/commit/a2d0dde22bdb16cb13966498bf43f60f4fbf9cbb))
+* **backlog:** set CHK-001 done ([5148393](https://github.com/AlexandreGallais/synoptic-studio/commit/5148393d451c4f5938e0eb15c3e44198b655d6ed))
+* **backlog:** set CHK-001 ready ([71dae66](https://github.com/AlexandreGallais/synoptic-studio/commit/71dae66491a44e1130b60f63168586d4f4879caf))
+* **backlog:** set EN-005 done ([ddfddc8](https://github.com/AlexandreGallais/synoptic-studio/commit/ddfddc8d4d2da73775c6a2bd1e657bde5d916a05))
+* **backlog:** set EN-005 ready ([9a8ace5](https://github.com/AlexandreGallais/synoptic-studio/commit/9a8ace5340c8d491007926febb7535f005adc5bc))
+* **backlog:** set EN-006 done ([07e1e76](https://github.com/AlexandreGallais/synoptic-studio/commit/07e1e76b7096e8c037e145c51877a723784e5854))
+* **backlog:** set EN-006 ready ([cc03e3e](https://github.com/AlexandreGallais/synoptic-studio/commit/cc03e3ed0b2e501a06ff8959d5c3088222f7cdd1))
+* **backlog:** set EN-007 done ([39ee67a](https://github.com/AlexandreGallais/synoptic-studio/commit/39ee67ad86cec3ed9750821508381d86629fbb2d))
+* **backlog:** set EN-007 ready ([2a9761a](https://github.com/AlexandreGallais/synoptic-studio/commit/2a9761ad32f98cb0719081f1a9bed29a57f4a055))
+* **backlog:** set SP-001 done ([cd8bc98](https://github.com/AlexandreGallais/synoptic-studio/commit/cd8bc9861ae2752bc767d396f444d44ceff58f45))
+* **backlog:** set SP-001 ready ([d7ba79c](https://github.com/AlexandreGallais/synoptic-studio/commit/d7ba79cb5435090d637c7b3a05659fd75ed76bdd))
+* **backlog:** set US-003 done ([2bb9f6f](https://github.com/AlexandreGallais/synoptic-studio/commit/2bb9f6f1893376c69f6db5486fa22471ea4254d6))
+* **backlog:** set US-003 ready ([4083f5e](https://github.com/AlexandreGallais/synoptic-studio/commit/4083f5e62c718cf34a1e1121270fffe93f758f47))
+* **backlog:** set VAL-001 and F01 done ([f8b03fc](https://github.com/AlexandreGallais/synoptic-studio/commit/f8b03fcc9808672805f820f4dc558383d70afd55))
+* **backlog:** set VAL-001 ready ([eebc586](https://github.com/AlexandreGallais/synoptic-studio/commit/eebc586413b1e836cdda474d5dd27b6669b31f5a))
+* **backlog:** source the remaining F01 stories ([d610ae2](https://github.com/AlexandreGallais/synoptic-studio/commit/d610ae218829cbbc31f7111d273ad284f2bd5b53))
+* **backlog:** write the Product Owner test card of US-003 ([156a916](https://github.com/AlexandreGallais/synoptic-studio/commit/156a91632ae4b09bb6ccac111159b77e673e5e80))
+* bring rules, glossary and lessons up to date mid-F01 ([6f49f5e](https://github.com/AlexandreGallais/synoptic-studio/commit/6f49f5e631f97b3106a96a3e26eee6f8ee417c92))
+* explain F01 in plain language in the guide ([1501750](https://github.com/AlexandreGallais/synoptic-studio/commit/15017503caec949624cf8fb4a61cfe07c89437df))
+* **geometry:** cite the sources of every derivation step ([2699c80](https://github.com/AlexandreGallais/synoptic-studio/commit/2699c809a8863b5008bc79aab919d69f881ff33e))
+* **geometry:** derive the tangent points, center and flags of a fillet ([40170f2](https://github.com/AlexandreGallais/synoptic-studio/commit/40170f2ecc9697afe6bae7212dce72e68f6c60ed))
+* **geometry:** qualify the closepath equality for zero-length edges ([7b34bdc](https://github.com/AlexandreGallais/synoptic-studio/commit/7b34bdc1f53ddad7faf6c138739e97fc7f295965))
+* **geometry:** state the limits of rounded contours found by the audit ([c84d28d](https://github.com/AlexandreGallais/synoptic-studio/commit/c84d28de1872388fa0dda9546213b27bb7753cdd))
+* settle Q16, a spike is consumed by its fillet ([fbcc7b3](https://github.com/AlexandreGallais/synoptic-studio/commit/fbcc7b351d759907f8a36786a64835b91e57d7d6))
+* settle Q17, keep the radius where nothing is rounded ([578f092](https://github.com/AlexandreGallais/synoptic-studio/commit/578f092aee494c0ae166871d1ccf424025929c06))
+
 ## [0.6.9](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.6.8...v0.6.9) (2026-10-09)
 
 

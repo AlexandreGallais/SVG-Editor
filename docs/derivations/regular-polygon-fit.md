@@ -35,6 +35,8 @@ Both cases give `k = ⌊n/2⌋`. The `j`-th vertex in drawing order (`j = 0 … 
 
 The start is chosen by its index, never by comparing floating coordinates.
 
+The code (`unitRegularPolygon`, EN-008) hands the unit polygon over **already flipped** to the SVG frame: `(cos βⱼ, −sin βⱼ)`. Step 5 then uses the flipped ordinates `y′ = −y` (below).
+
 ## Step 3 — Unit bounding box
 
 `Wᵤ = max xₖ − min xₖ`, `Hᵤ = max yₖ − min yₖ`.
@@ -51,6 +53,8 @@ Center the `s·Wᵤ × s·Hᵤ` box in the `w × h` box and flip the y axis (y d
 `x = (w − s·Wᵤ) / 2 + s · (xₖ − min xₖ)`, `y = (h − s·Hᵤ) / 2 + s · (max yₖ − yₖ)`.
 
 The highest vertex of the mathematical frame becomes the one with the smallest SVG y: the picture is unchanged, only its coordinates are.
+
+With the flipped unit polygon of step 2 (`y′ₖ = −yₖ`, so `max yₖ − yₖ = y′ₖ − min y′ₖ`), the same placement reads `y = (h − s·Hᵤ) / 2 + s · (y′ₖ − min y′ₖ)`: no second flip.
 
 ## Step 6 — Maximal rounding: the incircle
 

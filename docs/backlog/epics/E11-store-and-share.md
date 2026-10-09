@@ -28,3 +28,7 @@ status: draft
 | ------------ | --------- |
 | File formats | to refine |
 | Local server | to refine |
+
+## Ideas for refinement
+
+- **Import of SVG from other sources** (Product Owner, 2026-10-09): a shape far larger than a screen (over a million units) is accepted without loss of data, with a warning; the tool offers to simplify it and scale it down to a sensible size when it can (straight lines, resizable); beyond a level of complexity it is refused — synoptic views are schematic, not realistic drawings (Q20: one unit is one screen pixel).

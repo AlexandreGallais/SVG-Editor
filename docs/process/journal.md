@@ -2,6 +2,10 @@
 
 What each working session dealt with, in the agent's words: requests of the Product Owner (paraphrased), decisions, where they were recorded. Newest first. Written by the agent at the end of each session or before a long pause (ADR-0024); searched with `grep` (tags written `#tag`). The full conversations stay in the local transcripts (see [agent configuration](../tooling/agent.md#searching-past-conversations)).
 
+## 2026-10-09 — Idea for SVG import
+
+- `#backlog` Product Owner's idea for E11: oversized shapes from other sources are imported without loss but flagged, simplified and scaled down when possible, refused when too complex. Recorded in the E11 epic and the improvement log.
+
 ## 2026-10-09 — Q20 settled; idea of a stretched polygon
 
 - `#domain` Q20 settled on the feature branch (US-008, #55): no upper limit in the calculations, `EPSILON` kept absolute, the interface caps sizes at 100 000.

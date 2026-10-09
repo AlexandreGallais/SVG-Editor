@@ -35,9 +35,9 @@ In delivery order.
 
 ## Feature plan
 
-| Acceptance criterion                        | Realized by                  | Verified by                                      |
-| ------------------------------------------- | ---------------------------- | ------------------------------------------------ |
-| 1 — uniform fit, flat base, refused values  | SP-002 (Q19), EN-008, US-005 | `[F02.AC1]` tests (US-005), VAL-002              |
-| 2 — global radius, inscribed circle at most | US-006 (F01 geometry reused) | `[F02.AC2]` tests (US-006), US-007 card, VAL-002 |
-| 3 — precision, orientation, starting vertex | EN-008, US-005               | `[F02.AC3]` tests (EN-008, US-005), AUD-002      |
-| 4 — shape selector in the playground        | US-007                       | playground test (US-007), VAL-002                |
+| Acceptance criterion                        | Realized by                  | Verified by                                                  |
+| ------------------------------------------- | ---------------------------- | ------------------------------------------------------------ |
+| 1 — uniform fit, flat base, refused values  | SP-002 (Q19), EN-008, US-005 | `[F02.AC1]` tests (EN-008, US-005, US-007), VAL-002          |
+| 2 — global radius, inscribed circle at most | US-006 (F01 geometry reused) | `[F02.AC2]` tests (US-006, US-007), US-007 card, VAL-002     |
+| 3 — precision, orientation, starting vertex | EN-008, US-005               | `[F02.AC3]` tests (EN-008, US-005, AUD-002: output decimals) |
+| 4 — shape selector in the playground        | US-007                       | `[F02.AC4]` playground tests (US-007), VAL-002               |

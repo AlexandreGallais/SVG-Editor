@@ -32,4 +32,4 @@ Asked by the Product Owner on 2026-10-09, when settling Q20: one user unit is on
 One task = one commit, referenced as `US-008.Tn`.
 
 - [x] T1 — Cap width, height and radius at 100 000 in the playground, with happy-dom tests (1 h)
-- [ ] T2 — Q20 settled in the domain, feature criterion, help text (0.5 h)
+- [x] T2 — Q20 settled in the domain, feature criterion, help text (0.5 h)

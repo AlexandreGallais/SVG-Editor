@@ -19,6 +19,13 @@ Consequence: every shape is described by numbers. The drawing is **determined**,
 - A contour is **cyclic**: the last vertex joins the first; every per-vertex computation (corner radius, clamping) wraps around, so the first vertex sees the last edge and the last vertex sees the first edge.
 - Once its corners are rounded, the top-left vertex is no longer on the drawn outline: the written path starts where the first corner's arc ends and closes with that arc, keeping the clockwise order (`DERIV-fillet-arc` step 7).
 
+### Size (Q20)
+
+- No upper limit in the model nor in the calculations: a size is any integer ≥ 0.
+- Good practice: one user unit is one screen pixel. Draw a view at the size of its screen — even a wall of 8K screens stays far below 100 000 pixels — and let the SVG scale for a screen seen from far.
+- The interface caps a width, height or radius typed above 100 000 at 100 000 (US-008).
+- `EPSILON` stays absolute: below millions of units, rounding errors are about 1e-12, far under it. Above, tiny segments of rounding may remain (AUD-002): a relative tolerance is not needed for real screens.
+
 ### Precision (Q10)
 
 - `SVG_DECIMALS = 5`: derived coordinates are written with at most 5 decimals, in their shortest form: no trailing zeros (`2.5`, not `2.50000`), never a negative zero (`-0.000001` is written `0`).

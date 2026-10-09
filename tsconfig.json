@@ -13,7 +13,7 @@
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "resolveJsonModule": true,
-    "types": ["node"],
+    "types": ["node", "vite/client"],
 
     // Type system: out of ESLint's reach
     "strict": true,

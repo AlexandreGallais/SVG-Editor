@@ -1,3 +1,5 @@
+import { isModelSize } from "./is-model-size";
+
 import type { Rectangle } from "./rectangle";
 
 /**
@@ -14,5 +16,5 @@ import type { Rectangle } from "./rectangle";
 export function isValidRectangle(rectangle: Rectangle): boolean {
   const { height, radius, width } = rectangle;
 
-  return [width, height, radius].every((value) => Number.isSafeInteger(value) && value >= 0);
+  return [width, height, radius].every((value) => isModelSize(value));
 }

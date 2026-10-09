@@ -82,6 +82,12 @@ describe("regularPolygonContour (DERIV-regular-polygon-fit, checks)", () => {
     );
   });
 
+  it("collapses a polygon of height 0 to the middle of its top edge (Q15)", () => {
+    expect(regularPolygonContour({ corners: 3, height: 0, radius: 0, width: 40 })).toEqual(
+      Array.from({ length: 3 }, () => ({ x: 20, y: 0 })),
+    );
+  });
+
   it("derives the vertices without changing the model (ADR-0003)", () => {
     const polygon = Object.freeze({ corners: 6, height: 100, radius: 10, width: 100 });
 

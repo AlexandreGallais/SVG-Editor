@@ -75,7 +75,7 @@ Storing the value (Q8, settled):
 
 Functional reference: Inkscape's Star/Polygon tool.
 
-- Parameters: number of corners `n ≥ 3`, maximum `width` and `height` (integers), optional global radius.
+- Parameters: number of corners, an integer `3 ≤ n ≤ 12` (Q19); `width` and `height` of the box, integers ≥ 0 (negative forbidden, 0 allowed — Q15); a global corner `radius`, integer ≥ 0 (0 = sharp corners), clamped rather than refused (ADR-0007), the requested value kept (Q8).
 - Examples: `n=3` equilateral triangle, `n=4` square, `n=5` pentagon, `n=6` hexagon.
 - Rule: the shape fills as much of the `width × height` box as possible **without exceeding it**.
 - Derived vertices (cos/sin): not integers. They are **computed**, not stored (ADR-0003). `n`, `width`, `height` and the requested `radius` are stored (`RegularPolygon`).

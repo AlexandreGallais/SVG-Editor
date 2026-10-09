@@ -3,7 +3,7 @@ id: SP-002
 epic: E01
 feature: F02
 title: Research for F02
-status: in-progress
+status: done
 points: 2
 ---
 

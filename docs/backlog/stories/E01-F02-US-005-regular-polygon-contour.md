@@ -31,4 +31,4 @@ One task = one commit, referenced as `US-005.Tn`.
 
 - [x] T1 — `boundingBox` and `fitInBox` in `src/geometry/` (steps 3–5): hand-computed cases, properties, mutations (2 h)
 - [x] T2 — Model type, corner limits, validity check and contour function in `src/model/`, tests of the cases above (2 h)
-- [ ] T3 — Re-exports (`npm run fix`), domain and derivation brought up to date (0.5 h)
+- [x] T3 — Re-exports (`npm run fix`), domain and derivation brought up to date (0.5 h)

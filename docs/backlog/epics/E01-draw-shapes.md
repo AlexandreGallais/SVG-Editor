@@ -31,6 +31,7 @@ status: in-progress
 | [F03](../features/E01-F03-per-vertex-corner-radius-and-node-editing.md) — Per-vertex corner radius and node editing | draft       |
 | [F04](../features/E01-F04-free-rotation-of-shapes.md) — Free rotation of shapes                                     | draft       |
 | [F05](../features/E01-F05-text.md) — Text                                                                           | draft       |
+| [F06](../features/E01-F06-polygon-stretched-to-its-box.md) — Polygon stretched to fill its box                      | draft       |
 
 ## Closing
 

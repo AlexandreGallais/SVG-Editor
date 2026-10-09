@@ -8,3 +8,4 @@ export * from "./rectangle-corners";
 export type * from "./regular-polygon";
 export * from "./regular-polygon-contour";
 export * from "./regular-polygon-corner-range";
+export * from "./regular-polygon-corners";

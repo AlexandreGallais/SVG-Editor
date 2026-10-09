@@ -21,15 +21,34 @@ Full check of F02 in depth and of the project in breadth, following [audit.md](.
 
 One task = one commit, referenced as `AUD-002.Tn`.
 
-- [ ] T1 — A. Independent review by the `auditor` subagent; mathematics, mutation spot-checks, missing properties (3 h)
-- [ ] T2 — B. Sources re-verified (1 h)
-- [ ] T3 — C, D, E. Provenance, duplicates, consistency (2 h)
-- [ ] T4 — F, G. Quality gates and research list for the next feature; findings table (1 h)
+- [x] T1 — A. Independent review by the `auditor` subagent; mathematics, mutation spot-checks, missing properties (3 h)
+- [x] T2 — B. Sources re-verified (1 h)
+- [x] T3 — C, D, E. Provenance, duplicates, consistency (2 h)
+- [x] T4 — F, G. Quality gates and research list for the next feature; findings table (1 h)
 
 ## Findings
 
-| Check | Result | Evidence | Action |
-| ----- | ------ | -------- | ------ |
+Independent review by the `auditor` (A–E), mutations and breadth checks by the agent, 2026-10-09.
+
+| Check                                            | Result                           | Evidence                                                                                                                                | Action                                                                         |
+| ------------------------------------------------ | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| A1 — derivation re-derived without the code      | correct                          | steps 1–6 and the five check rows recomputed (node)                                                                                     | —                                                                              |
+| A1 — "within `EPSILON`" in step 4 and `fitInBox` | wrong for large boxes            | error about 1e-16 × the size: 3.7e-9 at 1e8, −0.5 written at the largest safe integer                                                   | wording fixed (relative error); size range asked: Q20                          |
+| A2 — expected test values                        | correct                          | every value recomputed by hand or with node                                                                                             | —                                                                              |
+| A3 — missing cases                               | pentagon, n = 12, rounded size 0 | no example test                                                                                                                         | tests added                                                                    |
+| A3 — signed zeros                                | none                             | `unitRegularPolygon`, `fitInBox` from size 0 to the largest safe integer                                                                | —                                                                              |
+| A4 — mutations (agent)                           | 10 of 10 caught                  | one per function: start index, `minX`, `left`, `>= 0`, integer check, `max: 13`, width/height swap, radius 0, extra cap, radius dropped | —                                                                              |
+| A4 — mutations (auditor)                         | 16 of 17 caught                  | `effectiveCornerRadius` `min` → `max` survives                                                                                          | equivalent: the new property proves every corner has the same effective radius |
+| A5 — properties                                  | present                          | all `geometry` and `domain` functions of F02; predicates by examples                                                                    | property "same effective radius" added                                         |
+| B1 — sources re-opened                           | all read again                   | MathWorld ×4, OpenStax, Euclid I.8 and I.47, Inkscape, ISA InTech                                                                       | IEC, ANSI, ISO refuse robots (403): stated, link check excludes them           |
+| B2 — link check                                  | green                            | lychee on the branch: 336 links, 0 error, 4 excluded                                                                                    | `.lycheeignore` rows with reason                                               |
+| B3 — `@see` to `[unverified]`                    | none                             | lint; no `eslint-disable` added                                                                                                         | —                                                                              |
+| C — provenance                                   | own                              | TSDoc formulas match bodies; index-based start and `0 − sin` guard are project-specific                                                 | —                                                                              |
+| D — duplicates                                   | one left                         | `expectPoints` in two test files                                                                                                        | improvement log (shared fixtures)                                              |
+| E1 — playground help                             | wrong for polygons               | "the curve starts that many pixels before the corner": true on a rectangle only                                                         | text fixed                                                                     |
+| E1 — research note                               | contradiction                    | pre-research line said IEC was not read                                                                                                 | marked superseded                                                              |
+| E4 — feature plan, testing convention            | incomplete                       | "Verified by" and the playground test's criteria                                                                                        | completed                                                                      |
+| F — quality gates                                | green                            | `check:all`, coverage 100 %, `npm run build`, no `.skip` / `.only`                                                                      | —                                                                              |
 
 ## G. Next feature (F03, per-vertex radius and node editing)
 

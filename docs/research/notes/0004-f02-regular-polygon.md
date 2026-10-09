@@ -5,29 +5,29 @@
 
 ## Per story
 
-| Story  | Found                                                                                                                                 | Source                                                                                                                   |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| EN-008 | the nth roots of unity are the vertices of a regular n-gon on the unit circle; a vertex at angle `α` is `(cos α, sin α)`              | `REF-MATHWORLD-ROOT-OF-UNITY`, `REF-MATHWORLD-EULER-FORMULA`, `REF-OPENSTAX-UNIT-CIRCLE`                                 |
-| EN-008 | flat base, decreasing angles for clockwise on screen, starting vertex by its index `⌊n/2⌋` (no float comparison)                      | derived: `DERIV-regular-polygon-fit` steps 1–2 (Q11, Q18)                                                                |
-| US-005 | unit bounding box, uniform scale, centering and y flip; a size of 0 collapses to the center                                           | `DERIV-regular-polygon-fit` steps 3–5                                                                                    |
-| US-006 | at the maximal radius each fillet is an arc of the incircle, radius `½ a cot(π/n) = R cos(π/n)`                                       | `DERIV-regular-polygon-fit` step 6, `REF-MATHWORLD-REGULAR-POLYGON` (3), (4), `REF-MATHWORLD-INCIRCLE`, `REF-EUCLID-IV4` |
-| US-006 | the F01 clamp and fillet need no change: they already work on any point, the polygon's vertices are derived and fractional (ADR-0003) | `src/geometry/` (read); `Corner.point` TSDoc still says "integer coordinates": to correct                                |
-| US-007 | Inkscape's tool: a polygon mode with a "Corners" field; its rounding uses curves and is not kept (ADR-0001)                           | `REF-INKSCAPE-POLYGON` (now verified)                                                                                    |
+| Story  | Found                                                                                                                                 | Source                                                                                                                                    |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| EN-008 | the nth roots of unity are the vertices of a regular n-gon on the unit circle; a vertex at angle `α` is `(cos α, sin α)`              | `REF-MATHWORLD-ROOT-OF-UNITY`, `REF-MATHWORLD-EULER-FORMULA`, `REF-OPENSTAX-UNIT-CIRCLE`                                                  |
+| EN-008 | flat base, decreasing angles for clockwise on screen, starting vertex by its index `⌊n/2⌋` (no float comparison)                      | derived: `DERIV-regular-polygon-fit` steps 1–2 (Q11, Q18)                                                                                 |
+| US-005 | unit bounding box, uniform scale, centering and y flip; a size of 0 collapses to the center                                           | `DERIV-regular-polygon-fit` steps 3–5                                                                                                     |
+| US-006 | at the maximal radius each fillet is an arc of the incircle, radius `½ a cot(π/n) = R cos(π/n)`                                       | `DERIV-regular-polygon-fit` step 6, `REF-MATHWORLD-REGULAR-POLYGON` (3), (4), `REF-MATHWORLD-INCIRCLE`, `REF-EUCLID-I47`, `REF-EUCLID-I8` |
+| US-006 | the F01 clamp and fillet need no change: they already work on any point, the polygon's vertices are derived and fractional (ADR-0003) | `src/geometry/` (read); `Corner.point` TSDoc and `shapes.md` §1 still say "integer coordinates": to correct                               |
+| US-007 | Inkscape's tool: a polygon mode with a "Corners" field; its rounding uses curves and is not kept (ADR-0001)                           | `REF-INKSCAPE-POLYGON` (now verified)                                                                                                     |
 
 ## Q19 — largest number of corners
 
 What could be read:
 
-- the ISA itself states that the diamond — a square standing on a vertex — has been an ISA-5.1 symbol since 2009, for safety instrumented systems (`REF-ISA-INTECH-2019`);
+- an ISA page names a "diamond" symbol of ISA-5.1, defined in 2009 for safety instrumented systems and drawn inside a box (`REF-ISA-INTECH-2019`); its geometry is not stated — reading it as a square standing on a vertex is an assumption;
 - search summaries, not readings (pages refused): circle, square, circle in a square and hexagon (computer function) in ISA-5.1, triangles in valve symbols;
 - the symbol standards themselves (ISA-5.1, ISO 10628-2, ISO 14617, IEC 60617) and ISA-101 are paid: not read, not cited.
 
-What it costs: one segment and one arc per corner in the path data, about 50 characters each with 5 decimals; 100 corners make about 5 kB. The limit is a matter of usefulness, not of performance.
+What it costs: one segment and one arc per corner in the path data, about 50 to 60 characters each with 5 decimals (measured by the auditor on the format of `src/io/`); 100 corners make about 6 kB. The limit is a matter of usefulness, not of performance.
 
 Findings for the Product Owner:
 
-- no source shows a symbol polygon with more than 6 sides; 8 (octagon) is a margin;
-- the diamond is needed, but it is a square standing on a vertex: F02 always draws a flat base, so the diamond comes with rotation (F04), or with an orientation option not planned;
+- no source read or summarized shows a symbol polygon with more than 6 sides; 8 (octagon) is a margin;
+- the diamond is needed; if it is a square standing on a vertex (assumption), F02 always draws a flat base, so the diamond comes with rotation (F04), or with an orientation option not planned;
 - request 0004 holds the precise question if a normative confirmation is wanted.
 
 ## Remaining open

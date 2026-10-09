@@ -4,7 +4,7 @@
 
 ## Precise question
 
-Which regular polygons (number of sides, orientation: flat base or standing on a vertex) are used as outlines of graphical symbols in ANSI/ISA-5.1-2009 (R2022) Table 5.1.1, ISO 10628-2:2012, ISO 14617 and IEC 60617, and in the display guidance of ANSI/ISA-101.01-2015 and ANSI/ISA-18.2-2016 (for example alarm priority indicators)? For each one: the polygon, its orientation, its meaning, and the clause or table that defines it. Is any regular polygon with more than 8 sides used?
+Which regular polygons (number of sides, orientation: flat base or standing on a vertex) are used as outlines of graphical symbols in ANSI/ISA-5.1-2009 (R2022) Table 5.1.1, ISO 10628-2:2012, ISO 14617 and IEC 60617, and in the display guidance of ANSI/ISA-101.01-2015 and ANSI/ISA-18.2-2016 (for example alarm priority indicators)? For each one: the polygon, its orientation, its meaning, and the clause or table that defines it. Is the "diamond" a square standing on a vertex? Is any regular polygon with more than 8 sides used?
 
 ## Why it blocks
 
@@ -14,8 +14,8 @@ Q19 (`docs/domain/README.md`): the largest number of corners a regular polygon m
 
 | Source                                          | What it says                                                                                    | Why insufficient                                                  |
 | ----------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| `REF-ISA-INTECH-2019`                           | the diamond (a square on a vertex) is an ISA-5.1 symbol since 2009, for safety systems          | one symbol only, from a quiz page, not the standard               |
-| `REF-INKSCAPE-POLYGON`                          | Inkscape's tool takes any number of corners; no range stated                                    | a drawing tool, not a symbol standard                             |
+| `REF-ISA-INTECH-2019`                           | ISA-5.1 has a "diamond" symbol since 2009, in a box, for safety systems                         | one symbol only, from a quiz page; its geometry is not stated     |
+| `REF-INKSCAPE-POLYGON`                          | a "Corners" field; no range stated                                                              | a drawing tool, not a symbol standard                             |
 | Search summaries (not read: pages refused, 403) | circle, square, circle in a square, hexagon (computer function) in ISA-5.1; triangles in valves | not readings; ISA-5.1, ISO 10628-2, ISO 14617, IEC 60617 are paid |
 
 ## Expected deliverable

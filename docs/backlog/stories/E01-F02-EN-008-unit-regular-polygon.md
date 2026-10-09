@@ -22,4 +22,4 @@ The n vertices of a regular polygon on the unit circle, with a horizontal bottom
 One task = one commit, referenced as `EN-008.Tn`.
 
 - [x] T1 — The `geometry` function, its TSDoc (`@see` `DERIV-regular-polygon-fit`) and its hand-computed cases n = 3, 4, 6, signed zero (1.5 h)
-- [ ] T2 — Properties for any n (n vertices on the unit circle, equal chords, clockwise, starting vertex, flat base) and mutation checks (1.5 h)
+- [x] T2 — Properties for any n (n vertices on the unit circle, equal chords, clockwise, starting vertex, flat base) and mutation checks (1.5 h)

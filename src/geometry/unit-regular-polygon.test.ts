@@ -1,4 +1,7 @@
+import { fc, test } from "@fast-check/vitest";
 import { describe, expect, it } from "vitest";
+
+import { EPSILON } from "../math";
 
 import { unitRegularPolygon } from "./unit-regular-polygon";
 
@@ -26,6 +29,21 @@ function expectPoints(actual: readonly Point[], expected: readonly Point[]): voi
     expect(actual[index]?.x).toBeCloseTo(point.x, DECIMALS);
     expect(actual[index]?.y).toBeCloseTo(point.y, DECIMALS);
   }
+}
+
+/**
+ * Twice the signed area of a closed contour (shoelace formula), positive when clockwise on
+ * screen (y down), like the rectangle of US-001.
+ *
+ * @param points - vertices in drawing order
+ * @returns twice the signed area
+ */
+function doubleSignedArea(points: readonly Point[]): number {
+  return points.reduce((sum, point, index) => {
+    const next = points[(index + 1) % points.length] ?? point;
+
+    return sum + point.x * next.y - next.x * point.y;
+  }, 0);
 }
 
 describe("unitRegularPolygon (DERIV-regular-polygon-fit steps 1–2)", () => {
@@ -64,4 +82,51 @@ describe("unitRegularPolygon (DERIV-regular-polygon-fit steps 1–2)", () => {
     // β₂ = −π/2 + 3π/6 = 0 exactly: −sin(0) would be −0.
     expect(Object.is(unitRegularPolygon(6)[2]?.y, 0)).toBe(true);
   });
+});
+
+describe("unitRegularPolygon (properties)", () => {
+  test.prop({ corners: fc.integer({ max: 64, min: 3 }) })(
+    "[F02.AC3] puts n vertices on the unit circle, a chord 2 sin(π/n) apart",
+    ({ corners }) => {
+      const polygon = unitRegularPolygon(corners);
+      const chord = 2 * Math.sin(Math.PI / corners);
+
+      expect(polygon).toHaveLength(corners);
+
+      for (const [index, point] of polygon.entries()) {
+        const next = polygon[(index + 1) % corners] ?? point;
+
+        expect(Math.hypot(point.x, point.y)).toBeCloseTo(1, DECIMALS);
+        expect(Math.hypot(next.x - point.x, next.y - point.y)).toBeCloseTo(chord, DECIMALS);
+      }
+    },
+  );
+
+  test.prop({ corners: fc.integer({ max: 64, min: 3 }) })(
+    "[F02.AC3] runs clockwise on screen from the topmost vertex, the leftmost on a tie",
+    ({ corners }) => {
+      const polygon = unitRegularPolygon(corners);
+      const [start] = polygon;
+      const top = Math.min(...polygon.map((point) => point.y));
+      const topLeft = Math.min(
+        ...polygon.filter((point) => point.y - top < EPSILON).map((point) => point.x),
+      );
+
+      expect(doubleSignedArea(polygon)).toBeGreaterThan(0);
+      expect(start?.y).toBeCloseTo(top, DECIMALS);
+      expect(start?.x).toBeCloseTo(topLeft, DECIMALS);
+    },
+  );
+
+  test.prop({ corners: fc.integer({ max: 64, min: 3 }) })(
+    "[F02.AC1] has a flat base: its two lowest vertices are at the same height",
+    ({ corners }) => {
+      const heights = unitRegularPolygon(corners)
+        .map((point) => point.y)
+        .toSorted((first, second) => second - first);
+
+      expect(heights[0]).toBeCloseTo(heights[1] ?? NaN, DECIMALS);
+      expect(heights[0]).toBeCloseTo(Math.cos(Math.PI / corners), DECIMALS);
+    },
+  );
 });

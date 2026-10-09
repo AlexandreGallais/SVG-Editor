@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.2](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.7.1...v0.7.2) (2026-10-09)
+
+
+### Documentation
+
+* **backlog:** refine F02 with the Product Owner ([0f1345b](https://github.com/AlexandreGallais/synoptic-studio/commit/0f1345ba60f48edc8904dc410d434e6fb9cfaf6c))
+
 ## [0.7.1](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.7.0...v0.7.1) (2026-10-09)
 
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.9](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.7.8...v0.7.9) (2026-10-09)
+
+
+### Documentation
+
+* **backlog:** draft F06, a polygon stretched to fill its box ([8253aa5](https://github.com/AlexandreGallais/synoptic-studio/commit/8253aa58319a4f9c69db09e09e86913b8bd29c10))
+
 ## [0.7.8](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.7.7...v0.7.8) (2026-10-09)
 
 

@@ -1,6 +1,6 @@
 # Research request 0004 — Regular polygons in process and synoptic symbols
 
-**Status**: open — optional: the Product Owner may settle Q19 without it (SP-002)
+**Status**: done (→ `notes/0004-f02-regular-polygon.md`) — run by the Product Owner in claude.ai on 2026-10-09
 
 ## Precise question
 

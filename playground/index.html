@@ -28,6 +28,12 @@
       #canvas path {
         fill: #4a7bd0;
       }
+      #guide {
+        padding: 0.5rem 0.75rem;
+        margin-bottom: 1rem;
+        border: 1px solid #4a7bd0;
+        border-radius: 0.5rem;
+      }
       aside {
         padding: 1rem;
         border-left: 1px solid #8884;
@@ -50,6 +56,25 @@
   <body>
     <main id="canvas"></main>
     <aside>
+      <section id="guide" aria-label="Guided test">
+        <h2>Guided test — step <span id="guide-number"></span> / <span id="guide-count"></span></h2>
+        <h3 id="guide-title"></h3>
+        <p id="guide-explanation"></p>
+        <p><strong>Look at:</strong> <span id="guide-look"></span></p>
+        <p>
+          <button id="guide-previous" type="button">Previous</button>
+          <button id="guide-next" type="button">Next</button>
+        </p>
+        <details>
+          <summary>Words</summary>
+          <p>
+            The <strong>radius</strong> says how much a corner is rounded: the curve starts that
+            many pixels before the corner. The <strong>requested</strong> radius is the number you
+            type; it is kept. The <strong>effective</strong> radius is the one drawn: smaller when
+            the rectangle is too small for the request.
+          </p>
+        </details>
+      </section>
       <h1>Rectangle</h1>
       <label>Width <input id="width" type="number" min="0" step="1" value="120" /></label>
       <label>Height <input id="height" type="number" min="0" step="1" value="80" /></label>

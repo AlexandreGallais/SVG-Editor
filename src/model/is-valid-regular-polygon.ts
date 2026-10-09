@@ -1,3 +1,4 @@
+import { isModelSize } from "./is-model-size";
 import { REGULAR_POLYGON_CORNER_RANGE } from "./regular-polygon-corner-range";
 
 import type { RegularPolygon } from "./regular-polygon";
@@ -23,6 +24,6 @@ export function isValidRegularPolygon(polygon: RegularPolygon): boolean {
     Number.isSafeInteger(corners) &&
     corners >= min &&
     corners <= max &&
-    sizes.every((value) => Number.isSafeInteger(value) && value >= 0)
+    sizes.every((value) => isModelSize(value))
   );
 }

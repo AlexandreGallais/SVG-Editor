@@ -18,7 +18,7 @@ Scope: $ARGUMENTS. Never without the Product Owner's explicit start in this conv
 ## For each story
 
 1. Branch from the up-to-date feature branch: `git switch feature/f<nn>-<topic> && git pull && git switch -c <type>/<id>-<topic>`.
-2. Follow `/story` steps 2 and 4–8 (read, `ready`, tests first, one commit per task, docs, `done` in the last commit, `check:all`), with the feature branch as base everywhere `/story` says `main`.
+2. Follow `/story` steps 2 and 4–6 (read, `ready`, tests first, one commit per task, docs), then the review of step 5 below, then `/story` steps 7–8 (`done` in the last commit, `check:all`), with the feature branch as base everywhere `/story` says `main`.
 3. **User story** (`US`): write its **Product Owner test card** in the story file, section `## Product Owner test`: steps in the playground, expected result of each, terms explained in plain words, what to look at closely.
 4. **Checkpoint** (`CHK`): update docs and methods as the project grows; check consistency of code, docs, `CLAUDE.md` and rules; run the light evolvability check (`docs/process/README.md`); list the test cards written so far; log what deserves the retrospective.
 5. **Independent review**, before the `done` commit (so that it stays last): delegate to the `auditor` subagent the story's diff (`git diff feature/f<nn>-<topic>...HEAD`), its criteria, derivations and sources; fix correctness findings; record the rest in the pull request body.

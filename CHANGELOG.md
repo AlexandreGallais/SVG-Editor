@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.4](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.7.3...v0.7.4) (2026-10-09)
+
+
+### Documentation
+
+* **docs:** log the stop of the F02 run at Q19 ([4bb1095](https://github.com/AlexandreGallais/synoptic-studio/commit/4bb1095b825b5cd8be526feae42a34f2e67623bb))
+
 ## [0.7.3](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.7.2...v0.7.3) (2026-10-09)
 
 

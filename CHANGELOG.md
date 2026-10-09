@@ -1,5 +1,64 @@
 # Changelog
 
+## [0.8.0](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.7.11...v0.8.0) (2026-10-09)
+
+
+### Features
+
+* **geometry:** bounding box and uniform fit in a box ([e8e1d3b](https://github.com/AlexandreGallais/synoptic-studio/commit/e8e1d3ba5ba3c6e26e72fe44426ebbc2fae35d19))
+* **geometry:** unit regular polygon with a flat base ([b886238](https://github.com/AlexandreGallais/synoptic-studio/commit/b8862382b42f1ab38d6857f5766d75b0b14b3cb6))
+* **model:** regular polygon fitted in its box ([0dcdac8](https://github.com/AlexandreGallais/synoptic-studio/commit/0dcdac8d7f189fbc530a8202b2bac89330171b04))
+* **model:** round the corners of a regular polygon ([01c7192](https://github.com/AlexandreGallais/synoptic-studio/commit/01c7192f95b03957409a2aaeb10aea92cd4a3c30))
+* **playground:** cap width, height and radius at 100 000 ([112add1](https://github.com/AlexandreGallais/synoptic-studio/commit/112add13f748a202f657a56f4737616b6be64975))
+* **playground:** choose rectangle or polygon ([02a731e](https://github.com/AlexandreGallais/synoptic-studio/commit/02a731e646b5a0eaa7bbb1b3cd879fc466a298a5))
+* **playground:** guided test of F02 ([06c789d](https://github.com/AlexandreGallais/synoptic-studio/commit/06c789d1cc4b24d4bb43067869535146cdddd8e3))
+
+
+### Bug fixes
+
+* **playground:** hide the Corners field for real; apply the US-007 review ([65ca154](https://github.com/AlexandreGallais/synoptic-studio/commit/65ca154596ff994e6f15c5c34ef0f091b0c38cc0))
+
+
+### Refactoring
+
+* **model:** one rule for model sizes; apply the US-005 review ([7ec8ed1](https://github.com/AlexandreGallais/synoptic-studio/commit/7ec8ed139e3338599248d7dd8b201cd7255a3144))
+
+
+### Documentation
+
+* apply the auditor's review of CHK-002 ([0c3544d](https://github.com/AlexandreGallais/synoptic-studio/commit/0c3544df2b5f383115d8b4aea2d5cb256e6f3ebc))
+* apply the auditor's review of US-008 ([4cdcce0](https://github.com/AlexandreGallais/synoptic-studio/commit/4cdcce09f90a4427c98355ca779dfc7a0634d502))
+* audit of F02, breadth and next feature; links refused to robots ([b1aaa5c](https://github.com/AlexandreGallais/synoptic-studio/commit/b1aaa5c6d6b0587f768fcc52c287d9b007f3718f))
+* audit of F02, consistency ([3f1b8ce](https://github.com/AlexandreGallais/synoptic-studio/commit/3f1b8ceda2af3577cf3c09d182ff0ec7721afcd2))
+* audit of F02, sources ([d8409d0](https://github.com/AlexandreGallais/synoptic-studio/commit/d8409d0c2b72773b027ed80e32cc9a27dad01a61))
+* **backlog:** add US-008, cap the playground sizes at 100 000 ([a54abec](https://github.com/AlexandreGallais/synoptic-studio/commit/a54abecac0b47d051e26714535118fe78cfd8f46))
+* **backlog:** findings of the audit of F02; Q20 asked ([d898609](https://github.com/AlexandreGallais/synoptic-studio/commit/d898609ceacb54f22f8ae8c3d5edb607d96ed5db))
+* **backlog:** inventory what the stories of F02 need ([f7b8197](https://github.com/AlexandreGallais/synoptic-studio/commit/f7b819757276bbbf46be7e8cb429720eccba35ea))
+* **backlog:** list the tests of each F02 criterion ([96ba0d3](https://github.com/AlexandreGallais/synoptic-studio/commit/96ba0d30504a823d2cfd647de22a92830ede2948))
+* **backlog:** set AUD-002 done ([4aaeb58](https://github.com/AlexandreGallais/synoptic-studio/commit/4aaeb5879d0c530acccee1619c4acb0960d0b07b))
+* **backlog:** set CHK-002 done ([2c1ca1c](https://github.com/AlexandreGallais/synoptic-studio/commit/2c1ca1c9ef5d2714ce454d29816079668889c7b6))
+* **backlog:** set EN-008 done ([fb5fe65](https://github.com/AlexandreGallais/synoptic-studio/commit/fb5fe6511bf82b115faf82b459dbcac5fd4ee118))
+* **backlog:** set SP-002 done ([28859f3](https://github.com/AlexandreGallais/synoptic-studio/commit/28859f31fe9a2aff4853b694f2987dd76a4e23ae))
+* **backlog:** set US-005 done ([5d5203a](https://github.com/AlexandreGallais/synoptic-studio/commit/5d5203a34893357148389a2752292bc58f976a60))
+* **backlog:** set US-006 done ([aae8fa0](https://github.com/AlexandreGallais/synoptic-studio/commit/aae8fa0f4b35bc9f1bdaed1113771c64ad8f4a48))
+* **backlog:** set US-007 done ([97e5a61](https://github.com/AlexandreGallais/synoptic-studio/commit/97e5a61196f7744f470e2642202273b6c10880cf))
+* **backlog:** set US-008 done ([a1a5966](https://github.com/AlexandreGallais/synoptic-studio/commit/a1a596682f6b228750ce0766a7fcdffa9bef40b8))
+* **backlog:** set VAL-002 and F02 done ([b4b71cd](https://github.com/AlexandreGallais/synoptic-studio/commit/b4b71cdf43b3b6b437d47dd42c8b1af0b579bbb0))
+* **backlog:** write the Product Owner test card of US-007 ([c6fb5d8](https://github.com/AlexandreGallais/synoptic-studio/commit/c6fb5d895e3a4e38a3cf0bade7d142fb1d6def48))
+* bring code, domain and agent configuration up to date (CHK-002) ([03cdd34](https://github.com/AlexandreGallais/synoptic-studio/commit/03cdd34881724e45416f1472d71ac1288b4cee30))
+* **docs:** ask which polygons process symbols use (Q19) ([6612892](https://github.com/AlexandreGallais/synoptic-studio/commit/66128923b66fc012676465c914274d514d45c5da))
+* **docs:** demo page of F02, the regular polygon ([81931bd](https://github.com/AlexandreGallais/synoptic-studio/commit/81931bd2967028cc556a6356c77174afdb4d5c3d))
+* **docs:** settle Q19 at twelve corners after research 0004 ([7f658ac](https://github.com/AlexandreGallais/synoptic-studio/commit/7f658ac4827260efabf7e63f4fd68a32af5dd2bf))
+* **docs:** write the research note of F02 and update its stories ([d1d2929](https://github.com/AlexandreGallais/synoptic-studio/commit/d1d292979cac03de3a91791212747c02c6e56905))
+* **geometry:** apply the auditor's review of EN-008 ([2a6a33b](https://github.com/AlexandreGallais/synoptic-studio/commit/2a6a33bc65c41dfec0223299f00901077cef3f28))
+* **geometry:** apply the auditor's review of SP-002 ([650927a](https://github.com/AlexandreGallais/synoptic-studio/commit/650927aaf714b5eff4659176a636a9422db1f6dd))
+* **geometry:** name the code of the polygon fit ([9c6b00a](https://github.com/AlexandreGallais/synoptic-studio/commit/9c6b00a35b2cf2b1f0b5b21bbd78cbbd55d64fb3))
+* **geometry:** source the regular polygon fit and its maximal rounding ([ae57756](https://github.com/AlexandreGallais/synoptic-studio/commit/ae577561a3b8b99b82b44dffa4fa809680701b08))
+* **geometry:** the polygon is rounded by the clamp of F01 ([0cbc1e2](https://github.com/AlexandreGallais/synoptic-studio/commit/0cbc1e2a5d3552e00238047423f8494946fd26b9))
+* light evolvability check of F02; review before the done commit ([322dd06](https://github.com/AlexandreGallais/synoptic-studio/commit/322dd06fb195d9f22b342fcfdb2a0115214053e1))
+* merge the improvement log of main and F02 once each ([14e3f96](https://github.com/AlexandreGallais/synoptic-studio/commit/14e3f96057d522f0529db9d8a7f4da4c721c1516))
+* settle Q20, no upper limit in the calculations ([50f0953](https://github.com/AlexandreGallais/synoptic-studio/commit/50f0953d6d028e3321dee1ed856d5e3eb4ef8392))
+
 ## [0.7.11](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.7.10...v0.7.11) (2026-10-09)
 
 

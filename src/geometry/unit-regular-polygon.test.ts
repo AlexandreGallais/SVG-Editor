@@ -79,14 +79,14 @@ describe("unitRegularPolygon (DERIV-regular-polygon-fit steps 1–2)", () => {
   });
 
   it("writes the zero ordinate of the hexagon's right vertex as +0, never −0 (ADR-0025)", () => {
-    // β₂ = −π/2 + 3π/6 = 0 exactly: −sin(0) would be −0.
+    // β₂ = −π/2 + 3π/6 is exactly 0 in floating point for n = 6 (3π/6 === π/2): −sin(0) would be −0.
     expect(Object.is(unitRegularPolygon(6)[2]?.y, 0)).toBe(true);
   });
 });
 
 describe("unitRegularPolygon (properties)", () => {
   test.prop({ corners: fc.integer({ max: 64, min: 3 }) })(
-    "[F02.AC3] puts n vertices on the unit circle, a chord 2 sin(π/n) apart",
+    "[F02.AC1] puts n vertices on the unit circle, a chord 2 sin(π/n) apart: regular",
     ({ corners }) => {
       const polygon = unitRegularPolygon(corners);
       const chord = 2 * Math.sin(Math.PI / corners);

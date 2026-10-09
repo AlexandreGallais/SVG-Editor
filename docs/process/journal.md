@@ -2,6 +2,14 @@
 
 What each working session dealt with, in the agent's words: requests of the Product Owner (paraphrased), decisions, where they were recorded. Newest first. Written by the agent at the end of each session or before a long pause (ADR-0024); searched with `grep` (tags written `#tag`). The full conversations stay in the local transcripts (see [agent configuration](../tooling/agent.md#searching-past-conversations)).
 
+## 2026-10-09 — F01 validated, merged and released
+
+- `#validation` The Product Owner ran the nine-step guided test in the local playground over two sessions: every step understood as intended (« tout a l'air parfait pour moi »). Q16 settled (a spike is consumed by its fillet), Q17 settled (the radius stays where nothing is rounded).
+- `#release` Feature pull request #38 (from the `VAL` branch, holding the whole feature) merged by the Product Owner; release v0.7.0 with its test report; docs site and playground published.
+- `#cleanup` All story and feature branches deleted (auto-merges had left the story branches on GitHub); only `main` remains.
+- `#process` Learned for the next features: guided test inside the playground, a playground test for the criteria only it can show, one feature pull request from the `VAL` branch, branches deleted through the API (no hook run), `/run` without argument takes the feature in progress.
+- `#remarks` For later: radius per vertex by clicking a vertex (F03), browser SVG measurements (E12), specialized expert agents (E01 retrospective).
+
 ## 2026-10-09 — Autonomous run of F01: stopped at VAL-001
 
 - `#run` Seven stories merged into `feature/f01-rectangle-with-corner-radius` by GitHub after the auditor and the checks: SP-001 (#30), EN-005 (#31), EN-006 (#32), CHK-001 (#33), EN-007 (#34), US-003 (#35), AUD-001 (#36). Stop: the next story is VAL-001, with the Product Owner.

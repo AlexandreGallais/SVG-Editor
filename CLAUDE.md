@@ -12,7 +12,7 @@ A library of small named functions, each backed by a verified source, composed s
 
 Non-negotiable principles: schematic, orthogonal, integer, documented, dependency-free.
 
-**State**: implementation of E01 · F01 (rectangle with corner radius) is under way. The backlog (`docs/backlog/`) says what is done and what is next; implement only stories the Product Owner (the user) has set to `ready`.
+**State**: E01 · F01 (rectangle with corner radius) is done and released (v0.7.0); F02 is not started — wait for the Product Owner. The backlog (`docs/backlog/`) says what is done and what is next; implement only stories the Product Owner (the user) has set to `ready`.
 
 ## Where to read — BEFORE any task
 

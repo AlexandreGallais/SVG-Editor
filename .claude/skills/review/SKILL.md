@@ -11,7 +11,7 @@ Target: $ARGUMENTS. Decision: ADR-0023. Writing rules: `docs/guide/README.md`.
 ## Feature demo (VAL)
 
 1. Write `docs/guide/<feature-slug>.md` from `docs/guide/_feature-demo.md`: what the user can do, the ideas with every term explained, pictures produced by the library, a guided test with expected results, limits.
-2. Check every step of the guided test yourself in the playground (`npm run dev`) or by tests; replay the feature's acceptance criteria.
+2. Put the guided test **in the playground** as well (Product Owner request, 2026-10-09): one step at a time, what happens and what to look at, Previous / Next typing the values (`playground/guided-steps.ts`); test that every step shows what it announces (`playground/mount-playground.test.ts`). Pictures of the demo page are drawn by the library (SVG files in `docs/guide/images/`: inline HTML is not allowed in Markdown).
 3. List the page in `docs/guide/README.md`; open the pull request; ask the Product Owner to run the guided test and tell you what they see; write their feedback yourself, quoting them (French kept as said). Read their messages for intent.
 4. Feedback that reveals a misunderstanding: record it, propose stories or domain changes, never adjust silently.
 5. Compare the Product Owner's account (often spoken) with what each test card and the demo meant to show: did they understand what you wanted to show? Record each gap as a misunderstood need (backlog) or an unclear demo (improve the cards and this skill).

@@ -19,3 +19,5 @@ paths:
 - Hooks in `.claude/hooks/` run with `node` (type stripping): `node:` imports only, exported pure functions tested, side effects under `if (import.meta.main)`.
 - Stylelint is planned for SCSS but not installed (`braces` advisory GHSA-vfj7-8cjw-p6xm): see `docs/tooling/versions-and-security.md`.
 - The `guard-bash` hook reads every line of a shell command, heredoc bodies included: a text quoting a guarded command (a test case, a commit body) is denied. Write such text with the Edit or Write tool, or rephrase it.
+- Delete a remote branch with `gh api -X DELETE repos/<owner>/<repo>/git/refs/heads/<branch>`: `git push --delete` runs the pre-push hook (`check:all`, about 30 s) each time.
+- Vite's `?raw` imports are typed by `vite/client` (tsconfig `types`); never add a `.d.ts` file for it.

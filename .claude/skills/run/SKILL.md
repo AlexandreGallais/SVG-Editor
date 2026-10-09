@@ -6,7 +6,7 @@ argument-hint: "[scope, e.g. F01 or EN-005..US-003]"
 
 # Autonomous run (ADR-0028)
 
-Scope: $ARGUMENTS. Never without the Product Owner's explicit start in this conversation.
+Scope: $ARGUMENTS. Never without the Product Owner's explicit start in this conversation. Without argument, the scope is the feature `in-progress` (from its next unfinished story up to its `VAL`); if none is in progress, ask which feature to start — a new feature starts with its refinement interview, never directly with code.
 
 ## Before the first story
 
@@ -26,7 +26,7 @@ Scope: $ARGUMENTS. Never without the Product Owner's explicit start in this conv
 7. Wait for the merge by **reading the statuses**, never by waiting blindly (Product Owner, 2026-10-09): every 15 s, `gh pr view <n> --json state` (stop at `MERGED`) and `gh pr checks <n>` (stop at the first `fail`); give up after 12 minutes — the CI takes about 3 to 4. Branch behind its base: `gh pr update-branch <n> --rebase`.
    - A failing check: read it at once (`gh run view <run> --log-failed`), fix on the story branch, push; after three failed attempts, stop.
    - "Dependencies not up-to-date": a patch was published meanwhile — update it on the story branch (`npm install -D --save-exact <pkg>@<version>`, `build(deps)` commit) and on `main` too.
-8. `git switch feature/f01-<topic> && git pull --prune && git branch -d <branch>`; next story.
+8. `git switch feature/f01-<topic> && git pull --prune && git branch -D <branch>`; delete the merged story branch on GitHub too (auto-merges do not delete it): `gh api -X DELETE repos/<owner>/<repo>/git/refs/heads/<branch>` — not `git push --delete`, which runs the pre-push hook (`check:all`) for nothing; next story.
 
 ## Stop when
 
@@ -42,8 +42,12 @@ Scope: $ARGUMENTS. Never without the Product Owner's explicit start in this conv
 
 ## Validation (`VAL`, with the Product Owner)
 
-1. Rebase the feature branch on `main` (`git rebase main`, `git push --force-with-lease`), `check:all` green.
-2. Start the previews in the background: `npm run dev` (playground) and `npm run docs:dev` (site with the demo page); give the Product Owner the local links.
-3. They run the demo and the test cards and give their account; compare it with what each card and the demo meant to show (`/review`); record gaps; fix or add stories as they decide.
-4. Stop the previews. Open the **feature pull request** `gh pr create --base main --head feature/f01-<topic>` (no label); its body summarizes the stories, the audit and the Product Owner's account. The Product Owner merges it; a release follows.
-5. After the merge: delete the local feature branch; prepare the next feature with the Product Owner (interview, research spike).
+The Product Owner may test over several sessions: never wait in a loop for them, and start nothing else until they have finished every step.
+
+1. Rebase the feature branch on `main` (`git rebase main`, `git push --force-with-lease`), `check:all` green; branch `feat/val-<nnn>-<topic>` from it.
+2. Prepare, as `VAL` tasks: one test per feature criterion `[F01.ACn]` (criteria only the playground can show are tested in `playground/mount-playground.test.ts`); a **guided test** in the playground — the steps of the user stories' test cards, one at a time, what happens in plain words and what to look at, Previous / Next typing the values (`playground/guided-steps.ts`), tested end to end; the demo page in `docs/guide/` (`/review`).
+3. Tell the Product Owner how to launch it themselves — `npm run dev` then `http://localhost:5173`, and `npm run docs:dev` for the demo page — rather than starting servers for them.
+4. They run the guided test and give their account, often step by step and spoken; compare it with what each step meant to show (`/review`); record their account in the `VAL` story and the demo page, quoting them; route remarks (stories, improvement log, memory).
+5. Last commit: `VAL` and the feature `done` (feature file, epic table, features index); `Closes:` both. Rebase on `main`, `check:all`, push.
+6. Open **one** feature pull request from the `VAL` branch into `main` (it contains the whole feature branch plus the validation; no label); its body lists the stories with their pull requests, the evidence and the Product Owner's account. Wait for its checks by reading statuses. The Product Owner merges it; a release follows.
+7. After the merge: delete the `VAL` and feature branches, locally and on GitHub (API); check `git branch -a` shows only `main`; journal entry; do not start the next feature until the Product Owner says so.

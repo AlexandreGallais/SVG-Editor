@@ -65,6 +65,30 @@ describe("regularPolygonContour (DERIV-regular-polygon-fit, checks)", () => {
     ]);
   });
 
+  it("[F02.AC3] fits a pentagon in 100 × 100 from its apex (odd n above 3, AUD-002)", () => {
+    // Unit span 2 cos(π/10) × (1 + cos(π/5)); s = 100 / (2 cos(π/10)) = 52.57311: width reached.
+    const s = 50 / Math.cos(Math.PI / 10);
+    const top = (100 - s * (1 + Math.cos(Math.PI / 5))) / 2;
+
+    expectPoints(regularPolygonContour({ corners: 5, height: 100, radius: 0, width: 100 }), [
+      { x: 50, y: top },
+      { x: 100, y: top + s * (1 - Math.sin(Math.PI / 10)) },
+      { x: 50 + s * Math.sin(Math.PI / 5), y: top + s * (1 + Math.cos(Math.PI / 5)) },
+      { x: 50 - s * Math.sin(Math.PI / 5), y: top + s * (1 + Math.cos(Math.PI / 5)) },
+      { x: 0, y: top + s * (1 - Math.sin(Math.PI / 10)) },
+    ]);
+  });
+
+  it("[F02.AC1] fits a polygon of 12 corners, the largest allowed (Q19)", () => {
+    // n = 12 is divisible by 4: flat sides on all four axes, both sizes reached.
+    const box = boundingBox(
+      regularPolygonContour({ corners: 12, height: 100, radius: 0, width: 100 }),
+    );
+
+    expect(box.maxX - box.minX).toBeCloseTo(100, DECIMALS);
+    expect(box.maxY - box.minY).toBeCloseTo(100, DECIMALS);
+  });
+
   it("[F02.AC1] fits an octagon in 100 × 100: both sizes reached", () => {
     // Unit span 2 cos(π/8) on both axes; first vertex at x = 50 − 50 tan(π/8) = 29.28932.
     const contour = regularPolygonContour({ corners: 8, height: 100, radius: 0, width: 100 });

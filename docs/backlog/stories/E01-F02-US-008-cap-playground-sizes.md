@@ -3,7 +3,7 @@ id: US-008
 epic: E01
 feature: F02
 title: Cap the sizes typed in the playground at 100 000
-status: ready
+status: done
 points: 1
 ---
 

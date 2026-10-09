@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.1](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.7.0...v0.7.1) (2026-10-09)
+
+
+### Build and dependencies
+
+* **deps:** eslint-plugin-jsdoc 65.2.2 ([9a7eb29](https://github.com/AlexandreGallais/synoptic-studio/commit/9a7eb29fa0252fe92cb8001f5a2f133838580543))
+
 ## [0.7.0](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.6.9...v0.7.0) (2026-10-09)
 
 

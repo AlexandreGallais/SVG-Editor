@@ -42,6 +42,6 @@ Find, read and record the sources of every story of F02 before its implementatio
 One task = one commit, referenced as `SP-002.Tn`.
 
 - [x] T1 — Inventory the formulas and behaviors of the stories (1 h)
-- [ ] T2 — Find, read and record the sources; update or write the derivations (3 h)
+- [x] T2 — Find, read and record the sources; update or write the derivations (3 h)
 - [ ] T3 — Q19: polygons used in synoptic and process symbols, proposal to the Product Owner (2 h)
 - [ ] T4 — Write the research note and update the stories (1 h)

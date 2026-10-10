@@ -2,6 +2,15 @@
 
 What each working session dealt with, in the agent's words: requests of the Product Owner (paraphrased), decisions, where they were recorded. Newest first. Written by the agent at the end of each session or before a long pause (ADR-0024); searched with `grep` (tags written `#tag`). The full conversations stay in the local transcripts (see [agent configuration](../tooling/agent.md#searching-past-conversations)).
 
+## 2026-10-10 — Polygon anchor (F07), shape tree and layout box (E13)
+
+- `#backlog` Product Owner's idea after F02: choose where a polygon sits in its box. Draft feature F07, right after F02 in E01: anchor on a 3 × 3 grid, default center (F02 unchanged), stored as an intention, placing the sharp-cornered polygon, rotation after; the "always touch" option is left to the spike.
+- `#domain` Q21 settled: a rectangular layout box placing its children by anchor or in a stack, a child overriding the anchor leaves the stack, stacks fixed once the symbol is built, no hug; its name is still to choose.
+- `#backlog` New epic E13 (shape tree and layout box), third in the order before E03, whose booleans are tree nodes (confirmed by the Product Owner); the shape tree leaves E05.
+- `#agent` Order guard in `/run`: a run only takes the next feature in the Product Owner's order (« si je fais /run machin chouette alors que ça n'était pas dans l'ordre prédéfini, t'as pas le droit »).
+- `#deps` `eslint-plugin-jsdoc` 65.2.4 and `prettier` 3.9.10.
+- `#process` Irritant logged: the epic order is hard to find. Nothing started: F07 waits for the Product Owner's `/run`.
+
 ## 2026-10-09 — F02 validated, merged and released
 
 - `#validation` The Product Owner ran the playground of the feature branch and validated F02 (« ça fonctionne comme je le voulais »); VAL-002 added the tests per criterion, the guided test of F02 (steps 10–20) and the demo page.

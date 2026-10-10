@@ -102,6 +102,18 @@ Functional reference: Inkscape's Star/Polygon tool.
 - Parameters: content, font, integer size, anchor (start / middle / end), color.
 - Reason: converting text to paths requires reading font files, hence a library or a heavy home-made parser.
 
+### Layout box (open question Q21)
+
+Idea of the Product Owner (2026-10-10, refining F07), not settled: a box that places the elements inside it, « un peu comme dans Figma » (a frame with a layout).
+
+- The box is a **rectangle only**, with a corner radius at most: its vertices cannot be edited, otherwise placing its children becomes too complex.
+- It has a **default anchor** on the 3 × 3 grid of F07 (top-left … bottom-right) for its children, and may have padding and gaps.
+- A child may **override** the default: « toi, tu vas aller fixé en bas à gauche du layout ».
+- The box does **not resize to its children** (unlike Figma's hug): its size is the one the designer typed.
+- Children: shapes, text, later symbols. The polygon in its own box (F07) would then be one case of it.
+
+To settle before any feature: its epic, its place in the shape tree (`interaction.md` §6), and how padding and gaps combine with several children.
+
 ### Out of scope (symbols)
 
 - **Pen** and **freeform drawing** in the Symbol Editor: contrary to the "logical" principle.

@@ -101,8 +101,9 @@ The French term is kept: it is the user's working vocabulary.
 
 ## Open questions
 
-| #   | Question                                                           | File             |
-| --- | ------------------------------------------------------------------ | ---------------- |
-| Q4  | Ellipses: needed? (elliptical arcs are outside the ADR-0001 scope) | `shapes.md`      |
-| Q7  | Undo / redo: command-based history, confirmed?                     | `interaction.md` |
-| Q9  | Corner radius on vertices created by a boolean                     | `shapes.md`      |
+| #   | Question                                                                  | File             |
+| --- | ------------------------------------------------------------------------- | ---------------- |
+| Q4  | Ellipses: needed? (elliptical arcs are outside the ADR-0001 scope)        | `shapes.md`      |
+| Q7  | Undo / redo: command-based history, confirmed?                            | `interaction.md` |
+| Q9  | Corner radius on vertices created by a boolean                            | `shapes.md`      |
+| Q21 | Layout box: a rectangle placing its children by anchor, padding and gaps? | `shapes.md`      |

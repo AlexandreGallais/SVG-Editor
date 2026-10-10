@@ -25,7 +25,7 @@ status: draft
 - Model field(s): one anchor value with nine cases, or two alignments; their names in the glossary.
 - Placement: only `DERIV-regular-polygon-fit` step 5 changes (the room left, `w − s·Wᵤ` or `h − s·Hᵤ`, goes all before, half before, or all after the shape); the size and the corner radius stay those of F02. Do the anchored coordinates stay exact integers where the face touches (e.g. y = h for a bottom anchor)?
 - Playground: the 3 × 3 picker, its default cell, its keyboard use.
-- Later, the anchor may belong to every element placed in a box: see the layout box, open question Q21 (`docs/domain/shapes.md`). F07 stays limited to the polygon in its own box.
+- Later, the anchor belongs to every element placed in a layout box (Q21, epic E13); F07 stays limited to the polygon in its own box, and E13 reuses its 3 × 3 anchor.
 
 ## Acceptance criteria
 

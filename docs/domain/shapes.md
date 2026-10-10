@@ -102,17 +102,17 @@ Functional reference: Inkscape's Star/Polygon tool.
 - Parameters: content, font, integer size, anchor (start / middle / end), color.
 - Reason: converting text to paths requires reading font files, hence a library or a heavy home-made parser.
 
-### Layout box (open question Q21)
+### Layout box (Q21)
 
-Idea of the Product Owner (2026-10-10, refining F07), not settled: a box that places the elements inside it, « un peu comme dans Figma » (a frame with a layout).
+Settled with the Product Owner (2026-10-10, refining F07): a box that places the elements inside it, « un peu comme dans Figma » (a frame with a layout), made simple for synoptic views rather than following CSS. Delivered by epic E13, with the shape tree; « layout » is a working name, kept only if no better term is found.
 
 - The box is a **rectangle only**, with a corner radius at most: its vertices cannot be edited, otherwise placing its children becomes too complex.
-- It has a **default anchor** on the 3 × 3 grid of F07 (top-left … bottom-right) for its children, and may have padding and gaps.
-- A child may **override** the default: « toi, tu vas aller fixé en bas à gauche du layout ».
+- Its children are placed **by anchor** (the 3 × 3 grid of F07, top-left … bottom-right), or **stacked** in a row or a column with gaps; the box may have padding. Both modes exist.
+- **Any child may override the anchor** and still be laid out by the box: « au lieu d'aller en ancre en haut à droite, moi, je choisis d'aller en ancre en bas à gauche ». This is what Figma lacks: its child in absolute position no longer follows the parent's layout.
 - The box does **not resize to its children** (unlike Figma's hug): its size is the one the designer typed.
-- Children: shapes, text, later symbols. The polygon in its own box (F07) would then be one case of it.
+- Children: shapes, text, later symbols. The polygon in its own box (F07) is its single-child case.
 
-To settle before any feature: its epic, its place in the shape tree (`interaction.md` §6), and how padding and gaps combine with several children.
+To refine in E13: how a stack and a child with its own anchor share the box.
 
 ### Out of scope (symbols)
 

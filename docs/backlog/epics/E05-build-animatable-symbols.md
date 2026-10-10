@@ -18,7 +18,7 @@ status: draft
 | Business outcomes           | a symbol with ports and animatable parts (color, blinking, opacity, visibility, partial fill, rotation) previews each animation |
 | Leading indicators          | reference symbols (pump, valve, tank) built                                                                                     |
 | Non-functional requirements | animations smooth enough for a synoptic view                                                                                    |
-| In scope                    | shape tree, ports, animatable parts, animation preview                                                                          |
+| In scope                    | ports, animatable parts, animation preview (the shape tree comes from E13)                                                      |
 | Out of scope                | business meaning (E06)                                                                                                          |
 | Closure criteria            | a pump symbol with two ports and animated parts works end to end                                                                |
 
@@ -26,7 +26,6 @@ status: draft
 
 | Feature           | Status    |
 | ----------------- | --------- |
-| Shape tree        | to refine |
 | Ports             | to refine |
 | Animatable parts  | to refine |
 | Animation preview | to refine |

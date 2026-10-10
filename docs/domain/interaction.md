@@ -59,7 +59,8 @@ Rules:
 
 - Hierarchy of groups and shapes, stacking order.
 - Rename, hide, lock, reorder.
-- Priority: end of project.
+- The tree in the model (groups, children, layout box) comes with E13, before booleans (Q21).
+- The layers panel (rename, hide, lock, reorder): priority end of project.
 
 ## 7. Navigation and history
 

@@ -28,6 +28,7 @@ status: in-progress
 | ------------------------------------------------------------------------------------------------------------------- | ------ |
 | [F01](../features/E01-F01-rectangle-with-corner-radius.md) — Rectangle with corner radius                           | done   |
 | [F02](../features/E01-F02-regular-polygon-with-corner-radius.md) — Regular polygon with corner radius               | done   |
+| [F07](../features/E01-F07-polygon-aligned-in-its-box.md) — Polygon aligned in its box                               | draft  |
 | [F03](../features/E01-F03-per-vertex-corner-radius-and-node-editing.md) — Per-vertex corner radius and node editing | draft  |
 | [F04](../features/E01-F04-free-rotation-of-shapes.md) — Free rotation of shapes                                     | draft  |
 | [F05](../features/E01-F05-text.md) — Text                                                                           | draft  |

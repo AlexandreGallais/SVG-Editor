@@ -112,7 +112,8 @@ Settled with the Product Owner (2026-10-10, refining F07): a box that places the
 - The box does **not resize to its children** (unlike Figma's hug): its size is the one the designer typed.
 - Children: shapes, text, later symbols. The polygon in its own box (F07) is its single-child case.
 
-To refine in E13: how a stack and a child with its own anchor share the box.
+- A child given **its own anchor** stays in the box (same group) but **leaves the stack completely**: the stack follows the box's default layout, the child its own. Overlaps are the designer's business: « l'option est bien, mais après, c'est à l'utilisateur de l'utiliser au mieux ».
+- **Stacks are a drawing aid, fixed at run time**: they live in the Symbol Editor (still there when the symbol is edited again); once the symbol is built, every position is static. An element hidden by an animation leaves its place empty: the stack never closes the gap (« c'est juste cet élément à cet endroit-là qui est caché »).
 
 ### Out of scope (symbols)
 

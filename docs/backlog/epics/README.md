@@ -1,6 +1,6 @@
 # Epics
 
-Ordered by the Product Owner (2026-10-08; E13 added before E03 on 2026-10-10). Drafts written by Claude Code from the user's description; none is `ready` until the Product Owner says so.
+Ordered by the Product Owner (2026-10-08; E13 added before E03, confirmed 2026-10-10). Drafts written by Claude Code from the user's description; none is `ready` until the Product Owner says so.
 
 | Order | ID                                         | Epic                                        | Status      |
 | ----- | ------------------------------------------ | ------------------------------------------- | ----------- |

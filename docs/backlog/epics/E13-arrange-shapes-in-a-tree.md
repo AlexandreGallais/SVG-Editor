@@ -36,6 +36,6 @@ Idea of the Product Owner (2026-10-10, refining F07): an epic between the shapes
 ## To refine
 
 - **Name**: « layout » is Figma's word; keep it only if it is the best term, otherwise find another (Product Owner): to be sourced at the epic's first spike.
-- **Order**: placed before E03 because its non-destructive booleans are nodes of the tree (ADR-0006); E05's symbols are then groups of this tree.
-- How the box places a stack and a child with its own anchor at the same time: the child leaves the stack, or keeps its slot?
+- **Order** (confirmed by the Product Owner, 2026-10-10): third, before E03, because its non-destructive booleans are nodes of the tree (ADR-0006); E05's symbols are then groups of this tree.
+- **Settled (Product Owner, 2026-10-10)**: a child given its own anchor stays in the box but leaves the stack completely; the stack keeps the box's layout. Stacks only exist while the symbol is edited: once used, every position is fixed (see `shapes.md` §3, Q21).
 - F07 (the polygon anchored in its own box) is the first, single-child case: E13 reuses its 3 × 3 anchor.

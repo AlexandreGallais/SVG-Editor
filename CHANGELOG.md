@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.8.2](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.8.1...v0.8.2) (2026-10-10)
+
+
+### Documentation
+
+* **backlog:** add E13, the shape tree and the layout box; settle Q21 ([6104ec5](https://github.com/AlexandreGallais/synoptic-studio/commit/6104ec5fc8a173fa2219632abfcf9fc71aa4433c))
+* **backlog:** draft F07, a polygon aligned in its box ([9965fca](https://github.com/AlexandreGallais/synoptic-studio/commit/9965fcaf6038b5de76f1a712b30b62daa5c7a4e0))
+* **backlog:** refine F07 with the Product Owner; open Q21, the layout box ([3b0eb55](https://github.com/AlexandreGallais/synoptic-studio/commit/3b0eb554e6776128d3a3d31061e1c28799aafc7b))
+* **backlog:** settle stacks in the layout box; confirm E13's order ([9be668d](https://github.com/AlexandreGallais/synoptic-studio/commit/9be668d581ee6c22e9dd4a36fd63a6a4d494a0e5))
+
+
+### Build and dependencies
+
+* **deps:** update eslint-plugin-jsdoc to 65.2.4 and prettier to 3.9.10 ([cf695a5](https://github.com/AlexandreGallais/synoptic-studio/commit/cf695a52f48e73129d598be04122460ad60a8f19))
+
 ## [0.8.1](https://github.com/AlexandreGallais/synoptic-studio/compare/v0.8.0...v0.8.1) (2026-10-09)
 
 
